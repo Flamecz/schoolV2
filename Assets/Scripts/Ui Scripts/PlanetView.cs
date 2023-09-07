@@ -35,7 +35,5 @@ public class PlanetView : MonoBehaviour
             Sprite = Resources.Load<Sprite>("Sprites/earth");
             PlanetButton.image.sprite = Sprite;
         }
-
-
     }
 }
