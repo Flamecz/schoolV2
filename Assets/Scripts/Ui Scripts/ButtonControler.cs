@@ -6,19 +6,27 @@ public class ButtonControler : MonoBehaviour
 {
     public GameObject Selector;
     public GameObject PrefabTechTree;
+    private GameObject WorldView;
 
     private Button Starter;
+
     private Vector3 originalPosition;
     private float size;
     private static bool opened;
     void Start()
     {
         Transform button1 = Selector.transform.Find("starter");
+        Transform View = Selector.transform.Find("worldView");
+        
 
         if (button1 != null)
         {
             Starter = button1.GetComponent<Button>();
             Starter.onClick.AddListener(ToggleTree);
+        }
+        if(View != null)
+        {
+            WorldView = View.gameObject;
         }
         originalPosition = Starter.GetComponent<RectTransform>().anchoredPosition3D;
     }
@@ -35,6 +43,7 @@ public class ButtonControler : MonoBehaviour
             Starter.GetComponent<RectTransform>().anchoredPosition3D = targetPosition;
             PrefabTechTree.SetActive(true);
             GameObject.Find("starter").GetComponentInChildren<Text>().text = "Exit";
+            WorldView.SetActive(false);
 
         }
         else
@@ -43,6 +52,7 @@ public class ButtonControler : MonoBehaviour
             Starter.GetComponent<RectTransform>().anchoredPosition3D = originalPosition;
             PrefabTechTree.SetActive(false);
             GameObject.Find("starter").GetComponentInChildren<Text>().text = "Tech Tree";
+            WorldView.SetActive(true);
         }
 
         ChangeWidth(size);
