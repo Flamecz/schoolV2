@@ -8,6 +8,8 @@ public class ButtonControler : MonoBehaviour
     public GameObject PrefabTechTree;
     private GameObject WorldView;
 
+    public string DefaultStarter;
+    public string DefaultworldView;
     private Button Starter;
 
     private Vector3 originalPosition;
@@ -15,8 +17,11 @@ public class ButtonControler : MonoBehaviour
     private static bool opened;
     void Start()
     {
-        Transform button1 = Selector.transform.Find("starter");
-        Transform View = Selector.transform.Find("worldView");
+
+        string VariableName1 = string.IsNullOrEmpty(DefaultStarter) ? "starter" : DefaultStarter;
+        string VariableName2 = string.IsNullOrEmpty(DefaultworldView) ? "worldView" : DefaultworldView;
+        Transform button1 = Selector.transform.Find(VariableName1);
+        Transform View = Selector.transform.Find(VariableName2);
         
 
         if (button1 != null)

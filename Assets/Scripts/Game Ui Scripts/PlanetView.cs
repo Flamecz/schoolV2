@@ -7,6 +7,8 @@ public class PlanetView : MonoBehaviour
 {
     public GameObject Selector;
 
+    public GameObject[] Objekty;
+
     private Sprite Sprite;
 
     private Button PlanetButton;
@@ -29,11 +31,20 @@ public class PlanetView : MonoBehaviour
         {
             Sprite = Resources.Load<Sprite>("Sprites/home");
             PlanetButton.image.sprite = Sprite;
+            for (int i = 0; i < Objekty.Length;i++)
+            {
+                Objekty[i].SetActive(false);
+            }
+
         }
         else
         {
             Sprite = Resources.Load<Sprite>("Sprites/earth");
             PlanetButton.image.sprite = Sprite;
+            for (int i = 0; i < Objekty.Length; i++)
+            {
+                Objekty[i].SetActive(true);
+            }
         }
     }
 }
