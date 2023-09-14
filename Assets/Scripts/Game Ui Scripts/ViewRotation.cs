@@ -7,6 +7,8 @@ public class ViewRotation : MonoBehaviour
     public bool rotation;
     public float rotationSpeed = 50.0f; // Adjust the rotation speed as needed
 
+
+
     void Update()
     {
         if(!rotation)
@@ -19,5 +21,9 @@ public class ViewRotation : MonoBehaviour
         }
         // Rotate the sphere to the right (around its up axis)
 
+    }
+    public void speedset( float speed)
+    {
+        rotationSpeed = speed;
     }
 }

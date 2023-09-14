@@ -12,7 +12,7 @@ public class MenuController : MonoBehaviour
     {
         Transform StartCampain = Odkazy.transform.Find("startcampain");
         Transform LoadCampain = Odkazy.transform.Find("loadcampain");
-        Transform Options = Odkazy.transform.Find("options");
+        Transform Options = Odkazy.transform.Find("settings");
         Transform Credits = Odkazy.transform.Find("credits");
         Transform Quit = Odkazy.transform.Find("quit");
 
@@ -21,9 +21,13 @@ public class MenuController : MonoBehaviour
         {
             GameObject.Find("startcampain").GetComponentInChildren<Text>().text = "Start Campain";
             GameObject.Find("loadcampain").GetComponentInChildren<Text>().text = "Load Campain";
-            GameObject.Find("options").GetComponentInChildren<Text>().text = "options";
+            GameObject.Find("settings").GetComponentInChildren<Text>().text = "options";
             GameObject.Find("credits").GetComponentInChildren<Text>().text = "credits";
             GameObject.Find("quit").GetComponentInChildren<Text>().text = "quit";
+        }
+        if(StartCampain != null)
+        {
+            Debug.Log("done");
         }
     }
 }
