@@ -43,3 +43,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Walkable
+    uniqueID: 2697359497
+    locked: 0
+  - name: Non-Walkable
+    uniqueID: 2561963093
+    locked: 0

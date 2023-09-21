@@ -49,6 +49,7 @@ public class ButtonControler : MonoBehaviour
             PrefabTechTree.SetActive(true);
             GameObject.Find("starter").GetComponentInChildren<Text>().text = "Exit";
             WorldView.SetActive(false);
+            FindObjectOfType<CameraMovement>().PausedGame(true);
 
         }
         else
@@ -58,6 +59,7 @@ public class ButtonControler : MonoBehaviour
             PrefabTechTree.SetActive(false);
             GameObject.Find("starter").GetComponentInChildren<Text>().text = "Tech Tree";
             WorldView.SetActive(true);
+            FindObjectOfType<CameraMovement>().PausedGame(false);
         }
 
         ChangeWidth(size);
