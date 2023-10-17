@@ -7,6 +7,14 @@ public class ResourceManager : MonoBehaviour
     public int Minerals;
     public int Stone;
 
+    public void Awake()
+    {
+        if(this.gameObject)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     public void ModifyResources(string resource, int amount)
     {
         switch (resource)
