@@ -9,6 +9,7 @@ public class BuildButton : MonoBehaviour
     public Transform Position;
     public GameObject objectToBuild; // the object to build
     public Text NameOfTheButton;
+    public Image colorless;
     [Header("Settings")]
     public string BuildingName;
     public int woodCost;
@@ -40,13 +41,10 @@ public class BuildButton : MonoBehaviour
 
             // Instantiate the object to build
             Instantiate(objectToBuild, new Vector3(Position.position.x, Position.position.y, Position.position.z), Quaternion.identity, ParentSetter.transform);
-            GetComponent<Image>().color = new Color32(70, 230, 70, 255);
             Builded = true;
+            SaveManager saveManager = new SaveManager();
+            saveManager.Save(new ResourceData { Builded = Builded });
             FindObjectOfType<MainCanvasControler>().CloseBuildingUI();
-        }
-        else
-        {
-            
         }
     }
     public void CheckStatus()
@@ -58,20 +56,28 @@ public class BuildButton : MonoBehaviour
            resourceManager.Minerals >= mineralsCost &&
            resourceManager.Stone >= stoneCost)
            {
-            GetComponent<Image>().color = new Color32(255, 205, 114, 255);
-                GetComponent<Button>().interactable = true;
+                colorless.color = new Color32(255, 205, 114, 255);
+                
             }
            else
            {
-            GetComponent<Image>().color = new Color32(255, 0, 0, 255);
-                GetComponent<Button>().interactable = false;
+                colorless.color = new Color32(255, 0, 0, 255);
+                
            }
         }
         else
         {
-            GetComponent<Image>().color = new Color32(70, 230, 70, 255);
-            GetComponent<Button>().interactable = false;
+            colorless.color = new Color32(70, 230, 70, 255);
+           
         }
         
     }
+    public void OnLoadUpdate()
+    {
+        SaveManager saveManager = new SaveManager();
+        var resourceData = saveManager.Load();
+
+        Builded = resourceData.Builded;
+    }
+
 }

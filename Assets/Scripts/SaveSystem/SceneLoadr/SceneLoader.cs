@@ -6,8 +6,5 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader 
 {
-    public void ExitCity()
-    {
-        SceneManager.LoadScene(0);
-    }
+  
 }

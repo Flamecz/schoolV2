@@ -9,6 +9,7 @@ public class SaveManager : MonoBehaviour
     {
         // Serialize to json
         var jsonData = JsonUtility.ToJson(data);
+        
 
         // Now save the json locally
         File.WriteAllText(Application.persistentDataPath + "/ResourceData.json", jsonData);
