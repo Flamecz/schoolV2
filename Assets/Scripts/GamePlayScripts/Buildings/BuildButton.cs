@@ -3,13 +3,17 @@ using UnityEngine.UI;
 
 public class BuildButton : MonoBehaviour
 {
+    public BuildData buildData;
+    
     [Header("Important Resources")]
     public ResourceManager resourceManager; // reference to the ResourceManager script
-    public GameObject ParentSetter;
+    public GameObject MainScreenParrent;
+    public GameObject PopUpParrent;
     public Transform Position;
     public GameObject objectToBuild; // the object to build
     public Text NameOfTheButton;
-    public Image colorless;
+    public Image colorImageOfButton;
+    public GameObject PopUpWindow;
     [Header("Settings")]
     public string BuildingName;
     public int woodCost;
@@ -18,11 +22,11 @@ public class BuildButton : MonoBehaviour
     public int ironCost;
 
     private bool Builded;
-
+    private GameObject popUpWindow;
     private void Start()
     {
         // Add a click listener to the button
-        GetComponent<Button>().onClick.AddListener(HandleClick);
+        GetComponent<Button>().onClick.AddListener(CreatePopUp);
         NameOfTheButton.text = BuildingName;
     }
 
@@ -38,16 +42,74 @@ public class BuildButton : MonoBehaviour
             resourceManager.ModifyResources("Iron", -ironCost);
             resourceManager.ModifyResources("Minerals", -mineralsCost);
             resourceManager.ModifyResources("Stone", -stoneCost);
-
-            // Instantiate the object to build
-            Instantiate(objectToBuild, new Vector3(Position.position.x, Position.position.y, Position.position.z), Quaternion.identity, ParentSetter.transform);
-            Builded = true;
-            SaveManager saveManager = new SaveManager();
-            saveManager.Save(new ResourceData { Builded = Builded });
-            FindObjectOfType<MainCanvasControler>().CloseBuildingUI();
         }
     }
-    public void CheckStatus()
+    public void CreatePopUp()
+    {
+        if(!Builded)
+        {
+            //centring object in middle and creating popUp
+
+            popUpWindow = Instantiate(PopUpWindow, PopUpParrent.transform);
+            RectTransform rectTransform = popUpWindow.GetComponent<RectTransform>();
+            rectTransform.anchoredPosition = Vector2.zero;
+
+            //Working with children of the object and adding listeners
+
+            Transform acceptButtonTransform = popUpWindow.transform.Find("BuyButton");
+            Button acceptButton = acceptButtonTransform.GetComponent<Button>();
+            acceptButton.onClick.AddListener(BuildObject);
+            Transform CancelButtonTransform = popUpWindow.transform.Find("CanceledButton");
+            Button CancelButton = CancelButtonTransform.GetComponent<Button>();
+            CancelButton.onClick.AddListener(DestroyPopUp);
+
+            //Adding text in Popup;
+
+            Transform NameObjectTransform = popUpWindow.transform.Find("NameOfBuildingInPopUp");
+            Text TextNameOfOBject = NameObjectTransform.GetComponent<Text>();
+            TextNameOfOBject.text = buildData.nazev;
+
+            Transform DescriptionObjectTransform = popUpWindow.transform.Find("DescriptionOfBuildingInPopUp");
+            Text TextDescriptionOfOBject = DescriptionObjectTransform.GetComponent<Text>();
+            TextDescriptionOfOBject.text = buildData.popis;
+
+            //Adding Sprite to the object
+            Transform SpriteImageTransform = popUpWindow.transform.Find("SpriteOfTheBuildingInPopUp");
+            Renderer renderer = SpriteImageTransform.GetComponent<Renderer>();
+            /*
+            Transform SpriteImageTransform = popUpWindow.transform.Find("SpriteOfTheBuildingInPopUp");
+            Image PopUpSprite = SpriteImageTransform.GetComponent<Image>();
+            Sprite sprite = Resources.Load<Sprite>("Sprites/Holder");
+            PopUpSprite.sprite = sprite;*/
+        }
+        else if(Builded)
+        {
+            popUpWindow = Instantiate(PopUpWindow, PopUpParrent.transform);
+            RectTransform rectTransform = popUpWindow.GetComponent<RectTransform>();
+            rectTransform.anchoredPosition = Vector2.zero;
+
+            //Working with children of the object and adding listeners
+
+            Transform acceptButtonTransform = popUpWindow.transform.Find("BuyButton");
+            Button acceptButton = acceptButtonTransform.GetComponent<Button>();
+            acceptButton.gameObject.SetActive(false);
+            Transform CancelButtonTransform = popUpWindow.transform.Find("CanceledButton");
+            Button CancelButton = CancelButtonTransform.GetComponent<Button>();
+            CancelButton.onClick.AddListener(DestroyPopUp);
+
+            //Adding text in Popup;
+
+            Transform NameObjectTransform = popUpWindow.transform.Find("NameOfBuildingInPopUp");
+            Text TextNameOfOBject = NameObjectTransform.GetComponent<Text>();
+            TextNameOfOBject.text = buildData.nazev;
+
+            Transform DescriptionObjectTransform = popUpWindow.transform.Find("DescriptionOfBuildingInPopUp");
+            Text TextDescriptionOfOBject = DescriptionObjectTransform.GetComponent<Text>();
+            TextDescriptionOfOBject.text = buildData.popis;
+        }
+
+        }
+        public void CheckStatus()
     {
         if(!Builded)
         {
@@ -56,18 +118,18 @@ public class BuildButton : MonoBehaviour
            resourceManager.Minerals >= mineralsCost &&
            resourceManager.Stone >= stoneCost)
            {
-                colorless.color = new Color32(255, 205, 114, 255);
+                colorImageOfButton.color = new Color32(255, 205, 114, 255);
                 
             }
            else
            {
-                colorless.color = new Color32(255, 0, 0, 255);
+                colorImageOfButton.color = new Color32(255, 0, 0, 255);
                 
            }
         }
         else
         {
-            colorless.color = new Color32(70, 230, 70, 255);
+            colorImageOfButton.color = new Color32(70, 230, 70, 255);
            
         }
         
@@ -78,6 +140,19 @@ public class BuildButton : MonoBehaviour
         var resourceData = saveManager.Load();
 
         Builded = resourceData.Builded;
+    }
+    public void BuildObject()
+    {
+        Instantiate(objectToBuild, new Vector3(Position.position.x, Position.position.y, Position.position.z), Quaternion.identity, MainScreenParrent.transform);
+        Builded = true;
+        SaveManager saveManager = new SaveManager();
+        saveManager.Save(new ResourceData { Builded = Builded });
+        FindObjectOfType<MainCanvasControler>().CloseBuildingUI();
+        DestroyPopUp();
+    }
+    public void DestroyPopUp()
+    {
+        Destroy(popUpWindow);
     }
 
 }

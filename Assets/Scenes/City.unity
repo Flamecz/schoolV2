@@ -1727,6 +1727,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildUI
       objectReference: {fileID: 0}
+    - target: {fileID: 3835047957807460070, guid: 342f0c404ce7c454090c8da471aeaf9e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8376255570178461894, guid: 342f0c404ce7c454090c8da471aeaf9e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1880,12 +1884,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdaa360a5e4f57a47b37700a6cfd71be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildData:
+    Obrazek: {fileID: 0}
+    nazev: Citadela
+    popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
   resourceManager: {fileID: 175092069}
-  ParentSetter: {fileID: 2045230311}
+  MainScreenParrent: {fileID: 2045230311}
+  PopUpParrent: {fileID: 3932553024926717023}
   Position: {fileID: 1949849865}
   objectToBuild: {fileID: 2879634808744675026, guid: 2649ebbdaffcdfc4083a172fc90a5eda, type: 3}
   NameOfTheButton: {fileID: 5644391164424267966}
-  colorless: {fileID: 8426469532202575002}
+  colorImageOfButton: {fileID: 8426469532202575002}
+  PopUpWindow: {fileID: 480944243885427021, guid: e2116393f53c4496ebcfa9882b0c021b, type: 3}
   BuildingName: Citadela
   woodCost: 1
   mineralsCost: 1
