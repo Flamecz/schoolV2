@@ -1866,12 +1866,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: theme
+  - name: cat
     clip: {fileID: 8300000, guid: 6ab367ca5362640939125c8529a898ba, type: 3}
     volume: 0.3
     pitch: 2.01
     source: {fileID: 0}
     loop: 1
+  - name: mainTheme
+    clip: {fileID: 8300000, guid: 8b2f80354abde40dda3db22751615f78, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: undeadCityTheme
+    clip: {fileID: 8300000, guid: 39a880dea5adf468b92f014809fbee12, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: clickSound
+    clip: {fileID: 8300000, guid: 78800651e8e6745f3a4d2ad085a291ab, type: 3}
+    volume: 0.3
+    pitch: 2.5
+    source: {fileID: 0}
+    loop: 0
 --- !u!4 &1992607375
 Transform:
   m_ObjectHideFlags: 0

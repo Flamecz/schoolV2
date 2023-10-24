@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
@@ -16,18 +17,54 @@ public class MenuController : MonoBehaviour
         Transform Credits = Odkazy.transform.Find("credits");
         Transform Quit = Odkazy.transform.Find("quit");
 
+        Button Button1 = StartCampain.GetComponent<Button>();
+
+        Button Button2 = LoadCampain.GetComponent<Button>(); 
+
+        Button Button3 = Options.GetComponent<Button>(); 
+
+        Button Button4 = Credits.GetComponent<Button>();
+
+        Button Button5 = Quit.GetComponent<Button>(); 
+
+        
+
+
 
         if (StartCampain != null && LoadCampain != null && Options != null && Credits != null && Quit != null)
         {
-            GameObject.Find("startcampain").GetComponentInChildren<Text>().text = "Start Campain";
-            GameObject.Find("loadcampain").GetComponentInChildren<Text>().text = "Load Campain";
-            GameObject.Find("settings").GetComponentInChildren<Text>().text = "options";
-            GameObject.Find("credits").GetComponentInChildren<Text>().text = "credits";
-            GameObject.Find("quit").GetComponentInChildren<Text>().text = "quit";
+            StartCampain.GetComponentInChildren<Text>().text = "Start Campain";
+            LoadCampain.GetComponentInChildren<Text>().text = "Load Campain";
+            Options.GetComponentInChildren<Text>().text = "options";
+            Credits.GetComponentInChildren<Text>().text = "credits";
+            Quit.GetComponentInChildren<Text>().text = "quit";
         }
-        if(StartCampain != null)
-        {
-            Debug.Log("done");
-        }
+        Button1.onClick.AddListener(StartCampainScene);
+        Button5.onClick.AddListener(QuitScene);
+
+
+
     }
+    private void StartCampainScene()
+        {
+        FindObjectOfType<AudioManager>().Stop("mainTheme");
+        SceneManager.LoadScene(1);
+        FindObjectOfType<AudioManager>().Play("undeadCityTheme");
+    }
+        private void LoadCampainScene()
+        {
+
+        }
+        private void OptionsScene()
+        {
+
+        }
+        private void CreditsScene()
+        {
+
+        }
+        private void QuitScene()
+        {
+        Application.Quit();
+        }
 }

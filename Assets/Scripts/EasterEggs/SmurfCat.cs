@@ -47,13 +47,15 @@ public class SmurfCat : MonoBehaviour
             {
                 if (flip && newMaterial.Length > 1)
                 {
-                    FindObjectOfType<AudioManager>().Play("theme");
+                    FindObjectOfType<AudioManager>().ChangeVolume("mainTheme", 0f);
+                    FindObjectOfType<AudioManager>().Play("cat");
                     renderer.material = newMaterial[1];
                     FindObjectOfType<ViewRotation>().speedset(50f);
                 }
                 else if (!flip && newMaterial.Length > 0)
                 {
-                    FindObjectOfType<AudioManager>().Stop("theme");
+                    FindObjectOfType<AudioManager>().Stop("cat");
+                    FindObjectOfType<AudioManager>().ChangeVolume("mainTheme", 0.3f);
                     renderer.material = newMaterial[0];
                     FindObjectOfType<ViewRotation>().speedset(15f);
                 }

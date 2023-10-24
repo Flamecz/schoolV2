@@ -26,7 +26,6 @@ public class MainCanvasControler : MonoBehaviour
         OpenButton.gameObject.SetActive(false);
         BUildingsUI.SetActive(true);
         CloseButton.gameObject.SetActive(true);
-        FindObjectOfType<BuildButton>().CheckStatus();
     }
     public void CloseBuildingUI()
     {
@@ -43,6 +42,8 @@ public class MainCanvasControler : MonoBehaviour
     }
     public void ExitCity()
     {
+        FindObjectOfType<AudioManager>().Play("mainTheme");
         SceneManager.LoadScene(0);
+        FindObjectOfType<AudioManager>().Stop("undeadCityTheme");
     }
 }
