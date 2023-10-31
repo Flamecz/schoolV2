@@ -40,6 +40,8 @@ public class MenuController : MonoBehaviour
             Quit.GetComponentInChildren<Text>().text = "quit";
         }
         Button1.onClick.AddListener(StartCampainScene);
+        Button2.onClick.AddListener(LoadCampainScene);
+        Button3.onClick.AddListener(OptionsScene);
         Button5.onClick.AddListener(QuitScene);
 
 
@@ -53,18 +55,18 @@ public class MenuController : MonoBehaviour
     }
         private void LoadCampainScene()
         {
-
-        }
+        FindObjectOfType<MenuUIContorler>().LoadCanvas();
+    }
         private void OptionsScene()
         {
-
+        FindObjectOfType<MenuUIContorler>().SettingsCanvas();
         }
         private void CreditsScene()
         {
-
-        }
+    }
         private void QuitScene()
         {
         Application.Quit();
+        Debug.Log("jedu");
         }
 }

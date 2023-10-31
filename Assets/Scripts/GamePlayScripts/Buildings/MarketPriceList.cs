@@ -7,7 +7,6 @@ public class MarketPriceList
 
     int marketCount;
 
-    int goldcost = 5000;
   
 
    

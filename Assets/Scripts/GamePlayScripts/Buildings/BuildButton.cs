@@ -20,7 +20,8 @@ public class BuildButton : MonoBehaviour
     public Image colorImageOfButton;// just select the button which you want to collor
     public GameObject PopUpWindow;//its the 
     [Header("Settings")]
-    public string BuildingName;
+    private Image Image;
+
     public int woodCost;
     public int mineralsCost;
     public int stoneCost;
@@ -40,7 +41,8 @@ public class BuildButton : MonoBehaviour
         GetPosition(NameOfPosition);
         GetParents(nameOfTheButtonBackground);
         GetComponent<Button>().onClick.AddListener(CreatePopUp);
-        NameOfTheButton.text = BuildingName;
+        NameOfTheButton.text = buildData.nazev;
+        Image.sprite = buildData.Obrazek;
     }
 
     private void Update()
@@ -106,19 +108,19 @@ public class BuildButton : MonoBehaviour
                 StringBuilder sb = new StringBuilder();
                 if (woodCost > 0)
                 {
-                    sb.Append("Wood : " + woodCost + " ");
+                    sb.Append("Wood : " + woodCost + " ,");
                 }
                 if (stoneCost > 0)
                 {
-                    sb.Append("Stone : " + stoneCost + " ");
+                    sb.Append("Stone : " + stoneCost + " ,");
                 }
                 if (ironCost > 0)
                 {
-                    sb.Append("Iron : " + ironCost + " ");
+                    sb.Append("Iron : " + ironCost + " ,");
                 }
                 if (mineralsCost > 0)
                 {
-                    sb.Append("Mineral : " + mineralsCost + " ");
+                    sb.Append("Mineral : " + mineralsCost + " ,");
                 }
 
                 ResourcesText.text = sb.ToString();
@@ -196,10 +198,12 @@ public class BuildButton : MonoBehaviour
             MainScreenParrent = canvas.transform.Find("mainScreen");
             PopUpParrent = canvas.transform.Find("BuildUI");
             Transform BuldingBackground = PopUpParrent.transform.Find(nameOfTheButtonBackground);
+            Transform spriteTransform = BuldingBackground.transform.Find("sprite"); 
             Transform ButtonOfThis = BuldingBackground.transform.Find("BuildingButton");
             Transform NameOfTheButtonTranform = ButtonOfThis.transform.Find("NameOfButton");
             NameOfTheButton = NameOfTheButtonTranform.GetComponent<Text>();
             colorImageOfButton = ButtonOfThis.GetComponent<Image>();
+            Image = spriteTransform.GetComponent<Image>();
     }
 
     private void CreateBuildedPopUp()
@@ -238,19 +242,19 @@ public class BuildButton : MonoBehaviour
         StringBuilder sb = new StringBuilder();
         if (woodCost > 0)
         {
-            sb.Append("Wood : " + woodCost + " ");
+            sb.Append("Wood : " + woodCost + " ,");
         }
         if (stoneCost > 0)
         {
-            sb.Append("Stone : " + stoneCost + " ");
+            sb.Append("Stone : " + stoneCost + " ,");
         }
         if (ironCost > 0)
         {
-            sb.Append("Iron : " + ironCost + " ");
+            sb.Append("Iron : " + ironCost + " ,");
         }
         if (mineralsCost > 0)
         {
-            sb.Append("Mineral : " + mineralsCost + " ");
+            sb.Append("Mineral : " + mineralsCost + " ,");
         }
 
         ResourcesText.text = sb.ToString();
