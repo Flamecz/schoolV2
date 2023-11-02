@@ -5,18 +5,38 @@ using UnityEngine.UI;
 
 public class JustWork : MonoBehaviour
 {
-    public Slider slider;
-    float sliderValue;
+    public Slider sliderMaster;
+    public Slider sliderEffect;
+    public Slider sliderMusic;
+
+    float sliderValueMaster;
+    float sliderValueEffect;
+    float sliderValueMusic;
+
 
     private void Start()
     {
-        slider.onValueChanged.AddListener(slidercall);
-        slider.value = 1f;
+        sliderMaster.onValueChanged.AddListener(sliderMasterVolumecall);
+        sliderMaster.value = 1f;
+        sliderEffect.onValueChanged.AddListener(sliderMusicVolumeCall);
+        sliderEffect.value = 1f;
+        sliderMusic.onValueChanged.AddListener(sliderEffectVolumeCall);
+        sliderMusic.value = 1f;
     }
 
-    public void slidercall(float value)
+    public void sliderMasterVolumecall(float value)
     {
-        sliderValue = value;
-        FindObjectOfType<AudioManager>().MasterVolume(sliderValue);
+        sliderValueMaster = value;
+        FindObjectOfType<AudioManager>().MasterVolume(sliderValueMaster);
+    }
+    public void sliderEffectVolumeCall(float volume)
+    {
+        sliderValueEffect = volume;
+        FindObjectOfType<AudioManager>().EffectVolume(sliderValueEffect);
+    }
+    public void sliderMusicVolumeCall(float volume)
+    {
+        sliderValueMusic = volume;
+        FindObjectOfType<AudioManager>().MusicVolume(sliderValueMusic);
     }
 }

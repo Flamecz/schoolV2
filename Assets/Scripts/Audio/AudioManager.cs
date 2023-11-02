@@ -70,4 +70,24 @@ public class AudioManager : MonoBehaviour
             s.source.volume = volume;
         }
     }
+    public void EffectVolume(float volume)
+    {
+        foreach(Sound s in sounds)
+        {
+            if(s.Effect == true)
+            {
+                s.source.volume = volume;
+            }
+        }
+    }
+    public void MusicVolume(float volume)
+    {
+        foreach(Sound s in sounds)
+        {
+            if(s.Music == true)
+            {
+                s.source.volume = volume;
+            }
+        }
+    }
 }
