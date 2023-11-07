@@ -256,6 +256,10 @@ MonoBehaviour:
     Obrazek: {fileID: 21300000, guid: 5fbf912d97bb54d6fb8ef04edddbfb11, type: 3}
     nazev: Shipyard
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
+    CompareTag: Shipyard
+    BuildingNeeded1: 
+    BuildingNeeded2: 
+  LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
@@ -709,6 +713,10 @@ MonoBehaviour:
     Obrazek: {fileID: 21300000, guid: 5fbf912d97bb54d6fb8ef04edddbfb11, type: 3}
     nazev: Monastry
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
+    CompareTag: Monastry
+    BuildingNeeded1: 
+    BuildingNeeded2: 
+  LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
@@ -893,6 +901,7 @@ GameObject:
   m_Component:
   - component: {fileID: 175092070}
   - component: {fileID: 175092069}
+  - component: {fileID: 175092071}
   m_Layer: 0
   m_Name: Controler
   m_TagString: Untagged
@@ -931,6 +940,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &175092071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175092068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b6fe5f46bb542408a25ac6c54e341e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &186472911
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,6 +1258,10 @@ MonoBehaviour:
     Obrazek: {fileID: 21300000, guid: 5fbf912d97bb54d6fb8ef04edddbfb11, type: 3}
     nazev: Portal of Glory
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
+    CompareTag: PortalOfGlory
+    BuildingNeeded1: 
+    BuildingNeeded2: 
+  LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
@@ -1824,6 +1849,10 @@ MonoBehaviour:
     Obrazek: {fileID: 21300000, guid: 5fbf912d97bb54d6fb8ef04edddbfb11, type: 3}
     nazev: Brotherhood of the Sword
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
+    CompareTag: BrotherhoodoftheSword
+    BuildingNeeded1: 
+    BuildingNeeded2: 
+  LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
   NameOfPosition: position3
@@ -2095,6 +2124,10 @@ MonoBehaviour:
     Obrazek: {fileID: 21300000, guid: 5fbf912d97bb54d6fb8ef04edddbfb11, type: 3}
     nazev: Training Grounds
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
+    CompareTag: TrainingGrounds
+    BuildingNeeded1: 
+    BuildingNeeded2: 
+  LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
@@ -3147,9 +3180,13 @@ MonoBehaviour:
     Obrazek: {fileID: 21300000, guid: 5fbf912d97bb54d6fb8ef04edddbfb11, type: 3}
     nazev: Citadel
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
+    CompareTag: Citadel
+    BuildingNeeded1: 
+    BuildingNeeded2: 
+  LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
-  NameOfPosition: position2
+  NameOfPosition: position1
   nameOfTheButtonBackground: BuildingBackground2
   objectToBuild: {fileID: 2879634808744675026, guid: 2649ebbdaffcdfc4083a172fc90a5eda, type: 3}
   colorImageOfButton: {fileID: 0}
@@ -3371,8 +3408,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildData:
     Obrazek: {fileID: 21300000, guid: 5fbf912d97bb54d6fb8ef04edddbfb11, type: 3}
-    nazev: Upg.Guardhouse
+    nazev: Guardhouse
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
+    CompareTag: GuardHouse
+    BuildingNeeded1: 
+    BuildingNeeded2: 
+  LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
@@ -3827,6 +3868,10 @@ MonoBehaviour:
     Obrazek: {fileID: 21300000, guid: 5fbf912d97bb54d6fb8ef04edddbfb11, type: 3}
     nazev: Barracks
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
+    CompareTag: Barracks
+    BuildingNeeded1: 
+    BuildingNeeded2: 
+  LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
@@ -4489,6 +4534,10 @@ MonoBehaviour:
     Obrazek: {fileID: 21300000, guid: 5fbf912d97bb54d6fb8ef04edddbfb11, type: 3}
     nazev: Stables
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
+    CompareTag: Stables
+    BuildingNeeded1: 
+    BuildingNeeded2: 
+  LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
@@ -5411,6 +5460,10 @@ MonoBehaviour:
     Obrazek: {fileID: 21300000, guid: 5fbf912d97bb54d6fb8ef04edddbfb11, type: 3}
     nazev: Mage Guild Level 1
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
+    CompareTag: MageGuild
+    BuildingNeeded1: 
+    BuildingNeeded2: 
+  LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
@@ -5911,8 +5964,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildData:
     Obrazek: {fileID: 21300000, guid: 5fbf912d97bb54d6fb8ef04edddbfb11, type: 3}
-    nazev: Upg.Archers' Tower
+    nazev: Archers' Tower
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
+    CompareTag: ArcherTower
+    BuildingNeeded1: 
+    BuildingNeeded2: 
+  LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
@@ -6139,6 +6196,10 @@ MonoBehaviour:
     Obrazek: {fileID: 21300000, guid: 5fbf912d97bb54d6fb8ef04edddbfb11, type: 3}
     nazev: Griffin Tower
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
+    CompareTag: GriffinTower
+    BuildingNeeded1: 
+    BuildingNeeded2: 
+  LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
@@ -6404,6 +6465,10 @@ MonoBehaviour:
     Obrazek: {fileID: 21300000, guid: 5fbf912d97bb54d6fb8ef04edddbfb11, type: 3}
     nazev: Marketplace
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
+    CompareTag: Market
+    BuildingNeeded1: 
+    BuildingNeeded2: 
+  LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
@@ -7052,6 +7117,10 @@ MonoBehaviour:
     Obrazek: {fileID: 21300000, guid: 5fbf912d97bb54d6fb8ef04edddbfb11, type: 3}
     nazev: Blacksmith
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
+    CompareTag: BlackSmith
+    BuildingNeeded1: 
+    BuildingNeeded2: 
+  LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
@@ -7277,6 +7346,10 @@ MonoBehaviour:
     Obrazek: {fileID: 21300000, guid: 5fbf912d97bb54d6fb8ef04edddbfb11, type: 3}
     nazev: Griffin Bastion
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
+    CompareTag: GriffinBastion
+    BuildingNeeded1: 
+    BuildingNeeded2: 
+  LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
@@ -7520,7 +7593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3835047957807460070, guid: 342f0c404ce7c454090c8da471aeaf9e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8076670352005252954, guid: 342f0c404ce7c454090c8da471aeaf9e, type: 3}
       propertyPath: m_SizeDelta.x
@@ -7718,6 +7791,10 @@ MonoBehaviour:
     Obrazek: {fileID: 21300000, guid: 5fbf912d97bb54d6fb8ef04edddbfb11, type: 3}
     nazev: Town Hall
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
+    CompareTag: TownHall
+    BuildingNeeded1: 
+    BuildingNeeded2: 
+  LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1

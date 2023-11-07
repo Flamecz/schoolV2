@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class BuildButton : MonoBehaviour
 {
     public BuildData buildData;
+    public LibraryOfBuildings LoB;
 
     [Header("Important Resources")]
     public ResourceManager resourceManager; // reference to the ResourceManager script
@@ -181,6 +182,12 @@ public class BuildButton : MonoBehaviour
         SaveManager saveManager = new SaveManager();
         saveManager.Save(new ResourceData { Builded = Builded });
         FindObjectOfType<MainCanvasControler>().CloseBuildingUI();
+        int index = LoB.GetIndex(buildData.CompareTag);
+        if (index != -1)
+        {
+            LoB.UpdateObject(index, buildData.CompareTag, true);
+        }
+        LoB.PrintList();
         CostOfBuilding();
         DestroyPopUp();
     }
