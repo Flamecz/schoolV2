@@ -44,11 +44,13 @@ public class BuildButton : MonoBehaviour
         GetComponent<Button>().onClick.AddListener(CreatePopUp);
         NameOfTheButton.text = buildData.nazev;
         Image.sprite = buildData.Obrazek;
+        
     }
 
     private void Update()
     {
         CheckStatus();
+        getDataFromLibrary();
     }
     private void HandleClick()
     {
@@ -68,63 +70,70 @@ public class BuildButton : MonoBehaviour
     {
         if (!Builded)
         {
-            if (resourceManager.Wood >= woodCost &&
-            resourceManager.Iron >= ironCost &&
-            resourceManager.Minerals >= mineralsCost &&
-            resourceManager.Stone >= stoneCost)
+            if (LoB.IsBuildingBuilt(buildData.BuildingNeeded1) == true && LoB.IsBuildingBuilt(buildData.BuildingNeeded2) == true)
             {
-                //centring object in middle and creating popUp
-
-                popUpWindow = Instantiate(PopUpWindow, PopUpParrent.transform);
-                RectTransform rectTransform = popUpWindow.GetComponent<RectTransform>();
-                rectTransform.anchoredPosition = Vector2.zero;
-
-                //Working with children of the object and adding listeners
-
-                Transform acceptButtonTransform = popUpWindow.transform.Find("BuyButton");
-                Button acceptButton = acceptButtonTransform.GetComponent<Button>();
-                acceptButton.onClick.AddListener(BuildObject);
-                Transform CancelButtonTransform = popUpWindow.transform.Find("CanceledButton");
-                Button CancelButton = CancelButtonTransform.GetComponent<Button>();
-                CancelButton.onClick.AddListener(DestroyPopUp);
-
-                //Adding text in Popup;
-
-                Transform NameObjectTransform = popUpWindow.transform.Find("NameOfBuildingInPopUp");
-                Text TextNameOfOBject = NameObjectTransform.GetComponent<Text>();
-                TextNameOfOBject.text = buildData.nazev;
-
-                Transform DescriptionObjectTransform = popUpWindow.transform.Find("DescriptionOfBuildingInPopUp");
-                Text TextDescriptionOfOBject = DescriptionObjectTransform.GetComponent<Text>();
-                TextDescriptionOfOBject.text = buildData.popis;
-
-                //Adding Sprite to the object
-                Transform SpriteImageTransform = popUpWindow.transform.Find("SpriteOfTheBuildingInPopUp");
-                Image Image = SpriteImageTransform.GetComponent<Image>();
-                Image.GetComponent<Image>().sprite = buildData.Obrazek;
-
-                //Adding cost of the building in resources;
-                Transform GetTextResources = popUpWindow.transform.Find("ResourseText");
-                Text ResourcesText = GetTextResources.GetComponent<Text>();
-                StringBuilder sb = new StringBuilder();
-                if (woodCost > 0)
+                if (resourceManager.Wood >= woodCost &&
+                resourceManager.Iron >= ironCost &&
+                resourceManager.Minerals >= mineralsCost &&
+                resourceManager.Stone >= stoneCost)
                 {
-                    sb.Append("Wood : " + woodCost + " ,");
-                }
-                if (stoneCost > 0)
-                {
-                    sb.Append("Stone : " + stoneCost + " ,");
-                }
-                if (ironCost > 0)
-                {
-                    sb.Append("Iron : " + ironCost + " ,");
-                }
-                if (mineralsCost > 0)
-                {
-                    sb.Append("Mineral : " + mineralsCost + " ,");
-                }
+                    //centring object in middle and creating popUp
 
-                ResourcesText.text = sb.ToString();
+                    popUpWindow = Instantiate(PopUpWindow, PopUpParrent.transform);
+                    RectTransform rectTransform = popUpWindow.GetComponent<RectTransform>();
+                    rectTransform.anchoredPosition = Vector2.zero;
+
+                    //Working with children of the object and adding listeners
+
+                    Transform acceptButtonTransform = popUpWindow.transform.Find("BuyButton");
+                    Button acceptButton = acceptButtonTransform.GetComponent<Button>();
+                    acceptButton.onClick.AddListener(BuildObject);
+                    Transform CancelButtonTransform = popUpWindow.transform.Find("CanceledButton");
+                    Button CancelButton = CancelButtonTransform.GetComponent<Button>();
+                    CancelButton.onClick.AddListener(DestroyPopUp);
+
+                    //Adding text in Popup;
+
+                    Transform NameObjectTransform = popUpWindow.transform.Find("NameOfBuildingInPopUp");
+                    Text TextNameOfOBject = NameObjectTransform.GetComponent<Text>();
+                    TextNameOfOBject.text = buildData.nazev;
+
+                    Transform DescriptionObjectTransform = popUpWindow.transform.Find("DescriptionOfBuildingInPopUp");
+                    Text TextDescriptionOfOBject = DescriptionObjectTransform.GetComponent<Text>();
+                    TextDescriptionOfOBject.text = buildData.popis;
+
+                    //Adding Sprite to the object
+                    Transform SpriteImageTransform = popUpWindow.transform.Find("SpriteOfTheBuildingInPopUp");
+                    Image Image = SpriteImageTransform.GetComponent<Image>();
+                    Image.GetComponent<Image>().sprite = buildData.Obrazek;
+
+                    //Adding cost of the building in resources;
+                    Transform GetTextResources = popUpWindow.transform.Find("ResourseText");
+                    Text ResourcesText = GetTextResources.GetComponent<Text>();
+                    StringBuilder sb = new StringBuilder();
+                    if (woodCost > 0)
+                    {
+                        sb.Append("Wood : " + woodCost + " ,");
+                    }
+                    if (stoneCost > 0)
+                    {
+                        sb.Append("Stone : " + stoneCost + " ,");
+                    }
+                    if (ironCost > 0)
+                    {
+                        sb.Append("Iron : " + ironCost + " ,");
+                    }
+                    if (mineralsCost > 0)
+                    {
+                        sb.Append("Mineral : " + mineralsCost + " ,");
+                    }
+
+                    ResourcesText.text = sb.ToString();
+                }
+                else
+                {
+                    CreateBuildedPopUp();
+                }
             }
             else
             {
@@ -139,12 +148,13 @@ public class BuildButton : MonoBehaviour
     }
     public void CheckStatus()
     {
-            if (!Builded)
-            {
+        if (!Builded)
+        {
+           
                 if (resourceManager.Wood >= woodCost &&
-                resourceManager.Iron >= ironCost &&
-                resourceManager.Minerals >= mineralsCost &&
-                resourceManager.Stone >= stoneCost)
+                    resourceManager.Iron >= ironCost &&
+                    resourceManager.Minerals >= mineralsCost &&
+                    resourceManager.Stone >= stoneCost)
                 {
                     colorImageOfButton.color = new Color32(255, 205, 114, 255);
                 }
@@ -153,12 +163,14 @@ public class BuildButton : MonoBehaviour
                     colorImageOfButton.color = new Color32(255, 0, 0, 255);
                 }
             }
-            else
-            {
-                colorImageOfButton.color = new Color32(70, 230, 70, 255);
-
-            }
+        else
+        {
+           colorImageOfButton.color = new Color32(255, 155, 0, 255);
+        }
+        
+  
     }
+
 
     public void CostOfBuilding()
     {
@@ -194,6 +206,16 @@ public class BuildButton : MonoBehaviour
     public void DestroyPopUp()
     {
         Destroy(popUpWindow);
+    }
+    public void getDataFromLibrary()
+    {
+        if(LoB.IsBuildingBuilt(buildData.CompareTag) == true)
+        {
+            CheckIfReady = true;
+            Instantiate(objectToBuild, new Vector3(Position.position.x, Position.position.y, Position.position.z), Quaternion.identity, MainScreenParrent.transform);
+            Builded = true;
+        }
+
     }
     public void GetPosition(string PositionName)
     {
@@ -265,5 +287,19 @@ public class BuildButton : MonoBehaviour
         }
 
         ResourcesText.text = sb.ToString();
+
+        //Adding Required Buildings
+        Transform GetTextBuildings = popUpWindow.transform.Find("BuildingsRequared");
+        Text BuildingText = GetTextBuildings.GetComponent<Text>();
+        StringBuilder sb1 = new StringBuilder();
+        if(LoB.IsBuildingBuilt(buildData.BuildingNeeded1) == false)
+        {
+            sb1.Append(buildData.BuildingNeeded1 + " ");
+        }
+        if (LoB.IsBuildingBuilt(buildData.BuildingNeeded2) == false)
+        {
+            sb1.Append(buildData.BuildingNeeded2);
+        }
+        BuildingText.text = sb1.ToString(); 
     }
 }

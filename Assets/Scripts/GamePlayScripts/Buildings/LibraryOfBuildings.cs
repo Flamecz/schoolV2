@@ -8,8 +8,8 @@ public class LibraryOfBuildings : MonoBehaviour
 
     void Start()
     {
-        myObjects.Add(new MyObjectBuilding("TownHall", false));
-        myObjects.Add(new MyObjectBuilding("Citadel", false));
+        myObjects.Add(new MyObjectBuilding("TownHall", true));
+        myObjects.Add(new MyObjectBuilding("Citadel", true));
         myObjects.Add(new MyObjectBuilding("BrotherhoodoftheSword", false));
         myObjects.Add(new MyObjectBuilding("BlackSmith", false));
         myObjects.Add(new MyObjectBuilding("Market", false));
@@ -17,8 +17,8 @@ public class LibraryOfBuildings : MonoBehaviour
         myObjects.Add(new MyObjectBuilding("Shipyard", false));
         myObjects.Add(new MyObjectBuilding("Stables", false));
         myObjects.Add(new MyObjectBuilding("GriffinBastion", false));
-        myObjects.Add(new MyObjectBuilding("GuardHouse", false));
-        myObjects.Add(new MyObjectBuilding("ArcherTower", false));
+        myObjects.Add(new MyObjectBuilding("GuardHouse", true));
+        myObjects.Add(new MyObjectBuilding("ArcherTower", true));
         myObjects.Add(new MyObjectBuilding("GriffinTower", false));
         myObjects.Add(new MyObjectBuilding("Barracks", false));
         myObjects.Add(new MyObjectBuilding("Monastry", false));
@@ -49,4 +49,16 @@ public class LibraryOfBuildings : MonoBehaviour
         obj.name = newName;
         obj.isBool = newBool;
     }
-}   
+    public bool IsBuildingBuilt(string name)
+    {
+        int index = GetIndex(name);
+        if (index < 0 || index >= myObjects.Count)
+        {
+            Debug.Log("Building not found");
+            return false;
+        }
+
+        return myObjects[index].isBool;
+    }
+
+}
