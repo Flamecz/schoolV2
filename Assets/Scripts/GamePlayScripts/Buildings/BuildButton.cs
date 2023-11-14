@@ -50,7 +50,6 @@ public class BuildButton : MonoBehaviour
     private void Update()
     {
         CheckStatus();
-        getDataFromLibrary();
     }
     private void HandleClick()
     {
@@ -70,8 +69,6 @@ public class BuildButton : MonoBehaviour
     {
         if (!Builded)
         {
-            if (LoB.IsBuildingBuilt(buildData.BuildingNeeded1) == true && LoB.IsBuildingBuilt(buildData.BuildingNeeded2) == true)
-            {
                 if (resourceManager.Wood >= woodCost &&
                 resourceManager.Iron >= ironCost &&
                 resourceManager.Minerals >= mineralsCost &&
@@ -133,12 +130,7 @@ public class BuildButton : MonoBehaviour
                 else
                 {
                     CreateBuildedPopUp();
-                }
-            }
-            else
-            {
-                CreateBuildedPopUp();
-            }    
+                }  
         }
         else if (Builded)
         {
@@ -162,10 +154,10 @@ public class BuildButton : MonoBehaviour
                 {
                     colorImageOfButton.color = new Color32(255, 0, 0, 255);
                 }
-            }
+         }
         else
         {
-           colorImageOfButton.color = new Color32(255, 155, 0, 255);
+            colorImageOfButton.color = new Color32(70, 230, 70, 255);
         }
         
   
@@ -194,11 +186,6 @@ public class BuildButton : MonoBehaviour
         SaveManager saveManager = new SaveManager();
         saveManager.Save(new ResourceData { Builded = Builded });
         FindObjectOfType<MainCanvasControler>().CloseBuildingUI();
-        int index = LoB.GetIndex(buildData.CompareTag);
-        if (index != -1)
-        {
-            LoB.UpdateObject(index, buildData.CompareTag, true);
-        }
         LoB.PrintList();
         CostOfBuilding();
         DestroyPopUp();
@@ -207,16 +194,7 @@ public class BuildButton : MonoBehaviour
     {
         Destroy(popUpWindow);
     }
-    public void getDataFromLibrary()
-    {
-        if(LoB.IsBuildingBuilt(buildData.CompareTag) == true)
-        {
-            CheckIfReady = true;
-            Instantiate(objectToBuild, new Vector3(Position.position.x, Position.position.y, Position.position.z), Quaternion.identity, MainScreenParrent.transform);
-            Builded = true;
-        }
 
-    }
     public void GetPosition(string PositionName)
     {
         Transform EveryPosition = canvas.transform.Find("Citypositions");

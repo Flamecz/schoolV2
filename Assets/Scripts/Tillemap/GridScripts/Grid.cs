@@ -1,107 +1,71 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using CodeMonkey.Utils;
+﻿using UnityEngine;
 
-public class Grid<TGridObject> {
+public class Grid : MonoBehaviour
+{
+    public int width = 10;
+    public int height = 10;
+    public GameObject tilePrefab;
+    public float cellSizeModifier = 1f;
+    private GameObject[,] gridArray;
 
-    public event EventHandler<OnGridObjectChangedEventArgs> OnGridObjectChanged;
-    public class OnGridObjectChangedEventArgs : EventArgs {
-        public int x;
-        public int y;
-    }
+    void Start()
+    {
+        gridArray = new GameObject[width, height];
 
-    private int width;
-    private int height;
-    private float cellSize;
-    private Vector3 originPosition;
-    private TGridObject[,] gridArray;
-
-    public Grid(int width, int height, float cellSize, Vector3 originPosition, Func<Grid<TGridObject>, int, int, TGridObject> createGridObject) {
-        this.width = width;
-        this.height = height;
-        this.cellSize = cellSize;
-        this.originPosition = originPosition;
-
-        gridArray = new TGridObject[width, height];
-
-        for (int x = 0; x < gridArray.GetLength(0); x++) {
-            for (int y = 0; y < gridArray.GetLength(1); y++) {
-                gridArray[x, y] = createGridObject(this, x, y);
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                GameObject tile = Instantiate(tilePrefab, CellToWorld(new Vector3Int(x, y, 0)), Quaternion.identity);
+                tile.transform.parent = transform;
+                gridArray[x, y] = tile;
             }
         }
+    }
 
-        bool showDebug = true;
-        if (showDebug) {
-            TextMesh[,] debugTextArray = new TextMesh[width, height];
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
-            for (int x = 0; x < gridArray.GetLength(0); x++) {
-                for (int y = 0; y < gridArray.GetLength(1); y++) {
-                    debugTextArray[x, y] = UtilsClass.CreateWorldText(gridArray[x, y]?.ToString(), null, GetWorldPosition(x, y) + new Vector3(cellSize, cellSize) * .5f, 30, Color.white, TextAnchor.MiddleCenter);
-                    Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 100f);
-                    Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white, 100f);
+            if (hit.collider != null)
+            {
+                GameObject tile = hit.collider.gameObject;
+                Vector3Int tilePosition = GetTilePosition(tile);
+                MoveGameElement(tilePosition);
+            }
+        }
+    }
+
+    public Vector3 CellToWorld(Vector3 cellPosition)
+    {
+        return new Vector3(cellPosition.x * cellSizeModifier + cellSizeModifier / 2, cellPosition.y * cellSizeModifier + cellSizeModifier / 2, 0);
+    }
+
+    public Vector3Int GetTilePosition(GameObject tile)
+    {
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if (gridArray[x, y] == tile)
+                {
+                    return new Vector3Int(x, y, 0);
                 }
             }
-            Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.white, 100f);
-            Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white, 100f);
+        }
 
-            OnGridObjectChanged += (object sender, OnGridObjectChangedEventArgs eventArgs) => {
-                debugTextArray[eventArgs.x, eventArgs.y].text = gridArray[eventArgs.x, eventArgs.y]?.ToString();
-            };
+        return new Vector3Int(-1, -1, 0);
+    }
+
+    private void MoveGameElement(Vector3Int tilePosition)
+    {
+        GameObject gameElement = transform.GetChild(0).gameObject;
+        if (gameElement != null)
+        {
+            gameElement.transform.position = CellToWorld(tilePosition);
         }
     }
-
-    public int GetWidth() {
-        return width;
-    }
-
-    public int GetHeight() {
-        return height;
-    }
-
-    public float GetCellSize() {
-        return cellSize;
-    }
-
-    public Vector3 GetWorldPosition(int x, int y) {
-        return new Vector3(x, y) * cellSize + originPosition;
-    }
-
-    private void GetXY(Vector3 worldPosition, out int x, out int y) {
-        x = Mathf.FloorToInt((worldPosition - originPosition).x / cellSize);
-        y = Mathf.FloorToInt((worldPosition - originPosition).y / cellSize);
-    }
-
-    public void SetGridObject(int x, int y, TGridObject value) {
-        if (x >= 0 && y >= 0 && x < width && y < height) {
-            gridArray[x, y] = value;
-            if (OnGridObjectChanged != null) OnGridObjectChanged(this, new OnGridObjectChangedEventArgs { x = x, y = y });
-        }
-    }
-
-    public void TriggerGridObjectChanged(int x, int y) {
-        if (OnGridObjectChanged != null) OnGridObjectChanged(this, new OnGridObjectChangedEventArgs { x = x, y = y });
-    }
-
-    public void SetGridObject(Vector3 worldPosition, TGridObject value) {
-        int x, y;
-        GetXY(worldPosition, out x, out y);
-        SetGridObject(x, y, value);
-    }
-
-    public TGridObject GetGridObject(int x, int y) {
-        if (x >= 0 && y >= 0 && x < width && y < height) {
-            return gridArray[x, y];
-        } else {
-            return default(TGridObject);
-        }
-    }
-
-    public TGridObject GetGridObject(Vector3 worldPosition) {
-        int x, y;
-        GetXY(worldPosition, out x, out y);
-        return GetGridObject(x, y);
-    }
-
 }
