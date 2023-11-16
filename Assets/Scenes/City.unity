@@ -1201,6 +1201,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &319177022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 319177023}
+  m_Layer: 5
+  m_Name: position5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &319177023
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319177022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1913543625}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 289.4, y: -125.12}
+  m_SizeDelta: {x: 40.5229, y: 29.194}
+  m_Pivot: {x: 0.5000003, y: 0.49999982}
 --- !u!1 &329031349
 GameObject:
   m_ObjectHideFlags: 0
@@ -2585,6 +2620,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735305478}
   m_CullTransparentMesh: 1
+--- !u!1 &765761350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 765761351}
+  m_Layer: 5
+  m_Name: position4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &765761351
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765761350}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1913543625}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 153.9, y: -125.12}
+  m_SizeDelta: {x: 40.5229, y: 29.194}
+  m_Pivot: {x: 0.5000003, y: 0.49999982}
 --- !u!1 &772205766
 GameObject:
   m_ObjectHideFlags: 0
@@ -3186,7 +3256,7 @@ MonoBehaviour:
   LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
-  NameOfPosition: position1
+  NameOfPosition: position2
   nameOfTheButtonBackground: BuildingBackground2
   objectToBuild: {fileID: 2879634808744675026, guid: 2649ebbdaffcdfc4083a172fc90a5eda, type: 3}
   colorImageOfButton: {fileID: 0}
@@ -4040,6 +4110,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048367240}
   m_CullTransparentMesh: 1
+--- !u!1 &1053591732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1053591733}
+  m_Layer: 5
+  m_Name: position2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1053591733
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053591732}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1913543625}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -166.12665, y: -125.11752}
+  m_SizeDelta: {x: 40.5229, y: 29.194}
+  m_Pivot: {x: 0.5000003, y: 0.49999982}
 --- !u!1 &1081634582
 GameObject:
   m_ObjectHideFlags: 0
@@ -6401,6 +6506,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1949849865}
+  - {fileID: 1053591733}
+  - {fileID: 1995919737}
+  - {fileID: 765761351}
+  - {fileID: 319177023}
   m_Father: {fileID: 1090813505}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -6471,7 +6580,7 @@ MonoBehaviour:
   LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
-  NameOfPosition: position1
+  NameOfPosition: position5
   nameOfTheButtonBackground: BuildingBackground5
   objectToBuild: {fileID: 2879634808744675026, guid: 2649ebbdaffcdfc4083a172fc90a5eda, type: 3}
   colorImageOfButton: {fileID: 0}
@@ -6827,6 +6936,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978053616}
   m_CullTransparentMesh: 1
+--- !u!1 &1995919736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1995919737}
+  m_Layer: 5
+  m_Name: position3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1995919737
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995919736}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1913543625}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -44, y: -125.12}
+  m_SizeDelta: {x: 40.5229, y: 29.194}
+  m_Pivot: {x: 0.5000003, y: 0.49999982}
 --- !u!1 &1999140093
 GameObject:
   m_ObjectHideFlags: 0
@@ -7123,7 +7267,7 @@ MonoBehaviour:
   LoB: {fileID: 175092071}
   resourceManager: {fileID: 175092069}
   canvas: {fileID: 1090813504}
-  NameOfPosition: position1
+  NameOfPosition: position4
   nameOfTheButtonBackground: BuildingBackground4
   objectToBuild: {fileID: 2879634808744675026, guid: 2649ebbdaffcdfc4083a172fc90a5eda, type: 3}
   colorImageOfButton: {fileID: 0}

@@ -33,7 +33,9 @@ public class BuildButton : MonoBehaviour
     private Transform Position;
     private Transform MainScreenParrent;
     private Transform PopUpParrent;
-    private bool CheckIfReady;
+    private Button Checker;
+    private bool BuildingCHeck1;
+    private bool BuildingCHeck2;
     private void Start()
     {
         // Add a click listener to the button
@@ -42,14 +44,15 @@ public class BuildButton : MonoBehaviour
         GetPosition(NameOfPosition);
         GetParents(nameOfTheButtonBackground);
         GetComponent<Button>().onClick.AddListener(CreatePopUp);
+        Checker.onClick.AddListener(CheckStatus) ;
+
         NameOfTheButton.text = buildData.nazev;
         Image.sprite = buildData.Obrazek;
-        
-    }
 
+    }
     private void Update()
     {
-        CheckStatus();
+        if()
     }
     private void HandleClick()
     {
@@ -63,6 +66,22 @@ public class BuildButton : MonoBehaviour
             resourceManager.ModifyResources("Iron", -ironCost);
             resourceManager.ModifyResources("Minerals", -mineralsCost);
             resourceManager.ModifyResources("Stone", -stoneCost);
+        }
+    }
+
+    public void BuildingCheck()
+    {
+        if(LoB.IsBuildingBuilt(buildData.CompareTag) == true)
+        {
+            CreateObjectOnLoad();
+        }
+        if(LoB.IsBuildingBuilt(buildData.BuildingNeeded1))
+        {
+            BuildingCHeck1 = true;
+        }
+        if(LoB.IsBuildingBuilt(buildData.BuildingNeeded2))
+        {
+            BuildingCHeck2 = true;
         }
     }
     public void CreatePopUp()
@@ -142,22 +161,37 @@ public class BuildButton : MonoBehaviour
     {
         if (!Builded)
         {
-           
+            Debug.Log("check1");
+            if(BuildingCHeck1 == true && BuildingCHeck2 == true)
+            {
+                Debug.Log("check2");
                 if (resourceManager.Wood >= woodCost &&
                     resourceManager.Iron >= ironCost &&
                     resourceManager.Minerals >= mineralsCost &&
                     resourceManager.Stone >= stoneCost)
                 {
+                    Debug.Log("check3");
                     colorImageOfButton.color = new Color32(255, 205, 114, 255);
                 }
                 else
                 {
+                    Debug.Log("check4");
                     colorImageOfButton.color = new Color32(255, 0, 0, 255);
                 }
+            }
+            else
+            {
+                Debug.Log("check5");
+                colorImageOfButton.color = new Color32(255, 0, 0, 255);
+            }
+
          }
         else
         {
+            Debug.Log("check6");
             colorImageOfButton.color = new Color32(70, 230, 70, 255);
+
+            LoB.UpdateObject(LoB.GetIndex(buildData.CompareTag), buildData.CompareTag, true);
         }
         
   
@@ -190,6 +224,11 @@ public class BuildButton : MonoBehaviour
         CostOfBuilding();
         DestroyPopUp();
     }
+    public void CreateObjectOnLoad()
+    {
+        Instantiate(objectToBuild, new Vector3(Position.position.x, Position.position.y, Position.position.z), Quaternion.identity, MainScreenParrent.transform);
+        
+    }
     public void DestroyPopUp()
     {
         Destroy(popUpWindow);
@@ -208,9 +247,14 @@ public class BuildButton : MonoBehaviour
             Transform spriteTransform = BuldingBackground.transform.Find("sprite"); 
             Transform ButtonOfThis = BuldingBackground.transform.Find("BuildingButton");
             Transform NameOfTheButtonTranform = ButtonOfThis.transform.Find("NameOfButton");
+            Transform OpenBuildButtonTransform = canvas.transform.Find("OpenBuildBuildingsButton");
             NameOfTheButton = NameOfTheButtonTranform.GetComponent<Text>();
             colorImageOfButton = ButtonOfThis.GetComponent<Image>();
             Image = spriteTransform.GetComponent<Image>();
+            Checker = OpenBuildButtonTransform.GetComponent<Button>();
+
+
+
     }
 
     private void CreateBuildedPopUp()
