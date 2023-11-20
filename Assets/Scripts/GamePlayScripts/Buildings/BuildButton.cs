@@ -50,10 +50,6 @@ public class BuildButton : MonoBehaviour
         Image.sprite = buildData.Obrazek;
 
     }
-    private void Update()
-    {
-        if()
-    }
     private void HandleClick()
     {
         if (resourceManager.Wood >= woodCost &&
@@ -67,6 +63,18 @@ public class BuildButton : MonoBehaviour
             resourceManager.ModifyResources("Minerals", -mineralsCost);
             resourceManager.ModifyResources("Stone", -stoneCost);
         }
+    }
+    private void Update()
+    {
+        CheckStatus();
+        BuildingCheck();
+    }
+    public bool AreRequiredBuildingsBuilt(BuildData buildData)
+    {
+        bool isBuildingNeeded1Built = LoB.IsBuildingBuilt(buildData.BuildingNeeded1);
+        bool isBuildingNeeded2Built = LoB.IsBuildingBuilt(buildData.BuildingNeeded2);
+
+        return isBuildingNeeded1Built && isBuildingNeeded2Built;
     }
 
     public void BuildingCheck()
