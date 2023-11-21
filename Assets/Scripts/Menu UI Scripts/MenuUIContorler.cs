@@ -9,6 +9,7 @@ public class MenuUIContorler : MonoBehaviour
     public GameObject StartMenu;
     public GameObject LoadMenu;
     public GameObject Settings;
+    public GameObject Credits;
 
     public void SetMainCanvas()
     {
@@ -16,6 +17,7 @@ public class MenuUIContorler : MonoBehaviour
         Settings.SetActive(false);
         StartMenu.SetActive(false);
         LoadMenu.SetActive(false);
+        Credits.SetActive(false);
     }
     public void SettingsCanvas()
     {
@@ -37,5 +39,13 @@ public class MenuUIContorler : MonoBehaviour
         Settings.SetActive(false);
         StartMenu.SetActive(false);
         LoadMenu.SetActive(true);
+    }
+    public void Creddits()
+    {
+        MainCanvas.SetActive(false);
+        Settings.SetActive(false);
+        StartMenu.SetActive(false);
+        LoadMenu.SetActive(false);
+        Credits.SetActive(true);
     }
 }

@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
     public static AudioManager instance;
+    private float maxvolume;
+    private float savedVolume;
 
     void Awake()
     {
@@ -31,6 +33,9 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()
     {
+        MasterVolume(PlayerPrefs.GetFloat("MasterVolume"));
+        EffectVolume(PlayerPrefs.GetFloat("EffectVolume"));
+        MusicVolume(PlayerPrefs.GetFloat("MusicVolume"));
         Play("mainTheme");
     }
     private void Update()
@@ -62,13 +67,15 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.volume = volume;
+        savedVolume = volume;
     }
     public void MasterVolume(float volume)
     {
         foreach(Sound s in sounds)
         {
-            s.source.volume = volume;
+            maxvolume = volume;
         }
+
     }
     public void EffectVolume(float volume)
     {
@@ -76,9 +83,10 @@ public class AudioManager : MonoBehaviour
         {
             if(s.Effect == true)
             {
-                s.source.volume = volume;
+                s.source.volume = volume * maxvolume;
             }
         }
+
     }
     public void MusicVolume(float volume)
     {
@@ -86,8 +94,9 @@ public class AudioManager : MonoBehaviour
         {
             if(s.Music == true)
             {
-                s.source.volume = volume;
+                s.source.volume = volume * maxvolume;
             }
         }
+
     }
 }

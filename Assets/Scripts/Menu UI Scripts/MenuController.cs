@@ -42,6 +42,7 @@ public class MenuController : MonoBehaviour
         Button1.onClick.AddListener(StartCampainScene);
         Button2.onClick.AddListener(LoadCampainScene);
         Button3.onClick.AddListener(OptionsScene);
+        Button4.onClick.AddListener(CreditsScene);
         Button5.onClick.AddListener(QuitScene);
 
 
@@ -63,10 +64,10 @@ public class MenuController : MonoBehaviour
         }
         private void CreditsScene()
         {
-    }
+        FindObjectOfType<MenuUIContorler>().Creddits();
+        }
         private void QuitScene()
         {
         Application.Quit();
-        Debug.Log("jedu");
         }
 }
