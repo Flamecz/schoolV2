@@ -10,6 +10,7 @@ public class MenuUIContorler : MonoBehaviour
     public GameObject LoadMenu;
     public GameObject Settings;
     public GameObject Credits;
+    public GameObject ScenarioMenu;
 
     public void SetMainCanvas()
     {
@@ -18,6 +19,7 @@ public class MenuUIContorler : MonoBehaviour
         StartMenu.SetActive(false);
         LoadMenu.SetActive(false);
         Credits.SetActive(false);
+        FindObjectOfType<SmurfCat>().SmurfSetter(true);
     }
     public void SettingsCanvas()
     {
@@ -25,6 +27,7 @@ public class MenuUIContorler : MonoBehaviour
         Settings.SetActive(true);
         StartMenu.SetActive(false);
         LoadMenu.SetActive(false);
+        FindObjectOfType<SmurfCat>().SmurfSetter(false);
     }
     public void StartCanvas()
     {
@@ -32,6 +35,7 @@ public class MenuUIContorler : MonoBehaviour
         Settings.SetActive(false);
         StartMenu.SetActive(true);
         LoadMenu.SetActive(false);
+        FindObjectOfType<SmurfCat>().SmurfSetter(false);
     }
     public void LoadCanvas()
     {
@@ -39,6 +43,7 @@ public class MenuUIContorler : MonoBehaviour
         Settings.SetActive(false);
         StartMenu.SetActive(false);
         LoadMenu.SetActive(true);
+        FindObjectOfType<SmurfCat>().SmurfSetter(false);
     }
     public void Creddits()
     {
@@ -47,5 +52,11 @@ public class MenuUIContorler : MonoBehaviour
         StartMenu.SetActive(false);
         LoadMenu.SetActive(false);
         Credits.SetActive(true);
+        FindObjectOfType<SmurfCat>().SmurfSetter(false);
+    }
+    public void ScenarionSetup()
+    {
+        StartMenu.SetActive(false);
+        ScenarioMenu.SetActive(true);
     }
 }

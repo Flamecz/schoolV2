@@ -10,6 +10,7 @@ public class SmurfCat : MonoBehaviour
     public GameObject objectToChange;
 
     public bool flip;
+    private static bool onMain = true;
     void Update()
     {
         //Check for mouse click 
@@ -30,9 +31,12 @@ public class SmurfCat : MonoBehaviour
 
     public void CurrentClickedGameObject(GameObject gameObject)
     {
-        if (gameObject.tag == "Smurf")
+        if (onMain)
         {
-            SwitchTree();
+            if (gameObject.tag == "Smurf")
+            {
+                SwitchTree();
+            }
         }
     }
     public void SwitchTree()
@@ -70,5 +74,9 @@ public class SmurfCat : MonoBehaviour
             }
         }
        
+    }
+    public void SmurfSetter(bool yesAndNo)
+    {
+        onMain = yesAndNo;
     }
 }
