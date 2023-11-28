@@ -11,6 +11,7 @@ public class BonusThingsinMission
     public int count;
     
     public bool isBool;
+
     // public bool isUpgradeable;
 
     public BonusThingsinMission(string name, Sprite image, string description)
