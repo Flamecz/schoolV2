@@ -260,9 +260,6 @@ public class BuildButton : MonoBehaviour
             colorImageOfButton = ButtonOfThis.GetComponent<Image>();
             Image = spriteTransform.GetComponent<Image>();
             Checker = OpenBuildButtonTransform.GetComponent<Button>();
-
-
-
     }
 
     private void CreateBuildedPopUp()

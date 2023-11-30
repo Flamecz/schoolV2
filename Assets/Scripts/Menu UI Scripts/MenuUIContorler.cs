@@ -59,4 +59,9 @@ public class MenuUIContorler : MonoBehaviour
         StartMenu.SetActive(false);
         ScenarioMenu.SetActive(true);
     }
+    public void ScenarioSetupClose()
+    {
+        StartMenu.SetActive(true);
+        ScenarioMenu.SetActive(false);
+    }
 }

@@ -50,9 +50,8 @@ public class MenuController : MonoBehaviour
     }
     private void StartCampainScene()
         {
-        FindObjectOfType<AudioManager>().Stop("mainTheme");
-        SceneManager.LoadScene(1);
-        FindObjectOfType<AudioManager>().Play("undeadCityTheme");
+
+        FindObjectOfType<MenuUIContorler>().StartCanvas();
     }
         private void LoadCampainScene()
         {

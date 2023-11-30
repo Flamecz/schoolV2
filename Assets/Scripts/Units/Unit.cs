@@ -51,7 +51,7 @@ public abstract class Unit : MonoBehaviour
 
     public float CalculateReducedDamage(int attack)
     {
-        float reducedDamage = attack * (1 - (Attack / (float)Defense));
+        float reducedDamage = attack;
         return Mathf.Max(0, reducedDamage);
     }
 }
