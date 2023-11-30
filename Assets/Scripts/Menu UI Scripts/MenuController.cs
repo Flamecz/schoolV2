@@ -55,7 +55,7 @@ public class MenuController : MonoBehaviour
     }
         private void LoadCampainScene()
         {
-        FindObjectOfType<MenuUIContorler>().LoadCanvas();
+        SceneManager.LoadScene(1);
     }
         private void OptionsScene()
         {

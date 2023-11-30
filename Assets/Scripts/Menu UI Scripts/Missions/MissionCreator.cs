@@ -7,9 +7,9 @@ public class MissionCreator : MonoBehaviour
 {
     public MissionData missionD;
     public GameObject Canvas;
+    public int LevelIndex;
     private string nazev;
     private Button GetSome;
-    private Transform MissionInfo;
     private Image Map;
     private Text nazevMise;
     private Text popisMise;
@@ -26,18 +26,23 @@ public class MissionCreator : MonoBehaviour
     private Button ButtonClose;
     private Button PlayMission;
 
+    private Image vyber1;
+    private Image vyber2;
+    private Image vyber3;
+
+
     List<BonusThingsinMission> myObjects = new List<BonusThingsinMission>();
-    // BonusThingsinMission BTIM = new BonusThingsinMission("More Ores" , )
     void Start()
     {
-        myObjects.Add(new BonusThingsinMission("additional resources", Resources.Load<Sprite>("Sprites/resources"), "Gives you additional resources to create buildings"));
-        myObjects.Add(new BonusThingsinMission("12 ", Resources.Load<Sprite>("Sprites/resources"), "Gives you additional resources to create buildings"));
-        myObjects.Add(new BonusThingsinMission("Budova", Resources.Load<Sprite>("Sprites/resources"), "přidá ti novou buduovu pro hraní"));
+        myObjects.Add(new BonusThingsinMission("additional resources", Resources.Load<Sprite>("Sprites/Holder"), "Gives you additional resources to create buildings"));
+        myObjects.Add(new BonusThingsinMission("12 ", Resources.Load<Sprite>("Sprites/Holder"), "Gives you additional resources to create buildings"));
+        myObjects.Add(new BonusThingsinMission("Budova", Resources.Load<Sprite>("Sprites/Holder"), "přidá ti novou buduovu pro hraní"));
         nazev = gameObject.name;
         getSceneData();
 
         GetSome.onClick.AddListener(SetSceneData);
         ButtonClose.onClick.AddListener(FindObjectOfType<MenuUIContorler>().ScenarioSetupClose);
+        
     }
     public void getSceneData()
     {
@@ -75,6 +80,10 @@ public class MissionCreator : MonoBehaviour
 
         ButtonClose = InfoTransform.transform.Find("Back").GetComponent<Button>();
         PlayMission = InfoTransform.transform.Find("Confirm").GetComponent<Button>();
+
+        vyber1 = InfoTransform.transform.Find("vyber1").GetComponent<Image>();
+        vyber2 = InfoTransform.transform.Find("vyber2").GetComponent<Image>();
+        vyber3 = InfoTransform.transform.Find("vyber3").GetComponent<Image>();
     }
 
     public void SetSceneData()
@@ -88,5 +97,12 @@ public class MissionCreator : MonoBehaviour
 
         TeamColor1.color = missionD.allies;
         TeamColor2.color = missionD.Enemy;
+
+
+            vyber1.sprite = myObjects[0].image;
+            vyber2.sprite = myObjects[1].image;
+            vyber3.sprite = myObjects[2].image;
+
+
     }
 }
