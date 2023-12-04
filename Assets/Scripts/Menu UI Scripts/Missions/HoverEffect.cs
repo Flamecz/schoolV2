@@ -12,6 +12,7 @@ public class HoverEffect : MonoBehaviour, IPointerClickHandler
     public GameObject[] BackG;
     public GameObject ActiveWindow;
     public Text SetText;
+    public bool bonusTaken;
     private void Start()
     {
         imageBack();
@@ -36,6 +37,8 @@ public class HoverEffect : MonoBehaviour, IPointerClickHandler
         {
             imageBack();
             BackG[buttonIndex].SetActive(true);
+            bonusTaken = true;
+            FindObjectOfType<MissionCreator>().IsNotInteractable(bonusTaken);
         }
 
     }
@@ -45,5 +48,7 @@ public class HoverEffect : MonoBehaviour, IPointerClickHandler
         {
             BackG[i].SetActive(false);
         }
+        bonusTaken = false;
+        FindObjectOfType<MissionCreator>().IsNotInteractable(bonusTaken);
     }
 }

@@ -39,10 +39,10 @@ public class MissionCreator : MonoBehaviour
         myObjects.Add(new BonusThingsinMission("Budova", Resources.Load<Sprite>("Sprites/Holder"), "přidá ti novou buduovu pro hraní"));
         nazev = gameObject.name;
         getSceneData();
-
+        nameStart.text = missionD.misionName;
+        spriteStart.sprite = missionD.UvodObraz;
         GetSome.onClick.AddListener(SetSceneData);
         ButtonClose.onClick.AddListener(FindObjectOfType<MenuUIContorler>().ScenarioSetupClose);
-        
     }
     public void getSceneData()
     {
@@ -103,10 +103,14 @@ public class MissionCreator : MonoBehaviour
             vyber2.sprite = myObjects[1].image;
             vyber3.sprite = myObjects[2].image;
 
-
+        Map.sprite = missionD.Map;
     }
     public string GetInfo(int index)
     { 
         return myObjects[index].description;
+    }
+    public void IsNotInteractable(bool trueOrFalse)
+    {
+        PlayMission.interactable = trueOrFalse;
     }
 }

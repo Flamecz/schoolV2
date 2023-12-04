@@ -11,6 +11,7 @@ public class ImageSwitch : MonoBehaviour
     private int defaultIndex = 2;
     public Button leftButton;
     public Button rightButton;
+    private float DifModifier;
 
     void Start()
     {
@@ -41,6 +42,28 @@ public class ImageSwitch : MonoBehaviour
         if (index >= 0 && index < sprites.Length)
         {
             image.sprite = sprites[index];
+        }
+        dificultyRating();
+    }
+    public void dificultyRating()
+    {
+        switch(selectedIndex)
+        {
+            case 0:
+                DifModifier = 0.8f;
+                break;
+            case 1:
+                DifModifier = 1f;
+                break;
+            case 2:
+                DifModifier = 1.3f;
+                break;
+            case 3:
+                DifModifier = 1.6f;
+                break;
+            case 4:
+                DifModifier = 2f;
+                break;
         }
     }
 }

@@ -15,6 +15,7 @@ public class MissionData
     public Color allies = Color.red;
     public Color Enemy = Color.blue;
 
-
+    public Sprite UvodObraz;
+    public Sprite Map;
 
 }
