@@ -35,7 +35,7 @@ public class MissionCreator : MonoBehaviour
     void Start()
     {
         myObjects.Add(new BonusThingsinMission("additional resources", Resources.Load<Sprite>("Sprites/Holder"), "Gives you additional resources to create buildings"));
-        myObjects.Add(new BonusThingsinMission("12 ", Resources.Load<Sprite>("Sprites/Holder"), "Gives you additional resources to create buildings"));
+        myObjects.Add(new BonusThingsinMission("12 ", Resources.Load<Sprite>("Sprites/Holder"), "Dostaneš 12 pikeman"));
         myObjects.Add(new BonusThingsinMission("Budova", Resources.Load<Sprite>("Sprites/Holder"), "přidá ti novou buduovu pro hraní"));
         nazev = gameObject.name;
         getSceneData();
@@ -104,5 +104,9 @@ public class MissionCreator : MonoBehaviour
             vyber3.sprite = myObjects[2].image;
 
 
+    }
+    public string GetInfo(int index)
+    { 
+        return myObjects[index].description;
     }
 }

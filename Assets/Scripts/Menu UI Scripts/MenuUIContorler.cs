@@ -56,12 +56,13 @@ public class MenuUIContorler : MonoBehaviour
     }
     public void ScenarionSetup()
     {
-        StartMenu.SetActive(false);
         ScenarioMenu.SetActive(true);
+        FindObjectOfType<ImageSwitch>().RestartDif();
+        FindObjectOfType<HoverEffect>().imageBack();
     }
     public void ScenarioSetupClose()
     {
-        StartMenu.SetActive(true);
         ScenarioMenu.SetActive(false);
+        
     }
 }
