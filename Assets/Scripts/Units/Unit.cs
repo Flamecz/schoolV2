@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Unit : MonoBehaviour
+public class Unit : MonoBehaviour
 {
     private int _defense;
     public string unitName;
     public string town;
-    public int lvl;
+    public float lvl;
     public float damage;
     public int Defence
     {
@@ -16,6 +16,7 @@ public abstract class Unit : MonoBehaviour
     }
     public int minDamage;
     public int maxDamage;
+    public int Shots;
     public float health;
     public float speed;
     public int growth;
@@ -23,7 +24,46 @@ public abstract class Unit : MonoBehaviour
     public int cost;
     public Movementtype movetype;
     public attackType ATKT;
-    
+
+    public Unit(string unitName, string town, float lvl, float damage, int Defence,
+                int minDamage, int maxDamage, float health, float speed, int growth,
+                int aIvalue,int cost, Movementtype movetype, attackType ATKT)
+    {
+        this.unitName = unitName;
+        this.town = town;
+        this.lvl = lvl;
+        this.damage = damage;
+        this.Defence = Defence;
+        this.minDamage = minDamage;
+        this.maxDamage = maxDamage;
+        this.health = health;
+        this.speed = speed;
+        this.growth = growth;
+        this.aIvalue = aIvalue;
+        this.cost = cost;
+        this.movetype = movetype;
+        this.ATKT = ATKT;
+    }
+    public Unit(string unitName, string town, float lvl, float damage, int Defence,
+             int minDamage, int maxDamage, float health, float speed, int growth,
+             int aIvalue, int cost, Movementtype movetype, attackType ATKT,int Shots)
+    {
+        this.unitName = unitName;
+        this.town = town;
+        this.lvl = lvl;
+        this.damage = damage;
+        this.Defence = Defence;
+        this.minDamage = minDamage;
+        this.maxDamage = maxDamage;
+        this.health = health;
+        this.speed = speed;
+        this.growth = growth;
+        this.aIvalue = aIvalue;
+        this.cost = cost;
+        this.movetype = movetype;
+        this.ATKT = ATKT;
+        this.Shots = Shots;
+    }
 
     public enum Movementtype
     {
@@ -33,8 +73,7 @@ public abstract class Unit : MonoBehaviour
     public enum attackType
     {
         ranger,
-        melee,
-        hybrid
+        melee
     }
     public void Attack(float health)
     {
