@@ -1,22 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Unit : MonoBehaviour
+[CreateAssetMenu(fileName = "New Unit", menuName = "Unit")]
+public class Unit :ScriptableObject
 {
-    private int _defense;
+    public Sprite sprite;
     public string unitName;
     public string town;
     public float lvl;
     public float damage;
-    public int Defence
-    {
-        get { return _defense; }
-        set { _defense = Mathf.Clamp(value, 0, 70); }
-    }
+    public int defence;
     public int minDamage;
     public int maxDamage;
-    public int Shots;
     public float health;
     public float speed;
     public int growth;
@@ -24,7 +19,7 @@ public class Unit : MonoBehaviour
     public int cost;
     public Movementtype movetype;
     public attackType ATKT;
-
+    public int Shots;
     public Unit(string unitName, string town, float lvl, float damage, int Defence,
                 int minDamage, int maxDamage, float health, float speed, int growth,
                 int aIvalue,int cost, Movementtype movetype, attackType ATKT)
@@ -33,7 +28,7 @@ public class Unit : MonoBehaviour
         this.town = town;
         this.lvl = lvl;
         this.damage = damage;
-        this.Defence = Defence;
+        this.defence = Defence;
         this.minDamage = minDamage;
         this.maxDamage = maxDamage;
         this.health = health;
@@ -52,7 +47,7 @@ public class Unit : MonoBehaviour
         this.town = town;
         this.lvl = lvl;
         this.damage = damage;
-        this.Defence = Defence;
+        this.defence = Defence;
         this.minDamage = minDamage;
         this.maxDamage = maxDamage;
         this.health = health;

@@ -9,6 +9,7 @@ public class UnitsList : MonoBehaviour
 
     List<Unit> UnitsCastel = new List<Unit>();
     List<Unit> UnitsRampart = new List<Unit>();
+    List<Unit> UnitsInferno = new List<Unit>();
 
     private void Start()
     {
@@ -20,7 +21,7 @@ public class UnitsList : MonoBehaviour
         UnitsCastel.Add(new Unit("Archer"    , "Castel", 2   , 6, 3, 2, 3 , 10, 4 , 9, 126, 100, Unit.Movementtype.ground, Unit.attackType.ranger, 12));
         UnitsCastel.Add(new Unit("Marksman"  , "Castel", 2.5f, 6, 3, 2, 3 , 10, 6 , 9, 184, 150, Unit.Movementtype.ground, Unit.attackType.ranger, 24));
 
-        UnitsCastel.Add(new Unit("Griffin"      , "Castel", 3 , 8, 8, 3, 6, 25, 6, 7, 351, 200, Unit.Movementtype.air, Unit.attackType.melee));
+        UnitsCastel.Add(new Unit("Griffin"      , "Castel", 3    , 8, 8, 3, 6, 25, 6, 7, 351, 200, Unit.Movementtype.air, Unit.attackType.melee));
         UnitsCastel.Add(new Unit("Royal Griffin", "Castel", 3.5f , 9, 9, 3, 6, 25, 9, 7, 448, 240, Unit.Movementtype.air, Unit.attackType.melee));
 
         UnitsCastel.Add(new Unit("Swordman", "Castel", 4   , 10, 12, 6, 9, 35, 5, 4, 445, 300, Unit.Movementtype.ground, Unit.attackType.melee));
@@ -32,7 +33,7 @@ public class UnitsList : MonoBehaviour
         UnitsCastel.Add(new Unit("Cavalier", "Castel", 6   , 15, 15, 15, 25, 100, 7, 2, 1946, 1000, Unit.Movementtype.ground, Unit.attackType.melee));
         UnitsCastel.Add(new Unit("Champion", "Castel", 6.5f, 16, 16, 20, 25, 100, 9, 2, 2100, 1200, Unit.Movementtype.ground, Unit.attackType.melee));
 
-        UnitsCastel.Add(new Unit("Angel"    , "Castel", 7, 20, 20, 50, 50, 200, 12, 1, 5019, 3000, Unit.Movementtype.air, Unit.attackType.melee));
+        UnitsCastel.Add(new Unit("Angel"    , "Castel", 7   , 20, 20, 50, 50, 200, 12, 1, 5019, 3000, Unit.Movementtype.air, Unit.attackType.melee));
         UnitsCastel.Add(new Unit("Archangle", "Castel", 7.5f, 30, 30, 50, 50, 250, 18, 1, 8876, 5000, Unit.Movementtype.air, Unit.attackType.melee));
 
         //Rampart
@@ -57,6 +58,28 @@ public class UnitsList : MonoBehaviour
         UnitsRampart.Add(new Unit("Green Dragon", "Rampart", 7, 18, 18, 40, 50, 180, 10, 1, 4872, 2400, Unit.Movementtype.air, Unit.attackType.melee));
         UnitsRampart.Add(new Unit("Gold Dragon", "Rampart", 7.5f, 27, 27, 40, 50, 250, 16, 1, 8613, 4000, Unit.Movementtype.ground, Unit.attackType.melee));
 
-        //
+        //Inferno
+        UnitsInferno.Add(new Unit("Imp"     , "Inferno", 1   , 2, 3, 1, 2, 4, 5, 15, 50, 50, Unit.Movementtype.ground, Unit.attackType.melee));
+        UnitsInferno.Add(new Unit("Familiar", "Inferno", 1.5f, 4, 4, 1, 2, 4, 7, 15, 60, 60, Unit.Movementtype.ground, Unit.attackType.melee));
+
+        UnitsInferno.Add(new Unit("Gog"  , "Inferno", 2   , 6, 4, 2, 4, 13, 4, 8, 159, 125, Unit.Movementtype.ground, Unit.attackType.ranger,12));
+        UnitsInferno.Add(new Unit("Magog", "Inferno", 2.5f, 7, 4, 2, 4, 13, 6, 8, 240, 175, Unit.Movementtype.ground, Unit.attackType.ranger,24));
+
+        UnitsInferno.Add(new Unit("Hell Hound", "Inferno", 3   , 10, 6, 2, 7, 25, 7, 5, 357, 200, Unit.Movementtype.ground, Unit.attackType.melee));
+        UnitsInferno.Add(new Unit("Cerberus"  , "Inferno", 3.5f, 10, 8, 2, 7, 25, 8, 5, 392, 250, Unit.Movementtype.ground, Unit.attackType.melee));
+
+        UnitsInferno.Add(new Unit("Demon"       , "Inferno", 4   , 10, 10, 7, 9, 35, 5, 4, 445, 250, Unit.Movementtype.ground, Unit.attackType.melee));
+        UnitsInferno.Add(new Unit("Horned Demon", "Inferno", 4.5f, 10, 8 , 7, 9, 40, 6, 4, 480, 270, Unit.Movementtype.ground, Unit.attackType.melee));
+
+        UnitsInferno.Add(new Unit("Pit Fiend", "Inferno", 5   , 13, 13, 13, 17, 45, 6, 3, 765, 500, Unit.Movementtype.ground, Unit.attackType.melee));
+        UnitsInferno.Add(new Unit("Pit Lord" , "Inferno", 5.5f, 13, 13, 13, 17, 45, 7, 3, 1224, 700, Unit.Movementtype.ground, Unit.attackType.melee));
+
+        UnitsInferno.Add(new Unit("Efreeti"      , "Inferno", 6   , 16, 12, 16, 24, 90, 9 , 2, 1670, 900, Unit.Movementtype.air, Unit.attackType.melee));
+        UnitsInferno.Add(new Unit("Efreet Sultan", "Inferno", 6.5f, 16, 14, 16, 24, 90, 13, 2, 1848, 1100, Unit.Movementtype.air, Unit.attackType.melee));
+
+        UnitsInferno.Add(new Unit("Devil"     , "Inferno", 7   , 19, 21, 30, 40, 160, 11, 1, 5101, 2700, Unit.Movementtype.air, Unit.attackType.melee));
+        UnitsInferno.Add(new Unit("Arch Devil", "Inferno", 7.5f, 26, 28, 30, 40, 200, 17, 1, 7115, 4500, Unit.Movementtype.air, Unit.attackType.melee));
+
+
     }
 }
