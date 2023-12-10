@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UnitsList : MonoBehaviour
 {
-    public Unit unit;
+  /*  public Unit unit;
 
 
     List<Unit> UnitsCastel = new List<Unit>();
@@ -80,6 +80,6 @@ public class UnitsList : MonoBehaviour
         UnitsInferno.Add(new Unit("Devil"     , "Inferno", 7   , 19, 21, 30, 40, 160, 11, 1, 5101, 2700, Unit.Movementtype.air, Unit.attackType.melee));
         UnitsInferno.Add(new Unit("Arch Devil", "Inferno", 7.5f, 26, 28, 30, 40, 200, 17, 1, 7115, 4500, Unit.Movementtype.air, Unit.attackType.melee));
 
-
-    }
+    
+    }*/
 }

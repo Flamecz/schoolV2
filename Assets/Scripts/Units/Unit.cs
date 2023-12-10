@@ -39,7 +39,7 @@ public class Unit :ScriptableObject
         this.movetype = movetype;
         this.ATKT = ATKT;
     }
-    public Unit(string unitName, string town, float lvl, float damage, int Defence,
+   /* public Unit(string unitName, string town, float lvl, float damage, int Defence,
              int minDamage, int maxDamage, float health, float speed, int growth,
              int aIvalue, int cost, Movementtype movetype, attackType ATKT,int Shots)
     {
@@ -59,7 +59,7 @@ public class Unit :ScriptableObject
         this.ATKT = ATKT;
         this.Shots = Shots;
     }
-
+   */
     public enum Movementtype
     {
         ground,
