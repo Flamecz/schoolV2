@@ -6,6 +6,9 @@ public class ResourceManager : MonoBehaviour
     public int Iron;
     public int Minerals;
     public int Stone;
+    public int Sulfur;
+    public int Gems;
+    public int Gold;
 
     public static ResourceManager instance;
 
@@ -40,6 +43,15 @@ public class ResourceManager : MonoBehaviour
                 break;
             case "Stone":
                 Stone += amount;
+                break;
+            case "Sulfur":
+                Sulfur += amount;
+                break;
+            case "Gems":
+                Gems += amount;
+                break;
+            case "Gold":
+                Gold += amount;
                 break;
             default:
                 Debug.Log("Invalid resource type.");
