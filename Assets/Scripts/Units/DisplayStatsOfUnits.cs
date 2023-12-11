@@ -44,13 +44,13 @@ public class DisplayStatsOfUnits : MonoBehaviour
     void Start()
     {
         GetData();
-        SetData();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        SetData();
     }
     public void GetData()
     {
@@ -66,23 +66,23 @@ public class DisplayStatsOfUnits : MonoBehaviour
         TextStats1 = Canvas.transform.Find("stats/Unit Amount Holder/Text").GetComponent<Text>();
 
         ImageStats2 = Canvas.transform.Find("stats1/Unit Image Holder").GetComponent<Image>();
-        TextOfStats2 = Canvas.transform.Find("stats/Unit Amount Holder/Available").GetComponent<Text>();
+        TextOfStats2 = Canvas.transform.Find("stats1/Unit Amount Holder/Available").GetComponent<Text>();
         TextStats2 = Canvas.transform.Find("stats1/Unit Amount Holder/Text").GetComponent<Text>();
 
         ImageStats3 = Canvas.transform.Find("stats2/Unit Image Holder").GetComponent<Image>();
-        TextOfStats3 = Canvas.transform.Find("stats/Unit Amount Holder/Available").GetComponent<Text>();
+        TextOfStats3 = Canvas.transform.Find("stats2/Unit Amount Holder/Available").GetComponent<Text>();
         TextStats3 = Canvas.transform.Find("stats2/Unit Amount Holder/Text").GetComponent<Text>();
 
         ImageStats4 = Canvas.transform.Find("stats3/Unit Image Holder").GetComponent<Image>();
-        TextOfStats4 = Canvas.transform.Find("stats/Unit Amount Holder/Available").GetComponent<Text>();
+        TextOfStats4 = Canvas.transform.Find("stats3/Unit Amount Holder/Available").GetComponent<Text>();
         TextStats4 = Canvas.transform.Find("stats3/Unit Amount Holder/Text").GetComponent<Text>();
 
         ImageStats5 = Canvas.transform.Find("stats4/Unit Image Holder").GetComponent<Image>();
-        TextOfStats5 = Canvas.transform.Find("stats/Unit Amount Holder/Available").GetComponent<Text>();
+        TextOfStats5 = Canvas.transform.Find("stats4/Unit Amount Holder/Available").GetComponent<Text>();
         TextStats5 = Canvas.transform.Find("stats4/Unit Amount Holder/Text").GetComponent<Text>();
 
         ImageStats6 = Canvas.transform.Find("stats5/Unit Image Holder").GetComponent<Image>();
-        TextOfStats6 = Canvas.transform.Find("stats/Unit Amount Holder/Available").GetComponent<Text>();
+        TextOfStats6 = Canvas.transform.Find("stats5/Unit Amount Holder/Available").GetComponent<Text>();
         TextStats6 = Canvas.transform.Find("stats5/Unit Amount Holder/Text").GetComponent<Text>();
     }
     public void SetData()
@@ -97,16 +97,22 @@ public class DisplayStatsOfUnits : MonoBehaviour
         //UnitSprite.sprite = ut.sprite;
 
         //Right side of Data
+        TextStats1.text = "Attack :";
         TextOfStats1.text = ut.damage.ToString();
 
+        TextStats2.text = "Defence :";
         TextOfStats2.text = ut.defence.ToString();
 
+        TextStats3.text = "Damage :";
         TextOfStats3.text = ut.minDamage.ToString() + "-" + ut.maxDamage.ToString();
 
+        TextStats4.text = "Health :";
         TextOfStats4.text = ut.health.ToString();
 
+        TextStats5.text = "Speed :";
         TextOfStats5.text = ut.speed.ToString();
 
+        TextStats6.text = "Growth :";
         TextOfStats6.text = ut.growth.ToString();
 
 

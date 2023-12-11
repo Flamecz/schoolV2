@@ -81,7 +81,7 @@ public class BuildButton : MonoBehaviour
     {
         if(LoB.IsBuildingBuilt(buildData.CompareTag) == true)
         {
-            CreateObjectOnLoad();
+           
         }
         if(LoB.IsBuildingBuilt(buildData.BuildingNeeded1))
         {
@@ -170,9 +170,6 @@ public class BuildButton : MonoBehaviour
         if (!Builded)
         {
             Debug.Log("check1");
-            if(BuildingCHeck1 == true && BuildingCHeck2 == true)
-            {
-                Debug.Log("check2");
                 if (resourceManager.Wood >= woodCost &&
                     resourceManager.Iron >= ironCost &&
                     resourceManager.Minerals >= mineralsCost &&
@@ -186,13 +183,7 @@ public class BuildButton : MonoBehaviour
                     Debug.Log("check4");
                     colorImageOfButton.color = new Color32(255, 0, 0, 255);
                 }
-            }
-            else
-            {
-                Debug.Log("check5");
-                colorImageOfButton.color = new Color32(255, 0, 0, 255);
-            }
-
+         
          }
         else
         {
@@ -232,11 +223,7 @@ public class BuildButton : MonoBehaviour
         CostOfBuilding();
         DestroyPopUp();
     }
-    public void CreateObjectOnLoad()
-    {
-        Instantiate(objectToBuild, new Vector3(Position.position.x, Position.position.y, Position.position.z), Quaternion.identity, MainScreenParrent.transform);
-        
-    }
+
     public void DestroyPopUp()
     {
         Destroy(popUpWindow);

@@ -9,6 +9,9 @@ public class ResourceData
     public int Iron;
     public int Minerals;
     public int Stone;
+    public int Sulfur;
+    public int Gems;
+    public int Gold;
 
     public bool Builded;
 }

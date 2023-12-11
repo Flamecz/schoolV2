@@ -11,14 +11,14 @@ public class MainCanvasControler : MonoBehaviour
     public Button CloseButton;
     public Button ExitCityButton;
     public GameObject BUildingsUI;
-
+    public GameObject Fortress;
 
 
     private void Start()
     {
         OpenButton.onClick.AddListener(OpenBuildingUI);
         CloseButton.onClick.AddListener(CloseBuildingUI);
-        ExitCityButton.onClick.AddListener(CloseCityView);
+        ExitCityButton.onClick.AddListener(CloseAllScreens);
     }
 
     public void OpenBuildingUI()
@@ -39,6 +39,25 @@ public class MainCanvasControler : MonoBehaviour
         BUildingsUI.SetActive(false);
         CloseButton.gameObject.SetActive(false);
         ExitCity();
+    }
+    public void OpenFortressView()
+    {
+        OpenButton.gameObject.SetActive(false);
+        BUildingsUI.SetActive(false);
+        CloseButton.gameObject.SetActive(false);
+        Fortress.gameObject.SetActive(true);
+    }
+    public void CloseFortressView()
+    {
+        OpenButton.gameObject.SetActive(false);
+        BUildingsUI.SetActive(false);
+        CloseButton.gameObject.SetActive(false);
+        Fortress.gameObject.SetActive(false);
+    }
+    public void CloseAllScreens()
+    {
+        BUildingsUI.gameObject.SetActive(false);
+        Fortress.gameObject.SetActive(false);
     }
     public void ExitCity()
     {
