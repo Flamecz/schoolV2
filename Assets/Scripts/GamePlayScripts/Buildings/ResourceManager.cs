@@ -12,6 +12,7 @@ public class ResourceManager : MonoBehaviour
 
     public static ResourceManager instance;
 
+
     public void Awake()
     {
         if (instance != null && instance != this)

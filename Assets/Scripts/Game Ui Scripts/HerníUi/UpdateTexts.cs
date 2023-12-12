@@ -8,6 +8,7 @@ public class UpdateTexts : MonoBehaviour
 {
     public ResourceManager RM;
     public GameObject Object;
+    public bool isRight = false;
 
     private Image ResourceImage;
     private Text ResourceText;
@@ -29,10 +30,16 @@ public class UpdateTexts : MonoBehaviour
 
     private Image ResourceImage6;
     private Text ResourceText6;
-    void Start()
+    [HideInInspector]
+    public int WoodCost, StoneCost, IronCost, SulfurCost, MineralsCost, GemsCost, GoldCost;
+    void Update()
     {
         GetData();
         SetData();
+        if (isRight)
+        {
+            SetRightSide();
+        }
     }
     public void GetData()
     {
@@ -47,7 +54,7 @@ public class UpdateTexts : MonoBehaviour
 
         ResourceImage3 = Object.transform.Find("Resource3").GetComponent<Image>();
         ResourceText3 = Object.transform.Find("Resource3/Amount").GetComponent<Text>();
-
+         
         ResourceImage4 = Object.transform.Find("Resource4").GetComponent<Image>();
         ResourceText4 = Object.transform.Find("Resource4/Amount").GetComponent<Text>();
 
@@ -57,14 +64,69 @@ public class UpdateTexts : MonoBehaviour
         ResourceImage6 = Object.transform.Find("Resource6").GetComponent<Image>();
         ResourceText6 = Object.transform.Find("Resource6/Amount").GetComponent<Text>();
     }
+
     public void SetData()
     {
-        ResourceText.text  = RM.Wood.ToString();
+        ResourceText.text = RM.Wood.ToString();
         ResourceText1.text = RM.Iron.ToString();
         ResourceText2.text = RM.Stone.ToString();
         ResourceText3.text = RM.Sulfur.ToString();
         ResourceText4.text = RM.Minerals.ToString();
         ResourceText5.text = RM.Gems.ToString();
         ResourceText6.text = RM.Gold.ToString();
+    }
+    public void SetRightSide()
+    {
+        if(WoodCost != 0)
+        {
+            ResourceText.text = WoodCost.ToString() + "/1";
+        }
+        else { ResourceText.text = "-"; }
+        if (IronCost != 0)
+        {
+            ResourceText1.text = IronCost.ToString() + "/1";
+        }
+        else { ResourceText1.text = "-"; }
+        if (StoneCost != 0)
+        {
+            ResourceText2.text = StoneCost.ToString() + "/1";
+        }
+        else { ResourceText2.text = "-"; }
+        if (MineralsCost != 0)
+        {
+            ResourceText3.text = MineralsCost.ToString() + "/1";
+        }
+        else { ResourceText3.text = "-"; }
+        if (SulfurCost != 0)
+        {
+            ResourceText4.text = SulfurCost.ToString() + "/1";
+        }
+        else { ResourceText4.text = "-"; }
+        if (GemsCost != 0)
+        {
+            ResourceText5.text = GemsCost.ToString() + "/1";
+        }
+        else { ResourceText5.text = "-"; }
+        if (GoldCost != 0)
+        {
+            ResourceText6.text = GoldCost.ToString() + "/1";
+        }
+        else { ResourceText6.text = "-"; }
+        
+        
+        
+        
+        
+        
+    }
+    public void Debugger(int Wood, int Stone, int Iron, int Sulfur, int Minerals, int Gems, int Gold )
+    {
+        WoodCost = Wood;
+        StoneCost = Stone;
+        IronCost = Iron;
+        SulfurCost = Sulfur;
+        MineralsCost = Minerals;
+        GemsCost = Gems;
+        GoldCost = Gold;
     }
 }
