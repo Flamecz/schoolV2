@@ -41,7 +41,7 @@ public class LibraryOfBuildings : MonoBehaviour
     {
         if (index < 0 || index >= myObjects.Count)
         {
-            Debug.Log("Index out of range");
+
             return;
         }
 
@@ -54,7 +54,7 @@ public class LibraryOfBuildings : MonoBehaviour
         int index = GetIndex(name);
         if (index < 0 || index >= myObjects.Count)
         {
-            Debug.Log("Building not found");
+
             return false;
         }
 

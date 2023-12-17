@@ -12,19 +12,13 @@ public class UiUpdate : MonoBehaviour
     }
     void Update()
     {
-        Resource1.text = "Wood " + RM.Wood.ToString();
-        Resource2.text = "Iron " + RM.Iron.ToString();
-        Resource3.text = "Stone " + RM.Stone.ToString();
-        Resource4.text = "Sulfur " + RM.Sulfur.ToString();
-        Resource5.text = "Minerals " + RM.Minerals.ToString();
-
-        
-
-        
-
-        Resource6.text = "Gems " + RM.Gems.ToString();
-
-        Resource7.text = "Gold " + RM.Gold.ToString();
+        Resource1.text = RM.Wood.ToString();
+        Resource2.text = RM.Iron.ToString();
+        Resource3.text = RM.Stone.ToString();
+        Resource4.text = RM.Sulfur.ToString();
+        Resource5.text = RM.Minerals.ToString();
+        Resource6.text = RM.Gems.ToString();
+        Resource7.text = RM.Gold.ToString();
     }
     private void GetData()
     {

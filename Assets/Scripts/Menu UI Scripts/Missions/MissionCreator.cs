@@ -34,9 +34,9 @@ public class MissionCreator : MonoBehaviour
     List<BonusThingsinMission> myObjects = new List<BonusThingsinMission>();
     void Start()
     {
-        myObjects.Add(new BonusThingsinMission("additional resources", Resources.Load<Sprite>("Sprites/Holder"), "Gives you additional resources to create buildings"));
-        myObjects.Add(new BonusThingsinMission("12 ", Resources.Load<Sprite>("Sprites/Holder"), "Dostaneš 12 pikeman"));
-        myObjects.Add(new BonusThingsinMission("Budova", Resources.Load<Sprite>("Sprites/Holder"), "přidá ti novou buduovu pro hraní"));
+        myObjects.Add(new BonusThingsinMission("additional resources", Resources.Load<Sprite>("Sprites/Resourceimage/H3Crystal"), "Gives you additional resources to create buildings"));
+        myObjects.Add(new BonusThingsinMission("12 ", Resources.Load<Sprite>("Sprites/UnitsImage/Pikeman"), "You get 12 Pikeman to your army"));
+        myObjects.Add(new BonusThingsinMission("Budova", Resources.Load<Sprite>("Sprites/Holder"), "Gives you a building for free"));
         nazev = gameObject.name;
         getSceneData();
         nameStart.text = missionD.misionName;
@@ -88,6 +88,8 @@ public class MissionCreator : MonoBehaviour
 
     public void SetSceneData()
     {
+        FindObjectOfType<AudioManager>().Stop("mainTheme");
+        FindObjectOfType<AudioManager>().Play("HeroesGoodtheme");
         FindObjectOfType<MenuUIContorler>().ScenarionSetup();
 
         nazevMise.text = missionD.misionName;

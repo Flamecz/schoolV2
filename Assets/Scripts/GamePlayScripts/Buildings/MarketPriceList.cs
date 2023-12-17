@@ -22,14 +22,25 @@ public class MarketPriceList : MonoBehaviour, IPointerClickHandler
     public int index;
     public GameObject[] Obrazky;
     public Button[] DisableImage;
+    public Sprite[] sprites;
+    public Image RightSelected, LeftSelected;
 
     private static bool Selected;
     private static bool Selected2;
     public bool Rightside= false;
+    public bool ShowCase = false;
 
+    private void Awake()
+    {
+        if(!ShowCase)
+        {
+            Image sprite = this.gameObject.transform.GetComponent<Image>();
+            sprite.sprite = sprites[index];
+        }
+        
+    }
     public void GetProperty()
     {
-        Debug.Log("happened");
         switch (index)
         {
             //Wood Selected
@@ -124,7 +135,9 @@ public class MarketPriceList : MonoBehaviour, IPointerClickHandler
                 if (!Selected2)
                 {
                     Obrazky[index].SetActive(true);
+                    LeftSelected.sprite = sprites[index];
                     Selected2 = true;
+                    FindObjectOfType<SliderUpdate>().SetIndex2(index);
                 }
                 else if (Selected2)
                 {
@@ -142,10 +155,12 @@ public class MarketPriceList : MonoBehaviour, IPointerClickHandler
                 if (!Selected)
                 {
                     Obrazky[index].SetActive(true);
+                    RightSelected.sprite = sprites[index];
                     GetProperty();
                     Debuger();
                     Selected = true;
                     DisableImage[index].interactable = false;
+                    FindObjectOfType<SliderUpdate>().SetIndex1(index);
                 }
                 else if (Selected)
                 {
@@ -163,6 +178,7 @@ public class MarketPriceList : MonoBehaviour, IPointerClickHandler
             for (int i = 0; i < Obrazky.Length; i++)
             {
                 Obrazky[i].SetActive(false);
+                RightSelected.sprite = null;
                 DisableImage[i].interactable = true;
             }
             Selected = false;
@@ -171,6 +187,7 @@ public class MarketPriceList : MonoBehaviour, IPointerClickHandler
         {
             for (int i = 0; i < Obrazky.Length; i++)
             {
+                LeftSelected.sprite = null;
                 Obrazky[i].SetActive(false);
             }
             Selected2 = false;

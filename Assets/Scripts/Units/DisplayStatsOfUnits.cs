@@ -93,7 +93,7 @@ public class DisplayStatsOfUnits : MonoBehaviour
         BuildingName.text = nameOfTrueBuilding;
         UnitsAvaible.text = "Available : " +  ut.growth.ToString();
         //Image Data
-
+        UnitSprite.sprite = ut.sprite;
         //UnitSprite.sprite = ut.sprite;
 
         //Right side of Data

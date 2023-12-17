@@ -63,6 +63,7 @@ public class MenuUIContorler : MonoBehaviour
     public void ScenarioSetupClose()
     {
         ScenarioMenu.SetActive(false);
-        
+        FindObjectOfType<AudioManager>().Play("mainTheme");
+        FindObjectOfType<AudioManager>().Stop("HeroesGoodtheme");
     }
 }

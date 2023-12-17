@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58d1f15ab15547a193b15548dfd474e, type: 3}
   m_Name: Griffin
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: bf17a2349a2fffd42a88fed35bcb52f3, type: 3}
   unitName: Griffin
   town: Castel
   lvl: 3

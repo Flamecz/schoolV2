@@ -169,25 +169,25 @@ public class BuildButton : MonoBehaviour
     {
         if (!Builded)
         {
-            Debug.Log("check1");
+
                 if (resourceManager.Wood >= woodCost &&
                     resourceManager.Iron >= ironCost &&
                     resourceManager.Minerals >= mineralsCost &&
                     resourceManager.Stone >= stoneCost)
                 {
-                    Debug.Log("check3");
+
                     colorImageOfButton.color = new Color32(255, 205, 114, 255);
                 }
                 else
                 {
-                    Debug.Log("check4");
+
                     colorImageOfButton.color = new Color32(255, 0, 0, 255);
                 }
          
          }
         else
         {
-            Debug.Log("check6");
+
             colorImageOfButton.color = new Color32(70, 230, 70, 255);
 
             LoB.UpdateObject(LoB.GetIndex(buildData.CompareTag), buildData.CompareTag, true);
