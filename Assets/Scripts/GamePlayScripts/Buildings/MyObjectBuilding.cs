@@ -14,4 +14,5 @@ public class MyObjectBuilding
         this.name = name;
         this.isBool = isBool;
     }
+    
 }

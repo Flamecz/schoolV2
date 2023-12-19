@@ -12,6 +12,7 @@ public class ResourceManager : MonoBehaviour
 
     public static ResourceManager instance;
 
+    private int dayCounter = 0,weekCounter = 0,monthCounter = 0;
 
     public void Awake()
     {
@@ -72,6 +73,24 @@ public class ResourceManager : MonoBehaviour
         Iron = resourceData.Iron;
         Minerals = resourceData.Minerals;
         Stone = resourceData.Stone;
+    }
+    public void IncrementDay()
+    {
+        dayCounter++;
+
+        if (dayCounter % 7 == 0)
+        {
+            weekCounter++;
+        }
+
+        if (weekCounter % 4 == 0)
+        {
+            monthCounter++;
+        }
+    }
+    public string DisplayTimePeriod()
+    {
+        return dayCounter + " days, " + weekCounter + " weeks, " + monthCounter + " months";
     }
 }
 
