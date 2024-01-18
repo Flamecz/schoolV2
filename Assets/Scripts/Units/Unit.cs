@@ -5,6 +5,7 @@ using UnityEngine;
 public class Unit :ScriptableObject
 {
     public Sprite sprite;
+    public Sprite imageInBattle;
     public string unitName;
     public string town;
     public float lvl;
