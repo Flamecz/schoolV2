@@ -21,6 +21,7 @@ public class Unit :ScriptableObject
     public Movementtype movetype;
     public attackType ATKT;
     public int Shots;
+    public bool stackable;
     public Unit(string unitName, string town, float lvl, float damage, int Defence,
                 int minDamage, int maxDamage, float health, float speed, int growth,
                 int aIvalue,int cost, Movementtype movetype, attackType ATKT)
@@ -89,4 +90,5 @@ public class Unit :ScriptableObject
         float reducedDamage = attack;
         return Mathf.Max(0, reducedDamage);
     }
+
 }

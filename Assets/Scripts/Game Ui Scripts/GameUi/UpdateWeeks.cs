@@ -10,6 +10,10 @@ public class UpdateWeeks : MonoBehaviour
 
     public Text weekText; // UI Text to display the current week
 
+    private void Start()
+    {
+        UpdateWeekDisplay();
+    }
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space))

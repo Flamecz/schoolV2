@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class UiUpdate : MonoBehaviour
 {
     public GameObject canvas;
-    private Text Resource1, Resource2, Resource3, Resource4,Resource5,Resource6,Resource7;
+    private Text Resource1, Resource2, Resource3, Resource4, Resource5, Resource6, Resource7;
     public ResourceManager RM;
     private void Start()
     {

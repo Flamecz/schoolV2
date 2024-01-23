@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Smurf
   - stop
+  - hrad
   layers:
   - Default
   - TransparentFX

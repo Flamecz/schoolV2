@@ -9,9 +9,10 @@ public class SliderUpdate : MonoBehaviour
     private Button Left, Right;
     private int WoodCost, IronCost, StoneCost, SulfurCost, MineralsCost, GemsCost, GoldCost;
     private int index1, index2;
-    
+
     void Start()
     {
+
         slider = gameObject.transform.Find("Slider").GetComponent<Slider>();
         Left = gameObject.transform.Find("LeftButton").GetComponent<Button>();
         Right = gameObject.transform.Find("RightButton").GetComponent<Button>();
@@ -36,7 +37,7 @@ public class SliderUpdate : MonoBehaviour
     }
     public void SetIndex1(int Inx1)
     {
-        if(Inx1 != null)
+        if (Inx1 != null)
         {
             index1 = Inx1;
         }
@@ -51,10 +52,10 @@ public class SliderUpdate : MonoBehaviour
 
     private void BuyableAmount()
     {
-        switch(index1)
+        switch (index1)
         {
             case 0:
-                switch(index2)
+                switch (index2)
                 {
                     case 0:
                         slider.maxValue = 0;

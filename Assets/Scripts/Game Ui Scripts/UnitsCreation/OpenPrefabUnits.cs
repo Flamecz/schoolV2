@@ -77,7 +77,7 @@ public class OpenPrefabUnits : MonoBehaviour
         float howManyToRecrute = resourceManger.Gold / unit2.cost;
 
     }
-    void CalculateUnits(Unit unit)
+    public void CalculateUnits(Unit unit)
     {
         int numberOfUnits = resourceManger.Gold / unit.cost;
 

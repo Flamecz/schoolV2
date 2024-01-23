@@ -12,6 +12,7 @@ public class MainCanvasControler : MonoBehaviour
     public GameObject BUildingsUI;
     public GameObject Fortress;
     public GameObject MarketPlace;
+    public GameObject inventory;
 
 
     private void Start()
@@ -31,12 +32,13 @@ public class MainCanvasControler : MonoBehaviour
     {
         OpenButton.gameObject.SetActive(false);
         BUildingsUI.SetActive(true);
-
+        inventory.SetActive(false);
     }
     public void CloseBuildingUI()
     {
         OpenButton.gameObject.SetActive(true);
         BUildingsUI.SetActive(false);
+        inventory.SetActive(true);
     }
     public void CloseCityView()
     {
@@ -49,12 +51,14 @@ public class MainCanvasControler : MonoBehaviour
         OpenButton.gameObject.SetActive(true);
         BUildingsUI.SetActive(false);
         Fortress.gameObject.SetActive(true);
+        inventory.SetActive(false);
     }
     public void CloseFortressView()
     {
         OpenButton.gameObject.SetActive(true);
         BUildingsUI.SetActive(false);
         Fortress.gameObject.SetActive(false);
+        inventory.SetActive(true);
     }
     public void OpenMarketPlace()
     {
@@ -62,6 +66,7 @@ public class MainCanvasControler : MonoBehaviour
         BUildingsUI.SetActive(false);
         Fortress.gameObject.SetActive(false);
         MarketPlace.gameObject.SetActive(true);
+        inventory.SetActive(false);
     }
     public void CloseMarketPlace()
     {
@@ -69,6 +74,7 @@ public class MainCanvasControler : MonoBehaviour
         BUildingsUI.SetActive(false);
         Fortress.gameObject.SetActive(false);
         MarketPlace.gameObject.SetActive(false);
+        inventory.SetActive(true);
     }
     public void CloseAllScreens()
     {
@@ -76,6 +82,7 @@ public class MainCanvasControler : MonoBehaviour
         BUildingsUI.gameObject.SetActive(false);
         Fortress.gameObject.SetActive(false);
         MarketPlace.gameObject.SetActive(false);
+        inventory.SetActive(true);
     }
     public void ExitCity()
     {
@@ -83,4 +90,7 @@ public class MainCanvasControler : MonoBehaviour
         SceneManager.LoadScene(0);
         FindObjectOfType<AudioManager>().Stop("undeadCityTheme");
     }
+
+    // TY ZKURVENEJ ZMRDE NEČUM PÍČO
+    // NĚMEC MÁ MALÝ PÉRO PROTOŽE JE NASYPANEJ
 }

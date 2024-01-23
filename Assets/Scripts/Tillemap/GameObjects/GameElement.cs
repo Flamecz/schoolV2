@@ -5,9 +5,9 @@ public class GameElement : MonoBehaviour
     private int x;
     private int y;
     public int stamina = 1000; // Stamina variable
-
     private void Update()
     {
+        FindObjectOfType<CameraController>().playerTransform = gameObject.GetComponent<Transform>();
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -17,7 +17,7 @@ public class GameElement : MonoBehaviour
             {
                 GameObject tile = hit.collider.gameObject;
                 Vector3Int targetTilePosition = grid.GetTilePosition(tile);
-                int distance = CalculateDistance(targetTilePosition);
+                int distance = CalculateDistance(targetTilePosition);   
 
                 if (distance <= stamina)
                 {
@@ -37,7 +37,7 @@ public class GameElement : MonoBehaviour
 
     private void MoveToTile()
     {
-        Vector3 newPosition = grid.CellToWorld(new Vector3Int(x - 1, y -1, 0)) + new Vector3(grid.cellSizeModifier / 2, grid.cellSizeModifier / 2, 0);
+        Vector3 newPosition = grid.CellToWorld(new Vector3Int(x, y, 0)) + new Vector3(grid.cellSizeModifier / 2, grid.cellSizeModifier / 2, 0);
         transform.position = newPosition;
     }
 

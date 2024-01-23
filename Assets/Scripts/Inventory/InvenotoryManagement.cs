@@ -1,20 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class InvenotoryManagement : MonoBehaviour
+public class InvenotoryManagement : MonoBehaviour, IPointerClickHandler
 {
+    public Unit unit;
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
-//    public DataHolder dataHolder;
+    //    public DataHolder dataHolder;
 
-    public bool AddItem(Item item)
+    private void Update()
     {
-        for(int i = 0; i < inventorySlots.Length;i++)
+        if (Input.GetKeyDown(KeyCode.L))
+            AddItem(unit);
+    }
+    public bool AddItem(Unit item)
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem ItemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            if(ItemInSlot == null)
+            if (ItemInSlot != null &&
+                ItemInSlot.item == item &&
+                ItemInSlot.count < 9999 &&
+                ItemInSlot.item.stackable == true)
+            {
+                ItemInSlot.count++;
+                ItemInSlot.RefreshCount();
+                return true;
+            }
+        }
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            InventorySlot slot = inventorySlots[i];
+            InventoryItem ItemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (ItemInSlot == null)
             {
                 SpawnNewItem(item, slot);
                 return true;
@@ -22,37 +43,18 @@ public class InvenotoryManagement : MonoBehaviour
         }
         return false;
     }
-    void SpawnNewItem(Item item, InventorySlot slot)
+    void SpawnNewItem(Unit item, InventorySlot slot)
     {
         GameObject NewItemGo = Instantiate(inventoryItemPrefab, slot.transform);
         InventoryItem InventoryItem = NewItemGo.GetComponent<InventoryItem>();
-//       InventoryItem.InitialiseItem(item);
+        InventoryItem.InitialiseItem(item);
     }
-    /*
-public void CreateObjectInHand(Item item, Transform holdingObject)
-{
-    GameObject instance = Instantiate(item.instance, holdingObject.transform);
-//       FindObjectOfType<PickUpScript>().PickUpObject(instance);
-
-}
-public void CreateItemInWorld(Item item , Transform position)
-{
-    Instantiate(item.instance, position);
-}
-
-public void SellItems()
-{
-    for (int i = 0; i < inventorySlots.Length; i++)
+    void SplitItem()
     {
-        InventorySlot slot = inventorySlots[i];
-        InventoryItem ItemInSlot = slot.GetComponentInChildren<InventoryItem>();
-        if (ItemInSlot != null)
-        {
-           dataHolder.scrap += ItemInSlot.item.price;
-            Destroy(ItemInSlot.gameObject);
-        Debug.Log(dataHolder.scrap);
-        }
+
     }
-}
-*/
+    public void OnPointerClick(PointerEventData pointerEventData)
+    {
+        Debug.Log("yeppe");  
+    }
 }
