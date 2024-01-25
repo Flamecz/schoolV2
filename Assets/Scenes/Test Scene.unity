@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 900381803}
   - component: {fileID: 900381802}
   - component: {fileID: 900381806}
-  - component: {fileID: 900381807}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -185,8 +184,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -211,7 +210,7 @@ Transform:
   m_GameObject: {fileID: 900381801}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.1, y: 12.62, z: 6.4}
+  m_LocalPosition: {x: -25.1, y: 43.3, z: -85.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -244,20 +243,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &900381807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900381801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2d9c481b11d9400ea40f25979d95e74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTransform: {fileID: 3312365118357065912, guid: 88e9b60242d574219a7645b285afc7a7, type: 3}
-  offset: {x: 0, y: 0, z: -4}
 --- !u!1 &1190857196
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +346,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1529426509}
-  - component: {fileID: 1529426508}
+  - component: {fileID: 1529426510}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -369,22 +354,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1529426508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1529426507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8576d293bd091e64aa057b3e951af0fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  width: 100
-  height: 100
-  tilePrefab: {fileID: 6917611123126517996, guid: 32b0bd4e1d54b47c78f9a543430e4846, type: 3}
-  cellSizeModifier: 0.5
 --- !u!4 &1529426509
 Transform:
   m_ObjectHideFlags: 0
@@ -400,6 +369,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1529426510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529426507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cde6b0c871f2f84bbbe9e9a02601b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1735443694
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,11 +425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62417e5dadeeb434cb580d1218ce05b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameElementPrefab: {fileID: 4718028766631302211, guid: 88e9b60242d574219a7645b285afc7a7, type: 3}
-  grid: {fileID: 1529426508}
-  playerData:
-    position: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1815318299
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,13 +454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ba4da7ff3844ed08527019f53c2a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridObjects:
-  - id: 1
-    prefab: {fileID: 1204584055381051613, guid: b4967971162f04be1a5c90d241cbf775, type: 3}
-  spawnObjectIds: 01000000
-  spawnTilePositions:
-  - {x: 5, y: 10}
-  grid: {fileID: 1529426508}
 --- !u!4 &1815318301
 Transform:
   m_ObjectHideFlags: 0

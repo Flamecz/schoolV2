@@ -1,101 +1,100 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Grid : MonoBehaviour
+public class Grid 
 {
     public int width = 10;
     public int height = 10;
-    public GameObject tilePrefab;
-    public float cellSizeModifier = 1f;
-    private GameObject[,] gridArray;
+    private float cellSize;
+    private int[,] gridArray;
+    private TextMesh[,] debugTextArray;
 
-    void Start()
+    public Grid(int width, int height, float cellSize)
     {
-        gridArray = new GameObject[width, height];
-
-        for (int x = 0; x < width; x++)
-        {
-            for (int y = 0; y < height; y++)
+        this.width = width;
+        this.height = height;
+        this.cellSize = cellSize;
+        gridArray = new int[width, height];
+        debugTextArray = new TextMesh[width, height];
+        for(int x = 0;x< gridArray.GetLength(0); x++){
+            for(int y = 0; y< gridArray.GetLength(1); y++)
             {
-                GameObject tile = Instantiate(tilePrefab, CellToWorld(new Vector3Int(x, y, 0)), Quaternion.identity);
-                tile.transform.parent = transform;
-                gridArray[x, y] = tile;
+                debugTextArray[x,y] = CreateWorldText(gridArray[x, y].ToString(), null, GetWorldPosition(x, y) + new Vector3(cellSize,cellSize)* 0.5f, 20, Color.white, TextAnchor.MiddleCenter);
+                Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 100f);
+                Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white, 100f);
             }
         }
+        Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.white, 100f);
+        Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white, 100f);
+
+        SetValue(1, 1, 4);
     }
 
-    void Update()
+    public void SetValue(int x , int y , int value)
     {
-        if (Input.GetMouseButton(0))
+        if(x >= 0 && y >= 0 && x< width && y < height)
         {
-            // Handle continuous input for movement
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-
-            if (hit.collider != null)
-            {
-                Debug.Log("yep");
-                GameObject hitObject = hit.collider.gameObject;
-                if (hitObject.CompareTag("hrad"))
-                {
-                    Debug.Log("Done");
-                    SceneManager.LoadScene(1);
-                }
-                else
-                {
-                    Debug.Log("sup");
-                    GameObject tile = hit.collider.gameObject;
-                    Vector3Int tilePosition = GetTilePosition(hitObject);
-                    MovePlayerToTileCenter(tilePosition);
-                }
-
-            }
+            gridArray[x, y] = value;
+            debugTextArray[x, y].text = gridArray[x, y].ToString();
         }
     }
-
-
-    public Vector3 CellToWorld(Vector3 cellPosition)
+    public void SetValue(Vector3 worldPosition, int value)
     {
-        return new Vector3(cellPosition.x * cellSizeModifier + cellSizeModifier / 2, cellPosition.y * cellSizeModifier + cellSizeModifier / 2, 0);
+        int x, y;
+        GetXY(worldPosition,out x, out y);
+        SetValue(x, y, value);
     }
 
-
-    public Vector3Int GetTilePosition(GameObject tile)
+    public int GetValue(int x , int y)
     {
-        for (int x = 0; x < width; x++)
+        if (x >= 0 && y >= 0 && x < width && y < height)
         {
-            for (int y = 0; y < height; y++)
-            {
-                if (gridArray[x, y] == tile)
-                {
-                    return new Vector3Int(x, y, 0);
-                }
-            }
-        }
-
-        return new Vector3Int(0, 0, 0);
-    }
-
-    private void MoveGameElement(Vector3Int tilePosition)
-    {
-        GameObject gameElement = transform.GetChild(0).gameObject;
-        if (gameElement != null)
+            return gridArray[x, y];
+        }else
         {
-            gameElement.transform.position = CellToWorld(tilePosition);
+            return 0;
         }
     }
-    private void MovePlayerToTileCenter(Vector3Int tilePosition)
+    public int GetValue(Vector3 worldPosition)
     {
-        GameObject player = transform.GetChild(0).gameObject;
-        if (player != null)
-        {
-            Vector3 targetPosition = CellToWorld(tilePosition);
-            Debug.Log("Moving to: " + targetPosition);
-
-            // Snap the player to the center of the clicked tile
-            player.transform.position = new Vector3(targetPosition.x, targetPosition.y, player.transform.position.z);
-
-            Debug.Log("Player position after movement: " + player.transform.position);
-        }
+        int x, y;
+        GetXY(worldPosition, out x, out y);
+        return GetValue(x, y);
     }
 
+    private Vector3 GetWorldPosition(int x , int y)
+    {
+        return new Vector3(x, y) * cellSize;
+    }
+
+    private void GetXY(Vector3 worldPosition,out int x, out int y)
+    {
+        x = Mathf.FloorToInt(worldPosition.x / cellSize);
+        y = Mathf.FloorToInt(worldPosition.y / cellSize);
+    }
+
+
+
+
+
+
+    public static TextMesh CreateWorldText(string text, Transform parent = null, Vector3 localPosition = default(Vector3), int fontSize = 40, Color? color = null, TextAnchor textAnchor = TextAnchor.UpperLeft, TextAlignment textAlignment = TextAlignment.Left, int sortingOrder = 5000)
+    {
+        if (color == null) color = Color.white;
+        return CreateWorldText(parent, text, localPosition, fontSize, (Color)color, textAnchor, textAlignment, sortingOrder);
+    }
+    public static TextMesh CreateWorldText(Transform parent, string text, Vector3 localPosition, int fontSize, Color color, TextAnchor textAnchor, TextAlignment textAlignment, int sortingOrder)
+    {
+        GameObject gameObject = new GameObject("World_Text", typeof(TextMesh));
+        Transform transform = gameObject.transform;
+        transform.SetParent(parent, false);
+        transform.localPosition = localPosition;
+        TextMesh textMesh = gameObject.GetComponent<TextMesh>();
+        textMesh.anchor = textAnchor;
+        textMesh.alignment = textAlignment;
+        textMesh.text = text;
+        textMesh.fontSize = fontSize;
+        textMesh.color = color;
+        textMesh.GetComponent<MeshRenderer>().sortingOrder = sortingOrder;
+        return textMesh;
+    }
 }
