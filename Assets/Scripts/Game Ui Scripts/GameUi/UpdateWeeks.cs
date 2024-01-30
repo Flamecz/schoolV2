@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class UpdateWeeks : MonoBehaviour
 {
     private int daysPassed = 0;
-    private int currentWeek = 1;
+    [HideInInspector]private int currentWeek = 1;
+    public GrowthManager[] growthManagers;
 
     public Text weekText; // UI Text to display the current week
 
@@ -21,17 +22,19 @@ public class UpdateWeeks : MonoBehaviour
             OnButtonClick();
         }
     }
-    // Function to call when the button is clicked
     public void OnButtonClick()
     {
-        daysPassed++; // Advance one day
-        if (daysPassed >= 7) // A week has passed
+        daysPassed++; 
+        if (daysPassed >= 7)
         {
-            currentWeek++; // Advance to the next week
-            daysPassed = 0; // Reset the days passed
+            for(int i = 0; i< growthManagers.Length; i++)
+            {
+                growthManagers[i].AddAditionalGrowth();
+            }
+            currentWeek++;
+            daysPassed = 0; 
         }
-
-        UpdateWeekDisplay(); // Update the UI to show the current week
+        UpdateWeekDisplay();
     }
 
     // Updates the week display text

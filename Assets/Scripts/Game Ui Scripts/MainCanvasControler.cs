@@ -14,6 +14,7 @@ public class MainCanvasControler : MonoBehaviour
     public GameObject MarketPlace;
     public GameObject inventory;
 
+    private float loadingTime = 0.5f;
 
     private void Start()
     {
@@ -84,6 +85,14 @@ public class MainCanvasControler : MonoBehaviour
         MarketPlace.gameObject.SetActive(false);
         inventory.SetActive(true);
     }
+    public void OpenAllScreens()
+    {
+        OpenButton.gameObject.SetActive(true);
+        BUildingsUI.gameObject.SetActive(true);
+        Fortress.gameObject.SetActive(true);
+        MarketPlace.gameObject.SetActive(true);
+        inventory.SetActive(true);
+    }
     public void ExitCity()
     {
         FindObjectOfType<AudioManager>().Play("mainTheme");
@@ -91,6 +100,19 @@ public class MainCanvasControler : MonoBehaviour
         FindObjectOfType<AudioManager>().Stop("undeadCityTheme");
     }
 
-    // TY ZKURVENEJ ZMRDE NEČUM PÍČO
-    // NĚMEC MÁ MALÝ PÉRO PROTOŽE JE NASYPANEJ
+    IEnumerator LoadAndCloseScenes()
+    {
+        // Loop through all scenes in the build settings
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            // Load the scene by index
+            SceneManager.LoadScene(i, LoadSceneMode.Additive);
+
+            // Wait for the specified loading time
+            yield return new WaitForSeconds(loadingTime);
+
+            // Close the loaded scene
+            SceneManager.UnloadSceneAsync(i);
+        }
+    }
 }

@@ -14,7 +14,7 @@ public class Grid
         this.width = width;
         this.height = height;
         this.cellSize = cellSize;
-        this.originPosition = originPosition
+        this.originPosition = originPosition;
 
         gridArray = new int[width, height];
         debugTextArray = new TextMesh[width, height];

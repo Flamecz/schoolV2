@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DisplayStatsOfUnits : MonoBehaviour
 {
     public Unit ut;
+    public GrowthManager gM;
     public LibraryOfBuildings LoB;
     public string nameOfTrueBuilding;
     public GameObject Canvas;
@@ -91,7 +92,7 @@ public class DisplayStatsOfUnits : MonoBehaviour
         UnitName.text = ut.unitName;
         //BuildingSprite.sprite = 
         BuildingName.text = nameOfTrueBuilding;
-        UnitsAvaible.text = "Available : " +  ut.growth.ToString();
+        UnitsAvaible.text = "Available : " + gM.currentBuyableUnits.ToString();
         //Image Data
         UnitSprite.sprite = ut.sprite;
         //UnitSprite.sprite = ut.sprite;

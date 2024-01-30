@@ -8,6 +8,7 @@ public class OpenPrefabUnits : MonoBehaviour
     public GameObject buyUnitprefab;
     public GameObject parent;
     public ResourceManager resourceManger;
+    public Unit unit1, unit2;
     //Parametrs of Prefab
     private Text recruteText;
     private Image unitImage1, unitImage2;
@@ -19,10 +20,14 @@ public class OpenPrefabUnits : MonoBehaviour
     private Button somethingButton, buyUnitsButton, cancelButton;
 
     private bool leftSelected;
+    private GameObject Instance;
     void Start()
     {
-        Instantiate(buyUnitprefab, parent.transform);
-        GetData();
+        var button = gameObject.GetComponent<Button>();
+        if (button != null)
+        {
+            button.onClick.AddListener(CreatePopUp);
+        }
     }
 
     public void GetData()
@@ -36,16 +41,19 @@ public class OpenPrefabUnits : MonoBehaviour
 
 
         costForOne = image.Find("CostPerTroope").Find("Frame").Find("Cost").Find("Text").GetComponent<Text>();
-        costForOne = image.Find("CostForAll").Find("Frame").Find("Cost").Find("Text").GetComponent<Text>();
+        costForAll = image.Find("CostForAll").Find("Frame").Find("Cost").Find("Text").GetComponent<Text>();
         availableRecrutes = image.Find("AvaibleToRecruteUnits").Find("Amount").GetComponent<Text>();
         recrutableRecrutes = image.Find("RecruteToRecruteUnits").Find("Amount").GetComponent<Text>();
         slider = image.Find("Slider").GetComponent<Slider>();
         somethingButton = image.Find("SomethingButton").GetComponent<Button>();
         buyUnitsButton = image.Find("BuyUnitsButton").GetComponent<Button>();
-        cancelButton = image.Find("CancelButton").GetComponent<Button>();
+        Transform cancel = image.Find("CancelButton");
+        cancelButton = cancel.GetComponent<Button>();
+        cancelButton.onClick.AddListener(DemolishPopUp);
     }
     public void SetDataWithUpgradedBuilding(Unit unit1, Unit unit2)
     {
+        GetData();
         recruteText.text = "Recrute " + unit1.unitName;
         unitImage1.sprite = unit1.imageInBattle;
         unitImage2.sprite = unit2.imageInBattle;
@@ -62,10 +70,10 @@ public class OpenPrefabUnits : MonoBehaviour
             float moneyCost = slider.value * unit2.cost;
             costForAll.text = moneyCost.ToString();
         }
-
     }
-    public void SetDataWithoutUpgradedBuilding(Unit unit1, Unit unit2)
+    public void SetDataWithoutUpgradedBuilding()
     {
+        GetData();
         recruteText.text = "Recrute " + unit2.unitName;
         unitImage1.sprite = unit1.imageInBattle;
         unitImage2.sprite = unit2.imageInBattle;
@@ -73,28 +81,16 @@ public class OpenPrefabUnits : MonoBehaviour
         costForOne.text = unit2.cost.ToString();
         float moneyCost = slider.value * unit2.cost;
         costForAll.text = moneyCost.ToString();
-
-        float howManyToRecrute = resourceManger.Gold / unit2.cost;
-
     }
-    public void CalculateUnits(Unit unit)
+    public void CreatePopUp()
     {
-        int numberOfUnits = resourceManger.Gold / unit.cost;
-
-        // Ensure we have enough gold to buy at least one unit
-        if (numberOfUnits > 0)
-        {
-            int totalCost = numberOfUnits * unit.cost;
-            Debug.Log("Number of Units you can buy: " + numberOfUnits);
-            Debug.Log("Total Cost: " + totalCost + " gold");
-
-            // Deduct the cost from available gold
-            resourceManger.Gold  -= totalCost;
-            Debug.Log("Remaining Gold: " + resourceManger.Gold + " gold");
-        }
-        else
-        {
-            Debug.Log("Not enough gold to buy any units.");
-        }
+        parent.gameObject.SetActive(true);
+        Instance = Instantiate(buyUnitprefab, parent.transform);
+        SetDataWithoutUpgradedBuilding();
+    }
+    public void DemolishPopUp()
+    {
+        Debug.Log("happended");
+        Destroy(Instance);
     }
 }

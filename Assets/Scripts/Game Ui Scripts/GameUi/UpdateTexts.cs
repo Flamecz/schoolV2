@@ -54,7 +54,7 @@ public class UpdateTexts : MonoBehaviour
 
         ResourceImage3 = Object.transform.Find("Resource3").GetComponent<Image>();
         ResourceText3 = Object.transform.Find("Resource3/Amount").GetComponent<Text>();
-         
+
         ResourceImage4 = Object.transform.Find("Resource4").GetComponent<Image>();
         ResourceText4 = Object.transform.Find("Resource4/Amount").GetComponent<Text>();
 
@@ -77,7 +77,7 @@ public class UpdateTexts : MonoBehaviour
     }
     public void SetRightSide()
     {
-        if(WoodCost != 0)
+        if (WoodCost != 0)
         {
             ResourceText.text = WoodCost.ToString() + "/1";
         }
@@ -112,14 +112,14 @@ public class UpdateTexts : MonoBehaviour
             ResourceText6.text = GoldCost.ToString() + "/1";
         }
         else { ResourceText6.text = "-"; }
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
     }
-    public void Debugger(int Wood, int Stone, int Iron, int Sulfur, int Minerals, int Gems, int Gold )
+    public void Debugger(int Wood, int Stone, int Iron, int Sulfur, int Minerals, int Gems, int Gold)
     {
         WoodCost = Wood;
         StoneCost = Stone;
