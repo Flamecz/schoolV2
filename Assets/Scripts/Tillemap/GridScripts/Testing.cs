@@ -4,17 +4,17 @@ using UnityEngine;
 using CodeMonkey.Utils;
 
 public class Testing : MonoBehaviour {
-    private Grid grid;
+    private Grid<bool> grid;
 
     private void Start()
     {
-        grid = new Grid(5,10,5f, new Vector3(15,5));
+        grid = new Grid<bool>(5,10,5f, new Vector3(0,0));
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            grid.SetValue(GetMouseWorldPosition(), 40);
+            grid.SetValue(GetMouseWorldPosition(),true);
         }
         if(Input.GetKeyDown(KeyCode.Mouse1))
         {
