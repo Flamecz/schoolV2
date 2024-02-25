@@ -1,27 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CodeMonkey.Utils;
-
 public class Testing : MonoBehaviour {
-    private Grid<bool> grid;
+    [SerializeField] private PathDebug pathDebug;
+    [SerializeField] private PathVisual pathVisual;
+    //[SerializeField] private CharacterPathfindingMovementHandler characterPathfinding;
+    private PathFinding pathfinding;
 
     private void Start()
     {
-        grid = new Grid<bool>(5,10,5f, new Vector3(0,0));
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            grid.SetValue(GetMouseWorldPosition(),true);
-        }
-        if(Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            Debug.Log(grid.GetValue(GetMouseWorldPosition()));
-        }
+        pathfinding = new PathFinding(20, 10);
+        pathDebug.Setup(pathfinding.GetGrid());
+        pathVisual.SetGrid(pathfinding.GetGrid());
     }
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mouseWorldPosition = GetMouseWorldPosition();
+            pathfinding.GetGrid().GetXY(mouseWorldPosition, out int x, out int y);
+            List<PathNode> path = pathfinding.FindPath(0, 0, x, y);
+            if (path != null)
+            {
+                for (int i = 0; i < path.Count - 1; i++)
+                {
+                    Debug.DrawLine(new Vector3(path[i].x, path[i].y) * 10f + Vector3.one * 5f, new Vector3(path[i + 1].x, path[i + 1].y) * 10f + Vector3.one * 5f, Color.green, 5f);
+                }
+            }
+          //  characterPathfinding.SetTargetPosition(mouseWorldPosition);
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Vector3 mouseWorldPosition = GetMouseWorldPosition();
+            pathfinding.GetGrid().GetXY(mouseWorldPosition, out int x, out int y);
+            pathfinding.GetNode(x, y).SetIsWalkable(!pathfinding.GetNode(x, y).isWalkable);
+        }
+    }
     public static Vector3 GetMouseWorldPosition()
     {
         Vector3 vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
