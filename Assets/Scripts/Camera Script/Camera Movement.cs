@@ -56,12 +56,6 @@ public class CameraMovement : MonoBehaviour
                     transform.position = newPosition;
                 }
             }
-        }
-    }
-    private void FixedUpdate()
-    {
-        if (!Paused)
-        {
             if (Input.mousePosition.x > HoverAreaRightX)
             {
                 rb.AddForce(transform.right * sensitivity);
@@ -80,6 +74,8 @@ public class CameraMovement : MonoBehaviour
             }
         }
     }
+
+
     public void PausedGame(bool ON_OFF)
     {
         Paused = ON_OFF;
