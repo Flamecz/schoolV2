@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class BuildButton : MonoBehaviour
 {
     public BuildData buildData;
-    public LibraryOfBuildings LoB;
+    public CityBuldings cityBuldings;
 
     [Header("Important Resources")]
     public ResourceManager resourceManager; // reference to the ResourceManager script
@@ -34,8 +34,6 @@ public class BuildButton : MonoBehaviour
     private Transform MainScreenParrent;
     private Transform PopUpParrent;
     private Button Checker;
-    private bool BuildingCHeck1;
-    private bool BuildingCHeck2;
     private void Start()
     {
         // Add a click listener to the button
@@ -48,6 +46,12 @@ public class BuildButton : MonoBehaviour
 
         NameOfTheButton.text = buildData.nazev;
         Image.sprite = buildData.Obrazek;
+
+
+        if(cityBuldings.builded)
+        {
+            BuildObjectFromData();
+        }
 
     }
     private void HandleClick()
@@ -67,34 +71,11 @@ public class BuildButton : MonoBehaviour
     private void Update()
     {
         CheckStatus();
-        BuildingCheck();
-    }
-    public bool AreRequiredBuildingsBuilt(BuildData buildData)
-    {
-        bool isBuildingNeeded1Built = LoB.IsBuildingBuilt(buildData.BuildingNeeded1);
-        bool isBuildingNeeded2Built = LoB.IsBuildingBuilt(buildData.BuildingNeeded2);
-
-        return isBuildingNeeded1Built && isBuildingNeeded2Built;
     }
 
-    public void BuildingCheck()
-    {
-        if(LoB.IsBuildingBuilt(buildData.CompareTag) == true)
-        {
-           
-        }
-        if(LoB.IsBuildingBuilt(buildData.BuildingNeeded1))
-        {
-            BuildingCHeck1 = true;
-        }
-        if(LoB.IsBuildingBuilt(buildData.BuildingNeeded2))
-        {
-            BuildingCHeck2 = true;
-        }
-    }
     public void CreatePopUp()
     {
-        if (!Builded)
+        if (!cityBuldings.builded)
         {
                 if (resourceManager.Wood >= woodCost &&
                 resourceManager.Iron >= ironCost &&
@@ -159,15 +140,15 @@ public class BuildButton : MonoBehaviour
                     CreateBuildedPopUp();
                 }  
         }
-        else if (Builded)
+        else if (cityBuldings.builded)
         {
-            CreateBuildedPopUp();
+            CreateInfoPopUp();
         }
 
     }
     public void CheckStatus()
     {
-        if (!Builded)
+        if (!cityBuldings.builded)
         {
 
                 if (resourceManager.Wood >= woodCost &&
@@ -175,8 +156,14 @@ public class BuildButton : MonoBehaviour
                     resourceManager.Minerals >= mineralsCost &&
                     resourceManager.Stone >= stoneCost)
                 {
-
-                    colorImageOfButton.color = new Color32(255, 205, 114, 255);
+                    if (cityBuldings.Done())
+                    {
+                        colorImageOfButton.color = new Color32(255, 205, 114, 255);
+                    }
+                    else
+                    {
+                    colorImageOfButton.color = new Color32(255, 0, 0, 255);
+                }
                 }
                 else
                 {
@@ -190,7 +177,7 @@ public class BuildButton : MonoBehaviour
 
             colorImageOfButton.color = new Color32(70, 230, 70, 255);
 
-            LoB.UpdateObject(LoB.GetIndex(buildData.CompareTag), buildData.CompareTag, true);
+            cityBuldings.builded = true;
         }
         
   
@@ -215,13 +202,19 @@ public class BuildButton : MonoBehaviour
     public void BuildObject()
     {
         Instantiate(objectToBuild, new Vector3(Position.position.x, Position.position.y, Position.position.z), Quaternion.identity, MainScreenParrent.transform);
-        Builded = true;
+        cityBuldings.builded = true;
         SaveManager saveManager = new SaveManager();
         saveManager.Save(new ResourceData { Builded = Builded });
         FindObjectOfType<MainCanvasControler>().CloseBuildingUI();
-        LoB.PrintList();
         CostOfBuilding();
         DestroyPopUp();
+    }
+    public void BuildObjectFromData()
+    {
+        Instantiate(objectToBuild, new Vector3(Position.position.x, Position.position.y, Position.position.z), Quaternion.identity, MainScreenParrent.transform);
+        cityBuldings.builded = true;
+        SaveManager saveManager = new SaveManager();
+        saveManager.Save(new ResourceData { Builded = Builded });
     }
 
     public void DestroyPopUp()
@@ -305,15 +298,43 @@ public class BuildButton : MonoBehaviour
         //Adding Required Buildings
         Transform GetTextBuildings = popUpWindow.transform.Find("BuildingsRequared");
         Text BuildingText = GetTextBuildings.GetComponent<Text>();
-        StringBuilder sb1 = new StringBuilder();
-        if(LoB.IsBuildingBuilt(buildData.BuildingNeeded1) == false)
+        if(cityBuldings.required != null)
         {
-            sb1.Append(buildData.BuildingNeeded1 + " ");
+
         }
-        if (LoB.IsBuildingBuilt(buildData.BuildingNeeded2) == false)
-        {
-            sb1.Append(buildData.BuildingNeeded2);
-        }
-        BuildingText.text = sb1.ToString(); 
+    }
+    private void CreateInfoPopUp()
+    {
+        popUpWindow = Instantiate(PopUpWindow, PopUpParrent.transform);
+        RectTransform rectTransform = popUpWindow.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = Vector2.zero;
+
+        //Working with children of the object and adding listeners
+
+        Transform acceptButtonTransform = popUpWindow.transform.Find("BuyButton");
+        Button acceptButton = acceptButtonTransform.GetComponent<Button>();
+        acceptButton.gameObject.SetActive(false);
+        Transform CancelButtonTransform = popUpWindow.transform.Find("CanceledButton");
+        Button CancelButton = CancelButtonTransform.GetComponent<Button>();
+        CancelButton.onClick.AddListener(DestroyPopUp);
+
+        //Adding text in Popup;
+
+        Transform NameObjectTransform = popUpWindow.transform.Find("NameOfBuildingInPopUp");
+        Text TextNameOfOBject = NameObjectTransform.GetComponent<Text>();
+        TextNameOfOBject.text = buildData.nazev;
+
+        Transform DescriptionObjectTransform = popUpWindow.transform.Find("DescriptionOfBuildingInPopUp");
+        Text TextDescriptionOfOBject = DescriptionObjectTransform.GetComponent<Text>();
+        TextDescriptionOfOBject.text = buildData.popis;
+
+        //Adding Sprite to the object
+        Transform SpriteImageTransform = popUpWindow.transform.Find("SpriteOfTheBuildingInPopUp");
+        Image Image = SpriteImageTransform.GetComponent<Image>();
+        Image.GetComponent<Image>().sprite = buildData.Obrazek;
+
+        Transform GetTextResources = popUpWindow.transform.Find("ResourseText");
+        Text ResourcesText = GetTextResources.GetComponent<Text>();
+        ResourcesText.text = "";
     }
 }

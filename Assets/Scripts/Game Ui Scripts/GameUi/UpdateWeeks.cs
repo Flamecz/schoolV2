@@ -35,6 +35,7 @@ public class UpdateWeeks : MonoBehaviour
             daysPassed = 0; 
         }
         UpdateWeekDisplay();
+        FindFirstObjectByType<Townhall>().income(); 
     }
 
     // Updates the week display text

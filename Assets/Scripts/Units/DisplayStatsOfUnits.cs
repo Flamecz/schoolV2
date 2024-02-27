@@ -7,7 +7,6 @@ public class DisplayStatsOfUnits : MonoBehaviour
 {
     public Unit ut;
     public GrowthManager gM;
-    public LibraryOfBuildings LoB;
     public string nameOfTrueBuilding;
     public GameObject Canvas;
 

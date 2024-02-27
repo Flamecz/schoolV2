@@ -10,6 +10,4 @@ public class BuildData
     public string popis;
 
     public string CompareTag;
-    public string BuildingNeeded1 = null;
-    public string BuildingNeeded2 = null;
 }

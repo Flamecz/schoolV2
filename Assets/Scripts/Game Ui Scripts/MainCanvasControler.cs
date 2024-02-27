@@ -20,6 +20,7 @@ public class MainCanvasControler : MonoBehaviour
     {
         OpenButton.onClick.AddListener(OpenBuildingUI);
         ExitCityButton.onClick.AddListener(CloseAllScreens);
+        StartOpenAndCloseUISequence();
     }
     private void Update()
     {
@@ -100,19 +101,16 @@ public class MainCanvasControler : MonoBehaviour
         FindObjectOfType<AudioManager>().Stop("undeadCityTheme");
     }
 
-    IEnumerator LoadAndCloseScenes()
+    public void StartOpenAndCloseUISequence()
     {
-        // Loop through all scenes in the build settings
-        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
-        {
-            // Load the scene by index
-            SceneManager.LoadScene(i, LoadSceneMode.Additive);
-
-            // Wait for the specified loading time
-            yield return new WaitForSeconds(loadingTime);
-
-            // Close the loaded scene
-            SceneManager.UnloadSceneAsync(i);
-        }
+        StartCoroutine(OpenAndCloseUI());
     }
+
+    IEnumerator OpenAndCloseUI()
+    {
+        OpenBuildingUI(); // Open the UI
+        yield return null; // Wait for 1 frame (1 tick)
+        CloseBuildingUI(); // Close the UI
+    }
+
 }
