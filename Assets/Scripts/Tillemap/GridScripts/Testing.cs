@@ -4,14 +4,18 @@ using UnityEngine;
 public class Testing : MonoBehaviour {
     [SerializeField] private PathDebug pathDebug;
     [SerializeField] private PathVisual pathVisual;
-    //[SerializeField] private CharacterPathfindingMovementHandler characterPathfinding;
+    [SerializeField] private PlayerMovement characterPathfinding;
     private PathFinding pathfinding;
+
+    private PlayerMovement[] units;
 
     private void Start()
     {
         pathfinding = new PathFinding(20, 10);
         pathDebug.Setup(pathfinding.GetGrid());
         pathVisual.SetGrid(pathfinding.GetGrid());
+
+
     }
 
     private void Update()
@@ -28,7 +32,7 @@ public class Testing : MonoBehaviour {
                     Debug.DrawLine(new Vector3(path[i].x, path[i].y) * 10f + Vector3.one * 5f, new Vector3(path[i + 1].x, path[i + 1].y) * 10f + Vector3.one * 5f, Color.green, 5f);
                 }
             }
-          //  characterPathfinding.SetTargetPosition(mouseWorldPosition);
+            characterPathfinding.SetTargetPosition(mouseWorldPosition);
         }
 
         if (Input.GetMouseButtonDown(1))
