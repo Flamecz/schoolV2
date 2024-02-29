@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Archer
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 009bcd64615c1324ba923d6b44667bd6, type: 3}
-  imageInBattle: {fileID: 0}
+  imageInBattle: {fileID: 21300000, guid: 3a706b6cf99a944cf9960958c77b66b1, type: 3}
   unitName: Archer
   town: Castel
   lvl: 2

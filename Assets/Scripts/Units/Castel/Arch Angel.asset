@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Arch Angel
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
+  imageInBattle: {fileID: 21300000, guid: a0e95e70c241b41b8a6cac65ad10d738, type: 3}
   unitName: Arch Angel
   town: Castel
   lvl: 7.5
@@ -28,3 +29,4 @@ MonoBehaviour:
   movetype: 1
   ATKT: 1
   Shots: 0
+  stackable: 0

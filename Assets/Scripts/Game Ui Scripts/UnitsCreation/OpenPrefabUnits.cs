@@ -21,6 +21,7 @@ public class OpenPrefabUnits : MonoBehaviour
 
     private bool leftSelected;
     private GameObject Instance;
+    public GrowthManager growthManager;
     void Start()
     {
         var button = gameObject.GetComponent<Button>();
@@ -32,12 +33,13 @@ public class OpenPrefabUnits : MonoBehaviour
 
     public void GetData()
     {
-        Transform image = buyUnitprefab.transform.Find("Image");
+        Instance = Instantiate(buyUnitprefab, parent.transform);
+        Transform image = Instance.transform.Find("Image");
         recruteText = image.Find("RecruteText").GetComponent<Text>();
-        unitImage1 = image.Find("UpgradedImage").GetComponent<Image>();
-        unitImage2 = image.Find("NonUpgradedImage").GetComponent<Image>();
-        unitImage1Button = image.Find("UpgradedImage").GetComponent<Button>();
-        unitImage2Button = image.Find("NonUpgradedImage").GetComponent<Button>();
+        unitImage1 = image.Find("UpgradedImageBorder").Find("UpgradedImage").GetComponent<Image>();
+        unitImage2 = image.Find("NonUpgradedImageBorder").Find("NonUpgradedImage").GetComponent<Image>();
+        unitImage1Button = image.Find("UpgradedImageBorder").Find("UpgradedImage").GetComponent<Button>();
+        unitImage2Button = image.Find("NonUpgradedImageBorder").Find("NonUpgradedImage").GetComponent<Button>();
 
 
         costForOne = image.Find("CostPerTroope").Find("Frame").Find("Cost").Find("Text").GetComponent<Text>();
@@ -51,7 +53,7 @@ public class OpenPrefabUnits : MonoBehaviour
         cancelButton = cancel.GetComponent<Button>();
         cancelButton.onClick.AddListener(DemolishPopUp);
     }
-    public void SetDataWithUpgradedBuilding(Unit unit1, Unit unit2)
+    public void SetDataWithUpgradedBuilding()
     {
         GetData();
         recruteText.text = "Recrute " + unit1.unitName;
@@ -74,23 +76,30 @@ public class OpenPrefabUnits : MonoBehaviour
     public void SetDataWithoutUpgradedBuilding()
     {
         GetData();
+        slider.onValueChanged.AddListener(delegate { UpdateStats(); });
         recruteText.text = "Recrute " + unit2.unitName;
         unitImage1.sprite = unit1.imageInBattle;
         unitImage2.sprite = unit2.imageInBattle;
 
         costForOne.text = unit2.cost.ToString();
+        growthManager.CalculateUnits(unit2);
+        slider.maxValue = growthManager.currentBuyableUnits;
         float moneyCost = slider.value * unit2.cost;
         costForAll.text = moneyCost.ToString();
     }
     public void CreatePopUp()
     {
         parent.gameObject.SetActive(true);
-        Instance = Instantiate(buyUnitprefab, parent.transform);
         SetDataWithoutUpgradedBuilding();
     }
     public void DemolishPopUp()
     {
-        Debug.Log("happended");
+
         Destroy(Instance);
+    }
+    private void UpdateStats()
+    {
+        float moneyCost = slider.value * unit2.cost;
+        costForAll.text = moneyCost.ToString();
     }
 }

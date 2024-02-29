@@ -7,6 +7,7 @@ public class CityBuldings : ScriptableObject
     public string buildingName;
     public bool canBeBuild;
     public bool builded;
+    public bool canBeUpgraded;
     public bool upgraded;
 
     public CityBuldings required;

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Angel
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 52a0ce8d474925d4c82292290baf2836, type: 3}
-  imageInBattle: {fileID: 0}
+  imageInBattle: {fileID: 21300000, guid: 83782b7e597554094add378594abf928, type: 3}
   unitName: Angel
   town: Castel
   lvl: 7

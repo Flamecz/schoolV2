@@ -5,26 +5,20 @@ using UnityEngine;
 public class GrowthManager : MonoBehaviour
 {
     public ResourceManager resourceManager;
-    public Unit unit;
     public int currentBuyableUnits;
-    private void Start()
+    public Unit unit;
+    private void startingUnits(Unit unit)
     {
         currentBuyableUnits = unit.growth;
     }
-    public void CalculateUnits()
+    public void CalculateUnits(Unit unit)
     {
         int numberOfUnits = resourceManager.Gold / unit.cost;
 
-        // Ensure we have enough gold to buy at least one unit
         if (numberOfUnits > 0)
         {
             int totalCost = numberOfUnits * unit.cost;
-            Debug.Log("Number of Units you can buy: " + numberOfUnits);
-            Debug.Log("Total Cost: " + totalCost + " gold");
-
-            // Deduct the cost from available gold
             resourceManager.Gold -= totalCost;
-            Debug.Log("Remaining Gold: " + resourceManager.Gold + " gold");
         }
         else
         {

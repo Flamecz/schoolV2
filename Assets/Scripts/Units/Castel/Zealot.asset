@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Zealot
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
+  imageInBattle: {fileID: 21300000, guid: b525bf4ee72074e76bd53f304b13acf9, type: 3}
   unitName: Zealot
   town: Castel
   lvl: 5.5
@@ -28,3 +29,4 @@ MonoBehaviour:
   movetype: 0
   ATKT: 0
   Shots: 24
+  stackable: 0

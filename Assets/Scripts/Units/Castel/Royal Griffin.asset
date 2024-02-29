@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Royal Griffin
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
+  imageInBattle: {fileID: 21300000, guid: 7d577dc3b612c4be69a463d306cff599, type: 3}
   unitName: Royal Griffin
   town: Castel
   lvl: 3.5
@@ -28,3 +29,4 @@ MonoBehaviour:
   movetype: 1
   ATKT: 1
   Shots: 0
+  stackable: 0

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Crusader
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 88bbe4f6f4b14954e83c7821395b15c1, type: 3}
+  imageInBattle: {fileID: 21300000, guid: 6b628c1eecef340cf9daf77d148d0a3f, type: 3}
   unitName: Crusader
   town: Castel
   lvl: 4.5
@@ -28,3 +29,4 @@ MonoBehaviour:
   movetype: 0
   ATKT: 1
   Shots: 0
+  stackable: 0

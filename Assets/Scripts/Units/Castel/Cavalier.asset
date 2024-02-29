@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Cavalier
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 30a5f703f740069459b3fc59b8f3d8c0, type: 3}
+  imageInBattle: {fileID: 21300000, guid: 334e0e2b7b4194aaaa4f8a249c6031aa, type: 3}
   unitName: Cavalier
   town: Castel
   lvl: 6
@@ -28,3 +29,4 @@ MonoBehaviour:
   movetype: 0
   ATKT: 1
   Shots: 0
+  stackable: 0

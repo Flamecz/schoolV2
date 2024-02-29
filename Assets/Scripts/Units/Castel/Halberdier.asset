@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58d1f15ab15547a193b15548dfd474e, type: 3}
   m_Name: Halberdier
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  imageInBattle: {fileID: 21300000, guid: 292104989c9374dd887700ac5e44d28a, type: 3}
   unitName: Halberdier
   town: Castel
   lvl: 1.5
@@ -27,3 +29,4 @@ MonoBehaviour:
   movetype: 0
   ATKT: 1
   Shots: 0
+  stackable: 0

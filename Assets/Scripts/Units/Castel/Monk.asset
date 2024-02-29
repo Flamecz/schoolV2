@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Monk
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: dc37a2b94c265374bb026de54e3be000, type: 3}
+  imageInBattle: {fileID: 21300000, guid: 2e2d14a53705e411d85a7392a4831048, type: 3}
   unitName: Monk
   town: Castel
   lvl: 5
@@ -28,3 +29,4 @@ MonoBehaviour:
   movetype: 0
   ATKT: 0
   Shots: 12
+  stackable: 0
