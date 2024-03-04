@@ -13,15 +13,15 @@ public class ItemList : MonoBehaviour
         {
             Im.AddItem(units[0]);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             Im.AddItem(units[1]);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             Im.AddItem(units[2]);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             Im.AddItem(units[3]);
         }

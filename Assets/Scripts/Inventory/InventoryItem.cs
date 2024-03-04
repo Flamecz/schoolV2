@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Unit item;
     public Image image;
     public Text countText;
+
+    private float lastClickTime;
+    private float doubleClickTimeThreshold = 0.5f;
 
     [HideInInspector]public int count = 1;
     [HideInInspector]public Transform parentAfterDrag;
@@ -37,6 +41,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
         image.raycastTarget = false;
+
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -48,5 +53,26 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         transform.SetParent(parentAfterDrag);
         image.raycastTarget = true;
+    }
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (Time.time - lastClickTime < doubleClickTimeThreshold)
+            {
+                OnDoubleClick();
+            }
+            lastClickTime = Time.time;
+        }
+    }
+
+    void OnDoubleClick()
+    {
+        if(count > 1)
+        {
+            int split = Mathf.FloorToInt(count / 2f);
+            FindObjectOfType<InvenotoryManagement>().splitItems(item, split);
+            RefreshCount();
+        }
     }
 }

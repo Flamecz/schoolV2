@@ -29,4 +29,4 @@ MonoBehaviour:
   movetype: 0
   ATKT: 1
   Shots: 0
-  stackable: 0
+  stackable: 1

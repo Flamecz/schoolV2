@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -778,6 +778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   HeroSlot: 0
+  item: {fileID: 0}
 --- !u!1 &43678238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1311,6 +1312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   HeroSlot: 0
+  item: {fileID: 0}
 --- !u!1 &59875921
 GameObject:
   m_ObjectHideFlags: 0
@@ -2770,6 +2772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   HeroSlot: 0
+  item: {fileID: 0}
 --- !u!1 &116834084
 GameObject:
   m_ObjectHideFlags: 0
@@ -2964,6 +2967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   HeroSlot: 0
+  item: {fileID: 0}
 --- !u!1 &125388064
 GameObject:
   m_ObjectHideFlags: 0
@@ -3231,6 +3235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   HeroSlot: 0
+  item: {fileID: 0}
 --- !u!1 &134282464
 GameObject:
   m_ObjectHideFlags: 0
@@ -3994,6 +3999,7 @@ GameObject:
   - component: {fileID: 175092072}
   - component: {fileID: 175092073}
   - component: {fileID: 175092074}
+  - component: {fileID: 175092075}
   m_Layer: 0
   m_Name: Controler
   m_TagString: Untagged
@@ -4059,9 +4065,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf927a498a2ff4079a7a4b15ab309e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 0}
-  inventorySlots: []
-  inventoryItemPrefab: {fileID: 0}
+  unit: {fileID: 11400000, guid: 5a2c1c66a827f4ad88f4532430e115ea, type: 2}
+  inventorySlots:
+  - {fileID: 1099752473}
+  - {fileID: 313923952}
+  - {fileID: 56966291}
+  - {fileID: 914001543}
+  - {fileID: 270040628}
+  - {fileID: 1509492611}
+  - {fileID: 1377629922}
+  inventoryItemPrefab: {fileID: 72370682061661887, guid: 50c359ad13575455f9ec0c171e34f14c, type: 3}
 --- !u!114 &175092074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4074,8 +4087,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430e3da87e7f24e8881084ab94839b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growthManagers: []
+  growthManagers:
+  - {fileID: 183695840}
+  - {fileID: 514226298}
+  - {fileID: 829081837}
+  - {fileID: 952379809}
+  - {fileID: 1389553942}
+  - {fileID: 1430118930}
+  - {fileID: 1870229688}
   weekText: {fileID: 1109715409}
+--- !u!114 &175092075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175092068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a656ba22970f46f18546c8535997b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Im: {fileID: 175092073}
+  units:
+  - {fileID: 11400000, guid: 5a2c1c66a827f4ad88f4532430e115ea, type: 2}
+  - {fileID: 11400000, guid: 70027a49a51594bf6864aa08227d6878, type: 2}
+  - {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
+  - {fileID: 11400000, guid: 44c27deada19845d2804a3ef5f8c4018, type: 2}
+  - {fileID: 11400000, guid: 8107f833d8c9d485aae5029f9420ef93, type: 2}
+  - {fileID: 11400000, guid: 8852dadf36a4649279cd972f15d3a00c, type: 2}
+  - {fileID: 11400000, guid: a3c580a20f5a0436999515246f8aa2f8, type: 2}
+  - {fileID: 11400000, guid: 42886ce941af5472b93557d13bbb882a, type: 2}
+  - {fileID: 11400000, guid: e53ed469382f34caf99f719d8eae6b62, type: 2}
+  - {fileID: 11400000, guid: 138015183ab5841a081291f174f7e96c, type: 2}
+  - {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
+  - {fileID: 11400000, guid: 9e0dc38cd81e54073b5e07f6b3eba59e, type: 2}
+  - {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
+  - {fileID: 11400000, guid: 728efa6f2cc1145f282211461cf0492a, type: 2}
 --- !u!1 &183695836
 GameObject:
   m_ObjectHideFlags: 0
@@ -4196,8 +4244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceManager: {fileID: 175092069}
-  unit: {fileID: 11400000, guid: 5a2c1c66a827f4ad88f4532430e115ea, type: 2}
   currentBuyableUnits: 0
+  unit: {fileID: 11400000, guid: 5a2c1c66a827f4ad88f4532430e115ea, type: 2}
 --- !u!114 &183695841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4215,6 +4263,7 @@ MonoBehaviour:
   resourceManger: {fileID: 175092069}
   unit1: {fileID: 0}
   unit2: {fileID: 0}
+  growthManager: {fileID: 0}
 --- !u!1 &185186539
 GameObject:
   m_ObjectHideFlags: 0
@@ -5568,6 +5617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   HeroSlot: 0
+  item: {fileID: 0}
 --- !u!1 &276337308
 GameObject:
   m_ObjectHideFlags: 0
@@ -6580,6 +6630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   HeroSlot: 0
+  item: {fileID: 0}
 --- !u!1 &315590735
 GameObject:
   m_ObjectHideFlags: 0
@@ -9169,8 +9220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceManager: {fileID: 175092069}
-  unit: {fileID: 11400000, guid: 138015183ab5841a081291f174f7e96c, type: 2}
   currentBuyableUnits: 0
+  unit: {fileID: 11400000, guid: 138015183ab5841a081291f174f7e96c, type: 2}
 --- !u!114 &514226299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9188,6 +9239,7 @@ MonoBehaviour:
   resourceManger: {fileID: 175092069}
   unit1: {fileID: 0}
   unit2: {fileID: 0}
+  growthManager: {fileID: 0}
 --- !u!1 &517124328
 GameObject:
   m_ObjectHideFlags: 0
@@ -10192,6 +10244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   HeroSlot: 0
+  item: {fileID: 0}
 --- !u!1 &580584850
 GameObject:
   m_ObjectHideFlags: 0
@@ -10544,6 +10597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   HeroSlot: 0
+  item: {fileID: 0}
 --- !u!1 &597242120
 GameObject:
   m_ObjectHideFlags: 0
@@ -11028,6 +11082,7 @@ MonoBehaviour:
   resourceManger: {fileID: 0}
   unit1: {fileID: 0}
   unit2: {fileID: 0}
+  growthManager: {fileID: 0}
 --- !u!1 &628045536
 GameObject:
   m_ObjectHideFlags: 0
@@ -15376,8 +15431,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceManager: {fileID: 175092069}
-  unit: {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
   currentBuyableUnits: 0
+  unit: {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
 --- !u!114 &829081838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15395,6 +15450,7 @@ MonoBehaviour:
   resourceManger: {fileID: 175092069}
   unit1: {fileID: 0}
   unit2: {fileID: 0}
+  growthManager: {fileID: 0}
 --- !u!1 &829331499
 GameObject:
   m_ObjectHideFlags: 0
@@ -18121,6 +18177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   HeroSlot: 0
+  item: {fileID: 0}
 --- !u!1 &915848010
 GameObject:
   m_ObjectHideFlags: 0
@@ -18896,8 +18953,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceManager: {fileID: 175092069}
-  unit: {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
   currentBuyableUnits: 0
+  unit: {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
 --- !u!114 &952379810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18915,6 +18972,7 @@ MonoBehaviour:
   resourceManger: {fileID: 175092069}
   unit1: {fileID: 11400000, guid: 42886ce941af5472b93557d13bbb882a, type: 2}
   unit2: {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
+  growthManager: {fileID: 0}
 --- !u!1 &967085486
 GameObject:
   m_ObjectHideFlags: 0
@@ -20148,6 +20206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   HeroSlot: 0
+  item: {fileID: 0}
 --- !u!1 &1030526443
 GameObject:
   m_ObjectHideFlags: 0
@@ -21441,6 +21500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   HeroSlot: 0
+  item: {fileID: 0}
 --- !u!1 &1100010359
 GameObject:
   m_ObjectHideFlags: 0
@@ -26522,6 +26582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   HeroSlot: 0
+  item: {fileID: 0}
 --- !u!1 &1328814030
 GameObject:
   m_ObjectHideFlags: 0
@@ -27659,6 +27720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   HeroSlot: 0
+  item: {fileID: 0}
 --- !u!1 &1378234164
 GameObject:
   m_ObjectHideFlags: 0
@@ -28158,8 +28220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceManager: {fileID: 175092069}
-  unit: {fileID: 11400000, guid: 44c27deada19845d2804a3ef5f8c4018, type: 2}
   currentBuyableUnits: 0
+  unit: {fileID: 11400000, guid: 44c27deada19845d2804a3ef5f8c4018, type: 2}
 --- !u!114 &1389553943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28177,6 +28239,7 @@ MonoBehaviour:
   resourceManger: {fileID: 175092069}
   unit1: {fileID: 0}
   unit2: {fileID: 0}
+  growthManager: {fileID: 0}
 --- !u!1 &1394138996
 GameObject:
   m_ObjectHideFlags: 0
@@ -28955,8 +29018,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceManager: {fileID: 175092069}
-  unit: {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
   currentBuyableUnits: 0
+  unit: {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
 --- !u!114 &1430118931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28974,6 +29037,7 @@ MonoBehaviour:
   resourceManger: {fileID: 175092069}
   unit1: {fileID: 0}
   unit2: {fileID: 0}
+  growthManager: {fileID: 0}
 --- !u!1 &1433603342
 GameObject:
   m_ObjectHideFlags: 0
@@ -30209,6 +30273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   HeroSlot: 0
+  item: {fileID: 0}
 --- !u!1 &1510698465
 GameObject:
   m_ObjectHideFlags: 0
@@ -31789,6 +31854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   HeroSlot: 0
+  item: {fileID: 0}
 --- !u!1 &1598200986
 GameObject:
   m_ObjectHideFlags: 0
@@ -35542,8 +35608,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceManager: {fileID: 175092069}
-  unit: {fileID: 11400000, guid: a3c580a20f5a0436999515246f8aa2f8, type: 2}
   currentBuyableUnits: 0
+  unit: {fileID: 11400000, guid: a3c580a20f5a0436999515246f8aa2f8, type: 2}
 --- !u!114 &1870229689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35561,6 +35627,7 @@ MonoBehaviour:
   resourceManger: {fileID: 175092069}
   unit1: {fileID: 0}
   unit2: {fileID: 0}
+  growthManager: {fileID: 0}
 --- !u!1 &1879239659
 GameObject:
   m_ObjectHideFlags: 0

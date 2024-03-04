@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class InvenotoryManagement : MonoBehaviour, IPointerClickHandler
+public class InvenotoryManagement : MonoBehaviour
 {
     public Unit unit;
     public InventorySlot[] inventorySlots;
@@ -43,18 +43,31 @@ public class InvenotoryManagement : MonoBehaviour, IPointerClickHandler
         }
         return false;
     }
+    public bool splitItems(Unit item, int splitCount)
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            InventorySlot slot = inventorySlots[i];
+            InventoryItem ItemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (ItemInSlot == null)
+            {
+                SpawnNewItem(item, slot, splitCount);
+                return true;
+            }
+        }
+        return false;
+    }
     void SpawnNewItem(Unit item, InventorySlot slot)
     {
         GameObject NewItemGo = Instantiate(inventoryItemPrefab, slot.transform);
         InventoryItem InventoryItem = NewItemGo.GetComponent<InventoryItem>();
         InventoryItem.InitialiseItem(item);
     }
-    void SplitItem()
+    void SpawnNewItem(Unit item, InventorySlot slot,int count)
     {
-
-    }
-    public void OnPointerClick(PointerEventData pointerEventData)
-    {
-        Debug.Log("yeppe");  
+        GameObject NewItemGo = Instantiate(inventoryItemPrefab, slot.transform);
+        InventoryItem InventoryItem = NewItemGo.GetComponent<InventoryItem>();
+        InventoryItem.count = count;
+        InventoryItem.InitialiseItem(item);
     }
 }
