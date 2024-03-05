@@ -8,13 +8,16 @@ public class Grid<TGridObject>
     {
         public int x;
         public int y;
+        public int z;
     }
 
     private int width;
     private int height;
+    private int depth;
     private float cellSize;
     private Vector3 originPosition;
     private TGridObject[,] gridArray;
+    private TGridObject[,,] gridFogArray;
 
     public Grid(int width, int height, float cellSize, Vector3 originPosition, Func<Grid<TGridObject>, int, int, TGridObject> createGridObject)
     {

@@ -6,6 +6,7 @@ public class Testing : MonoBehaviour {
     [SerializeField] private PathVisual pathVisual;
     [SerializeField] private PlayerMovement characterPathfinding;
     private PathFinding pathfinding;
+    private Grid grid;
 
     private PlayerMovement[] units;
 
@@ -15,7 +16,7 @@ public class Testing : MonoBehaviour {
         pathDebug.Setup(pathfinding.GetGrid());
         pathVisual.SetGrid(pathfinding.GetGrid());
 
-
+        grid = new Grid(20, 10, 2, 10, Vector3.zero, (Grid<PathNode> g, int x, int y, int z) => new PathNode(g, x, y, z));
     }
 
     private void Update()
