@@ -15,8 +15,7 @@ public class Testing : MonoBehaviour {
         pathfinding = new PathFinding(20, 10);
         pathDebug.Setup(pathfinding.GetGrid());
         pathVisual.SetGrid(pathfinding.GetGrid());
-
-        grid = new Grid(20, 10, 2, 10, Vector3.zero, (Grid<PathNode> g, int x, int y, int z) => new PathNode(g, x, y, z));
+        
     }
 
     private void Update()
