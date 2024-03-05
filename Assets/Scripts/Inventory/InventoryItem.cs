@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    public GameObject sloted;
     public Unit item;
     public Image image;
     public Text countText;
@@ -53,6 +54,18 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         transform.SetParent(parentAfterDrag);
         image.raycastTarget = true;
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            // Check if there's a valid item under the dragged item using PointerEventData
+            InventoryItem hoveredItem = eventData.pointerEnter?.GetComponent<InventoryItem>();
+
+            if (hoveredItem != null && hoveredItem != this)
+            {
+                FindObjectOfType<InvenotoryManagement>().mergeItems(item, count, hoveredItem);
+                Destroy(gameObject);  // Destroy the dragged item
+            }
+        }
     }
     void Update()
     {
@@ -68,11 +81,22 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     void OnDoubleClick()
     {
-        if(count > 1)
+
+        lastClickTime = Time.time;
+
+        if (count > 1)
         {
             int split = Mathf.FloorToInt(count / 2f);
-            FindObjectOfType<InvenotoryManagement>().splitItems(item, split);
-            RefreshCount();
+
+            // Ensure the item you're clicking is the one you want to split
+            InventoryItem clickedItem = GetComponent<InventoryItem>();
+
+            if (clickedItem != null)
+            {
+                FindObjectOfType<InvenotoryManagement>().splitItems(item, split);
+                count -= split;
+                RefreshCount();
+            }
         }
     }
 }

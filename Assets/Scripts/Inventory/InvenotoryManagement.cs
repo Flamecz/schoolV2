@@ -57,6 +57,54 @@ public class InvenotoryManagement : MonoBehaviour
         }
         return false;
     }
+    public bool mergeItems(Unit item, int count,InventoryItem targetItem)
+    {
+        if (targetItem != null &&
+              targetItem.item == item &&
+              targetItem.count + count <= 9999 &&
+              targetItem.item.stackable)
+        {
+            targetItem.count += count;
+            targetItem.RefreshCount();
+            return true;
+        }
+        else if (targetItem == null)
+        {
+            // If the target item is null, check both the left and right sides for merging
+
+            // Check items to the left
+            InventoryItem leftItem = FindItemToLeft(targetItem.transform);
+            if (leftItem != null && leftItem.item == item && leftItem.count + count <= 9999 && leftItem.item.stackable)
+            {
+                leftItem.count += count;
+                leftItem.RefreshCount();
+                return true;
+            }
+
+            // Check items to the right
+            InventoryItem rightItem = FindItemToRight(targetItem.transform);
+            if (rightItem != null && rightItem.item == item && rightItem.count + count <= 9999 && rightItem.item.stackable)
+            {
+                rightItem.count += count;
+                rightItem.RefreshCount();
+                return true;
+            }
+        }
+
+        return false;
+    }
+    private InventoryItem FindItemToLeft(Transform startTransform)
+    {
+        Collider2D hit = Physics2D.OverlapCircle(startTransform.position, 1f, LayerMask.GetMask("InventoryItem"));
+        return hit != null ? hit.GetComponent<InventoryItem>() : null;
+    }
+
+    private InventoryItem FindItemToRight(Transform startTransform)
+    {
+        Collider2D hit = Physics2D.OverlapCircle(startTransform.position, 1f, LayerMask.GetMask("InventoryItem"));
+        return hit != null ? hit.GetComponent<InventoryItem>() : null;
+    }
+
     void SpawnNewItem(Unit item, InventorySlot slot)
     {
         GameObject NewItemGo = Instantiate(inventoryItemPrefab, slot.transform);

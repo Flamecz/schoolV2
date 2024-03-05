@@ -13,39 +13,4 @@ public class Item : ScriptableObject
     public bool tool;
     [HideInInspector]
     public bool inMarketZone;
-
-
-    /*
-    public ItemData itemData;
-    public GameObject holdingObjectPosition;
-    private bool holding;
-    private GameObject holdedItem;
-    void Start()
-    {
-       
-    }
-    private void Update()
-    {
-        InventoryManagment();
-    }
-    private void InventoryManagment()
-    {
-     if(!holding)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                holdedItem = Instantiate(itemData.instance, holdingObjectPosition.transform);
-                FindObjectOfType<PickUpScript>().PickUpObject(holdedItem);
-                holding = true;
-            }
-        }
-        else if(holding)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Escape))
-            {
-                Destroy(holdedItem);
-                holding = false;
-            }
-        }
-    */
 }
