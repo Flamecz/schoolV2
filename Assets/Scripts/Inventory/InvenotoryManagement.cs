@@ -43,6 +43,34 @@ public class InvenotoryManagement : MonoBehaviour
         }
         return false;
     }
+    public bool AddItem(Unit item,int count)
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            InventorySlot slot = inventorySlots[i];
+            InventoryItem ItemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (ItemInSlot != null &&
+                ItemInSlot.item == item &&
+                ItemInSlot.count < 9999 &&
+                ItemInSlot.item.stackable == true)
+            {
+                ItemInSlot.count++;
+                ItemInSlot.RefreshCount();
+                return true;
+            }
+        }
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            InventorySlot slot = inventorySlots[i];
+            InventoryItem ItemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (ItemInSlot == null)
+            {
+                SpawnNewItem(item, slot,count);
+                return true;
+            }
+        }
+        return false;
+    }
     public bool splitItems(Unit item, int splitCount)
     {
         for (int i = 0; i < inventorySlots.Length; i++)

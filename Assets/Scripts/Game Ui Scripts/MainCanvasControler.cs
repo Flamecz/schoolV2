@@ -108,9 +108,12 @@ public class MainCanvasControler : MonoBehaviour
 
     IEnumerator OpenAndCloseUI()
     {
-        OpenBuildingUI(); // Open the UI
-        yield return null; // Wait for 1 frame (1 tick)
-        CloseBuildingUI(); // Close the UI
-    }
+        OpenBuildingUI();
+        yield return null;
+        CloseBuildingUI();
+        OpenFortressView();
+        yield return null;
+        CloseFortressView();        
+    }   
 
 }
