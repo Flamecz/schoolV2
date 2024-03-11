@@ -136,6 +136,7 @@ public class MarketPriceList : MonoBehaviour, IPointerClickHandler
                 {
                     Obrazky[index].SetActive(true);
                     LeftSelected.sprite = sprites[index];
+                    LeftSelected.GetComponentInChildren<Text>().text = 
                     Selected2 = true;
                     FindObjectOfType<SliderUpdate>().SetIndex2(index);
                 }

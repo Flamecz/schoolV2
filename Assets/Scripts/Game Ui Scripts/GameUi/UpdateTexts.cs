@@ -30,6 +30,7 @@ public class UpdateTexts : MonoBehaviour
 
     private Image ResourceImage6;
     private Text ResourceText6;
+
     [HideInInspector]
     public int WoodCost, StoneCost, IronCost, SulfurCost, MineralsCost, GemsCost, GoldCost;
     void Update()
