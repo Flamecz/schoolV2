@@ -30,6 +30,8 @@ public class MarketPriceList : MonoBehaviour, IPointerClickHandler
     public bool Rightside= false;
     public bool ShowCase = false;
 
+    private int count;
+    private int resource1, resource2;
     private void Awake()
     {
         if(!ShowCase)
@@ -136,9 +138,9 @@ public class MarketPriceList : MonoBehaviour, IPointerClickHandler
                 {
                     Obrazky[index].SetActive(true);
                     LeftSelected.sprite = sprites[index];
-                    LeftSelected.GetComponentInChildren<Text>().text = 
                     Selected2 = true;
                     FindObjectOfType<SliderUpdate>().SetIndex2(index);
+                    LeftSelected.transform.Find("Amount").GetComponent<Text>().text = ReturnValue(resource2).ToString();
                 }
                 else if (Selected2)
                 {
@@ -159,6 +161,8 @@ public class MarketPriceList : MonoBehaviour, IPointerClickHandler
                     RightSelected.sprite = sprites[index];
                     GetProperty();
                     Debuger();
+                    RightSelected.transform.Find("Amount").GetComponent<Text>().text = ReturnValue(resource1).ToString();
+                    Debug.Log(ReturnValue(count));
                     Selected = true;
                     DisableImage[index].interactable = false;
                     FindObjectOfType<SliderUpdate>().SetIndex1(index);
@@ -194,9 +198,24 @@ public class MarketPriceList : MonoBehaviour, IPointerClickHandler
             Selected2 = false;
         }
     }
+    public int ReturnValue(int resource)
+    {
+       return resource * count;
+    }
+
     public void Debuger()
     {
         FindObjectOfType<UpdateTexts>().Debugger(WoodCost,StoneCost,IronCost,MineralsCost,SulfurCost,GemsCost,GoldCost);
         FindObjectOfType<SliderUpdate>().Importer(WoodCost, StoneCost, IronCost, MineralsCost, SulfurCost, GemsCost, GoldCost);
+    }
+
+    public void GetAmount(int count)
+    {
+        this.count = count;
+    }
+    public void ReturnResources(int resource1 , int resource2)
+    {
+        this.resource1 = resource1;
+        this.resource2 = resource2;
     }
 }

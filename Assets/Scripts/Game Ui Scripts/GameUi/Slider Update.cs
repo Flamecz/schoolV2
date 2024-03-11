@@ -24,6 +24,7 @@ public class SliderUpdate : MonoBehaviour
     private void Update()
     {
         BuyableAmount();
+        int convert = (int) slider.value;
     }
     public void Importer(int Wood, int Stone, int Iron, int Sulfur, int Minerals, int Gems, int Gold)
     {
@@ -59,9 +60,11 @@ public class SliderUpdate : MonoBehaviour
                 {
                     case 0:
                         slider.maxValue = 0;
+                      FindObjectOfType<MarketPriceList>().ReturnResources(index1, index2);
                         return;
                     case 1:
                         slider.maxValue = RM.Wood / IronCost;
+                       FindObjectOfType<MarketPriceList>().ReturnResources(index1, index2);
                         return;
                     case 2:
                         slider.maxValue = RM.Wood / StoneCost;
