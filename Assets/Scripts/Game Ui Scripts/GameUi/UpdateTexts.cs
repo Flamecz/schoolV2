@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UpdateTexts : MonoBehaviour
 {
     public ResourceManager RM;
+    public MainCanvasControler MCC;
     public GameObject Object;
     public bool isRight = false;
 
@@ -30,9 +31,14 @@ public class UpdateTexts : MonoBehaviour
 
     private Image ResourceImage6;
     private Text ResourceText6;
+    public Button utilityButton;
 
     [HideInInspector]
     public int WoodCost, StoneCost, IronCost, SulfurCost, MineralsCost, GemsCost, GoldCost;
+    private void awake()
+    {
+        utilityButton.onClick.AddListener(MCC.CloseAllScreens);
+    }
     void Update()
     {
         GetData();
@@ -110,15 +116,9 @@ public class UpdateTexts : MonoBehaviour
         else { ResourceText5.text = "-"; }
         if (GoldCost != 0)
         {
-            ResourceText6.text = GoldCost.ToString() + "/1";
+            ResourceText6.text = "1/" + GoldCost.ToString();
         }
         else { ResourceText6.text = "-"; }
-
-
-
-
-
-
     }
     public void Debugger(int Wood, int Stone, int Iron, int Sulfur, int Minerals, int Gems, int Gold)
     {

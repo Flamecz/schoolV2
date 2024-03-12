@@ -2097,6 +2097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d6308a0a7f84ec9a50c5bf809e772b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RM: {fileID: 175092069}
   WoodCost: 0
   StoneCost: 0
   IronCost: 0
@@ -2126,6 +2127,9 @@ MonoBehaviour:
   LeftSelected: {fileID: 257351564}
   Rightside: 1
   ShowCase: 0
+  utilityButton: {fileID: 1921769311}
+  resource: 0
+  count: 0
 --- !u!114 &86433862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3838,6 +3842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d6308a0a7f84ec9a50c5bf809e772b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RM: {fileID: 175092069}
   WoodCost: 0
   StoneCost: 0
   IronCost: 0
@@ -3867,6 +3872,9 @@ MonoBehaviour:
   LeftSelected: {fileID: 257351564}
   Rightside: 1
   ShowCase: 0
+  utilityButton: {fileID: 1921769311}
+  resource: 0
+  count: 0
 --- !u!114 &171739754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4000,6 +4008,7 @@ GameObject:
   - component: {fileID: 175092073}
   - component: {fileID: 175092074}
   - component: {fileID: 175092075}
+  - component: {fileID: 175092076}
   m_Layer: 0
   m_Name: Controler
   m_TagString: Untagged
@@ -4124,6 +4133,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e0dc38cd81e54073b5e07f6b3eba59e, type: 2}
   - {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
   - {fileID: 11400000, guid: 728efa6f2cc1145f282211461cf0492a, type: 2}
+--- !u!114 &175092076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175092068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d2d345aa44843d7a70c99b32cd1c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
+  RM: {fileID: 175092069}
 --- !u!1 &183695836
 GameObject:
   m_ObjectHideFlags: 0
@@ -5068,126 +5091,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 242807230}
-  m_CullTransparentMesh: 1
---- !u!1 &247895113
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 247895114}
-  - component: {fileID: 247895117}
-  - component: {fileID: 247895116}
-  - component: {fileID: 247895115}
-  m_Layer: 5
-  m_Name: Clear Resource
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &247895114
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 247895113}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 480474852}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -270.92917, y: -181.2}
-  m_SizeDelta: {x: 40, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &247895115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 247895113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 247895116}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &247895116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 247895113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &247895117
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 247895113}
   m_CullTransparentMesh: 1
 --- !u!1 &251304031
 GameObject:
@@ -7478,6 +7381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d6308a0a7f84ec9a50c5bf809e772b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RM: {fileID: 175092069}
   WoodCost: 0
   StoneCost: 0
   IronCost: 0
@@ -7507,6 +7411,9 @@ MonoBehaviour:
   LeftSelected: {fileID: 257351564}
   Rightside: 1
   ShowCase: 0
+  utilityButton: {fileID: 1921769311}
+  resource: 0
+  count: 0
 --- !u!114 &412911415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8736,8 +8643,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 247895114}
-  - {fileID: 1124198518}
   - {fileID: 1921769310}
   - {fileID: 869540967}
   - {fileID: 318504499}
@@ -11953,6 +11858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d6308a0a7f84ec9a50c5bf809e772b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RM: {fileID: 175092069}
   WoodCost: 0
   StoneCost: 0
   IronCost: 0
@@ -11982,6 +11888,9 @@ MonoBehaviour:
   LeftSelected: {fileID: 257351564}
   Rightside: 1
   ShowCase: 0
+  utilityButton: {fileID: 1921769311}
+  resource: 0
+  count: 0
 --- !u!114 &666161112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12429,6 +12338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d6308a0a7f84ec9a50c5bf809e772b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RM: {fileID: 175092069}
   WoodCost: 0
   StoneCost: 0
   IronCost: 0
@@ -12465,6 +12375,9 @@ MonoBehaviour:
   LeftSelected: {fileID: 257351564}
   Rightside: 0
   ShowCase: 0
+  utilityButton: {fileID: 1921769311}
+  resource: 0
+  count: 0
 --- !u!114 &707837261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12939,6 +12852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d6308a0a7f84ec9a50c5bf809e772b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RM: {fileID: 175092069}
   WoodCost: 0
   StoneCost: 0
   IronCost: 0
@@ -12975,6 +12889,9 @@ MonoBehaviour:
   LeftSelected: {fileID: 257351564}
   Rightside: 0
   ShowCase: 0
+  utilityButton: {fileID: 1921769311}
+  resource: 0
+  count: 0
 --- !u!114 &720662007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13110,6 +13027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d6308a0a7f84ec9a50c5bf809e772b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RM: {fileID: 175092069}
   WoodCost: 0
   StoneCost: 0
   IronCost: 0
@@ -13139,6 +13057,9 @@ MonoBehaviour:
   LeftSelected: {fileID: 257351564}
   Rightside: 1
   ShowCase: 0
+  utilityButton: {fileID: 1921769311}
+  resource: 0
+  count: 0
 --- !u!114 &733895706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13853,6 +13774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d6308a0a7f84ec9a50c5bf809e772b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RM: {fileID: 175092069}
   WoodCost: 0
   StoneCost: 0
   IronCost: 0
@@ -13889,6 +13811,9 @@ MonoBehaviour:
   LeftSelected: {fileID: 257351564}
   Rightside: 0
   ShowCase: 0
+  utilityButton: {fileID: 1921769311}
+  resource: 0
+  count: 0
 --- !u!114 &766545856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22079,126 +22004,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114352757}
   m_CullTransparentMesh: 1
---- !u!1 &1124198517
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1124198518}
-  - component: {fileID: 1124198521}
-  - component: {fileID: 1124198520}
-  - component: {fileID: 1124198519}
-  m_Layer: 5
-  m_Name: Add Resources
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1124198518
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124198517}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 480474852}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36.5, y: -181.2}
-  m_SizeDelta: {x: 40, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1124198519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124198517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1124198520}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1124198520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124198517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1124198521
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124198517}
-  m_CullTransparentMesh: 1
 --- !u!1 &1129136264
 GameObject:
   m_ObjectHideFlags: 0
@@ -23986,6 +23791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d6308a0a7f84ec9a50c5bf809e772b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RM: {fileID: 175092069}
   WoodCost: 0
   StoneCost: 0
   IronCost: 0
@@ -24015,6 +23821,9 @@ MonoBehaviour:
   LeftSelected: {fileID: 257351564}
   Rightside: 1
   ShowCase: 0
+  utilityButton: {fileID: 1921769311}
+  resource: 0
+  count: 0
 --- !u!114 &1215857070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24737,8 +24546,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RM: {fileID: 175092069}
+  MCC: {fileID: 1090813506}
   Object: {fileID: 1238527549}
   isRight: 1
+  utilityButton: {fileID: 0}
   WoodCost: 0
   StoneCost: 0
   IronCost: 0
@@ -25884,6 +25695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d6308a0a7f84ec9a50c5bf809e772b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RM: {fileID: 175092069}
   WoodCost: 0
   StoneCost: 0
   IronCost: 0
@@ -25920,6 +25732,9 @@ MonoBehaviour:
   LeftSelected: {fileID: 257351564}
   Rightside: 0
   ShowCase: 0
+  utilityButton: {fileID: 1921769311}
+  resource: 0
+  count: 0
 --- !u!114 &1301613693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26207,6 +26022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d6308a0a7f84ec9a50c5bf809e772b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RM: {fileID: 175092069}
   WoodCost: 0
   StoneCost: 0
   IronCost: 0
@@ -26243,6 +26059,9 @@ MonoBehaviour:
   LeftSelected: {fileID: 257351564}
   Rightside: 0
   ShowCase: 0
+  utilityButton: {fileID: 1921769311}
+  resource: 0
+  count: 0
 --- !u!114 &1314134436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27104,6 +26923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d6308a0a7f84ec9a50c5bf809e772b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RM: {fileID: 175092069}
   WoodCost: 0
   StoneCost: 0
   IronCost: 0
@@ -27140,6 +26960,9 @@ MonoBehaviour:
   LeftSelected: {fileID: 257351564}
   Rightside: 0
   ShowCase: 0
+  utilityButton: {fileID: 1921769311}
+  resource: 0
+  count: 0
 --- !u!114 &1361026033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29901,8 +29724,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476bc7767ab354ae7b2ca3bcba713587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Empty: {fileID: 1969589993}
   RM: {fileID: 175092069}
+  slider: {fileID: 1969589995}
 --- !u!1 &1490135042
 GameObject:
   m_ObjectHideFlags: 0
@@ -35922,6 +35745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d6308a0a7f84ec9a50c5bf809e772b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RM: {fileID: 175092069}
   WoodCost: 0
   StoneCost: 0
   IronCost: 0
@@ -35958,6 +35782,9 @@ MonoBehaviour:
   LeftSelected: {fileID: 257351564}
   Rightside: 0
   ShowCase: 0
+  utilityButton: {fileID: 1921769311}
+  resource: 0
+  count: 0
 --- !u!114 &1911848968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36233,7 +36060,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35.2, y: -181.2}
+  m_AnchoredPosition: {x: 0, y: -181.2}
   m_SizeDelta: {x: 40, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1921769311
@@ -37962,8 +37789,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RM: {fileID: 175092069}
+  MCC: {fileID: 1090813506}
   Object: {fileID: 2011748987}
   isRight: 0
+  utilityButton: {fileID: 0}
   WoodCost: 0
   StoneCost: 0
   IronCost: 0
@@ -38560,6 +38389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d6308a0a7f84ec9a50c5bf809e772b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RM: {fileID: 175092069}
   WoodCost: 0
   StoneCost: 0
   IronCost: 0
@@ -38589,6 +38419,9 @@ MonoBehaviour:
   LeftSelected: {fileID: 257351564}
   Rightside: 1
   ShowCase: 0
+  utilityButton: {fileID: 1921769311}
+  resource: 0
+  count: 0
 --- !u!114 &2065385451
 MonoBehaviour:
   m_ObjectHideFlags: 0
