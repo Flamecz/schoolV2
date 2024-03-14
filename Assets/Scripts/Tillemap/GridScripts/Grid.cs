@@ -8,7 +8,6 @@ public class Grid<TGridObject>
     {
         public int x;
         public int y;
-        public int z;
     }
 
     private int width;

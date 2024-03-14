@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 public class Testing : MonoBehaviour {
+    public int selectedMap;
     [SerializeField] private PathDebug pathDebug;
     [SerializeField] private PathVisual pathVisual;
     [SerializeField] private PlayerMovement characterPathfinding;
@@ -9,13 +10,16 @@ public class Testing : MonoBehaviour {
     private Grid grid;
 
     private PlayerMovement[] units;
+    public MapManager mapManager;
 
     private void Start()
     {
         pathfinding = new PathFinding(20, 10);
         pathDebug.Setup(pathfinding.GetGrid());
         pathVisual.SetGrid(pathfinding.GetGrid());
-        
+
+        string[] mapLayout = MapManager.Instance.GetMapLayout(selectedMap);
+        pathVisual.UpdateGridFrom2DString(mapLayout);
     }
 
     private void Update()

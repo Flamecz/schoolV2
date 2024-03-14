@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PathVisual : MonoBehaviour
 {
+
     private Grid<PathNode> grid;
     private Mesh mesh;
     private bool updateMesh;
@@ -18,7 +19,6 @@ public class PathVisual : MonoBehaviour
     {
         this.grid = grid;
         UpdateVisual();
-
         grid.OnGridObjectChanged += Grid_OnGridValueChanged;
     }
 
@@ -38,7 +38,7 @@ public class PathVisual : MonoBehaviour
 
     private void UpdateVisual()
     {
-       CreateEmptyMeshArrays(grid.GetWidth() * grid.GetHeight(), out Vector3[] vertices, out Vector2[] uv, out int[] triangles);
+        CreateEmptyMeshArrays(grid.GetWidth() * grid.GetHeight(), out Vector3[] vertices, out Vector2[] uv, out int[] triangles);
 
         for (int x = 0; x < grid.GetWidth(); x++)
         {
@@ -88,6 +88,7 @@ public class PathVisual : MonoBehaviour
         uvs = new Vector2[4 * quadCount];
         triangles = new int[6 * quadCount];
     }
+
     public static void AddToMeshArrays(Vector3[] vertices, Vector2[] uvs, int[] triangles, int index, Vector3 pos, float rot, Vector3 baseSize, Vector2 uv00, Vector2 uv11)
     {
         //Relocate vertices
@@ -131,5 +132,30 @@ public class PathVisual : MonoBehaviour
         triangles[tIndex + 3] = vIndex1;
         triangles[tIndex + 4] = vIndex3;
         triangles[tIndex + 5] = vIndex2;
+    }
+    public void UpdateGridFrom2DString(string[] mapLayout)
+    {
+        if (grid == null || mapLayout == null)
+        {
+            Debug.LogError("Grid or mapLayout is null");
+            return;
+        }
+
+        if (grid.GetWidth() != mapLayout[0].Length || grid.GetHeight() != mapLayout.Length)
+        {
+            Debug.LogError("Grid dimensions do not match mapLayout dimensions");
+            return;
+        }
+
+        for (int x = 0; x < grid.GetWidth(); x++)
+        {
+            for (int y = 0; y < grid.GetHeight(); y++)
+            {
+                PathNode node = grid.GetGridObject(x, y);
+                char cellChar = mapLayout[y][x];
+                bool isWalkable = cellChar == '.';
+                node.SetIsWalkable(isWalkable);
+            }
+        }
     }
 }
