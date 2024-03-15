@@ -60,14 +60,21 @@ public class MapManager : MonoBehaviour
             ".......XXXXX........",
             "...................."
         };
+        mapLayouts[2] = new string[]
+        {
+            "XXXXXXXXXXXXXXXXXXXX",
+            "X..................X",
+            "X......XX.....X....X",
+            "X..................X",
+            "X.....XX......X....X",
+            "X.....XXX.....XXXXXX",
+            "X.....XX......XXX..X",
+            "X.....X.......XX...X",
+            "X.....X............X",
+            "XXXXXXXXXXXXXXXXXXXX"
+        };
 
-        // Add more maps as needed
-        // mapLayouts[2] = new string[] {...};
-
-        // You can create more maps similarly
     }
-
-    // Method to get a map layout by index
     public string[] GetMapLayout(int index)
     {
         if (index >= 0 && index < mapLayouts.Length)
