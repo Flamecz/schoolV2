@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.UI;
 
 public class MissionCreator : MonoBehaviour
@@ -43,6 +44,7 @@ public class MissionCreator : MonoBehaviour
         spriteStart.sprite = missionD.UvodObraz;
         GetSome.onClick.AddListener(SetSceneData);
         ButtonClose.onClick.AddListener(FindObjectOfType<MenuUIContorler>().ScenarioSetupClose);
+        PlayMission.onClick.AddListener(FindObjectOfType<MenuUIContorler>().LoadGrid);
     }
     public void getSceneData()
     {
@@ -106,6 +108,7 @@ public class MissionCreator : MonoBehaviour
             vyber3.sprite = myObjects[2].image;
 
         Map.sprite = missionD.Map;
+        FindObjectOfType<DataSender>().GetMission(LevelIndex);
     }
     public string GetInfo(int index)
     { 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuUIContorler : MonoBehaviour
@@ -65,5 +66,9 @@ public class MenuUIContorler : MonoBehaviour
         ScenarioMenu.SetActive(false);
         FindObjectOfType<AudioManager>().Play("mainTheme");
         FindObjectOfType<AudioManager>().Stop("HeroesGoodtheme");
+    }
+    public void LoadGrid()
+    {
+        SceneManager.LoadScene(2);
     }
 }

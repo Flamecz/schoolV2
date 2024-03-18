@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 public class Testing : MonoBehaviour {
+    [HideInInspector]
     public int selectedMap;
     [SerializeField] private PathDebug pathDebug;
     [SerializeField] private PathVisual pathVisual;

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MissionDataShower : MonoBehaviour
+[CreateAssetMenu(fileName = "DataContainer", menuName = "ScriptableObjects/DataContainer")]
+public class MissionDataShower : ScriptableObject
 {
+    public int whatResource;
+    public int whatMission;
+    public int whatDificulty;
 }

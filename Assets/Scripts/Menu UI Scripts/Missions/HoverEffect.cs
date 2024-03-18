@@ -37,6 +37,7 @@ public class HoverEffect : MonoBehaviour, IPointerClickHandler
         {
             imageBack();
             BackG[buttonIndex].SetActive(true);
+            FindObjectOfType<DataSender>().GetIndex(buttonIndex);
             bonusTaken = true;
             FindObjectOfType<MissionCreator>().IsNotInteractable(bonusTaken);
         }

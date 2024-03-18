@@ -7,7 +7,8 @@ public class ImageSwitch : MonoBehaviour
 {
     public Image image;
     public Sprite[] sprites;
-    private int selectedIndex = 2;
+    [HideInInspector]
+    public int selectedIndex = 2;
     private int defaultIndex = 2;
     public Button leftButton;
     public Button rightButton;
@@ -41,6 +42,7 @@ public class ImageSwitch : MonoBehaviour
     {
         if (index >= 0 && index < sprites.Length)
         {
+            FindObjectOfType<DataSender>().GetDificulty(selectedIndex);
             image.sprite = sprites[index];
         }
         dificultyRating();
