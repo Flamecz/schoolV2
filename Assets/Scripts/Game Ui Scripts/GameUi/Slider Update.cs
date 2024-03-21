@@ -18,6 +18,8 @@ public class SliderUpdate : MonoBehaviour
 
         Left.onClick.AddListener(delegate { slider.value -= 1; });
         Right.onClick.AddListener(delegate { slider.value += 1; });
+
+        RM = FindObjectOfType<ResourceManager>();
     }
     private void Update()
     {

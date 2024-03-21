@@ -38,6 +38,11 @@ public class UpdateTexts : MonoBehaviour
     private void awake()
     {
         utilityButton.onClick.AddListener(MCC.CloseAllScreens);
+        RM = FindObjectOfType<ResourceManager>();
+        if(RM == null)
+        {
+            Debug.Log("DId not acces");
+        }
     }
     void Update()
     {

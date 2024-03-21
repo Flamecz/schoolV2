@@ -9,6 +9,7 @@ public class GrowthManager : MonoBehaviour
     public Unit unit;
     private void Start()
     {
+        resourceManager = 
         currentBuyableUnits = unit.growth;
     }
     public int CalculateUnits()

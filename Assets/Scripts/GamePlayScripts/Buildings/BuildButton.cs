@@ -46,9 +46,9 @@ public class BuildButton : MonoBehaviour
 
         NameOfTheButton.text = buildData.nazev;
         Image.sprite = buildData.Obrazek;
+        resourceManager = FindObjectOfType<ResourceManager>();
 
-
-        if(cityBuldings.builded)
+        if (cityBuldings.builded)
         {
             BuildObjectFromData();
         }

@@ -8,6 +8,7 @@ public class UiUpdate : MonoBehaviour
     public ResourceManager RM;
     private void Start()
     {
+        RM = FindObjectOfType<ResourceManager>();
         GetData();
     }
     void Update()
