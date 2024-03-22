@@ -38,11 +38,6 @@ public class UpdateTexts : MonoBehaviour
     private void awake()
     {
         utilityButton.onClick.AddListener(MCC.CloseAllScreens);
-        RM = FindObjectOfType<ResourceManager>();
-        if(RM == null)
-        {
-            Debug.Log("DId not acces");
-        }
     }
     void Update()
     {
@@ -79,13 +74,13 @@ public class UpdateTexts : MonoBehaviour
 
     public void SetData()
     {
-        ResourceText.text = RM.Wood.ToString();
-        ResourceText1.text = RM.Iron.ToString();
-        ResourceText2.text = RM.Stone.ToString();
-        ResourceText3.text = RM.Sulfur.ToString();
-        ResourceText4.text = RM.Minerals.ToString();
-        ResourceText5.text = RM.Gems.ToString();
-        ResourceText6.text = RM.Gold.ToString();
+        ResourceText.text = RM.Data.Wood.ToString();
+        ResourceText1.text = RM.Data.Iron.ToString();
+        ResourceText2.text = RM.Data.Stone.ToString();
+        ResourceText3.text = RM.Data.Sulfur.ToString();
+        ResourceText4.text = RM.Data.Minerals.ToString();
+        ResourceText5.text = RM.Data.Gems.ToString();
+        ResourceText6.text = RM.Data.Gold.ToString();
     }
     public void SetRightSide()
     {

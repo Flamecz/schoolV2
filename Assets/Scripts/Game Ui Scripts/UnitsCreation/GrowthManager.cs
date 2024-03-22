@@ -9,12 +9,12 @@ public class GrowthManager : MonoBehaviour
     public Unit unit;
     private void Start()
     {
-        resourceManager = 
+        
         currentBuyableUnits = unit.growth;
     }
     public int CalculateUnits()
     {
-        int numberOfUnits = Mathf.Min(currentBuyableUnits, resourceManager.Gold / unit.cost);
+        int numberOfUnits = Mathf.Min(currentBuyableUnits, resourceManager.Data.Gold / unit.cost);
 
         if (numberOfUnits > 0)
         {
@@ -29,7 +29,7 @@ public class GrowthManager : MonoBehaviour
     }
     public int CalculateUnits(Unit unit)
     {
-        int numberOfUnits = Mathf.Min(currentBuyableUnits, resourceManager.Gold / unit.cost);
+        int numberOfUnits = Mathf.Min(currentBuyableUnits, resourceManager.Data.Gold / unit.cost);
 
         if (numberOfUnits > 0)
         {

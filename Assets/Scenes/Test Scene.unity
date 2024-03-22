@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MDS: {fileID: 11400000, guid: ea6398a186fe1d14ea8d3343587b7b06, type: 2}
+  RM: {fileID: 0}
 --- !u!1 &713971653
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,13 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b2ac67ac65f4a4a88288c8902d3883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Wood: 0
-  Iron: 0
-  Minerals: 0
-  Stone: 0
-  Sulfur: 0
-  Gems: 0
-  Gold: 0
+  Data: {fileID: 11400000, guid: 39925bfb04e22774d8d041732609037a, type: 2}
 --- !u!4 &713971655
 Transform:
   m_ObjectHideFlags: 0

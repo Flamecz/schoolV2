@@ -349,6 +349,10 @@ MonoBehaviour:
     Map: {fileID: 21300000, guid: ee3cfd1a52943684290d786af2ab6079, type: 3}
   Canvas: {fileID: 512850956}
   LevelIndex: 0
+  BTM:
+  - {fileID: 11400000, guid: d1c90000e23a89b4290c2d82056c96c1, type: 2}
+  - {fileID: 11400000, guid: 3236f68283a3af440a4951ea7d703af2, type: 2}
+  - {fileID: 11400000, guid: a7905a147cb8e2840ae1c28004f91a66, type: 2}
 --- !u!1 &170845058
 GameObject:
   m_ObjectHideFlags: 0
@@ -5020,6 +5024,10 @@ MonoBehaviour:
     Map: {fileID: 21300000, guid: d29ee67dfff2d7a4c8206be40f5dce76, type: 3}
   Canvas: {fileID: 512850956}
   LevelIndex: 2
+  BTM:
+  - {fileID: 11400000, guid: bd36efb73feb1664c8212aea04a4f9e1, type: 2}
+  - {fileID: 11400000, guid: ea1d9c1df7917ac42bb7ffd4157c8405, type: 2}
+  - {fileID: 11400000, guid: 3f8986ceff8efeb448a48fbfc9bd039e, type: 2}
 --- !u!1 &1092942034
 GameObject:
   m_ObjectHideFlags: 0
@@ -5826,6 +5834,10 @@ MonoBehaviour:
     Map: {fileID: 21300000, guid: 2932bb0fd97ce4d4b807554f54fbdac3, type: 3}
   Canvas: {fileID: 512850956}
   LevelIndex: 1
+  BTM:
+  - {fileID: 11400000, guid: 2e8389edbed9d2d439d841b8e0f7cfd0, type: 2}
+  - {fileID: 11400000, guid: a0f3c172484aaf14ab721ad27c20ad26, type: 2}
+  - {fileID: 11400000, guid: 2f0c3c82c3d62fa4e9c11b87db3e25b6, type: 2}
 --- !u!1 &1262569673
 GameObject:
   m_ObjectHideFlags: 0
@@ -9046,6 +9058,14 @@ MonoBehaviour:
     Music: 0
   - name: HeroesGoodtheme
     clip: {fileID: 8300000, guid: b2ea597d66405af46811e3e836f5bd75, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    Effect: 0
+    Music: 1
+  - name: HeroesInWorld
+    clip: {fileID: 8300000, guid: ce545bd995fbe7e46b1f05f58c9a3435, type: 3}
     volume: 0.3
     pitch: 1
     source: {fileID: 0}

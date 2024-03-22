@@ -1,14 +1,10 @@
+using System.Data;
+using System.Runtime.Versioning;
 using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    public int Wood;
-    public int Iron;
-    public int Minerals;
-    public int Stone;
-    public int Sulfur;
-    public int Gems;
-    public int Gold;
+    public Resources Data;
 
     public static ResourceManager instance;
 
@@ -35,44 +31,30 @@ public class ResourceManager : MonoBehaviour
         switch (resource)
         {
             case "Wood":
-                Wood += amount;
+                Data.Wood += amount;
                 break;
             case "Iron":
-                Iron += amount;
+                Data.Iron += amount;
                 break;
             case "Minerals":
-                Minerals += amount;
+                Data.Minerals += amount;
                 break;
             case "Stone":
-                Stone += amount;
+                Data.Stone += amount;
                 break;
             case "Sulfur":
-                Sulfur += amount;
+                Data.Sulfur += amount;
                 break;
             case "Gems":
-                Gems += amount;
+                Data.Gems += amount;
                 break;
             case "Gold":
-                Gold += amount;
+                Data.Gold += amount;
                 break;
             default:
                 Debug.Log("Invalid resource type.");
                 break;
         }
-        SaveManager saveManager = new SaveManager();
-        saveManager.Save(new ResourceData { Wood = Wood, Iron = Iron, Minerals = Minerals, Stone = Stone });
-    }
-    public void LoadResources()
-    {
-        // Load the resource data
-        SaveManager saveManager = new SaveManager();
-        var resourceData = saveManager.Load();
-
-        // Apply the loaded resource data
-        Wood = resourceData.Wood;
-        Iron = resourceData.Iron;
-        Minerals = resourceData.Minerals;
-        Stone = resourceData.Stone;
     }
 }
 

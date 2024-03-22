@@ -32,12 +32,13 @@ public class MissionCreator : MonoBehaviour
     private Image vyber3;
 
 
-    List<BonusThingsinMission> myObjects = new List<BonusThingsinMission>();
+    public BonusThingsinMission[] BTM;
     void Start()
     {
-        myObjects.Add(new BonusThingsinMission("additional resources", Resources.Load<Sprite>("Sprites/Resourceimage/H3Crystal"), "Gives you additional resources to create buildings"));
-        myObjects.Add(new BonusThingsinMission("12 ", Resources.Load<Sprite>("Sprites/UnitsImage/Pikeman"), "You get 12 Pikeman to your army"));
-        myObjects.Add(new BonusThingsinMission("Budova", Resources.Load<Sprite>("Sprites/Holder"), "Gives you a building for free"));
+     //   myObjects.Add(new BonusThingsinMission("additional resources", Resources.Load<Sprite>("Sprites/Resourceimage/H3Crystal"), "Gives you additional resources to create buildings"));
+     //   myObjects.Add(new BonusThingsinMission("12 ", Resources.Load<Sprite>("Sprites/UnitsImage/Pikeman"), "You get 12 Pikeman to your army"));
+     //   myObjects.Add(new BonusThingsinMission("Budova", Resources.);
+        //"Gives you a building for free"
         nazev = gameObject.name;
         getSceneData();
         nameStart.text = missionD.misionName;
@@ -102,17 +103,17 @@ public class MissionCreator : MonoBehaviour
         TeamColor1.color = missionD.allies;
         TeamColor2.color = missionD.Enemy;
 
-
-            vyber1.sprite = myObjects[0].image;
-            vyber2.sprite = myObjects[1].image;
-            vyber3.sprite = myObjects[2].image;
-
         Map.sprite = missionD.Map;
+
+        vyber1.sprite = BTM[0].image;
+            vyber2.sprite = BTM[1].image;
+            vyber3.sprite = BTM[2].image;
+
         FindObjectOfType<DataSender>().GetMission(LevelIndex);
     }
     public string GetInfo(int index)
     { 
-        return myObjects[index].description;
+        return BTM[index].description;
     }
     public void IsNotInteractable(bool trueOrFalse)
     {

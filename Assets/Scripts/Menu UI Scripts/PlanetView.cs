@@ -29,7 +29,7 @@ public class PlanetView : MonoBehaviour
 
         if (open)
         {
-            Sprite = Resources.Load<Sprite>("Sprites/home");
+          //  Sprite = Resources.Load<Sprite>("Sprites/home");
             PlanetButton.image.sprite = Sprite;
             for (int i = 0; i < Objekty.Length;i++)
             {
@@ -39,7 +39,7 @@ public class PlanetView : MonoBehaviour
         }
         else
         {
-            Sprite = Resources.Load<Sprite>("Sprites/earth");
+         //   Sprite = Resources.Load<Sprite>("Sprites/earth");
             PlanetButton.image.sprite = Sprite;
             for (int i = 0; i < Objekty.Length; i++)
             {

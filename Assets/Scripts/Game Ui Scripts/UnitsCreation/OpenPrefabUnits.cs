@@ -125,7 +125,7 @@ public class OpenPrefabUnits : MonoBehaviour
         int moneycost = wholeCount * unit2.cost;
 
         growthManager.currentBuyableUnits -= wholeCount;
-        resourceManger.Gold -= moneycost;
+        resourceManger.Data.Gold -= moneycost;
 
         FindObjectOfType<InvenotoryManagement>().AddItem(unit2, wholeCount);
         DemolishPopUp();

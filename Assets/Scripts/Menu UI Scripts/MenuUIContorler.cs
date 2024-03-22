@@ -70,5 +70,7 @@ public class MenuUIContorler : MonoBehaviour
     public void LoadGrid()
     {
         SceneManager.LoadScene(2);
+        FindObjectOfType<AudioManager>().Stop("HeroesGoodtheme");
+        FindObjectOfType<AudioManager>().Play("HeroesInWorld");
     }
 }

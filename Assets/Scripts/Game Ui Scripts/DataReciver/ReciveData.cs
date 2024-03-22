@@ -27,13 +27,13 @@ public class ReciveData : MonoBehaviour
         switch(whatResource)
         {
             case 0:
-                RM.Wood += 5;
-                RM.Stone += 5;
-                RM.Iron+= 2;
-                RM.Minerals += 2;
-                RM.Gems += 2;
-                RM.Sulfur += 2;
-                RM.Gold+= 2000;
+                RM.Data.Wood += 5;
+                RM.Data.Stone += 5;
+                RM.Data.Iron+= 2;
+                RM.Data.Minerals += 2;
+                RM.Data.Gems += 2;
+                RM.Data.Sulfur += 2;
+                RM.Data.Gold+= 2000;
                 break;
             case 1:
                 break;

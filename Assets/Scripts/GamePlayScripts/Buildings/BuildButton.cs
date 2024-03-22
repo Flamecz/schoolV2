@@ -1,3 +1,4 @@
+using System.Data;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
@@ -56,10 +57,10 @@ public class BuildButton : MonoBehaviour
     }
     private void HandleClick()
     {
-        if (resourceManager.Wood >= woodCost &&
-            resourceManager.Iron >= ironCost &&
-            resourceManager.Minerals >= mineralsCost &&
-            resourceManager.Stone >= stoneCost)
+        if (resourceManager.Data.Wood >= woodCost &&
+            resourceManager.Data.Iron >= ironCost &&
+            resourceManager.Data.Minerals >= mineralsCost &&
+            resourceManager.Data.Stone >= stoneCost)
         {
             // Subtract the costs from the resources
             resourceManager.ModifyResources("Wood", -woodCost);
@@ -77,10 +78,10 @@ public class BuildButton : MonoBehaviour
     {
         if (!cityBuldings.builded)
         {
-                if (resourceManager.Wood >= woodCost &&
-                resourceManager.Iron >= ironCost &&
-                resourceManager.Minerals >= mineralsCost &&
-                resourceManager.Stone >= stoneCost)
+                if (resourceManager.Data.Wood >= woodCost &&
+                resourceManager.Data.Iron >= ironCost &&
+                resourceManager.Data.Minerals >= mineralsCost &&
+                resourceManager.Data.Stone >= stoneCost)
                 {
                     //centring object in middle and creating popUp
 
@@ -151,10 +152,10 @@ public class BuildButton : MonoBehaviour
         if (!cityBuldings.builded)
         {
 
-                if (resourceManager.Wood >= woodCost &&
-                    resourceManager.Iron >= ironCost &&
-                    resourceManager.Minerals >= mineralsCost &&
-                    resourceManager.Stone >= stoneCost)
+                if (resourceManager.Data.Wood >= woodCost &&
+                    resourceManager.Data.Iron >= ironCost &&
+                    resourceManager.Data.Minerals >= mineralsCost &&
+                    resourceManager.Data.Stone >= stoneCost)
                 {
                     if (cityBuldings.Done())
                     {
@@ -186,10 +187,10 @@ public class BuildButton : MonoBehaviour
 
     public void CostOfBuilding()
     {
-        resourceManager.Wood -= woodCost;
-        resourceManager.Iron -= ironCost;
-        resourceManager.Minerals -= mineralsCost;
-        resourceManager.Stone -= stoneCost; 
+        resourceManager.Data.Wood -= woodCost;
+        resourceManager.Data.Iron -= ironCost;
+        resourceManager.Data.Minerals -= mineralsCost;
+        resourceManager.Data.Stone -= stoneCost; 
     }
 
     public void OnLoadUpdate()

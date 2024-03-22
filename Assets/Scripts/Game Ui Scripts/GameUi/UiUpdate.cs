@@ -8,18 +8,17 @@ public class UiUpdate : MonoBehaviour
     public ResourceManager RM;
     private void Start()
     {
-        RM = FindObjectOfType<ResourceManager>();
         GetData();
     }
     void Update()
     {
-        Resource1.text = RM.Wood.ToString();
-        Resource2.text = RM.Iron.ToString();
-        Resource3.text = RM.Stone.ToString();
-        Resource4.text = RM.Sulfur.ToString();
-        Resource5.text = RM.Minerals.ToString();
-        Resource6.text = RM.Gems.ToString();
-        Resource7.text = RM.Gold.ToString();
+        Resource1.text = RM.Data.Wood.ToString();
+        Resource2.text = RM.Data.Iron.ToString();
+        Resource3.text = RM.Data.Stone.ToString();
+        Resource4.text = RM.Data.Sulfur.ToString();
+        Resource5.text = RM.Data.Minerals.ToString();
+        Resource6.text = RM.Data.Gems.ToString();
+        Resource7.text = RM.Data.Gold.ToString();
     }
     private void GetData()
     {

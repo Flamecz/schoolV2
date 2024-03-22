@@ -11,12 +11,12 @@ public class Townhall : MonoBehaviour
         if(upgraded)
         {
             incomeAmount = 1500;
-            FindObjectOfType<ResourceManager>().Gold += incomeAmount;
+            FindObjectOfType<ResourceManager>().Data.Gold += incomeAmount;
         }
         else
         {
             incomeAmount = 500;
-            FindObjectOfType<ResourceManager>().Gold += incomeAmount;
+            FindObjectOfType<ResourceManager>().Data.Gold += incomeAmount;
         }
     }
 }

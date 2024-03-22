@@ -62,27 +62,27 @@ public class SliderUpdate : MonoBehaviour
                         slider.maxValue = 0;
                         return;
                     case 1:
-                        slider.maxValue = RM.Wood / IronCost;
+                        slider.maxValue = RM.Data.Wood / IronCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(IronCost);
                         return;
                     case 2:
-                        slider.maxValue = RM.Wood / StoneCost;
+                        slider.maxValue = RM.Data.Wood / StoneCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(StoneCost);
                         return;
                     case 3:
-                        slider.maxValue = RM.Wood / SulfurCost;
+                        slider.maxValue = RM.Data.Wood / SulfurCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(SulfurCost);
                         return;
                     case 4:
-                        slider.maxValue = RM.Wood / MineralsCost;
+                        slider.maxValue = RM.Data.Wood / MineralsCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(MineralsCost);
                         return;
                     case 5:
-                        slider.maxValue = RM.Wood / GemsCost;
+                        slider.maxValue = RM.Data.Wood / GemsCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GemsCost);
                         return;
                     case 6:
-                        slider.maxValue = RM.Wood ;
+                        slider.maxValue = RM.Data.Wood ;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GoldCost);
                         return;
                 }
@@ -91,30 +91,30 @@ public class SliderUpdate : MonoBehaviour
                 switch (index2)
                 {
                     case 0:
-                        slider.maxValue = RM.Iron / WoodCost;
+                        slider.maxValue = RM.Data.Iron / WoodCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(WoodCost);
                         return;
                     case 1:
                         slider.maxValue = 0;
                         return;
                     case 2:
-                        slider.maxValue = RM.Iron / StoneCost;
+                        slider.maxValue = RM.Data.Iron / StoneCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(StoneCost);
                         return;
                     case 3:
-                        slider.maxValue = RM.Iron / SulfurCost;
+                        slider.maxValue = RM.Data.Iron / SulfurCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(SulfurCost);
                         return;
                     case 4:
-                        slider.maxValue = RM.Iron / MineralsCost;
+                        slider.maxValue = RM.Data.Iron / MineralsCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(MineralsCost);
                         return;
                     case 5:
-                        slider.maxValue = RM.Iron / GemsCost;
+                        slider.maxValue = RM.Data.Iron / GemsCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GemsCost);
                         return;
                     case 6:
-                        slider.maxValue = RM.Iron ;
+                        slider.maxValue = RM.Data.Iron ;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GoldCost);
                         return;
                 }
@@ -123,30 +123,30 @@ public class SliderUpdate : MonoBehaviour
                 switch (index2)
                 {
                     case 0:
-                        slider.maxValue = RM.Stone / WoodCost;
+                        slider.maxValue = RM.Data.Stone / WoodCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(WoodCost);
                         return;
                     case 1:
-                        slider.maxValue = RM.Stone / IronCost;
+                        slider.maxValue = RM.Data.Stone / IronCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(IronCost);
                         return;
                     case 2:
                         slider.maxValue = 0;
                         return;
                     case 3:
-                        slider.maxValue = RM.Stone / SulfurCost;
+                        slider.maxValue = RM.Data.Stone / SulfurCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(SulfurCost);
                         return;
                     case 4:
-                        slider.maxValue = RM.Stone / MineralsCost;
+                        slider.maxValue = RM.Data.Stone / MineralsCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(MineralsCost);
                         return;
                     case 5:
-                        slider.maxValue = RM.Stone / GemsCost;
+                        slider.maxValue = RM.Data.Stone / GemsCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GemsCost);
                         return;
                     case 6:
-                        slider.maxValue = RM.Stone ;
+                        slider.maxValue = RM.Data.Stone ;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GoldCost);
                         return;
                 }
@@ -155,30 +155,30 @@ public class SliderUpdate : MonoBehaviour
                 switch (index2)
                 {
                     case 0:
-                        slider.maxValue = RM.Sulfur / WoodCost;
+                        slider.maxValue = RM.Data.Sulfur / WoodCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(WoodCost);
                         return;
                     case 1:
-                        slider.maxValue = RM.Sulfur / IronCost;
+                        slider.maxValue = RM.Data.Sulfur / IronCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(IronCost);
                         return;
                     case 2:
-                        slider.maxValue = RM.Sulfur / StoneCost;
+                        slider.maxValue = RM.Data.Sulfur / StoneCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(StoneCost);
                         return;
                     case 3:
                         slider.maxValue = 0;
                         return;
                     case 4:
-                        slider.maxValue = RM.Sulfur / MineralsCost;
+                        slider.maxValue = RM.Data.Sulfur / MineralsCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(MineralsCost);
                         return;
                     case 5:
-                        slider.maxValue = RM.Sulfur / GemsCost;
+                        slider.maxValue = RM.Data.Sulfur / GemsCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GemsCost);
                         return;
                     case 6:
-                        slider.maxValue = RM.Sulfur ;
+                        slider.maxValue = RM.Data.Sulfur ;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GoldCost);
                         return;
                 }
@@ -187,30 +187,30 @@ public class SliderUpdate : MonoBehaviour
                 switch (index2)
                 {
                     case 0:
-                        slider.maxValue = RM.Minerals / WoodCost;
+                        slider.maxValue = RM.Data.Minerals / WoodCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(WoodCost);
                         return;
                     case 1:
-                        slider.maxValue = RM.Minerals / IronCost;
+                        slider.maxValue = RM.Data.Minerals / IronCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(IronCost);
                         return;
                     case 2:
-                        slider.maxValue = RM.Minerals / StoneCost;
+                        slider.maxValue = RM.Data.Minerals / StoneCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(StoneCost);
                         return;
                     case 3:
-                        slider.maxValue = RM.Minerals / SulfurCost;
+                        slider.maxValue = RM.Data.Minerals / SulfurCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(SulfurCost);
                         return;
                     case 4:
                         slider.maxValue = 0;
                         return;
                     case 5:
-                        slider.maxValue = RM.Minerals / GemsCost;
+                        slider.maxValue = RM.Data.Minerals / GemsCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GemsCost);
                         return;
                     case 6:
-                        slider.maxValue = RM.Minerals ;
+                        slider.maxValue = RM.Data.Minerals ;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GoldCost);
                         return;
                 }
@@ -219,30 +219,30 @@ public class SliderUpdate : MonoBehaviour
                 switch (index2)
                 {
                     case 0:
-                        slider.maxValue = RM.Gems / WoodCost;
+                        slider.maxValue = RM.Data.Gems / WoodCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(WoodCost);
                         return;
                     case 1:
-                        slider.maxValue = RM.Gems / IronCost;
+                        slider.maxValue = RM.Data.Gems / IronCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(IronCost);
                         return;
                     case 2:
-                        slider.maxValue = RM.Gems / StoneCost;
+                        slider.maxValue = RM.Data.Gems / StoneCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(StoneCost);
                         return;
                     case 3:
-                        slider.maxValue = RM.Gems / SulfurCost;
+                        slider.maxValue = RM.Data.Gems / SulfurCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(SulfurCost);
                         return;
                     case 4:
-                        slider.maxValue = RM.Gems / MineralsCost;
+                        slider.maxValue = RM.Data.Gems / MineralsCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(MineralsCost);
                         return;
                     case 5:
                         slider.maxValue = 0;
                         return;
                     case 6:
-                        slider.maxValue = RM.Gems ;
+                        slider.maxValue = RM.Data.Gems ;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GoldCost);
                         return;
                 }
@@ -251,27 +251,27 @@ public class SliderUpdate : MonoBehaviour
                 switch (index2)
                 {
                     case 0:
-                        slider.maxValue = RM.Gold / WoodCost;
+                        slider.maxValue = RM.Data.Gold / WoodCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(WoodCost);
                         return;
                     case 1:
-                        slider.maxValue = RM.Gold / IronCost;
+                        slider.maxValue = RM.Data.Gold / IronCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(IronCost);
                         return;
                     case 2:
-                        slider.maxValue = RM.Gold / StoneCost;
+                        slider.maxValue = RM.Data.Gold / StoneCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(StoneCost);
                         return;
                     case 3:
-                        slider.maxValue = RM.Gold / SulfurCost;
+                        slider.maxValue = RM.Data.Gold / SulfurCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(SulfurCost);
                         return;
                     case 4:
-                        slider.maxValue = RM.Gold / MineralsCost;
+                        slider.maxValue = RM.Data.Gold / MineralsCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(MineralsCost);
                         return;
                     case 5:
-                        slider.maxValue = RM.Gold / GemsCost;
+                        slider.maxValue = RM.Data.Gold / GemsCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GemsCost);
                         return;
                     case 6:
