@@ -7458,6 +7458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1621934021}
   - component: {fileID: 1621934020}
+  - component: {fileID: 1621934022}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -7478,6 +7479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   show: {fileID: 11400000, guid: ea6398a186fe1d14ea8d3343587b7b06, type: 2}
+  buildingManager: {fileID: 1621934022}
 --- !u!4 &1621934021
 Transform:
   m_ObjectHideFlags: 0
@@ -7493,6 +7495,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1621934022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621934019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be78f7cf85bb7f418a12bf28ad8e722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CityBuldings:
+  - {fileID: 11400000, guid: a2b01f4be32924ef0b0e8f422f6dd5cf, type: 2}
+  - {fileID: 11400000, guid: 48320e2de4fa24757bc56a52cc1658f7, type: 2}
+  - {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
+  - {fileID: 11400000, guid: 46962fc7a1affea4e8fe1b3aa952c6f6, type: 2}
+  - {fileID: 11400000, guid: 844aa594e06903d439a7204e6c7b166f, type: 2}
 --- !u!1 &1627729729
 GameObject:
   m_ObjectHideFlags: 0

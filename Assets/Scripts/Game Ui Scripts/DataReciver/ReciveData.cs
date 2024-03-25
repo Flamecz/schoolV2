@@ -8,11 +8,11 @@ public class ReciveData : MonoBehaviour
     private int whatMission;
     private int whatDificulty;
     public MissionDataShower MDS;
-    public ResourceManager RM;
+    public Resources resources;
     private void Awake()
     {
         GetData();
-
+        AddResourceBonus();
     }
 
     private void GetData()
@@ -27,17 +27,23 @@ public class ReciveData : MonoBehaviour
         switch(whatResource)
         {
             case 0:
-                RM.Data.Wood += 5;
-                RM.Data.Stone += 5;
-                RM.Data.Iron+= 2;
-                RM.Data.Minerals += 2;
-                RM.Data.Gems += 2;
-                RM.Data.Sulfur += 2;
-                RM.Data.Gold+= 2000;
+                resources.Wood += 5;
+                resources.Stone += 5;
+                resources.Iron+= 2;
+                resources.Minerals += 2;
+                resources.Gems += 2;
+                resources.Sulfur += 2;
+                resources.Gold+= 2000;
                 break;
             case 1:
                 break;
             case 2:
+                switch(whatMission)
+                {
+                    case 0:
+                        FindObjectOfType<BuildingManager>().GetBuildingByName("Archer Tower");
+                            break;
+                }
                 break;
         }
     }

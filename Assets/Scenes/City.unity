@@ -493,7 +493,7 @@ MonoBehaviour:
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
     CompareTag: Shipyard
   cityBuldings: {fileID: 11400000, guid: 48320e2de4fa24757bc56a52cc1658f7, type: 2}
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
   nameOfTheButtonBackground: BuildingBackground7
@@ -3030,7 +3030,7 @@ MonoBehaviour:
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
     CompareTag: Monastry
   cityBuldings: {fileID: 11400000, guid: 48320e2de4fa24757bc56a52cc1658f7, type: 2}
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
   nameOfTheButtonBackground: BuildingBackground14
@@ -4260,7 +4260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1cfa4fc6d9c4830895b2631cb455dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   currentBuyableUnits: 0
   unit: {fileID: 11400000, guid: 5a2c1c66a827f4ad88f4532430e115ea, type: 2}
 --- !u!114 &183695841
@@ -4277,7 +4277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buyUnitprefab: {fileID: 4894962365920087072, guid: 80a053ec1190445c28eaffc177e1efa5, type: 3}
   parent: {fileID: 287990523}
-  resourceManger: {fileID: 0}
+  resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: 70027a49a51594bf6864aa08227d6878, type: 2}
   unit2: {fileID: 11400000, guid: 5a2c1c66a827f4ad88f4532430e115ea, type: 2}
   growthManager: {fileID: 183695840}
@@ -6851,7 +6851,7 @@ MonoBehaviour:
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
     CompareTag: PortalOfGlory
   cityBuldings: {fileID: 11400000, guid: 48320e2de4fa24757bc56a52cc1658f7, type: 2}
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
   nameOfTheButtonBackground: BuildingBackground16
@@ -9117,7 +9117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1cfa4fc6d9c4830895b2631cb455dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   currentBuyableUnits: 0
   unit: {fileID: 11400000, guid: 138015183ab5841a081291f174f7e96c, type: 2}
 --- !u!114 &514226299
@@ -9134,7 +9134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buyUnitprefab: {fileID: 4894962365920087072, guid: 80a053ec1190445c28eaffc177e1efa5, type: 3}
   parent: {fileID: 287990523}
-  resourceManger: {fileID: 0}
+  resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: 728efa6f2cc1145f282211461cf0492a, type: 2}
   unit2: {fileID: 11400000, guid: 138015183ab5841a081291f174f7e96c, type: 2}
   growthManager: {fileID: 514226298}
@@ -9545,7 +9545,7 @@ MonoBehaviour:
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
     CompareTag: BrotherhoodoftheSword
   cityBuldings: {fileID: 11400000, guid: 48320e2de4fa24757bc56a52cc1658f7, type: 2}
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   canvas: {fileID: 1090813504}
   NameOfPosition: position3
   nameOfTheButtonBackground: BuildingBackground3
@@ -10671,7 +10671,7 @@ MonoBehaviour:
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
     CompareTag: TrainingGrounds
   cityBuldings: {fileID: 11400000, guid: 48320e2de4fa24757bc56a52cc1658f7, type: 2}
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
   nameOfTheButtonBackground: BuildingBackground15
@@ -15324,7 +15324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1cfa4fc6d9c4830895b2631cb455dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   currentBuyableUnits: 0
   unit: {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
 --- !u!114 &829081838
@@ -15341,7 +15341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buyUnitprefab: {fileID: 4894962365920087072, guid: 80a053ec1190445c28eaffc177e1efa5, type: 3}
   parent: {fileID: 287990523}
-  resourceManger: {fileID: 0}
+  resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: e53ed469382f34caf99f719d8eae6b62, type: 2}
   unit2: {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
   growthManager: {fileID: 829081837}
@@ -15630,7 +15630,7 @@ MonoBehaviour:
     popis: 'Upgrades your fortification by supstancial margin. '
     CompareTag: Citadel
   cityBuldings: {fileID: 11400000, guid: a2b01f4be32924ef0b0e8f422f6dd5cf, type: 2}
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   canvas: {fileID: 1090813504}
   NameOfPosition: position2
   nameOfTheButtonBackground: BuildingBackground2
@@ -16243,8 +16243,8 @@ MonoBehaviour:
     nazev: Guardhouse
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
     CompareTag: GuardHouse
-  cityBuldings: {fileID: 11400000, guid: 48320e2de4fa24757bc56a52cc1658f7, type: 2}
-  resourceManager: {fileID: 0}
+  cityBuldings: {fileID: 11400000, guid: 844aa594e06903d439a7204e6c7b166f, type: 2}
+  resourceManager: {fileID: 175092077}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
   nameOfTheButtonBackground: BuildingBackground10
@@ -18634,7 +18634,7 @@ MonoBehaviour:
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
     CompareTag: Barracks
   cityBuldings: {fileID: 11400000, guid: 48320e2de4fa24757bc56a52cc1658f7, type: 2}
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
   nameOfTheButtonBackground: BuildingBackground13
@@ -18846,7 +18846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1cfa4fc6d9c4830895b2631cb455dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   currentBuyableUnits: 0
   unit: {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
 --- !u!114 &952379810
@@ -18863,7 +18863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buyUnitprefab: {fileID: 4894962365920087072, guid: 80a053ec1190445c28eaffc177e1efa5, type: 3}
   parent: {fileID: 287990523}
-  resourceManger: {fileID: 0}
+  resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: 42886ce941af5472b93557d13bbb882a, type: 2}
   unit2: {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
   growthManager: {fileID: 952379809}
@@ -23289,7 +23289,7 @@ MonoBehaviour:
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
     CompareTag: Stables
   cityBuldings: {fileID: 11400000, guid: 48320e2de4fa24757bc56a52cc1658f7, type: 2}
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
   nameOfTheButtonBackground: BuildingBackground8
@@ -28000,7 +28000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1cfa4fc6d9c4830895b2631cb455dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   currentBuyableUnits: 0
   unit: {fileID: 11400000, guid: 44c27deada19845d2804a3ef5f8c4018, type: 2}
 --- !u!114 &1389553943
@@ -28017,7 +28017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buyUnitprefab: {fileID: 4894962365920087072, guid: 80a053ec1190445c28eaffc177e1efa5, type: 3}
   parent: {fileID: 287990523}
-  resourceManger: {fileID: 0}
+  resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: 8107f833d8c9d485aae5029f9420ef93, type: 2}
   unit2: {fileID: 11400000, guid: 44c27deada19845d2804a3ef5f8c4018, type: 2}
   growthManager: {fileID: 1389553942}
@@ -28798,7 +28798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1cfa4fc6d9c4830895b2631cb455dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   currentBuyableUnits: 0
   unit: {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
 --- !u!114 &1430118931
@@ -28815,7 +28815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buyUnitprefab: {fileID: 4894962365920087072, guid: 80a053ec1190445c28eaffc177e1efa5, type: 3}
   parent: {fileID: 287990523}
-  resourceManger: {fileID: 0}
+  resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: 8852dadf36a4649279cd972f15d3a00c, type: 2}
   unit2: {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
   growthManager: {fileID: 1430118930}
@@ -28878,7 +28878,7 @@ MonoBehaviour:
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
     CompareTag: MageGuild
   cityBuldings: {fileID: 11400000, guid: 48320e2de4fa24757bc56a52cc1658f7, type: 2}
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
   nameOfTheButtonBackground: BuildingBackground6
@@ -33080,7 +33080,7 @@ MonoBehaviour:
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
     CompareTag: ArcherTower
   cityBuldings: {fileID: 11400000, guid: 48320e2de4fa24757bc56a52cc1658f7, type: 2}
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
   nameOfTheButtonBackground: BuildingBackground11
@@ -34225,7 +34225,7 @@ MonoBehaviour:
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
     CompareTag: GriffinTower
   cityBuldings: {fileID: 11400000, guid: 48320e2de4fa24757bc56a52cc1658f7, type: 2}
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
   nameOfTheButtonBackground: BuildingBackground12
@@ -35388,7 +35388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1cfa4fc6d9c4830895b2631cb455dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   currentBuyableUnits: 0
   unit: {fileID: 11400000, guid: a3c580a20f5a0436999515246f8aa2f8, type: 2}
 --- !u!114 &1870229689
@@ -35405,7 +35405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buyUnitprefab: {fileID: 4894962365920087072, guid: 80a053ec1190445c28eaffc177e1efa5, type: 3}
   parent: {fileID: 287990523}
-  resourceManger: {fileID: 0}
+  resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: 9e0dc38cd81e54073b5e07f6b3eba59e, type: 2}
   unit2: {fileID: 11400000, guid: a3c580a20f5a0436999515246f8aa2f8, type: 2}
   growthManager: {fileID: 1870229688}
@@ -36264,7 +36264,7 @@ MonoBehaviour:
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
     CompareTag: Market
   cityBuldings: {fileID: 11400000, guid: 46962fc7a1affea4e8fe1b3aa952c6f6, type: 2}
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   canvas: {fileID: 1090813504}
   NameOfPosition: position5
   nameOfTheButtonBackground: BuildingBackground5
@@ -38544,7 +38544,7 @@ MonoBehaviour:
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
     CompareTag: BlackSmith
   cityBuldings: {fileID: 11400000, guid: 48320e2de4fa24757bc56a52cc1658f7, type: 2}
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   canvas: {fileID: 1090813504}
   NameOfPosition: position4
   nameOfTheButtonBackground: BuildingBackground4
@@ -39356,7 +39356,7 @@ MonoBehaviour:
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
     CompareTag: GriffinBastion
   cityBuldings: {fileID: 11400000, guid: 48320e2de4fa24757bc56a52cc1658f7, type: 2}
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
   nameOfTheButtonBackground: BuildingBackground9
@@ -39982,7 +39982,7 @@ MonoBehaviour:
     popis: dfasdsafsafeafaegdgsrgesgcxgfsgsefgsgfsdgdrsgergsrgsrg
     CompareTag: TownHall
   cityBuldings: {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 175092077}
   canvas: {fileID: 1090813504}
   NameOfPosition: position1
   nameOfTheButtonBackground: BuildingBackground1
