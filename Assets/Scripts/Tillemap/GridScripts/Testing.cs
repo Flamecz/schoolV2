@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 public class Testing : MonoBehaviour {
-    [HideInInspector]
+
     public int selectedMap;
     [SerializeField] private PathDebug pathDebug;
     [SerializeField] private PathVisual pathVisual;
@@ -15,7 +15,7 @@ public class Testing : MonoBehaviour {
 
     private void Start()
     {
-        pathfinding = new PathFinding(20, 10);
+        pathfinding = new PathFinding(50, 20);
         pathDebug.Setup(pathfinding.GetGrid());
         pathVisual.SetGrid(pathfinding.GetGrid());
 

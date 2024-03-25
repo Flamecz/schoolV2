@@ -13,6 +13,7 @@ public class ReciveData : MonoBehaviour
     {
         GetData();
         AddResourceBonus();
+        FindObjectOfType<Testing>().selectedMap = whatMission;
     }
 
     private void GetData()

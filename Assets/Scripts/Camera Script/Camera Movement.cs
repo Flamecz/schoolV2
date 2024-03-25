@@ -4,80 +4,53 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public static bool Paused;
+    public float panSpeed = 20f; // Speed of camera movement
+    public float panBorderThickness = 10f; // Distance from edge of screen to start moving
+    public Vector2 minBoundary; // Minimum boundary of the map
+    public Vector2 maxBoundary; // Maximum boundary of the map
 
-    private int HoverAreaLeftX;
-    private int HoverAreaRightX;
-    private int HoverAreaUp;
-    private int HoverAreaDown;
-    public float sensitivity;
-    float maxHeight;
-    float minHeight;
-    float currentHeight;
+    private Camera orthographicCamera;
 
-    Rigidbody rb;
-    // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        maxHeight = 30f;
-        minHeight = 6f;
-        currentHeight = this.gameObject.transform.position.y;
-        Paused = false;
+        orthographicCamera = GetComponent<Camera>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (!Paused)
+        // Move camera based on keyboard input (WASD)
+        Vector3 keyboardInput = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+        Vector3 panDirection = keyboardInput.normalized;
+
+        // Move camera based on mouse position near screen edges
+        if (Input.mousePosition.x < panBorderThickness && transform.position.x > minBoundary.x)
         {
-            HoverAreaRightX = Screen.width - Screen.width / 30;
-            HoverAreaLeftX = Screen.width - HoverAreaRightX;
-            HoverAreaUp = Screen.height - Screen.height / 20;
-            HoverAreaDown = Screen.height - HoverAreaUp;
-
-            if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
-            {
-                if (currentHeight < maxHeight)
-                {
-                    currentHeight += sensitivity * Time.deltaTime;
-                    currentHeight = Mathf.Clamp(currentHeight, minHeight, maxHeight);
-                    Vector3 newPosition = new Vector3(transform.position.x, currentHeight, transform.position.z);
-                    transform.position = newPosition;
-                }
-            }
-            if (Input.GetAxisRaw("Mouse ScrollWheel") < 0)
-            {
-                if (currentHeight > minHeight)
-                {
-                    currentHeight -= sensitivity * Time.deltaTime;
-                    currentHeight = Mathf.Clamp(currentHeight, minHeight, maxHeight);
-                    Vector3 newPosition = new Vector3(transform.position.x, currentHeight, transform.position.z);
-                    transform.position = newPosition;
-                }
-            }
-            if (Input.mousePosition.x > HoverAreaRightX)
-            {
-                rb.AddForce(transform.right * sensitivity);
-            }
-            if (Input.mousePosition.x < HoverAreaLeftX)
-            {
-                rb.AddForce(-transform.right * sensitivity);
-            }
-            if (Input.mousePosition.y > HoverAreaUp)
-            {
-                rb.AddForce(transform.up * sensitivity);
-            }
-            if (Input.mousePosition.y < HoverAreaDown)
-            {
-                rb.AddForce(-transform.up * sensitivity);
-            }
+            panDirection += Vector3.left;
         }
-    }
+        if (Input.mousePosition.x > Screen.width - panBorderThickness && transform.position.x < maxBoundary.x)
+        {
+            panDirection += Vector3.right;
+        }
+        if (Input.mousePosition.y < panBorderThickness && transform.position.y > minBoundary.y)
+        {
+            panDirection += Vector3.down;
+        }
+        if (Input.mousePosition.y > Screen.height - panBorderThickness && transform.position.y < maxBoundary.y)
+        {
+            panDirection += Vector3.up;
+        }
 
+        // Normalize the pan direction to prevent faster diagonal movement
+        panDirection.Normalize();
 
-    public void PausedGame(bool ON_OFF)
-    {
-        Paused = ON_OFF;
+        // Convert screen movement to world movement
+        Vector3 pan = orthographicCamera.ScreenToWorldPoint(panDirection) - orthographicCamera.ScreenToWorldPoint(Vector3.zero);
+
+        // Move the camera, clamping the position within boundaries
+        transform.position = new Vector3(
+            Mathf.Clamp(transform.position.x + pan.x * panSpeed * Time.deltaTime, minBoundary.x, maxBoundary.x),
+            Mathf.Clamp(transform.position.y + pan.y * panSpeed * Time.deltaTime, minBoundary.y, maxBoundary.y),
+            transform.position.z
+        );
     }
 }

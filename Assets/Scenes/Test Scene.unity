@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &147066216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +272,6 @@ GameObject:
   - component: {fileID: 867269155}
   - component: {fileID: 867269154}
   - component: {fileID: 867269158}
-  - component: {fileID: 867269159}
   m_Layer: 0
   m_Name: PathVisual
   m_TagString: Untagged
@@ -371,20 +370,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sortingLayerName: Background
   sortingOrder: -50
---- !u!114 &867269159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867269153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 902dcb76dd7b449c980040dd30094278, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pathVisual: {fileID: 867269156}
-  map: []
 --- !u!1 &900381801
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +503,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f99694224b746bf9caca6e9e4d4045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 400
+  panSpeed: 400
+  panBorderThickness: 20
+  minBoundary: {x: 107, y: 60}
+  maxBoundary: {x: 393, y: 140}
 --- !u!1 &922180009
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,7 +723,7 @@ Transform:
   m_GameObject: {fileID: 1216241869}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100, y: 50, z: -95}
+  m_LocalPosition: {x: 100, y: 110, z: -95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -752,7 +740,6 @@ GameObject:
   - component: {fileID: 1529426509}
   - component: {fileID: 1529426510}
   - component: {fileID: 1529426511}
-  - component: {fileID: 1529426512}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -787,10 +774,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cde6b0c871f2f84bbbe9e9a02601b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedMap: 2
+  selectedMap: 1
   pathDebug: {fileID: 922180010}
   pathVisual: {fileID: 867269156}
-  characterPathfinding: {fileID: 0}
+  characterPathfinding: {fileID: 147066216}
   mapManager: {fileID: 1529426511}
 --- !u!114 &1529426511
 MonoBehaviour:
@@ -804,23 +791,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a9497ea340144f8a57331dd582f16f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1529426512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1529426507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b86345d705631b44870606f9c86f957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 404789853630382967, guid: d4cdfa37ce6c48e478ed8c6b25dd9d2c, type: 3}
-  obstaclePrefab: {fileID: 715979902215849131, guid: b16e1372861004eaca111745be64e5a6, type: 3}
-  gridParent: {fileID: 1529426509}
-  tilePrefabs: []
-  cellSize: 10
 --- !u!1 &1698398632
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,8 +893,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 397.97, y: -197.99}
-  m_SizeDelta: {x: 246.0502, y: 190.0255}
+  m_AnchoredPosition: {x: 301.63785, y: -157.16705}
+  m_SizeDelta: {x: 196.7744, y: 135.6914}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1772405200
 MonoBehaviour:
@@ -1009,7 +979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}

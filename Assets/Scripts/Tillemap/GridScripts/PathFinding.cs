@@ -70,54 +70,54 @@ public class PathFinding
                 }
             }
 
-            startNode.gCost = 0;
-            startNode.hCost = CalculateDistanceCost(startNode, endNode);
-            startNode.CalculateFCost();
+        startNode.gCost = 0;
+        startNode.hCost = CalculateDistanceCost(startNode, endNode);
+        startNode.CalculateFCost();
 
-            PathDebug.Instance.ClearSnapshots();
-            PathDebug.Instance.TakeSnapshot(grid, startNode, openList, closedList);
+        // Store the nodes that are already processed to avoid redundant operations
+        HashSet<PathNode> processedNodes = new HashSet<PathNode>();
 
-            while (openList.Count > 0)
+        PathDebug.Instance.ClearSnapshots();
+        PathDebug.Instance.TakeSnapshot(grid, startNode, openList, closedList);
+
+        while (openList.Count > 0)
+        {
+            PathNode currentNode = GetLowestFCostNode(openList);
+            if (currentNode == endNode)
             {
-                PathNode currentNode = GetLowestFCostNode(openList);
-                if (currentNode == endNode)
-                {
-                    // Reached final node
-                    PathDebug.Instance.TakeSnapshot(grid, currentNode, openList, closedList);
-                    PathDebug.Instance.TakeSnapshotFinalPath(grid, CalculatePath(endNode));
-                    return CalculatePath(endNode);
-                }
-
-                openList.Remove(currentNode);
-                closedList.Add(currentNode);
-
-                foreach (PathNode neighbourNode in GetNeighbourList(currentNode))
-                {
-                    if (closedList.Contains(neighbourNode)) continue;
-                    if (!neighbourNode.isWalkable)
-                    {
-                        closedList.Add(neighbourNode);
-                        continue;
-                    }
-
-                    int tentativeGCost = currentNode.gCost + CalculateDistanceCost(currentNode, neighbourNode);
-                    if (tentativeGCost < neighbourNode.gCost)
-                    {
-                        neighbourNode.cameFromNode = currentNode;
-                        neighbourNode.gCost = tentativeGCost;
-                        neighbourNode.hCost = CalculateDistanceCost(neighbourNode, endNode);
-                        neighbourNode.CalculateFCost();
-
-                        if (!openList.Contains(neighbourNode))
-                        {
-                            openList.Add(neighbourNode);
-                        }
-                    }
-                    PathDebug.Instance.TakeSnapshot(grid, currentNode, openList, closedList);
-                }
+                // Reached final node
+                PathDebug.Instance.TakeSnapshot(grid, currentNode, openList, closedList);
+                PathDebug.Instance.TakeSnapshotFinalPath(grid, CalculatePath(endNode));
+                return CalculatePath(endNode);
             }
-            return null;
+
+            openList.Remove(currentNode);
+            closedList.Add(currentNode);
+            processedNodes.Add(currentNode);
+
+            foreach (PathNode neighbourNode in GetNeighbourList(currentNode))
+            {
+                if (processedNodes.Contains(neighbourNode))
+                    continue;
+
+                int tentativeGCost = currentNode.gCost + CalculateDistanceCost(currentNode, neighbourNode);
+                if (tentativeGCost < neighbourNode.gCost)
+                {
+                    neighbourNode.cameFromNode = currentNode;
+                    neighbourNode.gCost = tentativeGCost;
+                    neighbourNode.hCost = CalculateDistanceCost(neighbourNode, endNode);
+                    neighbourNode.CalculateFCost();
+
+                    if (!openList.Contains(neighbourNode))
+                    {
+                        openList.Add(neighbourNode);
+                    }
+                }
+                PathDebug.Instance.TakeSnapshot(grid, currentNode, openList, closedList);
+            }
         }
+        return null;
+    }
 
         private List<PathNode> GetNeighbourList(PathNode currentNode)
         {
