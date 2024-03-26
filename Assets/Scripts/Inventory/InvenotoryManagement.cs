@@ -9,6 +9,7 @@ public class InvenotoryManagement : MonoBehaviour
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
     //    public DataHolder dataHolder;
+    public InvetorySaver invetorySaver;
 
     private void Update()
     {
@@ -120,6 +121,20 @@ public class InvenotoryManagement : MonoBehaviour
         }
 
         return false;
+    }
+    public void CheckForUnits(Unit unit, int count)
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            InventorySlot slot = inventorySlots[i];
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (itemInSlot != null)
+            {
+                InventoryObject creation = new InventoryObject(unit, count);
+                invetorySaver.Add(creation);
+                return;
+            }
+        }
     }
     private InventoryItem FindItemToLeft(Transform startTransform)
     {

@@ -25,7 +25,56 @@ public class ReciveData : MonoBehaviour
 
     public void AddResourceBonus()
     {
-        switch(whatResource)
+        switch (whatDificulty)
+        {
+            case 0:
+                resources.Wood = 30;
+                resources.Stone = 30;
+                resources.Iron = 25;
+                resources.Minerals = 25;
+                resources.Gems = 25;
+                resources.Sulfur = 25;
+                resources.Gold = 30000;
+                break;
+            case 1:
+                resources.Wood = 20;
+                resources.Stone = 20;
+                resources.Iron = 15;
+                resources.Minerals = 15;
+                resources.Gems = 15;
+                resources.Sulfur = 15;
+                resources.Gold = 20000;
+                break;
+            case 2:
+                resources.Wood = 15;
+                resources.Stone = 15;
+                resources.Iron = 10;
+                resources.Minerals = 10;
+                resources.Gems = 10;
+                resources.Sulfur = 10;
+                resources.Gold = 15000;
+                break;
+            case 3:
+                resources.Wood = 10;
+                resources.Stone = 10;
+                resources.Iron = 5;
+                resources.Minerals = 5;
+                resources.Gems = 5;
+                resources.Sulfur = 5;
+                resources.Gold = 10000;
+                break;
+            case 4:
+                resources.Wood = 5;
+                resources.Stone = 5;
+                resources.Iron = 0;
+                resources.Minerals = 0;
+                resources.Gems = 0;
+                resources.Sulfur = 0;
+                resources.Gold = 5000;
+                break;
+        }
+
+        switch (whatResource)
         {
             case 0:
                 resources.Wood += 5;
@@ -44,6 +93,12 @@ public class ReciveData : MonoBehaviour
                     case 0:
                         FindObjectOfType<BuildingManager>().GetBuildingByName("Archer Tower");
                             break;
+                    case 1:
+                        FindObjectOfType<BuildingManager>().GetBuildingByName("Archer Tower");
+                        break;
+                    case 2:
+                        FindObjectOfType<BuildingManager>().GetBuildingByName("Archer Tower");
+                        break;
                 }
                 break;
         }

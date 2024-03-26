@@ -90,5 +90,4 @@ public class Unit :ScriptableObject
         float reducedDamage = attack;
         return Mathf.Max(0, reducedDamage);
     }
-
 }

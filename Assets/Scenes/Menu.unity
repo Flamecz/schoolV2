@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -336,15 +336,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missionD:
-    misionName: Long Live the Queen
+    misionName: Homecoming
     scenarionName: Uprising
     missionDescription: Our landing has confirmed both our rumors and fears. With
       the death of my father, Erathia's lands are being greedily divided by her neighbors.
     scenarioDescription: 'Our initial landing has captured a devastated outpost.
       Information is scarce and unreliable at best. Neighboring citizens have fled
       their villages. Remaining survivors tell conflicting stories. '
-    allies: {r: 1, g: 0, b: 0, a: 1}
-    Enemy: {r: 0, g: 0, b: 1, a: 1}
+    allies: {r: 0, g: 0, b: 1, a: 1}
+    Enemy: {r: 1, g: 0, b: 0, a: 1}
     UvodObraz: {fileID: 21300000, guid: 44d052849f267e2439ea571c987810cc, type: 3}
     Map: {fileID: 21300000, guid: ee3cfd1a52943684290d786af2ab6079, type: 3}
   Canvas: {fileID: 512850956}
@@ -5018,8 +5018,8 @@ MonoBehaviour:
     missionDescription: Our landing has confirmed both our rumors and fears. With
       the death of my father, Erathia's lands are being greedily divided by her neighbors.
     scenarioDescription: To win, you must locate and flag all 7 Griffin Towers.
-    allies: {r: 1, g: 0, b: 0, a: 1}
-    Enemy: {r: 0, g: 0, b: 1, a: 1}
+    allies: {r: 0, g: 0, b: 1, a: 1}
+    Enemy: {r: 1, g: 0, b: 0, a: 1}
     UvodObraz: {fileID: 21300000, guid: 5c8b620520d5c5643bda4af63ba9ed87, type: 3}
     Map: {fileID: 21300000, guid: d29ee67dfff2d7a4c8206be40f5dce76, type: 3}
   Canvas: {fileID: 512850956}
@@ -5828,8 +5828,8 @@ MonoBehaviour:
       defeat all enemy heroes. Your Heroes will be limited to 12th level in this
       scenario, but your 8 strongest Heroes will travel with you to the final scenario
       of this campaign.
-    allies: {r: 1, g: 0, b: 0, a: 1}
-    Enemy: {r: 0, g: 0, b: 1, a: 1}
+    allies: {r: 0, g: 0, b: 1, a: 1}
+    Enemy: {r: 1, g: 0, b: 0, a: 1}
     UvodObraz: {fileID: 21300000, guid: ffbdb0f6c20526a4ba168d56647f5d35, type: 3}
     Map: {fileID: 21300000, guid: 2932bb0fd97ce4d4b807554f54fbdac3, type: 3}
   Canvas: {fileID: 512850956}
