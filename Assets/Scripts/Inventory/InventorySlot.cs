@@ -7,7 +7,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 {
     public int id;
     public bool HeroSlot;
-    public Item item;
+    public Unit itemInSlot;
     public void OnDrop(PointerEventData eventData)
     {
         if (transform.childCount == 0 && HeroSlot == false)
@@ -15,6 +15,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             GameObject dropped = eventData.pointerDrag;
             InventoryItem InvenotryItem = dropped.GetComponent<InventoryItem>();
             InvenotryItem.parentAfterDrag = transform;
+            itemInSlot = InvenotryItem.item;
         }
         else
         {

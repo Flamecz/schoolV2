@@ -5,44 +5,34 @@ using UnityEngine.EventSystems;
 
 public class InvenotoryManagement : MonoBehaviour
 {
-    public Unit unit;
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
     //    public DataHolder dataHolder;
     public InvetorySaver invetorySaver;
-
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-            AddItem(unit);
+        CheckAtStart();
     }
-    public bool AddItem(Unit item)
+    public void CheckAtStart()
     {
-        for (int i = 0; i < inventorySlots.Length; i++)
+        for (int i = 0; i < invetorySaver.unitList.Length; i++)
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem ItemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            if (ItemInSlot != null &&
-                ItemInSlot.item == item &&
-                ItemInSlot.count < 9999 &&
-                ItemInSlot.item.stackable == true)
-            {
-                ItemInSlot.count++;
-                ItemInSlot.RefreshCount();
-                return true;
-            }
-        }
-        for (int i = 0; i < inventorySlots.Length; i++)
-        {
-            InventorySlot slot = inventorySlots[i];
-            InventoryItem ItemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            Debug.Log("Check 1");
             if (ItemInSlot == null)
             {
-                SpawnNewItem(item, slot);
-                return true;
+                Debug.Log("Check 2");
+                if (invetorySaver.unitList[i] != null)
+                {
+                    Debug.Log("Check 3");
+                    SpawnNewItem(invetorySaver.unitList[i], slot, invetorySaver.unitCount[i]);
+                }
+
             }
         }
-        return false;
+        Debug.Log("Nothing Found");
+
     }
     public bool AddItem(Unit item,int count)
     {
@@ -57,6 +47,7 @@ public class InvenotoryManagement : MonoBehaviour
             {
                 ItemInSlot.count++;
                 ItemInSlot.RefreshCount();
+                CheckForUpdatedInvetory(i, item, count);
                 return true;
             }
         }
@@ -67,6 +58,7 @@ public class InvenotoryManagement : MonoBehaviour
             if (ItemInSlot == null)
             {
                 SpawnNewItem(item, slot,count);
+                CheckForUpdatedInvetory(i, item, count);
                 return true;
             }
         }
@@ -99,9 +91,6 @@ public class InvenotoryManagement : MonoBehaviour
         }
         else if (targetItem == null)
         {
-            // If the target item is null, check both the left and right sides for merging
-
-            // Check items to the left
             InventoryItem leftItem = FindItemToLeft(targetItem.transform);
             if (leftItem != null && leftItem.item == item && leftItem.count + count <= 9999 && leftItem.item.stackable)
             {
@@ -109,8 +98,6 @@ public class InvenotoryManagement : MonoBehaviour
                 leftItem.RefreshCount();
                 return true;
             }
-
-            // Check items to the right
             InventoryItem rightItem = FindItemToRight(targetItem.transform);
             if (rightItem != null && rightItem.item == item && rightItem.count + count <= 9999 && rightItem.item.stackable)
             {
@@ -122,20 +109,12 @@ public class InvenotoryManagement : MonoBehaviour
 
         return false;
     }
-    public void CheckForUnits(Unit unit, int count)
+    public void CheckForUpdatedInvetory(int index,Unit item, int count)
     {
-        for (int i = 0; i < inventorySlots.Length; i++)
-        {
-            InventorySlot slot = inventorySlots[i];
-            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            if (itemInSlot != null)
-            {
-                InventoryObject creation = new InventoryObject(unit, count);
-                invetorySaver.Add(creation);
-                return;
-            }
-        }
+        invetorySaver.unitList[index] = item;
+        invetorySaver.unitCount[index] += count;
     }
+
     private InventoryItem FindItemToLeft(Transform startTransform)
     {
         Collider2D hit = Physics2D.OverlapCircle(startTransform.position, 1f, LayerMask.GetMask("InventoryItem"));
