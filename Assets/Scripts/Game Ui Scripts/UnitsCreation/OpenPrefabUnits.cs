@@ -55,15 +55,18 @@ public class OpenPrefabUnits : MonoBehaviour
     public void SetDataWithUpgradedBuilding()
     {
         GetData();
-        slider.onValueChanged.AddListener(delegate { UpdateStats(); });
         recruteText.text = "Recrute " + unit1.unitName;
         unitImage1.sprite = unit1.imageInBattle;
         unitImage2.sprite = unit2.imageInBattle;
         unitImage1Button.onClick.AddListener(SelectedLeft);
         unitImage2Button.onClick.AddListener(SelectedRight);
+        Debug.Log(unitImage1Button);
+        Debug.Log(unitImage2Button);
 
-        if (leftSelected)
+        if (leftSelected == true)
         {
+            Debug.Log("left");
+            slider.onValueChanged.AddListener(delegate { UpdateStats(unit1); });
             costForOne.text = unit1.cost.ToString();
             int max = growthManager.CalculateUnits(unit1);
             slider.maxValue = max;
@@ -73,8 +76,10 @@ public class OpenPrefabUnits : MonoBehaviour
             int wholeCount = (int)slider.value;
             recrutableRecrutes.text = wholeCount.ToString();
         }
-        else
+        else if(leftSelected == false)
         {
+            Debug.Log("Right");
+            slider.onValueChanged.AddListener(delegate { UpdateStats(unit2); });
             costForOne.text = unit2.cost.ToString();
             int max = growthManager.CalculateUnits(unit2);
             slider.maxValue = max;
@@ -88,7 +93,7 @@ public class OpenPrefabUnits : MonoBehaviour
     public void SetDataWithoutUpgradedBuilding()
     {
         GetData();
-        slider.onValueChanged.AddListener(delegate { UpdateStats(); });
+        slider.onValueChanged.AddListener(delegate { UpdateStats(unit2); });
         recruteText.text = "Recrute " + unit2.unitName;
         unitImage1.sprite = unit1.imageInBattle;
         unitImage2.sprite = unit2.imageInBattle;
@@ -106,15 +111,15 @@ public class OpenPrefabUnits : MonoBehaviour
     {
         parent.gameObject.SetActive(true);
 
-        SetDataWithoutUpgradedBuilding();
+        SetDataWithUpgradedBuilding();
     }
     public void DemolishPopUp()
     {
         Destroy(Instance);
     }
-    private void UpdateStats()
+    private void UpdateStats(Unit unit)
     {
-        float moneyCost = slider.value * unit2.cost;
+        float moneyCost = slider.value * unit.cost;
         costForAll.text = moneyCost.ToString();
         int wholeCount = (int)slider.value;
         recrutableRecrutes.text = wholeCount.ToString();
@@ -132,10 +137,12 @@ public class OpenPrefabUnits : MonoBehaviour
     }
     private void SelectedLeft()
     {
+        Debug.Log("Fired");
         leftSelected = true;
     }
     private void SelectedRight()
     {
+        Debug.Log("Fired");
         leftSelected = false;
     }
 }

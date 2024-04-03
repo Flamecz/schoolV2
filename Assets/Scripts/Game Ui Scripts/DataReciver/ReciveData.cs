@@ -9,6 +9,7 @@ public class ReciveData : MonoBehaviour
     private int whatDificulty;
     public MissionDataShower MDS;
     public Resources resources;
+    public InvetorySaver inventorySaver;
     private void Awake()
     {
         GetData();

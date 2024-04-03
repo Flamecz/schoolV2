@@ -10,7 +10,7 @@ public class DataSender : MonoBehaviour
     public static DataSender instance;
     public MissionDataShower show;
     public BuildingManager buildingManager;
-    
+
     void Awake()
     {
         if (instance == null)

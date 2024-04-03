@@ -9,7 +9,7 @@ public class InvenotoryManagement : MonoBehaviour
     public GameObject inventoryItemPrefab;
     //    public DataHolder dataHolder;
     public InvetorySaver invetorySaver;
-    private void Start()
+    private void Awake()
     {
         CheckAtStart();
     }
@@ -19,20 +19,15 @@ public class InvenotoryManagement : MonoBehaviour
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem ItemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            Debug.Log("Check 1");
             if (ItemInSlot == null)
             {
-                Debug.Log("Check 2");
                 if (invetorySaver.unitList[i] != null)
                 {
-                    Debug.Log("Check 3");
                     SpawnNewItem(invetorySaver.unitList[i], slot, invetorySaver.unitCount[i]);
                 }
 
             }
         }
-        Debug.Log("Nothing Found");
-
     }
     public bool AddItem(Unit item,int count)
     {

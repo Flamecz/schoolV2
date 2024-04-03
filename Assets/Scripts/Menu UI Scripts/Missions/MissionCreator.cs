@@ -9,6 +9,9 @@ public class MissionCreator : MonoBehaviour
     public MissionData missionD;
     public GameObject Canvas;
     public int LevelIndex;
+    public InvetorySaver invetorySaver;
+    public Unit[] units;
+    public int[] countOfUnits;
     private string nazev;
     private Button GetSome;
     private Image Map;
@@ -35,9 +38,9 @@ public class MissionCreator : MonoBehaviour
     public BonusThingsinMission[] BTM;
     void Start()
     {
-     //   myObjects.Add(new BonusThingsinMission("additional resources", Resources.Load<Sprite>("Sprites/Resourceimage/H3Crystal"), "Gives you additional resources to create buildings"));
-     //   myObjects.Add(new BonusThingsinMission("12 ", Resources.Load<Sprite>("Sprites/UnitsImage/Pikeman"), "You get 12 Pikeman to your army"));
-     //   myObjects.Add(new BonusThingsinMission("Budova", Resources.);
+        //   myObjects.Add(new BonusThingsinMission("additional resources", Resources.Load<Sprite>("Sprites/Resourceimage/H3Crystal"), "Gives you additional resources to create buildings"));
+        //   myObjects.Add(new BonusThingsinMission("12 ", Resources.Load<Sprite>("Sprites/UnitsImage/Pikeman"), "You get 12 Pikeman to your army"));
+        //   myObjects.Add(new BonusThingsinMission("Budova", Resources.);
         //"Gives you a building for free"
         nazev = gameObject.name;
         getSceneData();
@@ -48,8 +51,7 @@ public class MissionCreator : MonoBehaviour
         PlayMission.onClick.AddListener(FindObjectOfType<MenuUIContorler>().LoadGrid);
     }
     public void getSceneData()
-    {
-        
+    { 
 
         Transform MissionsPanel = Canvas.transform.Find("Mission");
 
@@ -110,6 +112,16 @@ public class MissionCreator : MonoBehaviour
             vyber3.sprite = BTM[2].image;
 
         FindObjectOfType<DataSender>().GetMission(LevelIndex);
+        for (int i = 0; i < invetorySaver.unitList.Length; i++)
+        {
+            invetorySaver.unitList[i] = null;
+            invetorySaver.unitCount[i] = 0;
+        }
+        for (int i = 0; i < units.Length; i++)
+        {
+            invetorySaver.unitList[i] = units[i];
+            invetorySaver.unitCount[i] = countOfUnits[i];
+        }
     }
     public string GetInfo(int index)
     { 
