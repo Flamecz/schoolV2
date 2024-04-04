@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ArcherTower
   m_EditorClassIdentifier: 
   buildingName: Archer Tower
-  canBeBuild: 0
-  builded: 0
+  canBeBuild: 1
+  builded: 1
   canBeUpgraded: 0
-  upgraded: 0
+  upgraded: 1
   required: {fileID: 0}

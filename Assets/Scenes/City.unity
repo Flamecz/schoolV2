@@ -4001,10 +4001,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 175092070}
-  - component: {fileID: 175092072}
   - component: {fileID: 175092073}
   - component: {fileID: 175092074}
-  - component: {fileID: 175092075}
   - component: {fileID: 175092076}
   - component: {fileID: 175092077}
   m_Layer: 0
@@ -4029,18 +4027,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &175092072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175092068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 795b4bc8ddff14219bc349a37db293a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &175092073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4084,18 +4070,6 @@ MonoBehaviour:
   - {fileID: 1389553942}
   - {fileID: 183695840}
   weekText: {fileID: 1109715409}
---- !u!114 &175092075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175092068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a656ba22970f46f18546c8535997b70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &175092076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4188,6 +4162,7 @@ MonoBehaviour:
   gM: {fileID: 183695840}
   nameOfTrueBuilding: GuardHouse
   Canvas: {fileID: 183695836}
+  building: {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
 --- !u!114 &183695839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4264,6 +4239,7 @@ MonoBehaviour:
   resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: 70027a49a51594bf6864aa08227d6878, type: 2}
   unit2: {fileID: 11400000, guid: 5a2c1c66a827f4ad88f4532430e115ea, type: 2}
+  buildingToCheck: {fileID: 0}
   growthManager: {fileID: 183695840}
 --- !u!1 &185186539
 GameObject:
@@ -9045,6 +9021,7 @@ MonoBehaviour:
   gM: {fileID: 514226298}
   nameOfTrueBuilding: GuardHouse
   Canvas: {fileID: 514226294}
+  building: {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
 --- !u!114 &514226297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9121,6 +9098,7 @@ MonoBehaviour:
   resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: 728efa6f2cc1145f282211461cf0492a, type: 2}
   unit2: {fileID: 11400000, guid: 138015183ab5841a081291f174f7e96c, type: 2}
+  buildingToCheck: {fileID: 0}
   growthManager: {fileID: 514226298}
 --- !u!1 &517124328
 GameObject:
@@ -15252,6 +15230,7 @@ MonoBehaviour:
   gM: {fileID: 829081837}
   nameOfTrueBuilding: GuardHouse
   Canvas: {fileID: 829081833}
+  building: {fileID: 11400000, guid: 844aa594e06903d439a7204e6c7b166f, type: 2}
 --- !u!114 &829081836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15328,6 +15307,7 @@ MonoBehaviour:
   resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: e53ed469382f34caf99f719d8eae6b62, type: 2}
   unit2: {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
+  buildingToCheck: {fileID: 11400000, guid: 844aa594e06903d439a7204e6c7b166f, type: 2}
   growthManager: {fileID: 829081837}
 --- !u!1 &829331499
 GameObject:
@@ -18774,6 +18754,7 @@ MonoBehaviour:
   gM: {fileID: 952379809}
   nameOfTrueBuilding: GuardHouse
   Canvas: {fileID: 952379805}
+  building: {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
 --- !u!114 &952379808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18850,6 +18831,7 @@ MonoBehaviour:
   resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: 42886ce941af5472b93557d13bbb882a, type: 2}
   unit2: {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
+  buildingToCheck: {fileID: 0}
   growthManager: {fileID: 952379809}
 --- !u!1 &967085486
 GameObject:
@@ -27928,6 +27910,7 @@ MonoBehaviour:
   gM: {fileID: 1389553942}
   nameOfTrueBuilding: GuardHouse
   Canvas: {fileID: 1389553938}
+  building: {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
 --- !u!114 &1389553941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28004,6 +27987,7 @@ MonoBehaviour:
   resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: 8107f833d8c9d485aae5029f9420ef93, type: 2}
   unit2: {fileID: 11400000, guid: 44c27deada19845d2804a3ef5f8c4018, type: 2}
+  buildingToCheck: {fileID: 0}
   growthManager: {fileID: 1389553942}
 --- !u!1 &1394138996
 GameObject:
@@ -28726,6 +28710,7 @@ MonoBehaviour:
   gM: {fileID: 1430118930}
   nameOfTrueBuilding: GuardHouse
   Canvas: {fileID: 1430118926}
+  building: {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
 --- !u!114 &1430118929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28802,6 +28787,7 @@ MonoBehaviour:
   resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: 8852dadf36a4649279cd972f15d3a00c, type: 2}
   unit2: {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
+  buildingToCheck: {fileID: 0}
   growthManager: {fileID: 1430118930}
 --- !u!1 &1433603342
 GameObject:
@@ -35316,6 +35302,7 @@ MonoBehaviour:
   gM: {fileID: 1870229688}
   nameOfTrueBuilding: GuardHouse
   Canvas: {fileID: 1870229684}
+  building: {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
 --- !u!114 &1870229687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35392,6 +35379,7 @@ MonoBehaviour:
   resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: 9e0dc38cd81e54073b5e07f6b3eba59e, type: 2}
   unit2: {fileID: 11400000, guid: a3c580a20f5a0436999515246f8aa2f8, type: 2}
+  buildingToCheck: {fileID: 0}
   growthManager: {fileID: 1870229688}
 --- !u!1 &1879239659
 GameObject:

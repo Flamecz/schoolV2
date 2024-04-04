@@ -9,6 +9,7 @@ public class DisplayStatsOfUnits : MonoBehaviour
     public GrowthManager gM;
     public string nameOfTrueBuilding;
     public GameObject Canvas;
+    public CityBuldings building;
 
     private Text UnitName;
     private Image BuildingSprite;
@@ -91,7 +92,16 @@ public class DisplayStatsOfUnits : MonoBehaviour
         UnitName.text = ut.unitName;
         //BuildingSprite.sprite = 
         BuildingName.text = nameOfTrueBuilding;
-        UnitsAvaible.text = "Available : " + gM.currentBuyableUnits.ToString();
+        if(building.builded)
+        {
+            this.gameObject.GetComponent<Button>().enabled = true;
+            UnitsAvaible.text = "Available : " + gM.currentBuyableUnits.ToString();
+        }
+        else
+        {
+            this.gameObject.GetComponent<Button>().enabled = false;
+            UnitsAvaible.text = "Available : " + gM.currentBuyableUnits.ToString();
+        }
         //Image Data
         UnitSprite.sprite = ut.sprite;
         //UnitSprite.sprite = ut.sprite;

@@ -9,6 +9,7 @@ public class OpenPrefabUnits : MonoBehaviour
     public GameObject parent;
     public ResourceManager resourceManger;
     public Unit unit1, unit2;
+    public CityBuldings buildingToCheck;
     //Parametrs of Prefab
     private Text recruteText;
     private Image unitImage1, unitImage2;
@@ -47,7 +48,6 @@ public class OpenPrefabUnits : MonoBehaviour
         recrutableRecrutes = image.Find("RecruteToRecruteUnits").Find("Amount").GetComponent<Text>();
         slider = image.Find("Slider").GetComponent<Slider>();
         buyUnitsButton = image.Find("BuyUnitsButton").GetComponent<Button>();
-        buyUnitsButton.onClick.AddListener(buyUnits);
         Transform cancel = image.Find("CancelButton");
         cancelButton = cancel.GetComponent<Button>();
         cancelButton.onClick.AddListener(DemolishPopUp);
@@ -58,37 +58,38 @@ public class OpenPrefabUnits : MonoBehaviour
         recruteText.text = "Recrute " + unit1.unitName;
         unitImage1.sprite = unit1.imageInBattle;
         unitImage2.sprite = unit2.imageInBattle;
-        unitImage1Button.onClick.AddListener(SelectedLeft);
-        unitImage2Button.onClick.AddListener(SelectedRight);
-        Debug.Log(unitImage1Button);
-        Debug.Log(unitImage2Button);
 
-        if (leftSelected == true)
+        // Button click handlers
+        unitImage1Button.onClick.AddListener(() =>
         {
-            Debug.Log("left");
-            slider.onValueChanged.AddListener(delegate { UpdateStats(unit1); });
-            costForOne.text = unit1.cost.ToString();
-            int max = growthManager.CalculateUnits(unit1);
-            slider.maxValue = max;
-            float moneyCost = slider.value * unit1.cost;
-            costForAll.text = moneyCost.ToString();
-            availableRecrutes.text = max.ToString();
-            int wholeCount = (int)slider.value;
-            recrutableRecrutes.text = wholeCount.ToString();
-        }
-        else if(leftSelected == false)
+            SelectedLeft();
+            UpdateUI(unit1);
+            buyUnitsButton.onClick.RemoveAllListeners(); // Remove previous listeners
+            buyUnitsButton.onClick.AddListener(() => buyUnits(unit1)); // Add new listener for buying units
+        });
+
+        unitImage2Button.onClick.AddListener(() =>
         {
-            Debug.Log("Right");
-            slider.onValueChanged.AddListener(delegate { UpdateStats(unit2); });
-            costForOne.text = unit2.cost.ToString();
-            int max = growthManager.CalculateUnits(unit2);
-            slider.maxValue = max;
-            float moneyCost = slider.value * unit2.cost;
-            costForAll.text = moneyCost.ToString();
-            availableRecrutes.text = max.ToString();
-            int wholeCount = (int)slider.value;
-            recrutableRecrutes.text = wholeCount.ToString();
-        }
+            SelectedRight();
+            UpdateUI(unit2);
+            buyUnitsButton.onClick.RemoveAllListeners(); // Remove previous listeners
+            buyUnitsButton.onClick.AddListener(() => buyUnits(unit2)); // Add new listener for buying units
+        });
+    }
+    void UpdateUI(Unit unit)
+    {
+        Debug.Log("Updating UI for " + unit.unitName);
+        slider.onValueChanged.RemoveAllListeners();
+        slider.onValueChanged.AddListener(delegate { UpdateStats(unit); });
+
+        costForOne.text = unit.cost.ToString();
+        int max = growthManager.CalculateUnits(unit);
+        slider.maxValue = max;
+        float moneyCost = slider.value * unit.cost;
+        costForAll.text = moneyCost.ToString();
+        availableRecrutes.text = max.ToString();
+        int wholeCount = (int)slider.value;
+        recrutableRecrutes.text = wholeCount.ToString();
     }
     public void SetDataWithoutUpgradedBuilding()
     {
@@ -110,8 +111,20 @@ public class OpenPrefabUnits : MonoBehaviour
     public void CreatePopUp()
     {
         parent.gameObject.SetActive(true);
+        if(buildingToCheck.builded && buildingToCheck.upgraded)
+        {
+            SetDataWithUpgradedBuilding();
+            unitImage1Button.enabled = true;
+        }
+        else if(buildingToCheck.builded && !buildingToCheck.upgraded)
+        {
+            SetDataWithoutUpgradedBuilding();
+            unitImage1Button.enabled = false;
+        }
+        else
+        {
 
-        SetDataWithUpgradedBuilding();
+        }
     }
     public void DemolishPopUp()
     {
@@ -124,25 +137,25 @@ public class OpenPrefabUnits : MonoBehaviour
         int wholeCount = (int)slider.value;
         recrutableRecrutes.text = wholeCount.ToString();
     }
-    public void buyUnits()
+    public void buyUnits(Unit selected)
     {
         int wholeCount = (int)slider.value;
-        int moneycost = wholeCount * unit2.cost;
+        int moneycost = wholeCount * selected.cost;
 
         growthManager.currentBuyableUnits -= wholeCount;
         resourceManger.Data.Gold -= moneycost;
 
-        FindObjectOfType<InvenotoryManagement>().AddItem(unit2, wholeCount);
+        FindObjectOfType<InvenotoryManagement>().AddItem(selected, wholeCount);
         DemolishPopUp();
     }
     private void SelectedLeft()
     {
-        Debug.Log("Fired");
+        Debug.Log("left");
         leftSelected = true;
     }
     private void SelectedRight()
     {
-        Debug.Log("Fired");
-        leftSelected = false;
+        Debug.Log("Right");
+        leftSelected = false ;
     }
 }

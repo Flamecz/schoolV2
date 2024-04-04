@@ -11,7 +11,7 @@ public class InvenotoryManagement : MonoBehaviour
     public InvetorySaver invetorySaver;
     private void Awake()
     {
-        CheckAtStart();
+    CheckAtStart();
     }
     public void CheckAtStart()
     {
