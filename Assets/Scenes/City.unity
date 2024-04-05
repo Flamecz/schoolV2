@@ -10895,7 +10895,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &621724778
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12705,7 +12705,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Available : '
+  m_Text: 
 --- !u!222 &719356995
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23891,7 +23891,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Available : '
+  m_Text: 
 --- !u!222 &1216776295
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24045,7 +24045,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Available : '
+  m_Text: 
 --- !u!222 &1221860672
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27027,7 +27027,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Available : '
+  m_Text: 
 --- !u!222 &1361709064
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31014,7 +31014,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Available : '
+  m_Text: 
 --- !u!222 &1569468959
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31402,7 +31402,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Available : '
+  m_Text: 
 --- !u!222 &1595231480
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -34964,7 +34964,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Available : '
+  m_Text: 
 --- !u!222 &1859306979
 CanvasRenderer:
   m_ObjectHideFlags: 0

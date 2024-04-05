@@ -100,7 +100,6 @@ public class DisplayStatsOfUnits : MonoBehaviour
         else
         {
             this.gameObject.GetComponent<Button>().enabled = false;
-            UnitsAvaible.text = "Available : " + gM.currentBuyableUnits.ToString();
         }
         //Image Data
         UnitSprite.sprite = ut.sprite;
