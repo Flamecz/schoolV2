@@ -12,6 +12,9 @@ public class MissionCreator : MonoBehaviour
     public InvetorySaver invetorySaver;
     public Unit[] units;
     public int[] countOfUnits;
+    public UnitStructure unitStructure;
+    private int selectedUnits;
+
     private string nazev;
     private Button GetSome;
     private Image Map;
@@ -90,12 +93,14 @@ public class MissionCreator : MonoBehaviour
         vyber2 = InfoTransform.transform.Find("vyber2").GetComponent<Image>();
         vyber3 = InfoTransform.transform.Find("vyber3").GetComponent<Image>();
     }
-
+    private void Update()
+    {
+    }
     public void SetSceneData()
     {
         FindObjectOfType<AudioManager>().Stop("mainTheme");
         FindObjectOfType<AudioManager>().Play("HeroesGoodtheme");
-        FindObjectOfType<MenuUIContorler>().ScenarionSetup();
+        FindObjectOfType<MenuUIContorler>().ScenarionSetup(LevelIndex);
 
         nazevMise.text = missionD.misionName;
         popisMise.text = missionD.missionDescription;
@@ -123,9 +128,26 @@ public class MissionCreator : MonoBehaviour
             invetorySaver.unitCount[i] = countOfUnits[i];
         }
     }
+    public void GetBonus()
+    {
+        for (int i = 0; i < units.Length; i++)
+        {
+            int var = 0;
+            if (selectedUnits == 1 && invetorySaver.unitList[i] == unitStructure.unit && var == 0)
+            {
+                Debug.Log("fired");
+                invetorySaver.unitCount[i] += unitStructure.count / 3;
+                var = 1;
+            }
+        }
+    }
     public string GetInfo(int index)
     { 
         return BTM[index].description;
+    }
+    public int GetSelectedUnit(int index)
+    {
+        return selectedUnits = index;
     }
     public void IsNotInteractable(bool trueOrFalse)
     {

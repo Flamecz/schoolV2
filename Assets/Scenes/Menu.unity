@@ -354,6 +354,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
   - {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
   countOfUnits: 230000000c000000
+  unitStructure: {fileID: 11400000, guid: 1816ce008e9acd84c97edc045cd7e764, type: 2}
   BTM:
   - {fileID: 11400000, guid: d1c90000e23a89b4290c2d82056c96c1, type: 2}
   - {fileID: 11400000, guid: 3236f68283a3af440a4951ea7d703af2, type: 2}
@@ -1957,6 +1958,10 @@ MonoBehaviour:
   Settings: {fileID: 1125543548}
   Credits: {fileID: 1256690026}
   ScenarioMenu: {fileID: 533703977}
+  Campains:
+  - {fileID: 102192923}
+  - {fileID: 1259837731}
+  - {fileID: 1062979448}
 --- !u!1 &516744108
 GameObject:
   m_ObjectHideFlags: 0
@@ -5035,6 +5040,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e53ed469382f34caf99f719d8eae6b62, type: 2}
   - {fileID: 11400000, guid: 9e0dc38cd81e54073b5e07f6b3eba59e, type: 2}
   countOfUnits: 50000000240000000a000000
+  unitStructure: {fileID: 11400000, guid: b790addd9f371074a9d93975d43376f9, type: 2}
   BTM:
   - {fileID: 11400000, guid: bd36efb73feb1664c8212aea04a4f9e1, type: 2}
   - {fileID: 11400000, guid: ea1d9c1df7917ac42bb7ffd4157c8405, type: 2}
@@ -5852,6 +5858,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a3c580a20f5a0436999515246f8aa2f8, type: 2}
   - {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
   countOfUnits: 370000001a0000000c00000005000000
+  unitStructure: {fileID: 11400000, guid: 0f085476c9cd7844cb3af21fccece937, type: 2}
   BTM:
   - {fileID: 11400000, guid: 2e8389edbed9d2d439d841b8e0f7cfd0, type: 2}
   - {fileID: 11400000, guid: a0f3c172484aaf14ab721ad27c20ad26, type: 2}
@@ -7498,11 +7505,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   show: {fileID: 11400000, guid: ea6398a186fe1d14ea8d3343587b7b06, type: 2}
   buildingManager: {fileID: 1621934022}
-  invetorySaver: {fileID: 11400000, guid: 8bff52702f4e79947b8396cdd4220633, type: 2}
-  units:
-  - {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
-  - {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
-  countOfUnits: 230000000c000000
 --- !u!4 &1621934021
 Transform:
   m_ObjectHideFlags: 0

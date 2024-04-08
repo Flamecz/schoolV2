@@ -12,6 +12,7 @@ public class MenuUIContorler : MonoBehaviour
     public GameObject Settings;
     public GameObject Credits;
     public GameObject ScenarioMenu;
+    public GameObject[] Campains;
 
     public void SetMainCanvas()
     {
@@ -55,22 +56,35 @@ public class MenuUIContorler : MonoBehaviour
         Credits.SetActive(true);
         FindObjectOfType<SmurfCat>().SmurfSetter(false);
     }
-    public void ScenarionSetup()
+    public void ScenarionSetup(int i)
     {
+        for (int j = 0; j < Campains.Length; j++) 
+        {
+            if (j != i)
+            {
+                Campains[j].gameObject.SetActive(false);
+            }
+        }
         ScenarioMenu.SetActive(true);
         FindObjectOfType<ImageSwitch>().RestartDif();
         FindObjectOfType<HoverEffect>().imageBack();
     }
     public void ScenarioSetupClose()
     {
+        for (int j = 0; j < Campains.Length; j++)
+        {
+            Campains[j].SetActive(true);
+        }
         ScenarioMenu.SetActive(false);
         FindObjectOfType<AudioManager>().Play("mainTheme");
         FindObjectOfType<AudioManager>().Stop("HeroesGoodtheme");
     }
     public void LoadGrid()
     {
+        FindObjectOfType<MissionCreator>().GetBonus();
         SceneManager.LoadScene(2);
         FindObjectOfType<AudioManager>().Stop("HeroesGoodtheme");
         FindObjectOfType<AudioManager>().Play("HeroesInWorld");
     }
+
 }

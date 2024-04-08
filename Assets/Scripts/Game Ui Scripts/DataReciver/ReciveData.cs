@@ -10,6 +10,8 @@ public class ReciveData : MonoBehaviour
     public MissionDataShower MDS;
     public Resources resources;
     public InvetorySaver inventorySaver;
+    public UnitStructure[] unitStruc;
+    private int var;
     private void Awake()
     {
         GetData();
@@ -87,6 +89,7 @@ public class ReciveData : MonoBehaviour
                 resources.Gold+= 2000;
                 break;
             case 1:
+
                 break;
             case 2:
                 switch(whatMission)

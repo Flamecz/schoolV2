@@ -17,6 +17,10 @@ public class HoverEffect : MonoBehaviour, IPointerClickHandler
     {
         imageBack();
     }
+    private void Update()
+    {
+        FindObjectOfType<MissionCreator>().GetSelectedUnit(buttonIndex);
+    }
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
