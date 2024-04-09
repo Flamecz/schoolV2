@@ -1,0 +1,3669 @@
+fileFormatVersion: 2
+guid: c91757dba53b743aeaddf594247a5f4a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec3b0efef324745a492d976e48666759
+      internalID: 1575621161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa1aca6cbda114c268af4e8994b09fbd
+      internalID: 620535311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 6600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e720064dfe5e1473e8d962b7379323a2
+      internalID: -1758807220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 6600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e44a0a6cd831643eeb1869655e13a8f8
+      internalID: 923197544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 6600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d66262d1e5874a2a9677c053ffbfba9
+      internalID: 1243097029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 6600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74107ab297d07430799f919f9a16ba89
+      internalID: -131480416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_6
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 6600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00669704d18474a83ac58d18b780b45e
+      internalID: -1245654551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 342f9f0361cbe4ef1a1cbce0a079a26a
+      internalID: 845015398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_8
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dce3b22abd0548dd9659f939940d892
+      internalID: 82205647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_9
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 6300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16dc9665544964245b0cad6ef68cecc0
+      internalID: -1590958474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_10
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 6300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb2521cab34ee425baf27f7eae02b0d8
+      internalID: 1519881401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_11
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 6300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e9515647b124524aff2724b8e74ffc
+      internalID: 17209120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_12
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 6300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65012048d59f846abb7f19706a7ebd72
+      internalID: 1075220938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_13
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 6300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 422fec3d7c95b4f7d909de84dd9c29e2
+      internalID: 407724607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6000
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bb829d7a34704daeae7b5a4e68051a1
+      internalID: -528619081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_15
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6000
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2116e5e0fdb6d4662aab805cb96cfcd0
+      internalID: 870198380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_16
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 6000
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f83f5d4fd6714e4985814e23bce7690
+      internalID: -1499946146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_17
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 6000
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70892f74b026041208a0685e69c957f0
+      internalID: -1058472890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_18
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 6000
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8cd1f30ca2fb4b1389bcde9f1a27824
+      internalID: -1220515710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_19
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 6000
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bce686a253e434d51810adab75dd49e8
+      internalID: 676063808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_20
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 6000
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6c502af4bbd7475c852d2520b9688a1
+      internalID: -1639218674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5700
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e491ad9e5605418298db922a393a028
+      internalID: 835596049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_22
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5700
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70b96c4dd83984ec789edf3d95b97f8a
+      internalID: -1292169764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_23
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 5700
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9e0010476b8441fcaf8bce02b637aed
+      internalID: 1085347061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_24
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 5700
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40625b38cf3fe49b38a4fd4ae5d18a06
+      internalID: 1135621489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_25
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 5700
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5736127b717e4b1d8bef6f39dd56cc8
+      internalID: -2059240611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_26
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 5700
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c39c0a5d7450645f2adaae1b3ec51596
+      internalID: -1660672662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_27
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 5700
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c71f984a5d2f4493188438017b6187eb
+      internalID: -534523581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5400
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c4ffa1cd4724432aa3472623b694856
+      internalID: -921707945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_29
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5400
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d88cf25e0d6354a9094451658dbb77fe
+      internalID: -1882158359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_30
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 5400
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 209f479c88d1e40b8b425ebf730cf630
+      internalID: 1452495005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_31
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 5400
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb1aa2b040d654b80860e9dadd40d7d7
+      internalID: -126672977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_32
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 5400
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c543448a37521412d85b08e7b4d48c38
+      internalID: -959429747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_33
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 5400
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a02ddafc049d44762b9d76f28af21c0a
+      internalID: 951901664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_34
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 5400
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daae3a29df36c42d2a00ae0a5b7c6e3e
+      internalID: 1270827131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5100
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a8cde541fb9c4615ad8c1b75346d35f
+      internalID: -1178980796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_36
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5100
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c011559ee6ca49f38de665e6ca24386
+      internalID: 390586263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_37
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 5100
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ecbcd5e4fba74c8d83c592cfda0d528
+      internalID: 751693010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_38
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 5100
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ceb6a0d794b34c66bd91efb2ba6bf02
+      internalID: -1199112474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_39
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 5100
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee1ee0dcbaf14471182dec3b09cd9193
+      internalID: -1624746200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_40
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 5100
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06ba330831bd040048d2571ad9e28566
+      internalID: 18011946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_41
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 5100
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6581167a30e5e4deaa655f24cac0a131
+      internalID: 264977499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 844995d8114c04ff29ec4bd05f8483f6
+      internalID: 1676147582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_43
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4800
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65a8c4874d3df48a68b6f42dec154d39
+      internalID: -1418504070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_44
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 4800
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61cda6e0d90734054b73021a5b825ad0
+      internalID: 1734531394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_45
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 4800
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 749d0dfed540b4564b3e91810ec679c0
+      internalID: -1121472238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_46
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 4800
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37ae576bf740f43f4a4faa5dd6648b36
+      internalID: 1085438673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_47
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 4800
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9034c037e26a945d389b2e246e90db1d
+      internalID: 1559041674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_48
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 4800
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1b7e068afff24ab5acb0d5f7bc78a0a
+      internalID: -1449145977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4500
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8731beb6aba6c4301bf4cd52c47b943b
+      internalID: 1779834819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_50
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4500
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8044ad7995e843399ab2377914f2620
+      internalID: 1430321175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_51
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 4500
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fca0175cee19d4b139d3b09a0bc6cc4a
+      internalID: -2109665054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_52
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 4500
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 235b9fe1d0c4d44f694d0208b05382a5
+      internalID: -427510302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_53
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 4500
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a22c7263c01c4766a1ed8468cb8ad0c
+      internalID: 1561596344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_54
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 4500
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fbc88cdda38344f6b7266f075116e68
+      internalID: -1532059247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_55
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 4500
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8058de991cef5443eb4c01ff22c3e10e
+      internalID: -1975176691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4200
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1d26afc11fb748bca5384aba6c870da
+      internalID: -545306760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_57
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4200
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49357b7734a15494aae8412289c6a0cc
+      internalID: 1485376357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_58
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 4200
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 350a29301b9c8443ba392722d0fd09c9
+      internalID: 119935788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_59
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 4200
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bb94e2dbac0b4b16a1750ccbc0529b7
+      internalID: -1230345367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_60
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 4200
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 423103bb2e3724181b3d8b9ac202fd3c
+      internalID: 84724335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_61
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 4200
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14ea71cba636242369b6bcfb762bb712
+      internalID: 55482222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_62
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 4200
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 260469a3d385a4c62a3a561edc913d13
+      internalID: 754550184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3900
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2be8e6e57e5af45b486cbc3faf515818
+      internalID: -1559048749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_64
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3900
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5845ab4130fed4cc5a5c3f415bd59cf7
+      internalID: 402448582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_65
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3900
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f267c056631f0420a9575dd749d7521f
+      internalID: 1665558363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_66
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3900
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63c0cd919e964c15ae816d9a8c25d51
+      internalID: 1344448320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_67
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3900
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 638a74eab1c494209a8d033d482db02b
+      internalID: 890727212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_68
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 3900
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82c620ac91f334673b41050672c9f660
+      internalID: 1648126001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_69
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3900
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c455d96dcf0df43f8aac9b9b455d447a
+      internalID: 1477580860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d4c2bcc4513b4570aee62fc5dc8d4dd
+      internalID: -1681722533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_71
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 850fd98f1ae7b4bbf9b835a6cef2024c
+      internalID: 908547774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_72
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c84082f2ba70477db5a6045b5051d14
+      internalID: 1813467181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_73
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d814816cbb774e79b12e1f4ed651753
+      internalID: 1310620020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_74
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59df2798e46554eda9c40a39199dc75c
+      internalID: -443201244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_75
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 3600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a7fdc723b6e540a2a11a74a473a923d
+      internalID: -1499656929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_76
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5827e0514a8624fb391a093491ebeeae
+      internalID: -2093866989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_77
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07656cf3743934b548dee27a3857e447
+      internalID: 203332160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_78
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28807459cd5d9429cb8151deb0502f2e
+      internalID: -641367935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_79
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 776e5d3ec47624b4cb001a2a606d252d
+      internalID: 2090098557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_80
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6314e9eb759924567b86485b631c2235
+      internalID: 270241100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_81
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e76596da4c76a41e3bb46686dfd7f041
+      internalID: -1360604280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_82
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 3300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9a61ebcdaedd4fe38695a04d2919d15
+      internalID: 1186287308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_83
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 677d475a3219b4ead8bf993c8148e2ba
+      internalID: -1739199044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3000
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ad8366de9f074f4e8ad79d9aaf74818
+      internalID: -269675191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_85
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3000
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e89bee4686b8747c2b387b636ed73027
+      internalID: 222707202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_86
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3000
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b94c2247a5298473cb5355daeef220e7
+      internalID: -1264771529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_87
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3000
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db79b9cdd6674474c9b766b49f7f2bec
+      internalID: 701447137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_88
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3000
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe553da0806e6499dbe7efcec9c166c7
+      internalID: -224101642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_89
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 3000
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15beff6e34cbe41fba14b28026e7e67a
+      internalID: -1609532693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_90
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3000
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30b3a434eefe44b1a90d0f6715c1075
+      internalID: -24676060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_91
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2700
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9994775d6e5a4c518909d863e96bea9
+      internalID: 1002276329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_92
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2700
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6113b6a7dfc164aef9b4b6ef4dc0118d
+      internalID: 277597036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_93
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2700
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5974b2c4bcac64c1189cf8fb95faf12a
+      internalID: 1470748078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_94
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2700
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aae76428f7c3b489da5adf81723e56c5
+      internalID: 1028562467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_95
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2700
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65f44a82f43e444728dab69710d2c96a
+      internalID: -669712174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_96
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 2700
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2009a82503ac24e4ab6559b1388744c9
+      internalID: 1614021435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_97
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2700
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7fb08e862f28484794dfda9c198b485
+      internalID: -1882533769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_98
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2400
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0754295570a4244b0ab4c7e8e1931231
+      internalID: 205390065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_99
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2400
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8e7ff4a11fce447e8be96594e6e6500
+      internalID: 2017686465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_100
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2400
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11aa9aa93fb6d4395bfef811219d8b3b
+      internalID: -1958339179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_101
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2400
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb3e5783baead43ddbd55b58818a798c
+      internalID: -343785255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_102
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2400
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e45ea88176db2484e93f3a7f5982f5ae
+      internalID: -748574094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_103
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 2400
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd5f669405c234aceadb6111200c3419
+      internalID: -1544212104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_104
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2400
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0e0f4161c70e4c36b1d0861ebda2cd5
+      internalID: -655175042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_105
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2100
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 475e05ddcd4954a13b3a997d26984bc2
+      internalID: 337534861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_106
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2100
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12e3f47b97ca345089b2b45ddb0c7dc1
+      internalID: 1428360593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_107
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2100
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 449ba45f3286644d5afaa2c267363c8f
+      internalID: 117666944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_108
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2100
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2b75c6244bfc4fd68d8473b03bc0f02
+      internalID: 138849125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_109
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2100
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b319234dc2e0d40359b05ccb8d3afb6c
+      internalID: -1072511390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_110
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 2100
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 642e1ab50ff6b4156914f7fac0641264
+      internalID: 1463705404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_111
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2100
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d008d3a3421704dc78cff79794b2f1bf
+      internalID: -667752033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_112
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1800
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd55bd336945742cdbb2dfdc4123d3c2
+      internalID: 514015164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_113
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1800
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddd66fbee857a4e82b8e87e0f0db0a34
+      internalID: -2038454230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_114
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1800
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c502ac315f54c4cb392e9505c55c868d
+      internalID: -603684158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_115
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1800
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9177a6b0b6009492da53591ec0efb350
+      internalID: 1983909811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_116
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1800
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d393ea0b2cefb4766a83bf0ef2a403b1
+      internalID: -2074153270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_117
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1800
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e18c3ec185744f519097af296c70527
+      internalID: -1060958017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_118
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1800
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8740a6fb30c48419d85e105dd98ea309
+      internalID: 278439351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_119
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8f002e6ee17341e4b37aaed811d0bc2
+      internalID: -1820686981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_120
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1500
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6e45d906ac41476e80ceccfcde45dae
+      internalID: 263658032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_121
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1500
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e833809b52e741f199927eec600a9e4
+      internalID: 38454261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_122
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1500
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72092885ca76b4c0585b0c0e5a257402
+      internalID: -1994574669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_123
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1500
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40502e247acda4e5c9bf7d14b38029d8
+      internalID: -784530732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_124
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1500
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3468238333fe4edab48d57b1f31e3da
+      internalID: -1720734497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_125
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1500
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34f34831797d449969339b4c85086ac3
+      internalID: -1564763210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_126
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d09d7b42dd4b840859f54d89856f0d5a
+      internalID: 127801317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_127
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1200
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10fe9f066062d4a3fb348524401d6154
+      internalID: 454493556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_128
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1200
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c91687e5a91c14a96a0bc9a4b72b8de8
+      internalID: -1769529597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_129
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1200
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f5fccec2d97d4399848ca1b1ddbdb38
+      internalID: 994911770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_130
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1200
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 889b7ad9e4205498eb0950b9fdd647b3
+      internalID: 293507407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_131
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1200
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 663b34fc099de40bdbab96fefbfeb47b
+      internalID: 88411744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_132
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1200
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8eb8ce5eb1234324bc8d96a38fd20b2
+      internalID: -1472599158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_133
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aee86fecd57647efa6c65836d43953c
+      internalID: -1142249523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_134
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 900
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea82eb86bbcba4bc080a722a9e1bab29
+      internalID: -1566577764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_135
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 900
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e105775cb3940b28da44ad4c5d29d7
+      internalID: -1103486496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_136
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 900
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef0adbff577e045ff8bfc7eb546b5a23
+      internalID: 1772995165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_137
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 900
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f10b8f2a4828f41f9ba86ad70bfebc62
+      internalID: -2090772518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_138
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 900
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 466c025c0ba6c438c9c4a7bc6a3b14bd
+      internalID: 47806606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_139
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 900
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8a2cf43b55ba448d9cdfa2839a81002
+      internalID: -865503240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_140
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f69de1806dea940528d4e34fb8c10ca0
+      internalID: 887653852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_141
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 799ddd94344c0406e8c1dca9af32b277
+      internalID: 1335930100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_142
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b684efcc08354fb288f27bac59941d0
+      internalID: 260339941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_143
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba1ea896f88be4cec9bed971f9b35176
+      internalID: -1170022637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_144
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db054d93bb7d147708e196e943d0e973
+      internalID: -1141177786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_145
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86dc8cc22836f4c078d5eca915bb99b4
+      internalID: 702338000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_146
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 600
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad5a10198068f4af49f643c35d0ead22
+      internalID: -647851557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_147
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69530ddff9ade48db97976912d8f0478
+      internalID: 605777356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_148
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4346a88287d74429958c0fe61432943
+      internalID: -1329140314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_149
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93089a1255ffa4bb1a275e874a72d5e3
+      internalID: 984885433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_150
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f02f5e5697fb4a14ba138d42d870d9a
+      internalID: -1895676736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_151
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15b95e835baf54db98926d324ad8af44
+      internalID: -2031680343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_152
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82746835c9814408c95b2bc359fbbcd8
+      internalID: -607797331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_153
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 300
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6023dc3c4f214e5d9151596c6250af3
+      internalID: 165825408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_154
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9741f8434cff04391b397bbaeedf912d
+      internalID: -443044926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_155
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdc1ce009314f4d37b3669d6e915e606
+      internalID: 426464539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_156
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c4db671064564146b2af62be9cf1041
+      internalID: -190437632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_157
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38b84a2daec414dc9a4071844bde9ad8
+      internalID: -1061463052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_158
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0232f17ae6f404d958e2eb4a57d7f860
+      internalID: 1115664802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_159
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23434b4e417c744cca16d7ff3034676b
+      internalID: 2048062113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3do-homm3 (1)_160
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 640
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00f5c1c0a3ee14bd2907169d72d56fec
+      internalID: 122942407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      3do-homm3 (1)_0: 1575621161
+      3do-homm3 (1)_1: 620535311
+      3do-homm3 (1)_10: 1519881401
+      3do-homm3 (1)_100: -1958339179
+      3do-homm3 (1)_101: -343785255
+      3do-homm3 (1)_102: -748574094
+      3do-homm3 (1)_103: -1544212104
+      3do-homm3 (1)_104: -655175042
+      3do-homm3 (1)_105: 337534861
+      3do-homm3 (1)_106: 1428360593
+      3do-homm3 (1)_107: 117666944
+      3do-homm3 (1)_108: 138849125
+      3do-homm3 (1)_109: -1072511390
+      3do-homm3 (1)_11: 17209120
+      3do-homm3 (1)_110: 1463705404
+      3do-homm3 (1)_111: -667752033
+      3do-homm3 (1)_112: 514015164
+      3do-homm3 (1)_113: -2038454230
+      3do-homm3 (1)_114: -603684158
+      3do-homm3 (1)_115: 1983909811
+      3do-homm3 (1)_116: -2074153270
+      3do-homm3 (1)_117: -1060958017
+      3do-homm3 (1)_118: 278439351
+      3do-homm3 (1)_119: -1820686981
+      3do-homm3 (1)_12: 1075220938
+      3do-homm3 (1)_120: 263658032
+      3do-homm3 (1)_121: 38454261
+      3do-homm3 (1)_122: -1994574669
+      3do-homm3 (1)_123: -784530732
+      3do-homm3 (1)_124: -1720734497
+      3do-homm3 (1)_125: -1564763210
+      3do-homm3 (1)_126: 127801317
+      3do-homm3 (1)_127: 454493556
+      3do-homm3 (1)_128: -1769529597
+      3do-homm3 (1)_129: 994911770
+      3do-homm3 (1)_13: 407724607
+      3do-homm3 (1)_130: 293507407
+      3do-homm3 (1)_131: 88411744
+      3do-homm3 (1)_132: -1472599158
+      3do-homm3 (1)_133: -1142249523
+      3do-homm3 (1)_134: -1566577764
+      3do-homm3 (1)_135: -1103486496
+      3do-homm3 (1)_136: 1772995165
+      3do-homm3 (1)_137: -2090772518
+      3do-homm3 (1)_138: 47806606
+      3do-homm3 (1)_139: -865503240
+      3do-homm3 (1)_14: -528619081
+      3do-homm3 (1)_140: 887653852
+      3do-homm3 (1)_141: 1335930100
+      3do-homm3 (1)_142: 260339941
+      3do-homm3 (1)_143: -1170022637
+      3do-homm3 (1)_144: -1141177786
+      3do-homm3 (1)_145: 702338000
+      3do-homm3 (1)_146: -647851557
+      3do-homm3 (1)_147: 605777356
+      3do-homm3 (1)_148: -1329140314
+      3do-homm3 (1)_149: 984885433
+      3do-homm3 (1)_15: 870198380
+      3do-homm3 (1)_150: -1895676736
+      3do-homm3 (1)_151: -2031680343
+      3do-homm3 (1)_152: -607797331
+      3do-homm3 (1)_153: 165825408
+      3do-homm3 (1)_154: -443044926
+      3do-homm3 (1)_155: 426464539
+      3do-homm3 (1)_156: -190437632
+      3do-homm3 (1)_157: -1061463052
+      3do-homm3 (1)_158: 1115664802
+      3do-homm3 (1)_159: 2048062113
+      3do-homm3 (1)_16: -1499946146
+      3do-homm3 (1)_160: 122942407
+      3do-homm3 (1)_17: -1058472890
+      3do-homm3 (1)_18: -1220515710
+      3do-homm3 (1)_19: 676063808
+      3do-homm3 (1)_2: -1758807220
+      3do-homm3 (1)_20: -1639218674
+      3do-homm3 (1)_21: 835596049
+      3do-homm3 (1)_22: -1292169764
+      3do-homm3 (1)_23: 1085347061
+      3do-homm3 (1)_24: 1135621489
+      3do-homm3 (1)_25: -2059240611
+      3do-homm3 (1)_26: -1660672662
+      3do-homm3 (1)_27: -534523581
+      3do-homm3 (1)_28: -921707945
+      3do-homm3 (1)_29: -1882158359
+      3do-homm3 (1)_3: 923197544
+      3do-homm3 (1)_30: 1452495005
+      3do-homm3 (1)_31: -126672977
+      3do-homm3 (1)_32: -959429747
+      3do-homm3 (1)_33: 951901664
+      3do-homm3 (1)_34: 1270827131
+      3do-homm3 (1)_35: -1178980796
+      3do-homm3 (1)_36: 390586263
+      3do-homm3 (1)_37: 751693010
+      3do-homm3 (1)_38: -1199112474
+      3do-homm3 (1)_39: -1624746200
+      3do-homm3 (1)_4: 1243097029
+      3do-homm3 (1)_40: 18011946
+      3do-homm3 (1)_41: 264977499
+      3do-homm3 (1)_42: 1676147582
+      3do-homm3 (1)_43: -1418504070
+      3do-homm3 (1)_44: 1734531394
+      3do-homm3 (1)_45: -1121472238
+      3do-homm3 (1)_46: 1085438673
+      3do-homm3 (1)_47: 1559041674
+      3do-homm3 (1)_48: -1449145977
+      3do-homm3 (1)_49: 1779834819
+      3do-homm3 (1)_5: -131480416
+      3do-homm3 (1)_50: 1430321175
+      3do-homm3 (1)_51: -2109665054
+      3do-homm3 (1)_52: -427510302
+      3do-homm3 (1)_53: 1561596344
+      3do-homm3 (1)_54: -1532059247
+      3do-homm3 (1)_55: -1975176691
+      3do-homm3 (1)_56: -545306760
+      3do-homm3 (1)_57: 1485376357
+      3do-homm3 (1)_58: 119935788
+      3do-homm3 (1)_59: -1230345367
+      3do-homm3 (1)_6: -1245654551
+      3do-homm3 (1)_60: 84724335
+      3do-homm3 (1)_61: 55482222
+      3do-homm3 (1)_62: 754550184
+      3do-homm3 (1)_63: -1559048749
+      3do-homm3 (1)_64: 402448582
+      3do-homm3 (1)_65: 1665558363
+      3do-homm3 (1)_66: 1344448320
+      3do-homm3 (1)_67: 890727212
+      3do-homm3 (1)_68: 1648126001
+      3do-homm3 (1)_69: 1477580860
+      3do-homm3 (1)_7: 845015398
+      3do-homm3 (1)_70: -1681722533
+      3do-homm3 (1)_71: 908547774
+      3do-homm3 (1)_72: 1813467181
+      3do-homm3 (1)_73: 1310620020
+      3do-homm3 (1)_74: -443201244
+      3do-homm3 (1)_75: -1499656929
+      3do-homm3 (1)_76: -2093866989
+      3do-homm3 (1)_77: 203332160
+      3do-homm3 (1)_78: -641367935
+      3do-homm3 (1)_79: 2090098557
+      3do-homm3 (1)_8: 82205647
+      3do-homm3 (1)_80: 270241100
+      3do-homm3 (1)_81: -1360604280
+      3do-homm3 (1)_82: 1186287308
+      3do-homm3 (1)_83: -1739199044
+      3do-homm3 (1)_84: -269675191
+      3do-homm3 (1)_85: 222707202
+      3do-homm3 (1)_86: -1264771529
+      3do-homm3 (1)_87: 701447137
+      3do-homm3 (1)_88: -224101642
+      3do-homm3 (1)_89: -1609532693
+      3do-homm3 (1)_9: -1590958474
+      3do-homm3 (1)_90: -24676060
+      3do-homm3 (1)_91: 1002276329
+      3do-homm3 (1)_92: 277597036
+      3do-homm3 (1)_93: 1470748078
+      3do-homm3 (1)_94: 1028562467
+      3do-homm3 (1)_95: -669712174
+      3do-homm3 (1)_96: 1614021435
+      3do-homm3 (1)_97: -1882533769
+      3do-homm3 (1)_98: 205390065
+      3do-homm3 (1)_99: 2017686465
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

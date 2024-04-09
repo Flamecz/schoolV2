@@ -9,4 +9,5 @@ public class MissionDataShower : ScriptableObject
     public int whatResource;
     public int whatMission;
     public int whatDificulty;
+    public int Width, Height;
 }

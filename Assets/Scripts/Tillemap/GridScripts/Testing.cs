@@ -4,6 +4,7 @@ using UnityEngine;
 public class Testing : MonoBehaviour {
 
     public int selectedMap;
+    public int width, height;
     [SerializeField] private PathDebug pathDebug;
     [SerializeField] private PathVisual pathVisual;
     [SerializeField] private PlayerMovement characterPathfinding;
@@ -15,7 +16,7 @@ public class Testing : MonoBehaviour {
 
     private void Start()
     {
-        pathfinding = new PathFinding(50, 20);
+        pathfinding = new PathFinding(width, height);
         pathDebug.Setup(pathfinding.GetGrid());
         pathVisual.SetGrid(pathfinding.GetGrid());
 

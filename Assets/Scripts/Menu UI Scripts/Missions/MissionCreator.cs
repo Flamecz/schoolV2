@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Android;
@@ -92,9 +92,6 @@ public class MissionCreator : MonoBehaviour
         vyber1 = InfoTransform.transform.Find("vyber1").GetComponent<Image>();
         vyber2 = InfoTransform.transform.Find("vyber2").GetComponent<Image>();
         vyber3 = InfoTransform.transform.Find("vyber3").GetComponent<Image>();
-    }
-    private void Update()
-    {
     }
     public void SetSceneData()
     {

@@ -17,6 +17,8 @@ public class ReciveData : MonoBehaviour
         GetData();
         AddResourceBonus();
         FindObjectOfType<Testing>().selectedMap = whatMission;
+        FindObjectOfType<Testing>().width = MDS.Width;
+        FindObjectOfType<Testing>().height = MDS.Height;
     }
 
     private void GetData()
@@ -24,6 +26,21 @@ public class ReciveData : MonoBehaviour
         whatResource = MDS.whatResource;
         whatMission = MDS.whatMission;
         whatDificulty = MDS.whatDificulty;
+        if(MDS.whatMission == 0)
+        {
+            MDS.Width = 20;
+            MDS.Height = 10;
+        }
+        if (MDS.whatMission == 1)
+        {
+            MDS.Width = 50;
+            MDS.Height = 20;
+        }
+        if (MDS.whatMission == 2)
+        {
+            MDS.Width = 50;
+            MDS.Height = 20;
+        }
     }
 
     public void AddResourceBonus()

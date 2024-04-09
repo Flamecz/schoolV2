@@ -54,17 +54,17 @@ public class MapManager : MonoBehaviour
            "..................XXXXXXXXXXXXXXXXXXXXXXXXXX......",
            "..................XXXXXXXXXXXXXXXXXXXXXXXXXX......",
            "..................XXXXXXXXXXXXXXXXXXXXXXXXXX......",
-             "..................................................",
+           "..................................................",
            "..................XXXXXXXXXXXXXXXXXXXXXXXXXX......",
            "..................XXXXXXXXXXXXXXXXXXXXXXXXXX......",
            "..................XXXXXXXXXXXXXXXXXXXXXXXXXX......",
            "..................XXXXXXXXXXXXXXXXXXXXXXXXXX......",
-             "..................................................",
+           "..................................................",
            "..................XXXXXXXXXXXXXXXXXXXXXXXXXX......",
            "..................XXXXXXXXXXXXXXXXXXXXXXXXXX......",
            "..................XXXXXXXXXXXXXXXXXXXXXXXXXX......",
            "..................XXXXXXXXXXXXXXXXXXXXXXXXXX......",
-             "..................................................",
+           "..................................................",
            "..................XXXXXXXXXXXXXXXXXXXXXXXXXX......",
            "..................XXXXXXXXXXXXXXXXXXXXXXXXXX......",
            "..................XXXXXXXXXXXXXXXXXXXXXXXXXX......",
@@ -120,7 +120,22 @@ public class MapManager : MonoBehaviour
         "X......................................................................................................X",
         "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
         };
-
+        mapLayouts[3] = new string[]
+        {
+            ".......................",
+            ".......................",
+            ".......................",
+            ".......................",
+            ".......................",
+            "..........X............",
+            ".......................",
+            ".......................",
+            ".......................",
+            ".......................",
+            ".......................",
+            ".......................",
+            ".......................",
+        };
     }
     public string[] GetMapLayout(int index)
     {
