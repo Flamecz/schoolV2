@@ -43,10 +43,12 @@ public class BattleManager : MonoBehaviour
         if (enemyUnitsParent.childCount == 0 && !decisionOpened)
         {
             DecisionPrefab.SetActive(true);
+            FindObjectOfType<BattleUiManager>().SetWinData();
         }
         if (aliedUnitsParent.childCount == 0 && !decisionOpened)
         {
             DecisionPrefab.SetActive(true);
+            FindObjectOfType<BattleUiManager>().SetLossData();
         }
     }
     public void CreateAliedUnit(int i)

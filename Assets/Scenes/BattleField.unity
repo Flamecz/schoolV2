@@ -2221,8 +2221,6 @@ MonoBehaviour:
   playerUnits: {fileID: 11400000, guid: 8bff52702f4e79947b8396cdd4220633, type: 2}
   enemyUnits: {fileID: 11400000, guid: 57539e76c7e164e95a08274f7205d047, type: 2}
   unitPefab: {fileID: 805574985951389203, guid: a3f3ef1aebfce46138c75cf4a7dfd0d4, type: 3}
-  AC1: {fileID: 0}
-  AC2: {fileID: 0}
   DecisionPrefab: {fileID: 210514292}
 --- !u!4 &1383803788
 Transform:
@@ -2558,6 +2556,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f690d55075924b869b32ea36fff04b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alliedHero: {fileID: 21300000, guid: 8dfa396f455204709a5228bf5a1212b8, type: 3}
+  enemyHero: {fileID: 21300000, guid: 473b69b947f2f44198ceec32c6e3e360, type: 3}
+  alliedHeroName: Catherine
+  enemyHeroName: Moador
+  contoller: {fileID: 9100000, guid: 272926a5d90464e3a9d131c027b0baa6, type: 2}
 --- !u!1 &1677458737
 GameObject:
   m_ObjectHideFlags: 0
