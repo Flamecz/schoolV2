@@ -1,13 +1,15 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Testing : MonoBehaviour {
+
+public class BattleFieldPlate : MonoBehaviour
+{
 
     public int selectedMap;
     public int width, height;
     [SerializeField] private PathDebug pathDebug;
     [SerializeField] private PathVisual pathVisual;
-    [SerializeField] private PlayerMovement characterPathfinding;
+    [SerializeField] public FieldMovement unitPathfinding;
     public PathFinding pathfinding;
 
     public MapManager mapManager;
@@ -36,7 +38,7 @@ public class Testing : MonoBehaviour {
                     Debug.DrawLine(new Vector3(path[i].x, path[i].y) * 10f + Vector3.one * 5f, new Vector3(path[i + 1].x, path[i + 1].y) * 10f + Vector3.one * 5f, Color.green, 5f);
                 }
             }
-            characterPathfinding.SetTargetPosition(mouseWorldPosition);
+            unitPathfinding.SetTargetPosition(mouseWorldPosition);
         }
 
         if (Input.GetMouseButtonDown(1))

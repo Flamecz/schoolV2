@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class FieldMovement : MonoBehaviour
 {
+    public Unit unit;
     private float speed = 40f;
 
     private int currentPathIndex;

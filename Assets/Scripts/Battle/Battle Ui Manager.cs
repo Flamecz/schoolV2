@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public class BattleUiManager : MonoBehaviour
 {
+    public GameObject cavas;
     public Sprite alliedHero, enemyHero;
     public string alliedHeroName, enemyHeroName;
-    public RuntimeAnimatorController contoller;
+    public RuntimeAnimatorController winAnimation, lossAnimation;
     private Transform main;
     private Image alliedHeroImage, enemyHeroImage;
     private Text alliedHeroNameText, enemyHeroNameText;
     private Text alliedStatus, enemyStatus;
     private Animator animator;
     private Text StateDescription, BattleDescription;
+    private GameObject PlayerLosses, EnemyLosses;
 
     private void Awake()
     {
@@ -21,7 +23,8 @@ public class BattleUiManager : MonoBehaviour
     }
     public void GetData()
     {
-        main = gameObject.transform.Find("Leather");
+
+        main = cavas.transform.Find("Leather");
         alliedHeroImage = main.transform.Find("AlliedFrame").Find("HeroImage").GetComponent<Image>();
         enemyHeroImage = main.transform.Find("EnemyFrame").Find("EnemyHero").GetComponent<Image>();
         alliedHeroNameText = main.transform.Find("AlliedNameFrame").Find("Name").GetComponent<Text>();
@@ -30,7 +33,7 @@ public class BattleUiManager : MonoBehaviour
         enemyStatus = main.transform.Find("EnemyStateOfBattle").Find("Name").GetComponent<Text>();
         animator = main.transform.Find("Gif").GetComponent<Animator>();
         StateDescription = main.transform.Find("DescriptionFrame").Find("StateDescription").GetComponent<Text>();
-        BattleDescription = main.transform.Find("DescriptionFrame").Find("BattleDescription").GetComponent<Text>();
+    //    BattleDescription = main.transform.Find("DescriptionFrame").Find("BattleDescription").GetComponent<Text>();
     }
     public void SetWinData()
     {
@@ -40,7 +43,7 @@ public class BattleUiManager : MonoBehaviour
         enemyHeroNameText.text = enemyHeroName;
         alliedStatus.text = "Victory";
         enemyStatus.text = "Defeat";
-
+        animator.runtimeAnimatorController = winAnimation;
     }
     public void SetLossData()
     {
@@ -50,6 +53,7 @@ public class BattleUiManager : MonoBehaviour
         enemyHeroNameText.text = enemyHeroName;
         alliedStatus.text = "Defeat";
         enemyStatus.text = "Victory";
+        animator.runtimeAnimatorController = lossAnimation;
     }
     public string NameReturn(string name)
     {

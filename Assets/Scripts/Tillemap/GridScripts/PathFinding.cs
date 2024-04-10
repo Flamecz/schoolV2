@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[System.Serializable]
 public class PathFinding
 {
         private const int MOVE_STRAIGHT_COST = 10;
         private const int MOVE_DIAGONAL_COST = 14;
-
+        private int settedValue;
         public static PathFinding Instance { get; private set; }
 
         public Grid<PathNode> grid;
@@ -64,7 +64,7 @@ public class PathFinding
                 for (int y = 0; y < grid.GetHeight(); y++)
                 {
                     PathNode pathNode = grid.GetGridObject(x, y);
-                    pathNode.gCost = 100000;
+                    pathNode.gCost = settedValue;
                     pathNode.CalculateFCost();
                     pathNode.cameFromNode = null;
                 }
@@ -188,6 +188,9 @@ public class PathFinding
             }
             return lowestFCostNode;
         }
-
+    public void SetSettedValue(int value)
+    {
+        settedValue = value;
     }
+}
 

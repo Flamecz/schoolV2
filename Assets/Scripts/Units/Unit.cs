@@ -14,7 +14,7 @@ public class Unit :ScriptableObject
     public int minDamage;
     public int maxDamage;
     public float health;
-    public float speed;
+    public int speed;
     public int growth;
     public int aIvalue;
     public int cost;
@@ -23,7 +23,7 @@ public class Unit :ScriptableObject
     public int Shots;
     public bool stackable;
     public Unit(string unitName, string town, float lvl, float damage, int Defence,
-                int minDamage, int maxDamage, float health, float speed, int growth,
+                int minDamage, int maxDamage, float health, int speed, int growth,
                 int aIvalue,int cost, Movementtype movetype, attackType ATKT)
     {
         this.unitName = unitName;
@@ -80,7 +80,7 @@ public class Unit :ScriptableObject
     {
         this.health -= damage;
     }
-    public void move(float distance)
+    public void move(int distance)
     {
         this.speed -= distance;
     }
