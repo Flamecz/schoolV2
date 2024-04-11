@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Centaur
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
+  imageInBattle: {fileID: 0}
   unitName: Centaur
   town: Rampart
   lvl: 1
@@ -28,3 +29,4 @@ MonoBehaviour:
   movetype: 0
   ATKT: 1
   Shots: 0
+  stackable: 1

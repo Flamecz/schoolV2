@@ -6,25 +6,9 @@ public class GrowthManager : MonoBehaviour
 {
     public ResourceManager resourceManager;
     public int currentBuyableUnits;
-    public Unit CastelU, RampartU, NecroplisU;
     public Unit unit;
     private void Start()
     {
-        if (FindObjectOfType<BuildingManager>().CityType == BuildingManager.type.Castel)
-        {
-            unit = CastelU;
-
-        }
-        else if (FindObjectOfType<BuildingManager>().CityType == BuildingManager.type.Rampart)
-        {
-            unit = RampartU;
-
-        }
-        else if (FindObjectOfType<BuildingManager>().CityType == BuildingManager.type.Necropolis)
-        {
-            unit = NecroplisU;
-
-        }
         currentBuyableUnits = unit.growth;
     }
     public int CalculateUnits(Unit unit)

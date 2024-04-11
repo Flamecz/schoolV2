@@ -46,6 +46,7 @@ public class MissionCreator : MonoBehaviour
     public sound Theme;
 
     public CityBuldings[] sendBuildings;
+    public Unit[] unitsToSet;
 
     public BonusThingsinMission[] BTM;
     void Start()
@@ -143,7 +144,9 @@ public class MissionCreator : MonoBehaviour
             invetorySaver.unitList[i] = units[i];
             invetorySaver.unitCount[i] = countOfUnits[i];
         }
+        ClearData();
         FindObjectOfType<BuildingManager>().CityBuldings = sendBuildings;
+        FindObjectOfType<BuildingManager>().UnitSetting = unitsToSet;
     }
     public void GetBonus()
     {
@@ -156,6 +159,24 @@ public class MissionCreator : MonoBehaviour
                 invetorySaver.unitCount[i] += unitStructure.count / 3;
                 var = 1;
             }
+        }
+    }
+    private void ClearData()
+    {
+        sendBuildings[0].builded = true;
+        sendBuildings[1].builded = true;
+        sendBuildings[2].builded = false;
+        sendBuildings[3].builded = false;
+        sendBuildings[4].builded = true;
+        sendBuildings[5].builded = true;
+        sendBuildings[6].builded = false;
+        sendBuildings[7].builded = false;
+        sendBuildings[8].builded = false;
+        sendBuildings[9].builded = false;
+        sendBuildings[10].builded = false;
+        for(int i = 0; i < sendBuildings.Length; i++)
+        {
+            sendBuildings[i].upgraded = false;
         }
     }
     public string GetInfo(int index)

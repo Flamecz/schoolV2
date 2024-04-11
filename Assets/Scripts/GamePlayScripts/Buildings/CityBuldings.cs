@@ -34,4 +34,5 @@ public class CityBuldings : ScriptableObject
         }
         return canBeBuild = true;
     }
+
 }

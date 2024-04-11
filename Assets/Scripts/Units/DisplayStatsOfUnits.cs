@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class DisplayStatsOfUnits : MonoBehaviour
 {
-    public Unit castelU, rampartU, necropolisU , ut;
+    public Unit  ut;
     public GrowthManager gM;
     public string nameOfTrueBuilding;
     public GameObject Canvas;
     public CityBuldings building;
+    public int buildingNumber;
 
     private Text UnitName;
     private Image BuildingSprite;
@@ -44,18 +45,7 @@ public class DisplayStatsOfUnits : MonoBehaviour
 
     void Start()
     {
-        if(FindObjectOfType<BuildingManager>().CityType == BuildingManager.type.Castel)
-        {
-            ut = castelU;
-        }
-        else if (FindObjectOfType<BuildingManager>().CityType == BuildingManager.type.Rampart)
-        {
-            ut = rampartU;
-        }
-        else if (FindObjectOfType<BuildingManager>().CityType == BuildingManager.type.Necropolis)
-        {
-            ut = necropolisU;
-        }
+        building = FindObjectOfType<BuildingManager>().CityBuldings[buildingNumber];
         GetData();
     }
 

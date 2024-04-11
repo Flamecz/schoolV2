@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -368,6 +368,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ab02e49e5cec1492b9e04bbf0328ae37, type: 2}
   - {fileID: 11400000, guid: 95337b458eaee4c95bc7b64a6c3b6539, type: 2}
   - {fileID: 11400000, guid: 3aa246903fc3a4022bde7a13859ba774, type: 2}
+  unitsToSet:
+  - {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
+  - {fileID: 11400000, guid: 42886ce941af5472b93557d13bbb882a, type: 2}
+  - {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
+  - {fileID: 11400000, guid: e53ed469382f34caf99f719d8eae6b62, type: 2}
+  - {fileID: 11400000, guid: a3c580a20f5a0436999515246f8aa2f8, type: 2}
+  - {fileID: 11400000, guid: 9e0dc38cd81e54073b5e07f6b3eba59e, type: 2}
+  - {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
+  - {fileID: 11400000, guid: 8852dadf36a4649279cd972f15d3a00c, type: 2}
+  - {fileID: 11400000, guid: 138015183ab5841a081291f174f7e96c, type: 2}
+  - {fileID: 11400000, guid: 728efa6f2cc1145f282211461cf0492a, type: 2}
+  - {fileID: 11400000, guid: 44c27deada19845d2804a3ef5f8c4018, type: 2}
+  - {fileID: 11400000, guid: 8107f833d8c9d485aae5029f9420ef93, type: 2}
+  - {fileID: 11400000, guid: 5a2c1c66a827f4ad88f4532430e115ea, type: 2}
+  - {fileID: 11400000, guid: 70027a49a51594bf6864aa08227d6878, type: 2}
   BTM:
   - {fileID: 11400000, guid: d1c90000e23a89b4290c2d82056c96c1, type: 2}
   - {fileID: 11400000, guid: 3236f68283a3af440a4951ea7d703af2, type: 2}
@@ -5067,6 +5082,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e63f68fdc77944afe84b4cd7a3644104, type: 2}
   - {fileID: 11400000, guid: a24748c1dfe0b4134adc57bd95a89b51, type: 2}
   - {fileID: 11400000, guid: fe7b1c3f45bc0409a863ccfd19e749b9, type: 2}
+  unitsToSet:
+  - {fileID: 11400000, guid: 0fc5e05975bd84c8d9b2d803ba606f7d, type: 2}
+  - {fileID: 11400000, guid: b129884d8071a435385a03c312e586fe, type: 2}
+  - {fileID: 11400000, guid: eaf9e7b1d92d74a4db0ce501066aa615, type: 2}
+  - {fileID: 11400000, guid: ecde1a1dcdf1a4a588b6dcacfb452867, type: 2}
+  - {fileID: 11400000, guid: ad8bc1e63c3524743b5ac0b9f69a3cb4, type: 2}
+  - {fileID: 11400000, guid: ac18e2d3fb234410d9f6e8b93bf85127, type: 2}
+  - {fileID: 11400000, guid: bf78117dbcee64f3fb7fec3cf47a2592, type: 2}
+  - {fileID: 11400000, guid: b9f42befa4b9a4041ac15e2e5a089573, type: 2}
+  - {fileID: 11400000, guid: d9d92b6ae29014c51864897696ecc97d, type: 2}
+  - {fileID: 11400000, guid: f1cd5991b80724122bb6a42ecfd7b176, type: 2}
+  - {fileID: 11400000, guid: 8960aba982c544fdca5624450d43affe, type: 2}
+  - {fileID: 11400000, guid: a36d09043955d4a66a60905f4bdea57b, type: 2}
+  - {fileID: 11400000, guid: ccd4b348e06bb4fcea1d6f8ff1103749, type: 2}
+  - {fileID: 11400000, guid: 39422040f857d43a0b3c511d5f6b8b31, type: 2}
   BTM:
   - {fileID: 11400000, guid: bd36efb73feb1664c8212aea04a4f9e1, type: 2}
   - {fileID: 11400000, guid: ea1d9c1df7917ac42bb7ffd4157c8405, type: 2}
@@ -5898,6 +5928,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ec196c0b306f24d679f000d00962bf92, type: 2}
   - {fileID: 11400000, guid: 0e437925ca26f4e7bb8f8b91508fed14, type: 2}
   - {fileID: 11400000, guid: be25a1694fcc94bd0bfd9409256f66f8, type: 2}
+  unitsToSet:
+  - {fileID: 11400000, guid: 583b8055529c94dc7a6a45c0d58556b1, type: 2}
+  - {fileID: 11400000, guid: e0e31ff27498948dab4efd9d0d903b60, type: 2}
+  - {fileID: 11400000, guid: 117e2ced2f7a848128a241b06f3ef999, type: 2}
+  - {fileID: 11400000, guid: 18d285f383bb44dcd9e0876533ed56e3, type: 2}
+  - {fileID: 11400000, guid: e5e2e946acdf24da28bf194ab1789b68, type: 2}
+  - {fileID: 11400000, guid: 52c3757609c0747eeb5350f54129e381, type: 2}
+  - {fileID: 11400000, guid: 158821e4f26f4409fb9157cbf1f0abc6, type: 2}
+  - {fileID: 11400000, guid: 9fcb38188bf5146f4900799526d183e2, type: 2}
+  - {fileID: 11400000, guid: 2d99fb275e4ad4beeba398a2725ed131, type: 2}
+  - {fileID: 11400000, guid: 380de20c6c8353c4d84db823ae0101d0, type: 2}
+  - {fileID: 11400000, guid: 40a96dc6a31034748ab77d9fd9df9854, type: 2}
+  - {fileID: 11400000, guid: 24bde716b71d15049864e9a30752d6d4, type: 2}
+  - {fileID: 11400000, guid: 8744422da76ac9d4ab0f77f85da11ea7, type: 2}
+  - {fileID: 11400000, guid: 2ee722c6c38d3f34eb748fad88f016b4, type: 2}
   BTM:
   - {fileID: 11400000, guid: 2e8389edbed9d2d439d841b8e0f7cfd0, type: 2}
   - {fileID: 11400000, guid: a0f3c172484aaf14ab721ad27c20ad26, type: 2}
@@ -7571,12 +7616,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be78f7cf85bb7f418a12bf28ad8e722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CityBuldings:
-  - {fileID: 11400000, guid: a2b01f4be32924ef0b0e8f422f6dd5cf, type: 2}
-  - {fileID: 11400000, guid: 48320e2de4fa24757bc56a52cc1658f7, type: 2}
-  - {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
-  - {fileID: 11400000, guid: 46962fc7a1affea4e8fe1b3aa952c6f6, type: 2}
-  - {fileID: 11400000, guid: 844aa594e06903d439a7204e6c7b166f, type: 2}
+  CityType: 0
+  CityBuldings: []
+  UnitSetting: []
 --- !u!1 &1627729729
 GameObject:
   m_ObjectHideFlags: 0

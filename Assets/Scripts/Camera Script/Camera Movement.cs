@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -52,5 +53,28 @@ public class CameraMovement : MonoBehaviour
             Mathf.Clamp(transform.position.y + pan.y * panSpeed * Time.deltaTime, minBoundary.y, maxBoundary.y),
             transform.position.z
         );
+
+        // Check for mouse click
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Cast a ray from the camera through the mouse position
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            // Check if the ray hits any colliders
+            if (Physics.Raycast(ray, out hit))
+            {
+                // Handle the hit object
+                GameObject hitObject = hit.collider.gameObject;
+                Debug.Log("Hit object: " + hitObject.name);
+
+                if (hitObject.CompareTag("hrad"))
+                {
+                    SceneManager.LoadScene(1);
+                    FindObjectOfType<AudioManager>().Play("undeadCityTheme");
+                    FindObjectOfType<AudioManager>().Stop("HeroesInWorld");
+                }
+            }
+        }
     }
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Grand Elf
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
+  imageInBattle: {fileID: 0}
   unitName: Grand Elf
   town: Rampart
   lvl: 3.5
@@ -28,3 +29,4 @@ MonoBehaviour:
   movetype: 0
   ATKT: 0
   Shots: 24
+  stackable: 1

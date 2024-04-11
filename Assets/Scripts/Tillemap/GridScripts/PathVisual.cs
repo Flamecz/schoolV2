@@ -5,7 +5,7 @@ using UnityEngine;
 public class PathVisual : MonoBehaviour
 {
 
-    private Grid<PathNode> grid;
+    public Grid<PathNode> grid;
     private Mesh mesh;
     private bool updateMesh;
 

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Battle Dwarf
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
+  imageInBattle: {fileID: 0}
   unitName: Battle Dwarf
   town: Rampart
   lvl: 2.5
@@ -28,3 +29,4 @@ MonoBehaviour:
   movetype: 0
   ATKT: 1
   Shots: 0
+  stackable: 1

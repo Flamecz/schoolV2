@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3963,6 +3963,14 @@ MonoBehaviour:
   - {fileID: 2122083405}
   - {fileID: 114287767}
   - {fileID: 852430165}
+  UnitsToSet:
+  - {fileID: 952379805}
+  - {fileID: 829081833}
+  - {fileID: 1870229684}
+  - {fileID: 1430118926}
+  - {fileID: 514226294}
+  - {fileID: 1389553938}
+  - {fileID: 183695836}
 --- !u!1 &183695836
 GameObject:
   m_ObjectHideFlags: 0
@@ -4022,14 +4030,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3ddcd972ed6a8488c5f8351afe7a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castelU: {fileID: 0}
-  rampartU: {fileID: 0}
-  necropolisU: {fileID: 0}
   ut: {fileID: 11400000, guid: 5a2c1c66a827f4ad88f4532430e115ea, type: 2}
   gM: {fileID: 183695840}
   nameOfTrueBuilding: GuardHouse
   Canvas: {fileID: 183695836}
   building: {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
+  buildingNumber: 10
 --- !u!114 &183695839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4088,9 +4094,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceManager: {fileID: 175092077}
   currentBuyableUnits: 0
-  CastelU: {fileID: 0}
-  RampartU: {fileID: 0}
-  NecroplisU: {fileID: 0}
   unit: {fileID: 11400000, guid: 5a2c1c66a827f4ad88f4532430e115ea, type: 2}
 --- !u!114 &183695841
 MonoBehaviour:
@@ -4109,13 +4112,10 @@ MonoBehaviour:
   resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: 70027a49a51594bf6864aa08227d6878, type: 2}
   unit2: {fileID: 11400000, guid: 5a2c1c66a827f4ad88f4532430e115ea, type: 2}
-  CastelU1: {fileID: 0}
-  CastelU2: {fileID: 0}
-  RampartU1: {fileID: 0}
-  RampartU2: {fileID: 0}
-  NecroplisU1: {fileID: 0}
-  NecroplisU2: {fileID: 0}
   buildingToCheck: {fileID: 0}
+  unitNumber1: 13
+  unitNumber2: 12
+  buildingNumber: 10
   growthManager: {fileID: 183695840}
 --- !u!1 &185186539
 GameObject:
@@ -8662,14 +8662,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3ddcd972ed6a8488c5f8351afe7a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castelU: {fileID: 0}
-  rampartU: {fileID: 0}
-  necropolisU: {fileID: 0}
   ut: {fileID: 11400000, guid: 138015183ab5841a081291f174f7e96c, type: 2}
   gM: {fileID: 514226298}
   nameOfTrueBuilding: GuardHouse
   Canvas: {fileID: 514226294}
   building: {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
+  buildingNumber: 8
 --- !u!114 &514226297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8728,9 +8726,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceManager: {fileID: 175092077}
   currentBuyableUnits: 0
-  CastelU: {fileID: 0}
-  RampartU: {fileID: 0}
-  NecroplisU: {fileID: 0}
   unit: {fileID: 11400000, guid: 138015183ab5841a081291f174f7e96c, type: 2}
 --- !u!114 &514226299
 MonoBehaviour:
@@ -8749,13 +8744,10 @@ MonoBehaviour:
   resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: 728efa6f2cc1145f282211461cf0492a, type: 2}
   unit2: {fileID: 11400000, guid: 138015183ab5841a081291f174f7e96c, type: 2}
-  CastelU1: {fileID: 0}
-  CastelU2: {fileID: 0}
-  RampartU1: {fileID: 0}
-  RampartU2: {fileID: 0}
-  NecroplisU1: {fileID: 0}
-  NecroplisU2: {fileID: 0}
   buildingToCheck: {fileID: 0}
+  unitNumber1: 9
+  unitNumber2: 8
+  buildingNumber: 8
   growthManager: {fileID: 514226298}
 --- !u!1 &517124328
 GameObject:
@@ -14726,14 +14718,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3ddcd972ed6a8488c5f8351afe7a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castelU: {fileID: 0}
-  rampartU: {fileID: 0}
-  necropolisU: {fileID: 0}
   ut: {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
   gM: {fileID: 829081837}
   nameOfTrueBuilding: GuardHouse
   Canvas: {fileID: 829081833}
   building: {fileID: 11400000, guid: 844aa594e06903d439a7204e6c7b166f, type: 2}
+  buildingNumber: 5
 --- !u!114 &829081836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14792,9 +14782,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceManager: {fileID: 175092077}
   currentBuyableUnits: 0
-  CastelU: {fileID: 0}
-  RampartU: {fileID: 0}
-  NecroplisU: {fileID: 0}
   unit: {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
 --- !u!114 &829081838
 MonoBehaviour:
@@ -14813,13 +14800,10 @@ MonoBehaviour:
   resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: e53ed469382f34caf99f719d8eae6b62, type: 2}
   unit2: {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
-  CastelU1: {fileID: 0}
-  CastelU2: {fileID: 0}
-  RampartU1: {fileID: 0}
-  RampartU2: {fileID: 0}
-  NecroplisU1: {fileID: 0}
-  NecroplisU2: {fileID: 0}
   buildingToCheck: {fileID: 11400000, guid: 844aa594e06903d439a7204e6c7b166f, type: 2}
+  unitNumber1: 3
+  unitNumber2: 2
+  buildingNumber: 5
   growthManager: {fileID: 829081837}
 --- !u!1 &829331499
 GameObject:
@@ -17870,14 +17854,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3ddcd972ed6a8488c5f8351afe7a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castelU: {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
-  rampartU: {fileID: 11400000, guid: 583b8055529c94dc7a6a45c0d58556b1, type: 2}
-  necropolisU: {fileID: 0}
   ut: {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
   gM: {fileID: 952379809}
   nameOfTrueBuilding: GuardHouse
   Canvas: {fileID: 952379805}
   building: {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
+  buildingNumber: 4
 --- !u!114 &952379808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17936,9 +17918,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceManager: {fileID: 175092077}
   currentBuyableUnits: 0
-  CastelU: {fileID: 0}
-  RampartU: {fileID: 0}
-  NecroplisU: {fileID: 0}
   unit: {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
 --- !u!114 &952379810
 MonoBehaviour:
@@ -17957,13 +17936,10 @@ MonoBehaviour:
   resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: 42886ce941af5472b93557d13bbb882a, type: 2}
   unit2: {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
-  CastelU1: {fileID: 0}
-  CastelU2: {fileID: 0}
-  RampartU1: {fileID: 0}
-  RampartU2: {fileID: 0}
-  NecroplisU1: {fileID: 0}
-  NecroplisU2: {fileID: 0}
   buildingToCheck: {fileID: 0}
+  unitNumber1: 1
+  unitNumber2: 0
+  buildingNumber: 4
   growthManager: {fileID: 952379809}
 --- !u!1 &967085486
 GameObject:
@@ -26807,14 +26783,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3ddcd972ed6a8488c5f8351afe7a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castelU: {fileID: 0}
-  rampartU: {fileID: 0}
-  necropolisU: {fileID: 0}
   ut: {fileID: 11400000, guid: 44c27deada19845d2804a3ef5f8c4018, type: 2}
   gM: {fileID: 1389553942}
   nameOfTrueBuilding: GuardHouse
   Canvas: {fileID: 1389553938}
   building: {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
+  buildingNumber: 9
 --- !u!114 &1389553941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26873,9 +26847,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceManager: {fileID: 175092077}
   currentBuyableUnits: 0
-  CastelU: {fileID: 0}
-  RampartU: {fileID: 0}
-  NecroplisU: {fileID: 0}
   unit: {fileID: 11400000, guid: 44c27deada19845d2804a3ef5f8c4018, type: 2}
 --- !u!114 &1389553943
 MonoBehaviour:
@@ -26894,13 +26865,10 @@ MonoBehaviour:
   resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: 8107f833d8c9d485aae5029f9420ef93, type: 2}
   unit2: {fileID: 11400000, guid: 44c27deada19845d2804a3ef5f8c4018, type: 2}
-  CastelU1: {fileID: 0}
-  CastelU2: {fileID: 0}
-  RampartU1: {fileID: 0}
-  RampartU2: {fileID: 0}
-  NecroplisU1: {fileID: 0}
-  NecroplisU2: {fileID: 0}
   buildingToCheck: {fileID: 0}
+  unitNumber1: 11
+  unitNumber2: 10
+  buildingNumber: 9
   growthManager: {fileID: 1389553942}
 --- !u!1 &1394138996
 GameObject:
@@ -27465,14 +27433,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3ddcd972ed6a8488c5f8351afe7a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castelU: {fileID: 0}
-  rampartU: {fileID: 0}
-  necropolisU: {fileID: 0}
   ut: {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
   gM: {fileID: 1430118930}
   nameOfTrueBuilding: GuardHouse
   Canvas: {fileID: 1430118926}
   building: {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
+  buildingNumber: 7
 --- !u!114 &1430118929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27531,9 +27497,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceManager: {fileID: 175092077}
   currentBuyableUnits: 0
-  CastelU: {fileID: 0}
-  RampartU: {fileID: 0}
-  NecroplisU: {fileID: 0}
   unit: {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
 --- !u!114 &1430118931
 MonoBehaviour:
@@ -27552,13 +27515,10 @@ MonoBehaviour:
   resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: 8852dadf36a4649279cd972f15d3a00c, type: 2}
   unit2: {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
-  CastelU1: {fileID: 0}
-  CastelU2: {fileID: 0}
-  RampartU1: {fileID: 0}
-  RampartU2: {fileID: 0}
-  NecroplisU1: {fileID: 0}
-  NecroplisU2: {fileID: 0}
   buildingToCheck: {fileID: 0}
+  unitNumber1: 7
+  unitNumber2: 6
+  buildingNumber: 7
   growthManager: {fileID: 1430118930}
 --- !u!1 &1433603342
 GameObject:
@@ -33835,14 +33795,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3ddcd972ed6a8488c5f8351afe7a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castelU: {fileID: 0}
-  rampartU: {fileID: 0}
-  necropolisU: {fileID: 0}
   ut: {fileID: 11400000, guid: a3c580a20f5a0436999515246f8aa2f8, type: 2}
   gM: {fileID: 1870229688}
   nameOfTrueBuilding: GuardHouse
   Canvas: {fileID: 1870229684}
   building: {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
+  buildingNumber: 6
 --- !u!114 &1870229687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33901,9 +33859,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceManager: {fileID: 175092077}
   currentBuyableUnits: 0
-  CastelU: {fileID: 0}
-  RampartU: {fileID: 0}
-  NecroplisU: {fileID: 0}
   unit: {fileID: 11400000, guid: a3c580a20f5a0436999515246f8aa2f8, type: 2}
 --- !u!114 &1870229689
 MonoBehaviour:
@@ -33922,13 +33877,10 @@ MonoBehaviour:
   resourceManger: {fileID: 175092077}
   unit1: {fileID: 11400000, guid: 9e0dc38cd81e54073b5e07f6b3eba59e, type: 2}
   unit2: {fileID: 11400000, guid: a3c580a20f5a0436999515246f8aa2f8, type: 2}
-  CastelU1: {fileID: 0}
-  CastelU2: {fileID: 0}
-  RampartU1: {fileID: 0}
-  RampartU2: {fileID: 0}
-  NecroplisU1: {fileID: 0}
-  NecroplisU2: {fileID: 0}
   buildingToCheck: {fileID: 0}
+  unitNumber1: 5
+  unitNumber2: 4
+  buildingNumber: 6
   growthManager: {fileID: 1870229688}
 --- !u!1 &1879239659
 GameObject:

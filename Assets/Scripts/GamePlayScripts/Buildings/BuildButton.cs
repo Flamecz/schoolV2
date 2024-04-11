@@ -140,6 +140,71 @@ public class BuildButton : MonoBehaviour
                     CreateBuildedPopUp();
                 }  
         }
+        else if (cityBuldings.canBeUpgraded)
+        {
+            if (resourceManager.Data.Wood >= woodCost &&
+               resourceManager.Data.Iron >= ironCost &&
+               resourceManager.Data.Minerals >= mineralsCost &&
+               resourceManager.Data.Stone >= stoneCost)
+            {
+                //centring object in middle and creating popUp
+
+                popUpWindow = Instantiate(PopUpWindow, PopUpParrent.transform);
+                RectTransform rectTransform = popUpWindow.GetComponent<RectTransform>();
+                rectTransform.anchoredPosition = Vector2.zero;
+
+                //Working with children of the object and adding listeners
+
+                Transform acceptButtonTransform = popUpWindow.transform.Find("BuyButton");
+                Button acceptButton = acceptButtonTransform.GetComponent<Button>();
+                acceptButton.onClick.AddListener(BuildObject);
+                Transform CancelButtonTransform = popUpWindow.transform.Find("CanceledButton");
+                Button CancelButton = CancelButtonTransform.GetComponent<Button>();
+                CancelButton.onClick.AddListener(DestroyPopUp);
+
+                //Adding text in Popup;
+
+                Transform NameObjectTransform = popUpWindow.transform.Find("NameOfBuildingInPopUp");
+                Text TextNameOfOBject = NameObjectTransform.GetComponent<Text>();
+                TextNameOfOBject.text = cityBuldings.nazev;
+
+                Transform DescriptionObjectTransform = popUpWindow.transform.Find("DescriptionOfBuildingInPopUp");
+                Text TextDescriptionOfOBject = DescriptionObjectTransform.GetComponent<Text>();
+                TextDescriptionOfOBject.text = cityBuldings.popis;
+
+                //Adding Sprite to the object
+                Transform SpriteImageTransform = popUpWindow.transform.Find("SpriteOfTheBuildingInPopUp");
+                Image Image = SpriteImageTransform.GetComponent<Image>();
+                Image.GetComponent<Image>().sprite = cityBuldings.Obrazek;
+
+                //Adding cost of the building in resources;
+                Transform GetTextResources = popUpWindow.transform.Find("ResourseText");
+                Text ResourcesText = GetTextResources.GetComponent<Text>();
+                StringBuilder sb = new StringBuilder();
+                if (woodCost > 0)
+                {
+                    sb.Append("Wood : " + woodCost + " ,");
+                }
+                if (stoneCost > 0)
+                {
+                    sb.Append("Stone : " + stoneCost + " ,");
+                }
+                if (ironCost > 0)
+                {
+                    sb.Append("Iron : " + ironCost + " ,");
+                }
+                if (mineralsCost > 0)
+                {
+                    sb.Append("Mineral : " + mineralsCost + " ,");
+                }
+
+                ResourcesText.text = sb.ToString();
+            }
+            else
+            {
+                CreateBuildedPopUp();
+            }
+        }
         else if (cityBuldings.builded)
         {
             CreateInfoPopUp();
@@ -148,7 +213,7 @@ public class BuildButton : MonoBehaviour
     }
     public void CheckStatus()
     {
-        if (!cityBuldings.builded)
+        if (!cityBuldings.builded && !cityBuldings.upgraded)
         {
 
                 if (resourceManager.Data.Wood >= woodCost &&
@@ -171,13 +236,14 @@ public class BuildButton : MonoBehaviour
                     colorImageOfButton.color = new Color32(255, 0, 0, 255);
                 }
          
-         }
-        else
+        }
+     else
         {
 
             colorImageOfButton.color = new Color32(70, 230, 70, 255);
 
             cityBuldings.builded = true;
+
         }
         
   

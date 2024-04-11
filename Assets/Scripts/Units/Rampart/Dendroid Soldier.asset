@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d58d1f15ab15547a193b15548dfd474e, type: 3}
-  m_Name: Centaur Captain
+  m_Name: Dendroid Soldier
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
   imageInBattle: {fileID: 0}
-  unitName: Centaur Captain
+  unitName: Dendroid Soldier
   town: Rampart
-  lvl: 1.5
-  damage: 6
-  defence: 3
-  minDamage: 2
-  maxDamage: 3
-  health: 10
-  speed: 8
-  growth: 14
-  aIvalue: 138
-  cost: 90
+  lvl: 5.5
+  damage: 9
+  defence: 12
+  minDamage: 10
+  maxDamage: 14
+  health: 65
+  speed: 4
+  growth: 3
+  aIvalue: 803
+  cost: 425
   movetype: 0
   ATKT: 1
   Shots: 0

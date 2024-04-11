@@ -6,7 +6,7 @@ public class Testing : MonoBehaviour {
     public int selectedMap;
     public int width, height;
     [SerializeField] private PathDebug pathDebug;
-    [SerializeField] private PathVisual pathVisual;
+    [SerializeField] public PathVisual pathVisual;
     [SerializeField] private PlayerMovement characterPathfinding;
     public PathFinding pathfinding;
 
