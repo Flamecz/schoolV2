@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 074d04b1fad704016942c4e9facc232d, type: 3}
-  m_Name: ArcherTower
+  m_Name: Mage guild
   m_EditorClassIdentifier: 
-  buildingName: Archer Tower
+  nazev: Mage guild
+  Obrazek: {fileID: 21300000, guid: cedd017145d1a45f1a03a6e566a26236, type: 3}
+  popis: 'Generates Money '
+  objectToBuild: {fileID: 0}
   canBeBuild: 1
-  builded: 1
+  builded: 0
   canBeUpgraded: 0
-  upgraded: 1
-  required: {fileID: 0}
+  upgraded: 0
+  required: {fileID: 11400000, guid: a2b01f4be32924ef0b0e8f422f6dd5cf, type: 2}

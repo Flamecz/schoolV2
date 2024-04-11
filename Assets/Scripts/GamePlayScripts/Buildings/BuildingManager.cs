@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class BuildingManager : MonoBehaviour
 {
+    public enum type
+    {
+        Castel,
+        Rampart,
+        Necropolis
+    }
+    public type CityType;
     public CityBuldings[] CityBuldings;
 
-
+    private void Start()
+    {
+        CityBuldings = new CityBuldings[11];
+    }
     // Method to get a building by name
     public CityBuldings GetBuildingByName(string buildingName)
     {
         foreach (CityBuldings building in CityBuldings)
         {
-            if (building.buildingName == buildingName)
+            if (building.nazev == buildingName)
             {
                 building.builded = true;
             }

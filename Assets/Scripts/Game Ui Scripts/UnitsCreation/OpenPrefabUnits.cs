@@ -9,6 +9,9 @@ public class OpenPrefabUnits : MonoBehaviour
     public GameObject parent;
     public ResourceManager resourceManger;
     public Unit unit1, unit2;
+    public Unit CastelU1, CastelU2;
+    public Unit RampartU1, RampartU2;
+    public Unit NecroplisU1, NecroplisU2;
     public CityBuldings buildingToCheck;
     //Parametrs of Prefab
     private Text recruteText;
@@ -28,6 +31,22 @@ public class OpenPrefabUnits : MonoBehaviour
         if (button != null)
         {
             button.onClick.AddListener(CreatePopUp);
+        }
+
+        if(FindObjectOfType<BuildingManager>().CityType == BuildingManager.type.Castel)
+        {
+            unit1 = CastelU1;
+            unit2 = CastelU2;
+        }
+        else if (FindObjectOfType<BuildingManager>().CityType == BuildingManager.type.Rampart)
+        {
+            unit1 = RampartU1;
+            unit2 = RampartU2;
+        }
+        else if (FindObjectOfType<BuildingManager>().CityType == BuildingManager.type.Necropolis)
+        {
+            unit1 = NecroplisU1;
+            unit2 = NecroplisU2;
         }
     }
 

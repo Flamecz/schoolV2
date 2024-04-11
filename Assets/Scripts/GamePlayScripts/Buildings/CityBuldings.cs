@@ -4,7 +4,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="building in City",menuName = "cityBuilding")]
 public class CityBuldings : ScriptableObject
 {
-    public string buildingName;
+    public string nazev;
+    public Sprite Obrazek;
+    public string popis;
+    public GameObject objectToBuild;
     public bool canBeBuild;
     public bool builded;
     public bool canBeUpgraded;

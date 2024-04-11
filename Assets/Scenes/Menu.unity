@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -355,6 +355,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
   countOfUnits: 230000000c000000
   unitStructure: {fileID: 11400000, guid: 1816ce008e9acd84c97edc045cd7e764, type: 2}
+  Theme: 0
+  sendBuildings:
+  - {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
+  - {fileID: 11400000, guid: a2b01f4be32924ef0b0e8f422f6dd5cf, type: 2}
+  - {fileID: 11400000, guid: 46962fc7a1affea4e8fe1b3aa952c6f6, type: 2}
+  - {fileID: 11400000, guid: aafdcc8db953b40c5bac9837484dc1dd, type: 2}
+  - {fileID: 11400000, guid: b77e76f94af404ed5b9f5acf0d551600, type: 2}
+  - {fileID: 11400000, guid: 844aa594e06903d439a7204e6c7b166f, type: 2}
+  - {fileID: 11400000, guid: a58810fafa52c4b4fab13f0033c2dd42, type: 2}
+  - {fileID: 11400000, guid: e4f9d1c2d0a4e4e4cb5d613d19706c73, type: 2}
+  - {fileID: 11400000, guid: ab02e49e5cec1492b9e04bbf0328ae37, type: 2}
+  - {fileID: 11400000, guid: 95337b458eaee4c95bc7b64a6c3b6539, type: 2}
+  - {fileID: 11400000, guid: 3aa246903fc3a4022bde7a13859ba774, type: 2}
   BTM:
   - {fileID: 11400000, guid: d1c90000e23a89b4290c2d82056c96c1, type: 2}
   - {fileID: 11400000, guid: 3236f68283a3af440a4951ea7d703af2, type: 2}
@@ -5041,6 +5054,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e0dc38cd81e54073b5e07f6b3eba59e, type: 2}
   countOfUnits: 50000000240000000a000000
   unitStructure: {fileID: 11400000, guid: b790addd9f371074a9d93975d43376f9, type: 2}
+  Theme: 2
+  sendBuildings:
+  - {fileID: 11400000, guid: 62176d448c3a843e9b4f3ed070b7083e, type: 2}
+  - {fileID: 11400000, guid: 76ceff7c5f28f4e28b479e8760771926, type: 2}
+  - {fileID: 11400000, guid: 1024e88d27e794aea9a00488fae7ec2d, type: 2}
+  - {fileID: 11400000, guid: 6ed8d0e0c46bb4a12aa5e4299e95a387, type: 2}
+  - {fileID: 11400000, guid: e3368d89e230045bda23ccd7d8ed2237, type: 2}
+  - {fileID: 11400000, guid: 9c74b9843db55418fbfa1b092fc97753, type: 2}
+  - {fileID: 11400000, guid: 402e6c261d3144bb7889e18875839b3f, type: 2}
+  - {fileID: 11400000, guid: 585fb98d6a90444a2be05eefc295f629, type: 2}
+  - {fileID: 11400000, guid: e63f68fdc77944afe84b4cd7a3644104, type: 2}
+  - {fileID: 11400000, guid: a24748c1dfe0b4134adc57bd95a89b51, type: 2}
+  - {fileID: 11400000, guid: fe7b1c3f45bc0409a863ccfd19e749b9, type: 2}
   BTM:
   - {fileID: 11400000, guid: bd36efb73feb1664c8212aea04a4f9e1, type: 2}
   - {fileID: 11400000, guid: ea1d9c1df7917ac42bb7ffd4157c8405, type: 2}
@@ -5859,6 +5885,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
   countOfUnits: 370000001a0000000c00000005000000
   unitStructure: {fileID: 11400000, guid: 0f085476c9cd7844cb3af21fccece937, type: 2}
+  Theme: 1
+  sendBuildings:
+  - {fileID: 11400000, guid: 888c8f61d048644cfad93226eda56911, type: 2}
+  - {fileID: 11400000, guid: 3394aa2b0a14842b3bd8030ecc686982, type: 2}
+  - {fileID: 11400000, guid: 06fe4f14f2db34d71816f7ff7985a7a0, type: 2}
+  - {fileID: 11400000, guid: 33064bbcc86ec4327958c04b93354462, type: 2}
+  - {fileID: 11400000, guid: 65dba9a771c2045c58deb6ddfb9fad34, type: 2}
+  - {fileID: 11400000, guid: 6a5bbbe7dc0d342a8afc0a4db665f939, type: 2}
+  - {fileID: 11400000, guid: 1224bdf04bc634768bb666adcf2f3e65, type: 2}
+  - {fileID: 11400000, guid: 165ca745d2b2a43a3ba338d818a09401, type: 2}
+  - {fileID: 11400000, guid: ec196c0b306f24d679f000d00962bf92, type: 2}
+  - {fileID: 11400000, guid: 0e437925ca26f4e7bb8f8b91508fed14, type: 2}
+  - {fileID: 11400000, guid: be25a1694fcc94bd0bfd9409256f66f8, type: 2}
   BTM:
   - {fileID: 11400000, guid: 2e8389edbed9d2d439d841b8e0f7cfd0, type: 2}
   - {fileID: 11400000, guid: a0f3c172484aaf14ab721ad27c20ad26, type: 2}
@@ -9111,6 +9150,22 @@ MonoBehaviour:
     Music: 1
   - name: HeroesInWorld
     clip: {fileID: 8300000, guid: ce545bd995fbe7e46b1f05f58c9a3435, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    Effect: 0
+    Music: 1
+  - name: Neutral
+    clip: {fileID: 8300000, guid: 670dd1c2a128547dfbfa0ac0e89f1ab4, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    Effect: 0
+    Music: 1
+  - name: Evil
+    clip: {fileID: 8300000, guid: b48774c86550548248c6bf70bd41489a, type: 3}
     volume: 0.3
     pitch: 1
     source: {fileID: 0}

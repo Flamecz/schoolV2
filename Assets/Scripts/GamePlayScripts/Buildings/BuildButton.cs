@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class BuildButton : MonoBehaviour
 {
-    public BuildData buildData;
     public CityBuldings cityBuldings;
 
     [Header("Important Resources")]
@@ -45,8 +44,8 @@ public class BuildButton : MonoBehaviour
         GetComponent<Button>().onClick.AddListener(CreatePopUp);
         Checker.onClick.AddListener(CheckStatus) ;
 
-        NameOfTheButton.text = buildData.nazev;
-        Image.sprite = buildData.Obrazek;
+        NameOfTheButton.text = cityBuldings.nazev;
+        Image.sprite = cityBuldings.Obrazek;
         resourceManager = FindObjectOfType<ResourceManager>();
 
         if (cityBuldings.builded)
@@ -102,16 +101,16 @@ public class BuildButton : MonoBehaviour
 
                     Transform NameObjectTransform = popUpWindow.transform.Find("NameOfBuildingInPopUp");
                     Text TextNameOfOBject = NameObjectTransform.GetComponent<Text>();
-                    TextNameOfOBject.text = buildData.nazev;
+                    TextNameOfOBject.text = cityBuldings.nazev;
 
                     Transform DescriptionObjectTransform = popUpWindow.transform.Find("DescriptionOfBuildingInPopUp");
                     Text TextDescriptionOfOBject = DescriptionObjectTransform.GetComponent<Text>();
-                    TextDescriptionOfOBject.text = buildData.popis;
+                    TextDescriptionOfOBject.text = cityBuldings.popis;
 
                     //Adding Sprite to the object
                     Transform SpriteImageTransform = popUpWindow.transform.Find("SpriteOfTheBuildingInPopUp");
                     Image Image = SpriteImageTransform.GetComponent<Image>();
-                    Image.GetComponent<Image>().sprite = buildData.Obrazek;
+                    Image.GetComponent<Image>().sprite = cityBuldings.Obrazek;
 
                     //Adding cost of the building in resources;
                     Transform GetTextResources = popUpWindow.transform.Find("ResourseText");
@@ -262,16 +261,16 @@ public class BuildButton : MonoBehaviour
 
         Transform NameObjectTransform = popUpWindow.transform.Find("NameOfBuildingInPopUp");
         Text TextNameOfOBject = NameObjectTransform.GetComponent<Text>();
-        TextNameOfOBject.text = buildData.nazev;
+        TextNameOfOBject.text = cityBuldings.nazev;
 
         Transform DescriptionObjectTransform = popUpWindow.transform.Find("DescriptionOfBuildingInPopUp");
         Text TextDescriptionOfOBject = DescriptionObjectTransform.GetComponent<Text>();
-        TextDescriptionOfOBject.text = buildData.popis;
+        TextDescriptionOfOBject.text = cityBuldings.popis;
 
         //Adding Sprite to the object
         Transform SpriteImageTransform = popUpWindow.transform.Find("SpriteOfTheBuildingInPopUp");
         Image Image = SpriteImageTransform.GetComponent<Image>();
-        Image.GetComponent<Image>().sprite = buildData.Obrazek;
+        Image.GetComponent<Image>().sprite = cityBuldings.Obrazek;
 
         //Adding cost of the building in resources;
         Transform GetTextResources = popUpWindow.transform.Find("ResourseText");
@@ -317,22 +316,22 @@ public class BuildButton : MonoBehaviour
         acceptButton.gameObject.SetActive(false);
         Transform CancelButtonTransform = popUpWindow.transform.Find("CanceledButton");
         Button CancelButton = CancelButtonTransform.GetComponent<Button>();
-        CancelButton.onClick.AddListener(DestroyPopUp);
+        CancelButton.onClick.AddListener(DestroyPopUp); 
 
         //Adding text in Popup;
 
         Transform NameObjectTransform = popUpWindow.transform.Find("NameOfBuildingInPopUp");
         Text TextNameOfOBject = NameObjectTransform.GetComponent<Text>();
-        TextNameOfOBject.text = buildData.nazev;
+        TextNameOfOBject.text = cityBuldings.nazev;
 
         Transform DescriptionObjectTransform = popUpWindow.transform.Find("DescriptionOfBuildingInPopUp");
         Text TextDescriptionOfOBject = DescriptionObjectTransform.GetComponent<Text>();
-        TextDescriptionOfOBject.text = buildData.popis;
+        TextDescriptionOfOBject.text = cityBuldings.popis;
 
         //Adding Sprite to the object
         Transform SpriteImageTransform = popUpWindow.transform.Find("SpriteOfTheBuildingInPopUp");
         Image Image = SpriteImageTransform.GetComponent<Image>();
-        Image.GetComponent<Image>().sprite = buildData.Obrazek;
+        Image.GetComponent<Image>().sprite = cityBuldings.Obrazek;
 
         Transform GetTextResources = popUpWindow.transform.Find("ResourseText");
         Text ResourcesText = GetTextResources.GetComponent<Text>();

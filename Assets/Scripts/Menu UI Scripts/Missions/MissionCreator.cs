@@ -37,14 +37,19 @@ public class MissionCreator : MonoBehaviour
     private Image vyber2;
     private Image vyber3;
 
+    public enum sound
+    {
+        good,
+        neutral,
+        evil
+    }
+    public sound Theme;
+
+    public CityBuldings[] sendBuildings;
 
     public BonusThingsinMission[] BTM;
     void Start()
     {
-        //   myObjects.Add(new BonusThingsinMission("additional resources", Resources.Load<Sprite>("Sprites/Resourceimage/H3Crystal"), "Gives you additional resources to create buildings"));
-        //   myObjects.Add(new BonusThingsinMission("12 ", Resources.Load<Sprite>("Sprites/UnitsImage/Pikeman"), "You get 12 Pikeman to your army"));
-        //   myObjects.Add(new BonusThingsinMission("Budova", Resources.);
-        //"Gives you a building for free"
         nazev = gameObject.name;
         getSceneData();
         nameStart.text = missionD.misionName;
@@ -96,7 +101,21 @@ public class MissionCreator : MonoBehaviour
     public void SetSceneData()
     {
         FindObjectOfType<AudioManager>().Stop("mainTheme");
-        FindObjectOfType<AudioManager>().Play("HeroesGoodtheme");
+        if(Theme == sound.good)
+        {
+            FindObjectOfType<AudioManager>().Play("HeroesGoodtheme");
+            FindObjectOfType<BuildingManager>().CityType = BuildingManager.type.Castel;
+        }
+        else if(Theme == sound.neutral)
+        {
+            FindObjectOfType<AudioManager>().Play("Neutral");
+            FindObjectOfType<BuildingManager>().CityType = BuildingManager.type.Rampart;
+        }
+        else if (Theme == sound.evil)
+        {
+            FindObjectOfType<AudioManager>().Play("Evil");
+            FindObjectOfType<BuildingManager>().CityType = BuildingManager.type.Necropolis;
+        }
         FindObjectOfType<MenuUIContorler>().ScenarionSetup(LevelIndex);
 
         nazevMise.text = missionD.misionName;
@@ -124,6 +143,7 @@ public class MissionCreator : MonoBehaviour
             invetorySaver.unitList[i] = units[i];
             invetorySaver.unitCount[i] = countOfUnits[i];
         }
+        FindObjectOfType<BuildingManager>().CityBuldings = sendBuildings;
     }
     public void GetBonus()
     {
