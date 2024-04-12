@@ -6,7 +6,7 @@ public class PathFinding
 {
         private const int MOVE_STRAIGHT_COST = 10;
         private const int MOVE_DIAGONAL_COST = 14;
-        private int settedValue;
+        public int settedValue;
         public static PathFinding Instance { get; private set; }
 
         public Grid<PathNode> grid;

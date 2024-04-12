@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FieldMovement : MonoBehaviour
 {
+    public bool isDead = false;
     public Unit unit;
     private float speed = 40f;
 
@@ -63,7 +64,21 @@ public class FieldMovement : MonoBehaviour
             pathVectorList.RemoveAt(0);
         }
     }
+    public void ReceiveDamage(int damage)
+    {
+        unit.health -= damage;
+        if (unit.health <= 0)
+        {
+            Die();
+        }
+    }
 
+    private void Die()
+    {
+        isDead = true;
+        // Additional logic when the unit dies, e.g., play death animation, remove from the battle, etc.
+        gameObject.SetActive(false); // For simplicity, just deactivate the game object
+    }
     public static Vector3 GetMouseWorldPosition()
     {
         Vector3 vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);

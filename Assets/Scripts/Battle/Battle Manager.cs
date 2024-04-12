@@ -25,10 +25,18 @@ public class BattleManager : MonoBehaviour
 
     private int currentTurn = 0;
     private bool isTurnInProgress = false;
+    private int change = 0;
 
     void Awake()
     {
-        playerCharacters = new FieldMovement[7];
+        for (int i = 0; i < playerUnits.unitList.Length;i++)
+        {
+            if (playerUnits.unitList[i] != null)
+            {
+                change++;
+            }
+        }
+        playerCharacters = new FieldMovement[change];
         enemyCharacters = new FieldMovement[7];
         for (int i = 0; i < playerUnits.unitList.Length; i++)
         {
@@ -80,18 +88,39 @@ public class BattleManager : MonoBehaviour
 
         isTurnInProgress = true;
 
+        // Check if there are any player-controlled units left
+        bool anyUnitsLeft = false;
+        foreach (FieldMovement fm in playerCharacters)
+        {
+            if (fm != null && !fm.isDead)
+            {
+                anyUnitsLeft = true;
+                break;
+            }
+        }
+
+        // If no player-controlled units left, end the cycle
+        if (!anyUnitsLeft)
+        {
+            EndCycle();
+            return;
+        }
+
         foreach (FieldMovement fm in playerCharacters)
         {
             if (fm != null) fm.enabled = false;
         }
 
-        if (currentTurn < playerCharacters.Length)
+        // Start the turn with the current value of currentTurn
+        if (currentTurn < playerCharacters.Length && playerCharacters[currentTurn] != null && !playerCharacters[currentTurn].isDead)
         {
             playerCharacters[currentTurn].enabled = true;
             moveControl.unitPathfinding = playerCharacters[currentTurn];
             Debug.Log("Current unit: " + playerCharacters[currentTurn].unit + ", Speed: " + playerCharacters[currentTurn].unit.speed);
             moveControl.pathfinding.SetSettedValue(playerCharacters[currentTurn].unit.speed * 10);
         }
+        // Increment currentTurn after starting the turn
+        currentTurn++;
     }
     public void EndTurn()
     {
@@ -100,7 +129,7 @@ public class BattleManager : MonoBehaviour
         isTurnInProgress = false;
 
         // Update the current turn index to the next player-controlled unit
-        currentTurn = (currentTurn + 1) % playerCharacters.Length;
+        currentTurn = (currentTurn) % playerCharacters.Length;
 
         if(currentTurn < playerCharacters.Length)
         {
