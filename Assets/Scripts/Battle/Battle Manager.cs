@@ -22,10 +22,11 @@ public class BattleManager : MonoBehaviour
     public GameObject DecisionPrefab;
     public FieldMovement[] playerCharacters;
     public FieldMovement[] enemyCharacters;
+    public FieldMovement[] activeUnits;
 
     private int currentTurn = 0;
     private bool isTurnInProgress = false;
-    private int change = 0;
+    private int change = 0, change1 = 0;
 
     void Awake()
     {
@@ -36,8 +37,15 @@ public class BattleManager : MonoBehaviour
                 change++;
             }
         }
+        for (int i = 0; i < enemyUnits.unitList.Length; i++)
+        {
+            if (enemyUnits.unitList[i] != null)
+            {
+                change1++;
+            }
+        }
         playerCharacters = new FieldMovement[change];
-        enemyCharacters = new FieldMovement[7];
+        enemyCharacters = new FieldMovement[change1];
         for (int i = 0; i < playerUnits.unitList.Length; i++)
         {
             if(playerUnits.unitList[i] != null)
@@ -76,11 +84,27 @@ public class BattleManager : MonoBehaviour
         GameObject go = Instantiate(unitPefab, aliedPosition[i].transform.position, aliedPosition[i].transform.rotation, aliedUnitsParent);
         playerCharacters[i] = go.GetComponent<FieldMovement>();
         playerCharacters[i].unit = unit;
+        playerCharacters[i].health = PlayerReturnHP(i, unit);
+        playerCharacters[i].count = playerUnits.unitCount[i];
+        if (playerCharacters[i].unit.ATKT == Unit.attackType.ranger)
+        {
+            playerCharacters[i].shots = unit.Shots;
+        }
     }
     public void CreateEnemyUnit(int i, Unit unit)
     {
         GameObject go = Instantiate(unitPefab, enemyPosition[i].transform.position, enemyPosition[i].transform.rotation, enemyUnitsParent);
         enemyCharacters[i] = go.GetComponent<FieldMovement>();
+        enemyCharacters[i].unit = unit;
+        enemyCharacters[i].isEnemy = true;
+        enemyCharacters[i].health = EnemyReturnHP(i, unit);
+        enemyCharacters[i].count = enemyUnits.unitCount[i];
+        if (enemyCharacters[i].unit.ATKT == Unit.attackType.ranger)
+        {
+            enemyCharacters[i].shots = unit.Shots;
+        }
+        go.AddComponent<EnemyAi>();
+        enemyCharacters[i].enabled = false;
     }
     public void StartTurn()
     {
@@ -88,9 +112,11 @@ public class BattleManager : MonoBehaviour
 
         isTurnInProgress = true;
 
-        // Check if there are any player-controlled units left
+        // Check if there are any units left for the current turn
         bool anyUnitsLeft = false;
-        foreach (FieldMovement fm in playerCharacters)
+        activeUnits = currentTurn < playerCharacters.Length ? playerCharacters : enemyCharacters;
+
+        foreach (FieldMovement fm in activeUnits)
         {
             if (fm != null && !fm.isDead)
             {
@@ -99,49 +125,113 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        // If no player-controlled units left, end the cycle
-        if (!anyUnitsLeft)
-        {
-            EndCycle();
-            return;
-        }
-
-        foreach (FieldMovement fm in playerCharacters)
+        foreach (FieldMovement fm in activeUnits)
         {
             if (fm != null) fm.enabled = false;
         }
 
         // Start the turn with the current value of currentTurn
-        if (currentTurn < playerCharacters.Length && playerCharacters[currentTurn] != null && !playerCharacters[currentTurn].isDead)
+        if (currentTurn < activeUnits.Length && activeUnits[currentTurn] != null && !activeUnits[currentTurn].isDead)
         {
-            playerCharacters[currentTurn].enabled = true;
-            moveControl.unitPathfinding = playerCharacters[currentTurn];
-            Debug.Log("Current unit: " + playerCharacters[currentTurn].unit + ", Speed: " + playerCharacters[currentTurn].unit.speed);
-            moveControl.pathfinding.SetSettedValue(playerCharacters[currentTurn].unit.speed * 10);
+            activeUnits[currentTurn].enabled = true;
+            moveControl.unitPathfinding = activeUnits[currentTurn];
+            Debug.Log("Current unit: " + activeUnits[currentTurn].unit + ", Speed: " + activeUnits[currentTurn].unit.speed);
+            moveControl.pathfinding.SetSettedValue(activeUnits[currentTurn].unit.speed * 10);
         }
         // Increment currentTurn after starting the turn
         currentTurn++;
+        Debug.Log(currentTurn);
     }
+
     public void EndTurn()
     {
-        if (!isTurnInProgress) return; // Prevent ending a turn that hasn't started
+        if (!isTurnInProgress) return;
 
         isTurnInProgress = false;
 
-        // Update the current turn index to the next player-controlled unit
-        currentTurn = (currentTurn) % playerCharacters.Length;
+        // Update the current turn index to the next unit
+        FieldMovement[] activeUnits = currentTurn < playerCharacters.Length ? playerCharacters : enemyCharacters;
+        int nextTurnIndex = (currentTurn + 1) % activeUnits.Length;
 
-        if(currentTurn < playerCharacters.Length)
+        if (nextTurnIndex == 0)
         {
-            StartTurn();
+            // If the next turn index indicates the start of a new cycle,
+            // check if any player or enemy units have moved
+            if (CheckAnyUnitMoved(playerCharacters) || CheckAnyUnitMoved(enemyCharacters))
+            {
+                // If any unit has moved, execute enemy turn
+                ExecuteEnemyTurn();
+            }
+            else
+            {
+                // If no unit has moved, start the player turn again
+                currentTurn = 0;
+                StartTurn();
+            }
         }
         else
         {
-            EndCycle();
+            currentTurn = nextTurnIndex;
+            StartTurn();
         }
     }
-    public void EndCycle()
+    private void ExecuteEnemyTurn()
     {
+        // Boolovská promìnná pro urèení, zda nìjaká nepøátelská jednotka provedla akci
+        bool enemyActionTaken = false;
+
+        // Projdeme všechny nepøátelské jednotky
+        foreach (FieldMovement enemyUnit in enemyCharacters)
+        {
+            if (enemyUnit != null && !enemyUnit.isDead && !enemyActionTaken)
+            {
+                // Deaktivujeme všechny hráèovy jednotky
+                foreach (FieldMovement playerUnit in playerCharacters)
+                {
+                    if (playerUnit != null)
+                    {
+                        playerUnit.enabled = false;
+                        Debug.Log("Deaktivovat hráèovy jednotky.");
+                    }
+                }
+
+                // Spustíme tah vybrané nepøátelské jednotky
+                enemyUnit.enabled = true;
+                enemyUnit.GetComponent<EnemyAi>().ExecuteAITurn();
+            }
+        }
+        // Po dokonèení tahù deaktivujeme všechny nepøátelské jednotky
+        foreach (FieldMovement enemyUnit in enemyCharacters)
+        {
+            if (enemyUnit != null)
+            {
+                enemyUnit.enabled = false;
+            }
+        }
         currentTurn = 0;
+        StartTurn();
+    }
+
+    private bool CheckAnyUnitMoved(FieldMovement[] units)
+    {
+        foreach (FieldMovement unit in units)
+        {
+            if (unit != null && !unit.isDead && unit.HasPerformedAction())
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private float EnemyReturnHP(int index, Unit unit)
+    {
+        int count = enemyUnits.unitCount[index];
+        return unit.health * count;
+    }
+    private float PlayerReturnHP(int index, Unit unit)
+    {
+        int count = enemyUnits.unitCount[index];
+        return unit.health * count;
     }
 }

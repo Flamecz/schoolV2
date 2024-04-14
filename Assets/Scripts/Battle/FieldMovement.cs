@@ -5,20 +5,34 @@ using UnityEngine;
 public class FieldMovement : MonoBehaviour
 {
     public bool isDead = false;
+    public bool isEnemy;
     public Unit unit;
+    public float health;
+    public int count;
     private float speed = 40f;
 
+    public int shots;
     private int currentPathIndex;
     private List<Vector3> pathVectorList;
 
+    private bool canAttack = true;
+    private float attackCooldown = 1f; // Adjust the cooldown duration as needed
+    private float lastAttackTime = 0f;
     private void Update()
     {
         HandleMovement();
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canAttack)
         {
-            SetTargetPosition(GetMouseWorldPosition());
+            // Check if enough time has passed since the last attack
+            if (Time.time - lastAttackTime >= attackCooldown)
+            {
+                SetAttackPosition(GetMouseWorldPosition());
+                lastAttackTime = Time.time; // Update the last attack time
+            }
+            canAttack = false;
         }
+        Debug.Log(shots);
     }
 
     private void HandleMovement()
@@ -39,14 +53,20 @@ public class FieldMovement : MonoBehaviour
                 if (currentPathIndex >= pathVectorList.Count)
                 {
                     StopMoving();
+                    EndPlayerTurn();
                 }
             }
         }
     }
-
+    private void EndPlayerTurn()
+    {
+        // Trigger the EndTurn method of the BattleManager script
+        FindObjectOfType<BattleManager>().EndTurn();
+    }
     private void StopMoving()
     {
         pathVectorList = null;
+        canAttack = true;
     }
 
     public Vector3 GetPosition()
@@ -64,10 +84,78 @@ public class FieldMovement : MonoBehaviour
             pathVectorList.RemoveAt(0);
         }
     }
-    public void ReceiveDamage(int damage)
+    public void SetAttackPosition(Vector3 targetPosition)
     {
-        unit.health -= damage;
-        if (unit.health <= 0)
+        canAttack = false;
+        currentPathIndex = 0;
+        pathVectorList = null;
+
+        float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
+
+        FieldMovement enemyUnit = FindEnemyUnitAtPosition(targetPosition);
+        if (enemyUnit != null)
+        {
+            Debug.Log("Enemy unit found: " + enemyUnit);
+
+            if (unit.ATKT == Unit.attackType.ranger && shots > 0)
+            {
+                float minDamage = unit.minDamage;
+                float maxDamage = unit.maxDamage;
+                enemyUnit.ReceiveDamage(minDamage, maxDamage);
+                shots--;
+                Debug.Log("Dealt " + unit.damage + " ranged damage to the enemy unit!");
+                EndPlayerTurn();
+            }
+            else if (unit.ATKT == Unit.attackType.ranger && shots <= 0 && distanceToTarget < 17)
+            {
+                float minDamage = unit.minDamage;
+                float maxDamage = unit.maxDamage;
+                enemyUnit.ReceiveDamage(minDamage, maxDamage);
+                Debug.Log("Dealt " + unit.damage + " melee damage due to no ammunition!");
+                EndPlayerTurn();
+            }
+            else if (unit.ATKT == Unit.attackType.melee && distanceToTarget < 17)
+            {
+                float minDamage = unit.minDamage;
+                float maxDamage = unit.maxDamage;
+                enemyUnit.ReceiveDamage(minDamage, maxDamage);
+                Debug.Log("Dealt " + unit.damage + " melee damage to the enemy unit!");
+                EndPlayerTurn();
+            }
+        }
+        else
+        {
+            SetTargetPosition(targetPosition);
+        }
+
+        // End the player's turn after attacking
+    }
+
+
+    private IEnumerator ResetAttackCooldown()
+    {
+        yield return new WaitForSeconds(attackCooldown);
+        canAttack = true;
+    }
+    private FieldMovement FindEnemyUnitAtPosition(Vector3 position)
+    {
+        Collider[] colliders = Physics.OverlapSphere(position, 0.5f); // Adjust the radius as needed
+        foreach (Collider collider in colliders)
+        {
+            FieldMovement enemyUnit = collider.GetComponent<FieldMovement>();
+            if (enemyUnit != null && enemyUnit.isEnemy && enemyUnit.unit != null && enemyUnit.unit != unit && enemyUnit.unit.stackable)
+            {
+                return enemyUnit;
+            }
+        }
+        return null;
+    }
+
+    public void ReceiveDamage(float minDamage, float maxDamage)
+    {
+        float damage = Random.Range(minDamage, maxDamage + 1);
+        health -= damage * count;
+        if (health <= 0)
         {
             Die();
         }
@@ -77,7 +165,12 @@ public class FieldMovement : MonoBehaviour
     {
         isDead = true;
         // Additional logic when the unit dies, e.g., play death animation, remove from the battle, etc.
-        gameObject.SetActive(false); // For simplicity, just deactivate the game object
+        Destroy(gameObject); // Deactivate the game object
+    }
+    public bool HasPerformedAction()
+    {
+        // Kontrola, zda hráè provedl nìjakou akci
+        return pathVectorList != null || Time.time - lastAttackTime < attackCooldown || Input.GetKeyDown(KeyCode.E);
     }
     public static Vector3 GetMouseWorldPosition()
     {
@@ -85,6 +178,7 @@ public class FieldMovement : MonoBehaviour
         vec.z = 0f;
         return vec;
     }
+
     public static Vector3 GetMouseWorldPositionWithZ()
     {
         return GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);

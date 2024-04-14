@@ -22,6 +22,7 @@ public class Unit :ScriptableObject
     public attackType ATKT;
     public int Shots;
     public bool stackable;
+    public float defaultAttackRange = 1.0f;
     public Unit(string unitName, string town, float lvl, float damage, int Defence,
                 int minDamage, int maxDamage, float health, int speed, int growth,
                 int aIvalue,int cost, Movementtype movetype, attackType ATKT)
@@ -89,5 +90,17 @@ public class Unit :ScriptableObject
     {
         float reducedDamage = attack;
         return Mathf.Max(0, reducedDamage);
+    }
+    public float GetAdjustedAttackRange()
+    {
+        // Adjust attack range based on the unit's type
+        if (ATKT == attackType.melee)
+        {
+            return defaultAttackRange * 0.5f; // Example: Melee units have half the default attack range
+        }
+        else
+        {
+            return defaultAttackRange; // Use default attack range for other unit types
+        }
     }
 }

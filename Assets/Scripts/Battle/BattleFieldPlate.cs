@@ -28,6 +28,16 @@ public class BattleFieldPlate : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            // Raycast from the mouse position
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                // Check if the ray hits an enemy unit
+                FieldMovement enemyUnit = hit.collider.GetComponent<FieldMovement>();
+            }
+
+            // If no enemy unit is clicked, move to the clicked position
             Vector3 mouseWorldPosition = GetMouseWorldPosition();
             pathfinding.GetGrid().GetXY(mouseWorldPosition, out int x, out int y);
             List<PathNode> path = pathfinding.FindPath(0, 0, x, y);
