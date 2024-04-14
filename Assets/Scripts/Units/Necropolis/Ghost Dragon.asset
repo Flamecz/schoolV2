@@ -30,3 +30,4 @@ MonoBehaviour:
   ATKT: 0
   Shots: 0
   stackable: 1
+  defaultAttackRange: 1

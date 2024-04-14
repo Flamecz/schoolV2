@@ -9,7 +9,7 @@ public class Testing : MonoBehaviour {
     [SerializeField] public PathVisual pathVisual;
     [SerializeField] private PlayerMovement characterPathfinding;
     public PathFinding pathfinding;
-
+    public int set;
     public MapManager mapManager;
 
     private void Start()
@@ -17,7 +17,7 @@ public class Testing : MonoBehaviour {
         pathfinding = new PathFinding(width, height);
         pathDebug.Setup(pathfinding.GetGrid());
         pathVisual.SetGrid(pathfinding.GetGrid());
-
+        pathfinding.settedValue = set;
         string[] mapLayout = MapManager.Instance.GetMapLayout(selectedMap);
         pathVisual.UpdateGridFrom2DString(mapLayout);
     }

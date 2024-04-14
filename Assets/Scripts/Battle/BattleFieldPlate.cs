@@ -10,6 +10,7 @@ public class BattleFieldPlate : MonoBehaviour
     [SerializeField] private PathDebug pathDebug;
     [SerializeField] private PathVisual pathVisual;
     [SerializeField] public FieldMovement unitPathfinding;
+    public int set;
     public PathFinding pathfinding;
 
     public MapManager mapManager;
@@ -19,7 +20,7 @@ public class BattleFieldPlate : MonoBehaviour
         pathfinding = new PathFinding(width, height);
         pathDebug.Setup(pathfinding.GetGrid());
         pathVisual.SetGrid(pathfinding.GetGrid());
-
+        pathfinding.settedValue = set;
         string[] mapLayout = MapManager.Instance.GetMapLayout(selectedMap);
         pathVisual.UpdateGridFrom2DString(mapLayout);
     }

@@ -996,6 +996,9 @@ MonoBehaviour:
   pathDebug: {fileID: 922180010}
   pathVisual: {fileID: 867269156}
   characterPathfinding: {fileID: 147066216}
+  pathfinding:
+    settedValue: 300
+  set: 300
   mapManager: {fileID: 1529426511}
 --- !u!114 &1529426511
 MonoBehaviour:

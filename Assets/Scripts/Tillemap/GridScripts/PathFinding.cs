@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -176,21 +177,98 @@ public class PathFinding
             return MOVE_DIAGONAL_COST * Mathf.Min(xDistance, yDistance) + MOVE_STRAIGHT_COST * remaining;
         }
 
-        private PathNode GetLowestFCostNode(List<PathNode> pathNodeList)
+    private PathNode GetLowestFCostNode(List<PathNode> pathNodeList)
+    {
+        BinarySearchTree<PathNode> bst = new BinarySearchTree<PathNode>();
+
+        foreach (PathNode node in pathNodeList)
         {
-            PathNode lowestFCostNode = pathNodeList[0];
-            for (int i = 1; i < pathNodeList.Count; i++)
-            {
-                if (pathNodeList[i].fCost < lowestFCostNode.fCost)
-                {
-                    lowestFCostNode = pathNodeList[i];
-                }
-            }
-            return lowestFCostNode;
+            bst.Insert(node, node.fCost);
         }
+
+        return bst.RemoveMin();
+    }
+
     public void SetSettedValue(int value)
     {
         settedValue = value;
     }
 }
 
+public class BinaryTreeNode<T>
+{
+    public T Data { get; set; }
+    public double Priority { get; set; }
+    public BinaryTreeNode<T> Left { get; set; }
+    public BinaryTreeNode<T> Right { get; set; }
+
+    public BinaryTreeNode(T data, double priority)
+    {
+        Data = data;
+        Priority = priority;
+    }
+}
+public class BinarySearchTree<T>
+{
+    private BinaryTreeNode<T> _root;
+
+    public void Insert(T data, double priority)
+    {
+        _root = Insert(_root, data, priority);
+    }
+
+    private BinaryTreeNode<T> Insert(BinaryTreeNode<T> node, T data, double priority)
+    {
+        if (node == null)
+        {
+            return new BinaryTreeNode<T>(data, priority);
+        }
+
+        if (priority < node.Priority)
+        {
+            node.Left = Insert(node.Left, data, priority);
+        }
+        else
+        {
+            node.Right = Insert(node.Right, data, priority);
+        }
+
+        return node;
+    }
+
+    public T RemoveMin()
+    {
+        if (_root == null)
+        {
+            throw new InvalidOperationException("Binary search tree is empty");
+        }
+
+        var minNode = FindMinNode(_root);
+        _root = RemoveMin(_root);
+        return minNode.Data;
+    }
+
+    private BinaryTreeNode<T> FindMinNode(BinaryTreeNode<T> node)
+    {
+        while (node.Left != null)
+        {
+            node = node.Left;
+        }
+        return node;
+    }
+
+    private BinaryTreeNode<T> RemoveMin(BinaryTreeNode<T> node)
+    {
+        if (node.Left == null)
+        {
+            return node.Right;
+        }
+        node.Left = RemoveMin(node.Left);
+        return node;
+    }
+
+    public bool IsEmpty()
+    {
+        return _root == null;
+    }
+}
