@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgraded: 0
+  save: {fileID: 11400000, guid: 62176d448c3a843e9b4f3ed070b7083e, type: 2}
 --- !u!222 &6688141499461622236
 CanvasRenderer:
   m_ObjectHideFlags: 0

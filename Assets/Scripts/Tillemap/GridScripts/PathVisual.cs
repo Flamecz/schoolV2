@@ -156,10 +156,8 @@ public class PathVisual : MonoBehaviour
                 char cellChar = mapLayout[y][x];
                 bool isWalkable = cellChar == '.';
                 node.SetIsWalkable(isWalkable);
-                if (cellChar.Equals("M"))
-                {
-                    
-                }
+                bool isWalkable1 = cellChar == 'X';
+                node.SetIsWalkable(!isWalkable1);
             }
         }
     }

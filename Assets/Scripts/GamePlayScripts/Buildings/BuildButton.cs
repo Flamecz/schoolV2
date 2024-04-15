@@ -140,7 +140,7 @@ public class BuildButton : MonoBehaviour
                     CreateBuildedPopUp();
                 }  
         }
-        else if (cityBuldings.canBeUpgraded)
+        else if (cityBuldings.canBeUpgraded && !cityBuldings.upgraded)
         {
             if (resourceManager.Data.Wood >= woodCost &&
                resourceManager.Data.Iron >= ironCost &&
@@ -157,7 +157,7 @@ public class BuildButton : MonoBehaviour
 
                 Transform acceptButtonTransform = popUpWindow.transform.Find("BuyButton");
                 Button acceptButton = acceptButtonTransform.GetComponent<Button>();
-                acceptButton.onClick.AddListener(BuildObject);
+                acceptButton.onClick.AddListener(UpgradeObject);
                 Transform CancelButtonTransform = popUpWindow.transform.Find("CanceledButton");
                 Button CancelButton = CancelButtonTransform.GetComponent<Button>();
                 CancelButton.onClick.AddListener(DestroyPopUp);
@@ -202,7 +202,7 @@ public class BuildButton : MonoBehaviour
             }
             else
             {
-                CreateBuildedPopUp();
+                CreateInfoPopUp();
             }
         }
         else if (cityBuldings.builded)
@@ -215,38 +215,60 @@ public class BuildButton : MonoBehaviour
     {
         if (!cityBuldings.builded && !cityBuldings.upgraded)
         {
-
-                if (resourceManager.Data.Wood >= woodCost &&
-                    resourceManager.Data.Iron >= ironCost &&
-                    resourceManager.Data.Minerals >= mineralsCost &&
-                    resourceManager.Data.Stone >= stoneCost)
+            if (
+            resourceManager.Data.Wood >= woodCost &&
+            resourceManager.Data.Iron >= ironCost &&
+            resourceManager.Data.Minerals >= mineralsCost &&
+            resourceManager.Data.Stone >= stoneCost)
+            {
+                if (cityBuldings.Done())
                 {
-                    if (cityBuldings.Done())
-                    {
-                        colorImageOfButton.color = new Color32(255, 205, 114, 255);
-                    }
-                    else
-                    {
-                    colorImageOfButton.color = new Color32(255, 0, 0, 255);
-                }
+                    colorImageOfButton.color = new Color32(255, 205, 114, 255);
                 }
                 else
                 {
-
                     colorImageOfButton.color = new Color32(255, 0, 0, 255);
                 }
-         
+            }
+            else
+            {
+                colorImageOfButton.color = new Color32(255, 0, 0, 255);
+            }
         }
-     else
+        else
         {
-
             colorImageOfButton.color = new Color32(70, 230, 70, 255);
-
             cityBuldings.builded = true;
-
+            cityBuldings.canBeUpgraded = true;
         }
-        
-  
+
+        if (cityBuldings.builded && !cityBuldings.upgraded)
+        {
+            if (
+            resourceManager.Data.Wood >= woodCost &&
+            resourceManager.Data.Iron >= ironCost &&
+            resourceManager.Data.Minerals >= mineralsCost &&
+            resourceManager.Data.Stone >= stoneCost)
+            {
+                if (cityBuldings.canBeUpgraded)
+                {
+                    colorImageOfButton.color = new Color32(255, 205, 114, 255);
+                }
+                else
+                {
+                    colorImageOfButton.color = new Color32(255, 0, 0, 255);
+                }
+            }
+            else
+            {
+                colorImageOfButton.color = new Color32(255, 0, 0, 255);
+            }
+        }
+        else if (cityBuldings.builded && cityBuldings.upgraded)
+        {
+            colorImageOfButton.color = new Color32(70, 230, 70, 255);
+            cityBuldings.upgraded = true;
+        }
     }
 
 
@@ -269,6 +291,15 @@ public class BuildButton : MonoBehaviour
     {
         Instantiate(objectToBuild, new Vector3(Position.position.x, Position.position.y, Position.position.z), Quaternion.identity, MainScreenParrent.transform);
         cityBuldings.builded = true;
+        SaveManager saveManager = new SaveManager();
+        saveManager.Save(new ResourceData { Builded = Builded });
+        FindObjectOfType<MainCanvasControler>().CloseBuildingUI();
+        CostOfBuilding();
+        DestroyPopUp();
+    }
+    public void UpgradeObject()
+    {
+        cityBuldings.upgraded = true;
         SaveManager saveManager = new SaveManager();
         saveManager.Save(new ResourceData { Builded = Builded });
         FindObjectOfType<MainCanvasControler>().CloseBuildingUI();

@@ -178,6 +178,21 @@ public class MissionCreator : MonoBehaviour
         sendBuildings[10].builded = false;
         for(int i = 0; i < sendBuildings.Length; i++)
         {
+            sendBuildings[i].upgraded = false;  
+        }
+        sendBuildings[0].builded = true;
+        sendBuildings[1].builded = true;
+        sendBuildings[2].builded = false;
+        sendBuildings[3].builded = false;
+        sendBuildings[4].builded = true;
+        sendBuildings[5].builded = true;
+        sendBuildings[6].builded = false;
+        sendBuildings[7].builded = false;
+        sendBuildings[8].builded = false;
+        sendBuildings[9].builded = false;
+        sendBuildings[10].builded = false;
+        for (int i = 0; i < sendBuildings.Length; i++)
+        {
             sendBuildings[i].upgraded = false;
         }
     }

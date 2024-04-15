@@ -5,10 +5,11 @@ using UnityEngine;
 public class Townhall : MonoBehaviour
 {
     public bool upgraded;
+    public CityBuldings save;
     private int incomeAmount;
     public void income()
     {
-        if(upgraded)
+        if(save.upgraded)
         {
             incomeAmount = 1500;
             FindObjectOfType<ResourceManager>().Data.Gold += incomeAmount;

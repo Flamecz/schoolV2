@@ -13,7 +13,7 @@ public class CameraMovement : MonoBehaviour
     public GameObject playerMovement;
 
     private Camera orthographicCamera;
-
+    public bool isInRange;
     void Start()
     {
         orthographicCamera = GetComponent<Camera>();
@@ -70,7 +70,7 @@ public class CameraMovement : MonoBehaviour
                 GameObject hitObject = hit.collider.gameObject;
                 Debug.Log("Hit object: " + hitObject.name);
 
-                if (hitObject.CompareTag("hrad"))
+                if (hit.collider.tag == "hrad" && isInRange)
                 {
                     SceneManager.LoadScene(1);
                     FindObjectOfType<AudioManager>().Play("undeadCityTheme");
