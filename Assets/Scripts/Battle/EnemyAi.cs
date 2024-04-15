@@ -4,39 +4,184 @@ using UnityEngine;
 
 public class EnemyAi : MonoBehaviour
 {
+    public BattleManager battleManager;
+    public float movementDelay = 1.0f; // Èasové zpoždìní mezi pohyby jednotek
+
+    private void Awake()
+    {
+        battleManager = FindObjectOfType<BattleManager>();
+    }
+
     public void ExecuteAITurn()
     {
-        // Vyber bod A
-        FieldMovement selectedUnit = SelectUnit();
-
-        // Vyber bod B
-        Vector3 targetPosition = SelectTargetPosition();
-
-        // Nastav cíl vybrané jednotce
-        selectedUnit.SetAttackPosition(targetPosition);
-    }
-    private FieldMovement SelectUnit()
-    {
-        // Získání pole všech nepøátelských jednotek
-        FieldMovement[] enemyUnits = FindObjectsOfType<FieldMovement>();
-
-        // Náhodný výbìr jednotky
-        int randomIndex = Random.Range(0, enemyUnits.Length);
-        return enemyUnits[randomIndex];
+        StartCoroutine(MoveUnitsWithDelay());
     }
 
-    private Vector3 SelectTargetPosition()
+    private IEnumerator MoveUnitsWithDelay()
     {
-        // Získání náhodné pozice na mapì
-        Vector3 targetPosition = GetRandomPositionOnMap();
-        return targetPosition;
+        foreach (FieldMovement enemyUnit in battleManager.enemyCharacters)
+        {
+            if (enemyUnit != null && !enemyUnit.isDead)
+            {
+                // Poèkej na èasové zpoždìní pøed každým pohybem jednotky
+                yield return new WaitForSeconds(movementDelay);
+
+                // Získej cílovou jednotku pro pohyb
+                FieldMovement closestPlayerUnit = FindClosestPlayerUnit(enemyUnit.transform.position);
+                if (closestPlayerUnit != null)
+                {
+                    // Nastav cíl pohybu a proveï pohyb
+                    enemyUnit.SetTargetPosition(closestPlayerUnit.transform.position);
+                }
+            }
+        }
+
+        // Po dokonèení pohybù jednotek ukonèi tah
+        battleManager.EndTurn();
+    }
+    private void AttackPlayerUnitsIfInRange()
+    {
+        foreach (FieldMovement enemyUnit in battleManager.enemyCharacters)
+        {
+            if (enemyUnit != null && !enemyUnit.isDead)
+            {
+                // Kontrola, zda jsou hráèovy jednotky v dosahu útoku
+                bool playerUnitsInRange = ArePlayerUnitsInRange(enemyUnit);
+
+                if (playerUnitsInRange)
+                {
+                    // Pokud jsou hráèovy jednotky v dosahu útoku, útoèí na nì
+                    AttackPlayer(GetClosestPlayerUnit(enemyUnit.transform.position));
+                }
+                else
+                {
+                    // Pokud nejsou hráèovy jednotky v dosahu útoku, hledá nejbližšího hráèova jednotku a pohybuje se k ní
+                    MoveTowardsClosestPlayerUnit(enemyUnit);
+                }
+            }
+        }
+    }
+    private bool ArePlayerUnitsInRange(FieldMovement enemyUnit)
+    {
+        foreach (FieldMovement playerUnit in battleManager.playerCharacters)
+        {
+            if (playerUnit != null && !playerUnit.isDead)
+            {
+                // Získání vzdálenosti mezi nepøátelskou jednotkou a hráèovou jednotkou
+                float distance = Vector3.Distance(enemyUnit.transform.position, playerUnit.transform.position);
+
+                // Zde mùžete zadefinovat dosah útoku pro vaše pravidla hry
+                float attackRange = enemyUnit.unit.defaultAttackRange;
+
+                // Pokud je hráèova jednotka v dosahu útoku, vrátíme true
+                if (distance <= attackRange)
+                {
+                    return true;
+                }
+            }
+        }
+        // Pokud žádná hráèova jednotka není v dosahu útoku, vrátíme false
+        return false;
+    }
+    private void MoveTowardsClosestPlayerUnit(FieldMovement enemyUnit)
+    {
+        FieldMovement closestPlayerUnit = GetClosestPlayerUnit(enemyUnit.transform.position);
+        if (closestPlayerUnit != null)
+        {
+            enemyUnit.SetTargetPosition(closestPlayerUnit.transform.position);
+        }
+    }
+    private FieldMovement GetClosestPlayerUnit(Vector3 position)
+    {
+        FieldMovement closestUnit = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (FieldMovement playerUnit in battleManager.playerCharacters)
+        {
+            if (playerUnit != null && !playerUnit.isDead)
+            {
+                float distance = Vector3.Distance(position, playerUnit.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestUnit = playerUnit;
+                    closestDistance = distance;
+                }
+            }
+        }
+
+        return closestUnit;
+    }
+    private void AttackPlayer(FieldMovement enemyUnit)
+    {
+        // Získání hráèovy jednotky, na kterou bude nepøátelská jednotka útoèit
+        FieldMovement targetPlayerUnit = GetClosestPlayerUnit(enemyUnit.transform.position);
+
+        // Pokud existuje hráèova jednotka k útoku
+        if (targetPlayerUnit != null)
+        {
+            // Vypoèítání poškození
+            int damage = CalculateDamage(enemyUnit.unit, targetPlayerUnit.unit);
+
+            targetPlayerUnit.health -= damage;
+
+            if (targetPlayerUnit.health <= 0)
+            {
+                Destroy(targetPlayerUnit.gameObject);
+            }
+        }
     }
 
-    private Vector3 GetRandomPositionOnMap()
+    private int CalculateDamage(Unit attacker, Unit target)
     {
-        // Nahrazení této metody implementací podle vašich pravidel pro umístìní cíle na mapì
-        // Zde by mìla být logika pro náhodný výbìr pozice na mapì
-        Vector3 randomPosition = Vector3.zero; // Nahraïte náhodnou pozicí
-        return randomPosition;
+        // Výpoèet poškození na základì síly útoèící jednotky a obrany cílové jednotky
+        int damage = Random.Range(attacker.minDamage, attacker.maxDamage);
+
+        // Zajištìní, že poškození bude alespoò 1
+        damage = Mathf.Max(damage, 1);
+
+        return damage;
+    }
+
+
+    private void MoveTowardsPlayerUnits()
+    {
+        foreach (FieldMovement enemyUnit in battleManager.enemyCharacters)
+        {
+            if (enemyUnit != null && !enemyUnit.isDead)
+            {
+                FieldMovement closestPlayerUnit = FindClosestPlayerUnit(enemyUnit.transform.position);
+                if (closestPlayerUnit != null)
+                {
+                    // Získání cesty od pozice nepøátelské jednotky k pozici hráèovy jednotky
+                    List<Vector3> path = battleManager.moveControl.pathfinding.FindPath(enemyUnit.transform.position, closestPlayerUnit.transform.position);
+
+                    // Pokud existuje cesta, nastavíme cílovou pozici na první bod cesty
+                    if (path != null && path.Count > 1)
+                    {
+                        enemyUnit.SetTargetPosition(path[1]); // Index 0 je pozice jednotky samotné
+                    }
+                }
+            }
+        }
+    }
+    private FieldMovement FindClosestPlayerUnit(Vector3 position)
+    {
+        FieldMovement closestUnit = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (FieldMovement playerUnit in battleManager.playerCharacters)
+        {
+            if (playerUnit != null && !playerUnit.isDead)
+            {
+                float distance = Vector3.Distance(position, playerUnit.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestUnit = playerUnit;
+                    closestDistance = distance;
+                }
+            }
+        }
+
+        return closestUnit;
     }
 }
