@@ -355,6 +355,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
   countOfUnits: 230000000c000000
   unitStructure: {fileID: 11400000, guid: 1816ce008e9acd84c97edc045cd7e764, type: 2}
+  cityBackground: {fileID: 21300000, guid: ea3adfc30d453f746a573e0f41fcd36b, type: 3}
   Theme: 0
   sendBuildings:
   - {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
@@ -5069,6 +5070,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e0dc38cd81e54073b5e07f6b3eba59e, type: 2}
   countOfUnits: 50000000240000000a000000
   unitStructure: {fileID: 11400000, guid: b790addd9f371074a9d93975d43376f9, type: 2}
+  cityBackground: {fileID: 0}
   Theme: 2
   sendBuildings:
   - {fileID: 11400000, guid: 62176d448c3a843e9b4f3ed070b7083e, type: 2}
@@ -5915,6 +5917,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
   countOfUnits: 370000001a0000000c00000005000000
   unitStructure: {fileID: 11400000, guid: 0f085476c9cd7844cb3af21fccece937, type: 2}
+  cityBackground: {fileID: 0}
   Theme: 1
   sendBuildings:
   - {fileID: 11400000, guid: 888c8f61d048644cfad93226eda56911, type: 2}
@@ -7619,6 +7622,7 @@ MonoBehaviour:
   CityType: 0
   CityBuldings: []
   UnitSetting: []
+  cityBackground: {fileID: 0}
 --- !u!1 &1627729729
 GameObject:
   m_ObjectHideFlags: 0

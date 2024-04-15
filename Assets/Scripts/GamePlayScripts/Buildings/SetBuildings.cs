@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SetBuildings : MonoBehaviour
 {
     public BuildingManager buildingmanager;
     public GameObject[] building;
     public GameObject[] UnitsToSet;
+    public Image cityBackgroud;
     private int index;
     void Awake()
     {
@@ -20,5 +22,6 @@ public class SetBuildings : MonoBehaviour
             BuildButton BB = building[i].GetComponent<BuildButton>();
             BB.cityBuldings = buildingmanager.CityBuldings[i];
         }
+        cityBackgroud.sprite = buildingmanager.cityBackground;
     }
 }

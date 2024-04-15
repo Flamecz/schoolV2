@@ -13,6 +13,7 @@ public class MissionCreator : MonoBehaviour
     public Unit[] units;
     public int[] countOfUnits;
     public UnitStructure unitStructure;
+    public Sprite cityBackground;
     private int selectedUnits;
 
     private string nazev;
@@ -147,6 +148,7 @@ public class MissionCreator : MonoBehaviour
         ClearData();
         FindObjectOfType<BuildingManager>().CityBuldings = sendBuildings;
         FindObjectOfType<BuildingManager>().UnitSetting = unitsToSet;
+        FindObjectOfType<BuildingManager>().cityBackground = cityBackground;
     }
     public void GetBonus()
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuildingManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class BuildingManager : MonoBehaviour
     public type CityType;
     public CityBuldings[] CityBuldings;
     public Unit[] UnitSetting;
+    public Sprite cityBackground;
 
     private void Start()
     {

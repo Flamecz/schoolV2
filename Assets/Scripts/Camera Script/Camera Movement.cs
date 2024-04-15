@@ -9,6 +9,8 @@ public class CameraMovement : MonoBehaviour
     public float panBorderThickness = 10f; // Distance from edge of screen to start moving
     public Vector2 minBoundary; // Minimum boundary of the map
     public Vector2 maxBoundary; // Maximum boundary of the map
+    public GameObject[] coliders;
+    public GameObject playerMovement;
 
     private Camera orthographicCamera;
 
