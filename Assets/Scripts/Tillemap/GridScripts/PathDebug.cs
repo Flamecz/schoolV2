@@ -174,10 +174,7 @@ public class PathDebug : MonoBehaviour
 
     private void HideNodeVisuals()
     {
-        foreach (Transform visualNodeTransform in visualNodeList)
-        {
-            SetupVisualNode(visualNodeTransform, 9999, 9999, 9999);
-        }
+
     }
 
     private Transform CreateVisualNode(Vector3 position)

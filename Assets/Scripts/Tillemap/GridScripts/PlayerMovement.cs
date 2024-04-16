@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     private int currentPathIndex;
     private List<Vector3> pathVectorList;
+    public bool building = false;
 
     private void Start()
     {
@@ -21,10 +22,6 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleMovement();
 
-        if (Input.GetMouseButtonDown(0))    
-        {
-            SetTargetPosition(GetMouseWorldPosition());
-        }
         PlayerPrefs.SetFloat("PosX", gameObject.transform.position.x);
         PlayerPrefs.SetFloat("PosY", gameObject.transform.position.y);
         PlayerPrefs.SetFloat("PosZ", gameObject.transform.position.z);
@@ -32,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovement()
     {
-        if (pathVectorList != null)
+        if (pathVectorList != null && !building)
         {
             Vector3 targetPosition = pathVectorList[currentPathIndex];
             if (Vector3.Distance(transform.position, targetPosition) > 1f)
@@ -48,6 +45,26 @@ public class PlayerMovement : MonoBehaviour
                 if (currentPathIndex >= pathVectorList.Count)
                 {
                     StopMoving();
+                }
+            }
+        }
+        else if(pathVectorList != null && building)
+        {
+            Vector3 targetPosition = pathVectorList[currentPathIndex];
+            if (Vector3.Distance(transform.position, targetPosition) > 1f)
+            {
+                Vector3 moveDir = (targetPosition - transform.position).normalized;
+
+                float distanceBefore = Vector3.Distance(transform.position, targetPosition);
+                transform.position = transform.position + moveDir * speed * Time.deltaTime;
+            }
+            else
+            {
+                currentPathIndex++;
+                if (currentPathIndex >= pathVectorList.Count -1)
+                {
+                    StopMoving();
+
                 }
             }
         }

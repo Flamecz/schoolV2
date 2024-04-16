@@ -14,6 +14,9 @@ public class CameraMovement : MonoBehaviour
 
     private Camera orthographicCamera;
     public bool isInRange;
+    public Claim[] questObject;
+    public Quest quest;
+    public int SendToQuest;
     void Start()
     {
         orthographicCamera = GetComponent<Camera>();
@@ -69,12 +72,30 @@ public class CameraMovement : MonoBehaviour
                 // Handle the hit object
                 GameObject hitObject = hit.collider.gameObject;
                 Debug.Log("Hit object: " + hitObject.name);
-
-                if (hit.collider.tag == "hrad" && isInRange)
+                float distanceToTarget = Vector3.Distance(playerMovement.transform.position, hitObject.transform.position);
+                Debug.Log(distanceToTarget);
+                if (hitObject.tag == "hrad" && distanceToTarget < 17)
                 {
                     SceneManager.LoadScene(1);
                     FindObjectOfType<AudioManager>().Play("undeadCityTheme");
                     FindObjectOfType<AudioManager>().Stop("HeroesInWorld");
+                }
+                else if(hitObject.tag == "Suroviny" && distanceToTarget < 17)
+                {
+                    hitObject.GetComponent<ResourceObject>().BeClaimed.claimed = true;
+                    SendToQuest++;
+                    for (int i = 0; i < questObject.Length; i++)
+                    {
+                        if (questObject[i].claimed == true)
+                        {
+                            
+                        }
+                        else if (questObject[i].claimed == false)
+                        {
+                            break;
+                        }
+                    }
+                    
                 }
             }
         }

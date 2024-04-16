@@ -7,6 +7,7 @@ TagManager:
   - Smurf
   - stop
   - hrad
+  - Suroviny
   layers:
   - Default
   - TransparentFX

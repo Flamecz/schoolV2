@@ -36,8 +36,11 @@ public class Testing : MonoBehaviour {
                     Debug.DrawLine(new Vector3(path[i].x, path[i].y) * 10f + Vector3.one * 5f, new Vector3(path[i + 1].x, path[i + 1].y) * 10f + Vector3.one * 5f, Color.green, 5f);
                 }
             }
-            characterPathfinding.SetTargetPosition(mouseWorldPosition);
-            pathfinding.RemoveCost();
+            if(pathfinding.GetNode(x,y).isWalkable)
+            {
+                characterPathfinding.SetTargetPosition(mouseWorldPosition);
+                pathfinding.RemoveCost();
+            }
         }
 
         if (Input.GetMouseButtonDown(1))
