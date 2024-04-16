@@ -11,6 +11,7 @@ public class PathFinding
         public static PathFinding Instance { get; private set; }
 
         public Grid<PathNode> grid;
+        private int Remove;
         private List<PathNode> openList;
         private List<PathNode> closedList;
 
@@ -36,7 +37,8 @@ public class PathFinding
                 return null;
             }
             else
-            {
+            {;
+
                 List<Vector3> vectorPath = new List<Vector3>();
                 foreach (PathNode pathNode in path)
                 {
@@ -71,14 +73,14 @@ public class PathFinding
                 }
             }
 
-        startNode.gCost = 0;
-        startNode.hCost = CalculateDistanceCost(startNode, endNode);
-        startNode.CalculateFCost();
+         startNode.gCost = 0;
+         startNode.hCost = CalculateDistanceCost(startNode, endNode);
+         startNode.CalculateFCost();
 
-        // Store the nodes that are already processed to avoid redundant operations
-        HashSet<PathNode> processedNodes = new HashSet<PathNode>();
-
-        PathDebug.Instance.ClearSnapshots();
+         // Store the nodes that are already processed to avoid redundant operations
+         HashSet<PathNode> processedNodes = new HashSet<PathNode>();
+ 
+         PathDebug.Instance.ClearSnapshots();
         PathDebug.Instance.TakeSnapshot(grid, startNode, openList, closedList);
 
         while (openList.Count > 0)
@@ -166,7 +168,8 @@ public class PathFinding
                 currentNode = currentNode.cameFromNode;
             }
             path.Reverse();
-            return path;
+        Remove = path.Count;
+        return path;
         }
 
         private int CalculateDistanceCost(PathNode a, PathNode b)
@@ -192,6 +195,10 @@ public class PathFinding
     public void SetSettedValue(int value)
     {
         settedValue = value;
+    }
+    public void RemoveCost()
+    {
+        settedValue -= Remove * 14;
     }
 }
 

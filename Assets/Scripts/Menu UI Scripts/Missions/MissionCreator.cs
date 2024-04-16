@@ -58,7 +58,7 @@ public class MissionCreator : MonoBehaviour
         spriteStart.sprite = missionD.UvodObraz;
         GetSome.onClick.AddListener(SetSceneData);
         ButtonClose.onClick.AddListener(FindObjectOfType<MenuUIContorler>().ScenarioSetupClose);
-        PlayMission.onClick.AddListener(FindObjectOfType<MenuUIContorler>().LoadGrid);
+        PlayMission.onClick.AddListener(LoadGame);
     }
     public void getSceneData()
     { 
@@ -106,17 +106,14 @@ public class MissionCreator : MonoBehaviour
         if(Theme == sound.good)
         {
             FindObjectOfType<AudioManager>().Play("HeroesGoodtheme");
-            FindObjectOfType<BuildingManager>().CityType = BuildingManager.type.Castel;
         }
         else if(Theme == sound.neutral)
         {
             FindObjectOfType<AudioManager>().Play("Neutral");
-            FindObjectOfType<BuildingManager>().CityType = BuildingManager.type.Rampart;
         }
         else if (Theme == sound.evil)
         {
             FindObjectOfType<AudioManager>().Play("Evil");
-            FindObjectOfType<BuildingManager>().CityType = BuildingManager.type.Necropolis;
         }
         FindObjectOfType<MenuUIContorler>().ScenarionSetup(LevelIndex);
 
@@ -133,22 +130,6 @@ public class MissionCreator : MonoBehaviour
         vyber1.sprite = BTM[0].image;
             vyber2.sprite = BTM[1].image;
             vyber3.sprite = BTM[2].image;
-
-        FindObjectOfType<DataSender>().GetMission(LevelIndex);
-        for (int i = 0; i < invetorySaver.unitList.Length; i++)
-        {
-            invetorySaver.unitList[i] = null;
-            invetorySaver.unitCount[i] = 0;
-        }
-        for (int i = 0; i < units.Length; i++)
-        {
-            invetorySaver.unitList[i] = units[i];
-            invetorySaver.unitCount[i] = countOfUnits[i];
-        }
-        ClearData();
-        FindObjectOfType<BuildingManager>().CityBuldings = sendBuildings;
-        FindObjectOfType<BuildingManager>().UnitSetting = unitsToSet;
-        FindObjectOfType<BuildingManager>().cityBackground = cityBackground;
     }
     public void GetBonus()
     {
@@ -195,6 +176,47 @@ public class MissionCreator : MonoBehaviour
         {
             sendBuildings[i].upgraded = false;
         }
+    }
+    public void LoadGame()
+    {
+        FindObjectOfType<DataSender>().GetMission(LevelIndex);
+        for (int i = 0; i < invetorySaver.unitList.Length; i++)
+        {
+            invetorySaver.unitList[i] = null;
+            invetorySaver.unitCount[i] = 0;
+        }
+        for (int i = 0; i < units.Length; i++)
+        {
+            invetorySaver.unitList[i] = units[i];
+            invetorySaver.unitCount[i] = countOfUnits[i];
+        }
+        ClearData();
+        FindObjectOfType<BuildingManager>().save.CityBuldings = sendBuildings;
+        FindObjectOfType<BuildingManager>().save.UnitSetting = unitsToSet;
+        FindObjectOfType<BuildingManager>().save.cityBackground = cityBackground;
+        if(Theme == sound.good)
+        {
+            PlayerPrefs.SetFloat("PosX", 15);
+            PlayerPrefs.SetFloat("PosY", 15);
+            PlayerPrefs.SetFloat("PosZ", 5);
+            FindObjectOfType<BuildingManager>().save.CityType = SaveDataObject.type.Castel;
+        }
+        if (Theme == sound.neutral)
+        {
+            PlayerPrefs.SetFloat("PosX", 15);
+            PlayerPrefs.SetFloat("PosY", 15);
+            PlayerPrefs.SetFloat("PosZ", 5);
+            FindObjectOfType<BuildingManager>().save.CityType = SaveDataObject.type.Rampart;
+        }
+        if (Theme == sound.evil)
+        {
+            PlayerPrefs.SetFloat("PosX", 15);
+            PlayerPrefs.SetFloat("PosY", 15);
+            PlayerPrefs.SetFloat("PosZ", 5);
+            FindObjectOfType<BuildingManager>().save.CityType = SaveDataObject.type.Necropolis;
+        }
+        PlayerPrefs.SetInt("den", 1);
+        FindObjectOfType<MenuUIContorler>().LoadGrid();
     }
     public string GetInfo(int index)
     { 

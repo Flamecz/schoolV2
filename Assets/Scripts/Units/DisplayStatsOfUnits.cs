@@ -45,7 +45,7 @@ public class DisplayStatsOfUnits : MonoBehaviour
 
     void Start()
     {
-        building = FindObjectOfType<BuildingManager>().CityBuldings[buildingNumber];
+        building = FindObjectOfType<BuildingManager>().save.CityBuldings[buildingNumber];
         GetData();
     }
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3363,6 +3363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430e3da87e7f24e8881084ab94839b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  daysPassed: {fileID: 11400000, guid: 3a519774bab3940bd91577c8e72df345, type: 2}
   growthManagers:
   - {fileID: 952379809}
   - {fileID: 829081837}
@@ -20231,7 +20232,6 @@ GameObject:
   - component: {fileID: 1109715407}
   - component: {fileID: 1109715410}
   - component: {fileID: 1109715409}
-  - component: {fileID: 1109715411}
   m_Layer: 5
   m_Name: Weeks
   m_TagString: Untagged
@@ -20300,20 +20300,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109715406}
   m_CullTransparentMesh: 1
---- !u!114 &1109715411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109715406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 430e3da87e7f24e8881084ab94839b87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  growthManagers: []
-  weekText: {fileID: 1109715409}
 --- !u!1 &1112955034
 GameObject:
   m_ObjectHideFlags: 0

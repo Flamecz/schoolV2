@@ -112,13 +112,13 @@ public class ReciveData : MonoBehaviour
                 switch(whatMission)
                 {
                     case 0:
-                        FindObjectOfType<BuildingManager>().GetBuildingByName("Archer Tower");
+                        FindObjectOfType<BuildingManager>().save.GetBuildingByName("Archer Tower");
                             break;
                     case 1:
-                        FindObjectOfType<BuildingManager>().GetBuildingByName("Archer Tower");
+                        FindObjectOfType<BuildingManager>().save.GetBuildingByName("Archer Tower");
                         break;
                     case 2:
-                        FindObjectOfType<BuildingManager>().GetBuildingByName("Archer Tower");
+                        FindObjectOfType<BuildingManager>().save.GetBuildingByName("Archer Tower");
                         break;
                 }
                 break;

@@ -6,7 +6,7 @@ public class CheckColision : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("hrad"))
+        if (other.gameObject.tag == "hrad")
         {
             Debug.Log("Collision with object tagged as 'YourTag' detected.");
             // Add your collision handling code here

@@ -9,14 +9,25 @@ public class PlayerMovement : MonoBehaviour
     private int currentPathIndex;
     private List<Vector3> pathVectorList;
 
+    private void Start()
+    {
+        float x = PlayerPrefs.GetFloat("PosX");
+        float y = PlayerPrefs.GetFloat("PosY");
+        float z = PlayerPrefs.GetFloat("PosZ");
+
+        gameObject.transform.position = new Vector3(x, y, z);
+    }
     private void Update()
     {
         HandleMovement();
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))    
         {
             SetTargetPosition(GetMouseWorldPosition());
         }
+        PlayerPrefs.SetFloat("PosX", gameObject.transform.position.x);
+        PlayerPrefs.SetFloat("PosY", gameObject.transform.position.y);
+        PlayerPrefs.SetFloat("PosZ", gameObject.transform.position.z);
     }
 
     private void HandleMovement()

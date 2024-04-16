@@ -17,11 +17,11 @@ public class SetBuildings : MonoBehaviour
     public void SetData()
     {
         buildingmanager = FindObjectOfType<BuildingManager>();
-        for (int i = 0; i < buildingmanager.CityBuldings.Length; i++)
+        for (int i = 0; i < buildingmanager.save.CityBuldings.Length; i++)
         {
             BuildButton BB = building[i].GetComponent<BuildButton>();
-            BB.cityBuldings = buildingmanager.CityBuldings[i];
+            BB.cityBuldings = buildingmanager.save.CityBuldings[i];
         }
-        cityBackgroud.sprite = buildingmanager.cityBackground;
+        cityBackgroud.sprite = buildingmanager.save.cityBackground;
     }
 }

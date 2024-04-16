@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class UpdateWeeks : MonoBehaviour
 {
-    private int daysPassed = 0;
-    [HideInInspector]private int currentWeek = 1;
+    public Days daysPassed;
     public GrowthManager[] growthManagers;
 
     public Text weekText; // UI Text to display the current week
@@ -24,15 +23,15 @@ public class UpdateWeeks : MonoBehaviour
     }
     public void OnButtonClick()
     {
-        daysPassed++; 
-        if (daysPassed >= 7)
+        daysPassed.days++; 
+        if (daysPassed.days >= 7)
         {
             for(int i = 0; i< growthManagers.Length; i++)
             {
                 growthManagers[i].AddAditionalGrowth();
             }
-            currentWeek++;
-            daysPassed = 0; 
+            daysPassed.weeks++;
+            daysPassed.days = 0; 
         }
         UpdateWeekDisplay();
         FindFirstObjectByType<Townhall>().income(); 
@@ -43,7 +42,7 @@ public class UpdateWeeks : MonoBehaviour
     {
         if (weekText != null)
         {
-            weekText.text = "Week: " + currentWeek.ToString() + " " + "Day: " + daysPassed.ToString();
+            weekText.text = "Week: " + daysPassed.weeks.ToString() + " " + "Day: " + daysPassed.days.ToString();
         }
     }
 }

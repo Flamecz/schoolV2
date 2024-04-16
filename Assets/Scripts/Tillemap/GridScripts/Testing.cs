@@ -37,6 +37,7 @@ public class Testing : MonoBehaviour {
                 }
             }
             characterPathfinding.SetTargetPosition(mouseWorldPosition);
+            pathfinding.RemoveCost();
         }
 
         if (Input.GetMouseButtonDown(1))

@@ -26,9 +26,9 @@ public class OpenPrefabUnits : MonoBehaviour
     public GrowthManager growthManager;
     void Start()
     {
-        unit1 = FindObjectOfType<BuildingManager>().UnitSetting[unitNumber1];
-        unit2 = FindObjectOfType<BuildingManager>().UnitSetting[unitNumber2];
-        buildingToCheck = FindObjectOfType<BuildingManager>().CityBuldings[buildingNumber];
+        unit1 = FindObjectOfType<BuildingManager>().save.UnitSetting[unitNumber1];
+        unit2 = FindObjectOfType<BuildingManager>().save.UnitSetting[unitNumber2];
+        buildingToCheck = FindObjectOfType<BuildingManager>().save.CityBuldings[buildingNumber];
         var button = gameObject.GetComponent<Button>();
         if (button != null)
         {
