@@ -21,31 +21,34 @@ public class QuestControll : MonoBehaviour
     private Text Condition;
     private Text Description;
     private Button Accept;
-    private bool Set;
+    private bool Set = false;
     private bool beenseen;
 
     private void Start()
     {
-    }
-    void Awake()
-    {
-        if (beenseen)
+        if (!beenseen)
         {
             OpenQuest();
         }
-        if (Set)
+    }
+    void Awake()
+    {
+        Condition = QuestWindow.gameObject.transform.Find("Condition").GetComponent<Text>();
+        if (Condition == null)
         {
-            DontDestroyOnLoad(gameObject);
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-                return;
-            }
+            Debug.Log("1");
         }
+        Description = QuestWindow.gameObject.transform.Find("Description").GetComponent<Text>();
+        if (Description == null)
+        {
+            Debug.Log("2");
+        }
+        Accept = QuestWindow.gameObject.transform.Find("Accept").GetComponent<Button>();
+        if (Accept == null)
+        {
+            Debug.Log("3");
+        }
+        SetData();
     }
 
     private void Update()
@@ -66,9 +69,6 @@ public class QuestControll : MonoBehaviour
         Debug.Log("Hap");
         FindObjectOfType<Testing>().CanBeAccest(false);
         QuestWindow.SetActive(true);
-        Condition = QuestWindow.gameObject.transform.Find("Condition").GetComponent<Text>();
-        Description = QuestWindow.gameObject.transform.Find("Description").GetComponent<Text>();
-        Accept = QuestWindow.gameObject.transform.Find("Accept").GetComponent<Button>();
         if (MDS.whatMission == 0)
         {
             Selected = data[0];
@@ -91,12 +91,14 @@ public class QuestControll : MonoBehaviour
         {
             Debug.Log("error");
         }
+        Set = true;
+        beenseen = true;
+    }
+    private void SetData()
+    {
         Condition.text = Selected.condition;
         Description.text = Selected.description;
         Accept.onClick.AddListener(ActivateQuest);
-        DontDestroyOnLoad(gameObject);
-        Set = true;
-        beenseen = false;
     }
     public void ActivateQuest()
     {
