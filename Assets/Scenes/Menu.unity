@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9209,6 +9209,38 @@ MonoBehaviour:
     Music: 1
   - name: Evil
     clip: {fileID: 8300000, guid: b48774c86550548248c6bf70bd41489a, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    Effect: 0
+    Music: 1
+  - name: Rampart
+    clip: {fileID: 8300000, guid: 7e655bc7aedb1d1488ed295c12d9f449, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    Effect: 0
+    Music: 1
+  - name: Castel
+    clip: {fileID: 8300000, guid: 19661999cf9af8549bef00d5e3616e09, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    Effect: 0
+    Music: 1
+  - name: victory
+    clip: {fileID: 8300000, guid: 62d8ee0e64aeb83478744dd1a302b653, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    Effect: 0
+    Music: 1
+  - name: Loss
+    clip: {fileID: 8300000, guid: 953367cdbcd5fc54789166b4fc850fa8, type: 3}
     volume: 0.3
     pitch: 1
     source: {fileID: 0}

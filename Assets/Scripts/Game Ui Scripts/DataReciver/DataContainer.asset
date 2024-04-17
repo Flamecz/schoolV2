@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatResource: 0
   whatMission: 0
+  whatDificulty: 0
+  Width: 20
+  Height: 10

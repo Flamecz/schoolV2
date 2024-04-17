@@ -143,7 +143,6 @@ public class PathVisual : MonoBehaviour
 
         if (grid.GetWidth() != mapLayout[1].Length || grid.GetHeight() != mapLayout.Length)
         {
-            Debug.LogError(mapLayout[1].Length + " " + mapLayout.Length);
             Debug.LogError("Grid dimensions do not match mapLayout dimensions");
             return;
         }

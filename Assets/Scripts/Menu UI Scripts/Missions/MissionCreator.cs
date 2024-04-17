@@ -116,7 +116,7 @@ public class MissionCreator : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Evil");
         }
         FindObjectOfType<MenuUIContorler>().ScenarionSetup(LevelIndex);
-
+        FindObjectOfType<DataSender>().GetMission(LevelIndex);
         nazevMise.text = missionD.misionName;
         popisMise.text = missionD.missionDescription;
         nazevScenar.text = missionD.scenarionName;
@@ -179,7 +179,6 @@ public class MissionCreator : MonoBehaviour
     }
     public void LoadGame()
     {
-        FindObjectOfType<DataSender>().GetMission(LevelIndex);
         for (int i = 0; i < invetorySaver.unitList.Length; i++)
         {
             invetorySaver.unitList[i] = null;

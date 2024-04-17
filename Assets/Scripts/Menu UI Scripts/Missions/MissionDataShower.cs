@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MissionDataShower : ScriptableObject
 {
     public int whatResource;
-    public int whatMission;
+    public int whatMission = 0;
     public int whatDificulty;
     public int Width, Height;
 }

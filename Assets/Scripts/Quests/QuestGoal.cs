@@ -7,7 +7,6 @@ public class QuestGoal
 {
     public GoalType goalType;
 
-    public string WhatToGet;
     public int requiredAmount;
     public int currentAmount;
     public bool QuestDone()

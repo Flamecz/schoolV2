@@ -707,7 +707,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Moador
 --- !u!222 &464569823
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1358,7 +1358,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: cfa91fc58681240c6bbac5d3bb0b30e6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2232,6 +2232,7 @@ MonoBehaviour:
   DecisionPrefab: {fileID: 1675080423}
   playerCharacters: []
   enemyCharacters: []
+  activeUnits: []
 --- !u!4 &1383803788
 Transform:
   m_ObjectHideFlags: 0
@@ -2492,7 +2493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1675080424
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2699,7 +2700,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Adela
 --- !u!222 &1695739480
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3134,6 +3135,9 @@ MonoBehaviour:
   pathDebug: {fileID: 960690734}
   pathVisual: {fileID: 746043714}
   unitPathfinding: {fileID: 0}
+  set: 0
+  pathfinding:
+    settedValue: 0
   mapManager: {fileID: 1972634776}
 --- !u!1 &2014999539
 GameObject:
@@ -3192,7 +3196,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 473b69b947f2f44198ceec32c6e3e360, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

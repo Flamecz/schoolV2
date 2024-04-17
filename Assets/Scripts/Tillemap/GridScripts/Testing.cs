@@ -11,6 +11,7 @@ public class Testing : MonoBehaviour {
     public PathFinding pathfinding;
     public int set;
     public MapManager mapManager;
+    public static bool canBeAccest = false;
 
     private void Start()
     {
@@ -24,7 +25,7 @@ public class Testing : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canBeAccest)
         {
             Vector3 mouseWorldPosition = GetMouseWorldPosition();
             pathfinding.GetGrid().GetXY(mouseWorldPosition, out int x, out int y);
@@ -43,13 +44,18 @@ public class Testing : MonoBehaviour {
             }
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && canBeAccest)
         {
             Vector3 mouseWorldPosition = GetMouseWorldPosition();
             pathfinding.GetGrid().GetXY(mouseWorldPosition, out int x, out int y);
             pathfinding.GetNode(x, y).SetIsWalkable(!pathfinding.GetNode(x, y).isWalkable);
         }
     }
+    public bool CanBeAccest( bool acces)
+    {
+        return canBeAccest = acces;
+    }
+
     public static Vector3 GetMouseWorldPosition()
     {
         Vector3 vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);

@@ -17,6 +17,7 @@ public class CameraMovement : MonoBehaviour
     public Claim[] questObject;
     public Quest quest;
     public int SendToQuest;
+    public SaveDataObject SDO;
     void Start()
     {
         orthographicCamera = GetComponent<Camera>();
@@ -59,26 +60,41 @@ public class CameraMovement : MonoBehaviour
             transform.position.z
         );
 
-        // Check for mouse click
         if (Input.GetMouseButtonDown(0))
         {
-            // Cast a ray from the camera through the mouse position
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            // Check if the ray hits any colliders
             if (Physics.Raycast(ray, out hit))
             {
-                // Handle the hit object
                 GameObject hitObject = hit.collider.gameObject;
                 Debug.Log("Hit object: " + hitObject.name);
                 float distanceToTarget = Vector3.Distance(playerMovement.transform.position, hitObject.transform.position);
                 Debug.Log(distanceToTarget);
                 if (hitObject.tag == "hrad" && distanceToTarget < 17)
                 {
-                    SceneManager.LoadScene(1);
-                    FindObjectOfType<AudioManager>().Play("undeadCityTheme");
-                    FindObjectOfType<AudioManager>().Stop("HeroesInWorld");
+                    QuestControll QC = FindObjectOfType<QuestControll>();
+                    if(QC.Selected.QG.goalType == GoalType.GetTo)
+                    {
+                        QC.Selected.QG.QuestGatherd();
+                    }
+                    else
+                    {
+                        FindObjectOfType<AudioManager>().Stop("HeroesInWorld");
+                        if (SDO.CityType == SaveDataObject.type.Castel)
+                        {
+                            FindObjectOfType<AudioManager>().Play("Castel");
+                        }
+                        else if (SDO.CityType == SaveDataObject.type.Castel)
+                        {
+                            FindObjectOfType<AudioManager>().Play("Rampart");
+                        }
+                        else if (SDO.CityType == SaveDataObject.type.Castel)
+                        {
+                            FindObjectOfType<AudioManager>().Play("undeadCityTheme");
+                        }
+                        SceneManager.LoadScene(1);
+                    }
                 }
                 else if(hitObject.tag == "Suroviny" && distanceToTarget < 17)
                 {
