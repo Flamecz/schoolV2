@@ -215,6 +215,7 @@ public class MissionCreator : MonoBehaviour
             FindObjectOfType<BuildingManager>().save.CityType = SaveDataObject.type.Necropolis;
         }
         PlayerPrefs.SetInt("den", 1);
+        PlayerPrefs.DeleteKey("Test Scene");
         FindObjectOfType<MenuUIContorler>().LoadGrid();
     }
     public string GetInfo(int index)

@@ -77,6 +77,11 @@ public class CameraMovement : MonoBehaviour
                     if(QC.Selected.QG.goalType == GoalType.GetTo)
                     {
                         QC.Selected.QG.QuestGatherd();
+                        bool isdone = QC.Selected.QG.QuestDone();
+                        if(isdone)
+                        {
+                            FindObjectOfType<QuestControll>().FinnishedQuest();
+                        }
                     }
                     else
                     {
