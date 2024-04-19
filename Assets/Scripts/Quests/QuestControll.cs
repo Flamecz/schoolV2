@@ -20,12 +20,15 @@ public class QuestControll : MonoBehaviour
     public SaveDataObject SDO;
     public GameObject cutScene;
     public VideoClip win, loss;
+    public Button GoBack;
+    public GameObject End;
 
     private Text Condition;
     private Text Description;
     private Button Accept;
     private bool Set = false;
     private bool beenseen;
+    private Button Resume,abandon,SaveandBack;
 
     private string sceneName;
 
@@ -58,6 +61,27 @@ public class QuestControll : MonoBehaviour
     private void Update()
     {
         bool isdone = Selected.QG.QuestDone();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
+    }
+    public void Pause()
+    {
+        End.SetActive(true);
+        Resume = End.transform.Find("Resume").GetComponent<Button>();
+        abandon = End.transform.Find("Abandon").GetComponent<Button>();
+        SaveandBack = End.transform.Find("SaveandBack").GetComponent<Button>();
+
+        Resume.onClick.AddListener(ResumeTime);
+        abandon.onClick.AddListener(Abandon);
+        SaveandBack.onClick.AddListener(LoadScene0);
+        Time.timeScale = 0; 
+    }
+    private void ResumeTime()
+    {
+        Time.timeScale = 1;
+        End.SetActive(false);
     }
     private void GoToMenu()
     {
@@ -143,13 +167,26 @@ public class QuestControll : MonoBehaviour
         cutScene.SetActive(true);
         VideoPlayer VP = cutScene.transform.Find("Video Player").GetComponent<VideoPlayer>();
         VP.clip = win;
+        GoBack.onClick.AddListener(LoadScene0);
+        PlayerPrefs.SetInt("Achivment", 1);
+        int c = PlayerPrefs.GetInt("Achivment");
+        PlayerPrefs.SetInt("Achivment", c + 1);
         FindObjectOfType<AudioManager>().Play("victory");
     }
     public void Abandon()
     {
+        PlayerPrefs.SetInt("Setted", 0);
+        End.SetActive(false);
         cutScene.SetActive(true);
         VideoPlayer VP = cutScene.transform.Find("Video Player").GetComponent<VideoPlayer>();
         VP.clip = loss;
+        GoBack.onClick.AddListener(LoadScene0);
         FindObjectOfType<AudioManager>().Play("lost");
+    }
+    public void LoadScene0()
+    {
+        SceneManager.LoadScene(0);
+        FindObjectOfType<AudioManager>().Stop("victory");
+        FindObjectOfType<AudioManager>().Play("mainTheme");
     }
 }

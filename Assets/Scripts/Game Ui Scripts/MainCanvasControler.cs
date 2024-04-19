@@ -97,7 +97,7 @@ public class MainCanvasControler : MonoBehaviour
     public void ExitCity()
     {
         FindObjectOfType<AudioManager>().Play("mainTheme");
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
         FindObjectOfType<AudioManager>().Stop("undeadCityTheme");
     }
 

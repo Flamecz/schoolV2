@@ -45,11 +45,6 @@ public class AudioManager : MonoBehaviour
         {
             Play("clickSound");
         }
-        if(Input.GetButtonDown("Fire2"))
-        {
-            SceneManager.LoadScene(3);
-            Stop("mainTheme");
-        }
     }
     public void Play(string name)
     {

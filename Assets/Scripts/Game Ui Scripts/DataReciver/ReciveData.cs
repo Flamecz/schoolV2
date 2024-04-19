@@ -28,8 +28,8 @@ public class ReciveData : MonoBehaviour
         whatDificulty = MDS.whatDificulty;
         if(MDS.whatMission == 0)
         {
-            MDS.Width = 20;
-            MDS.Height = 10;
+            MDS.Width = 40;
+            MDS.Height = 15;
         }
         if (MDS.whatMission == 1)
         {
@@ -39,7 +39,7 @@ public class ReciveData : MonoBehaviour
         if (MDS.whatMission == 2)
         {
             MDS.Width = 50;
-            MDS.Height = 20;
+            MDS.Height = 50;
         }
     }
 
@@ -112,7 +112,7 @@ public class ReciveData : MonoBehaviour
                 switch(whatMission)
                 {
                     case 0:
-                  //      FindObjectOfType<BuildingManager>().save.GetBuildingByName("Archer Tower");
+                        FindObjectOfType<BuildingManager>().save.GetBuildingByName("Archer Tower");
                             break;
                     case 1:
                         FindObjectOfType<BuildingManager>().save.GetBuildingByName("Archer Tower");

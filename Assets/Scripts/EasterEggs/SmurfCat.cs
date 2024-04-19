@@ -53,6 +53,9 @@ public class SmurfCat : MonoBehaviour
                 {
                     FindObjectOfType<AudioManager>().ChangeVolume("mainTheme", 0f);
                     FindObjectOfType<AudioManager>().Play("cat");
+                    int c = PlayerPrefs.GetInt("Smurfing");
+                    PlayerPrefs.SetInt("Smurfing", c+1);
+                    FindObjectOfType<Achivements>().Smurin();
                     renderer.material = newMaterial[1];
                     FindObjectOfType<ViewRotation>().speedset(50f);
                 }

@@ -55,10 +55,13 @@ public class MenuController : MonoBehaviour
     }
         private void LoadCampainScene()
         {
-        SceneManager.LoadScene(1);
-        FindObjectOfType<AudioManager>().Stop("mainTheme");
-        FindObjectOfType<AudioManager>().Play("undeadCityTheme");
-    }
+             if(PlayerPrefs.GetInt("Setted") == 1)
+             {
+             SceneManager.LoadScene(2);
+             FindObjectOfType<AudioManager>().Stop("mainTheme");
+             FindObjectOfType<AudioManager>().Play("HeroesInWorld");
+             }
+        }
         private void OptionsScene()
         {
         FindObjectOfType<MenuUIContorler>().SettingsCanvas();

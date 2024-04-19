@@ -216,6 +216,7 @@ public class MissionCreator : MonoBehaviour
         }
         PlayerPrefs.SetInt("den", 1);
         PlayerPrefs.DeleteKey("Test Scene");
+        PlayerPrefs.SetInt("Setted", 1);
         FindObjectOfType<MenuUIContorler>().LoadGrid();
     }
     public string GetInfo(int index)
