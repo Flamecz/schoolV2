@@ -7,19 +7,12 @@ public class UpdateWeeks : MonoBehaviour
 {
     public Days daysPassed;
     public GrowthManager[] growthManagers;
-
+    public CityBuldings town;
     public Text weekText; // UI Text to display the current week
 
     private void Start()
     {
         UpdateWeekDisplay();
-    }
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            OnButtonClick();
-        }
     }
     public void OnButtonClick()
     {
@@ -34,7 +27,16 @@ public class UpdateWeeks : MonoBehaviour
             daysPassed.days = 0; 
         }
         UpdateWeekDisplay();
-        FindFirstObjectByType<Townhall>().income(); 
+        if (town.upgraded)
+        {
+            int incomeAmount = 1500;
+            FindObjectOfType<ResourceManager>().Data.Gold += incomeAmount;
+        }
+        else
+        {
+            int incomeAmount = 500;
+            FindObjectOfType<ResourceManager>().Data.Gold += incomeAmount;
+        }
     }
 
     // Updates the week display text

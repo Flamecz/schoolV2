@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -43,6 +44,11 @@ public class AudioManager : MonoBehaviour
         if(Input.GetButtonDown("Fire1"))
         {
             Play("clickSound");
+        }
+        if(Input.GetButtonDown("Fire2"))
+        {
+            SceneManager.LoadScene(3);
+            Stop("mainTheme");
         }
     }
     public void Play(string name)

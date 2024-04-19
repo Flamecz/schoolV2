@@ -11,7 +11,9 @@ public class FieldMovement : MonoBehaviour
     public int count;
     private float speed = 40f;
 
+    public bool enemyHasTurn;
     public int shots;
+    public bool OnEnemy;
     private int currentPathIndex;
     private List<Vector3> pathVectorList;
 
@@ -22,22 +24,15 @@ public class FieldMovement : MonoBehaviour
     {
         HandleMovement();
 
-        if (Input.GetMouseButtonDown(0) && canAttack)
+        if (Input.GetMouseButtonDown(0) && !enemyHasTurn )
         {
-            // Check if enough time has passed since the last attack
-            if (Time.time - lastAttackTime >= attackCooldown)
-            {
                 SetAttackPosition(GetMouseWorldPosition());
-                lastAttackTime = Time.time; // Update the last attack time
-            }
-            canAttack = false;
         }
-        Debug.Log(shots);
     }
 
     private void HandleMovement()
     {
-        if (pathVectorList != null)
+        if (pathVectorList != null &&  !OnEnemy)
         {
             Vector3 targetPosition = pathVectorList[currentPathIndex];
             if (Vector3.Distance(transform.position, targetPosition) > 1f)
@@ -54,6 +49,26 @@ public class FieldMovement : MonoBehaviour
                 {
                     StopMoving();
                     EndPlayerTurn();
+                }
+            }
+        }
+        else if (pathVectorList != null && OnEnemy)
+        {
+            Vector3 targetPosition = pathVectorList[currentPathIndex];
+            if (Vector3.Distance(transform.position, targetPosition) > 1f)
+            {
+                Vector3 moveDir = (targetPosition - transform.position).normalized;
+
+                float distanceBefore = Vector3.Distance(transform.position, targetPosition);
+                transform.position = transform.position + moveDir * speed * Time.deltaTime;
+            }
+            else
+            {
+                currentPathIndex++;
+                if (currentPathIndex >= pathVectorList.Count - 1)
+                {
+                    StopMoving();
+
                 }
             }
         }
@@ -104,6 +119,7 @@ public class FieldMovement : MonoBehaviour
                 enemyUnit.ReceiveDamage(minDamage, maxDamage);
                 shots--;
                 Debug.Log("Dealt " + unit.damage + " ranged damage to the enemy unit!");
+                ResetAttackCooldown();
                 EndPlayerTurn();
             }
             else if (unit.ATKT == Unit.attackType.ranger && shots <= 0 && distanceToTarget < 17)
@@ -112,6 +128,7 @@ public class FieldMovement : MonoBehaviour
                 float maxDamage = unit.maxDamage;
                 enemyUnit.ReceiveDamage(minDamage, maxDamage);
                 Debug.Log("Dealt " + unit.damage + " melee damage due to no ammunition!");
+                ResetAttackCooldown();
                 EndPlayerTurn();
             }
             else if (unit.ATKT == Unit.attackType.melee && distanceToTarget < 17)
@@ -120,8 +137,10 @@ public class FieldMovement : MonoBehaviour
                 float maxDamage = unit.maxDamage;
                 enemyUnit.ReceiveDamage(minDamage, maxDamage);
                 Debug.Log("Dealt " + unit.damage + " melee damage to the enemy unit!");
+                ResetAttackCooldown();
                 EndPlayerTurn();
             }
+            StartCoroutine(ResetAttackCooldown());
         }
         else
         {
@@ -130,8 +149,6 @@ public class FieldMovement : MonoBehaviour
 
         // End the player's turn after attacking
     }
-
-
     private IEnumerator ResetAttackCooldown()
     {
         yield return new WaitForSeconds(attackCooldown);
@@ -140,6 +157,7 @@ public class FieldMovement : MonoBehaviour
     private FieldMovement FindEnemyUnitAtPosition(Vector3 position)
     {
         Collider[] colliders = Physics.OverlapSphere(position, 0.5f); // Adjust the radius as needed
+        Debug.Log("what");
         foreach (Collider collider in colliders)
         {
             FieldMovement enemyUnit = collider.GetComponent<FieldMovement>();
@@ -155,6 +173,7 @@ public class FieldMovement : MonoBehaviour
     {
         float damage = Random.Range(minDamage, maxDamage + 1);
         health -= damage * count;
+        howManyAlive();
         if (health <= 0)
         {
             Die();
@@ -166,6 +185,15 @@ public class FieldMovement : MonoBehaviour
         isDead = true;
         // Additional logic when the unit dies, e.g., play death animation, remove from the battle, etc.
         Destroy(gameObject); // Deactivate the game object
+    }
+    public void howManyAlive()
+    {
+        count = Mathf.RoundToInt(health / unit.health);
+        if (health % unit.health > 1)
+        {
+            count++;
+        }
+
     }
     public bool HasPerformedAction()
     {

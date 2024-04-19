@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement ;
 
 public class BattleUiManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class BattleUiManager : MonoBehaviour
     private Text StateDescription, BattleDescription;
     private GameObject PlayerLosses, EnemyLosses;
 
+    private Button Confirm;
     private void Awake()
     {
         GetData();
@@ -33,7 +35,8 @@ public class BattleUiManager : MonoBehaviour
         enemyStatus = main.transform.Find("EnemyStateOfBattle").Find("Name").GetComponent<Text>();
         animator = main.transform.Find("Gif").GetComponent<Animator>();
         StateDescription = main.transform.Find("DescriptionFrame").Find("StateDescription").GetComponent<Text>();
-    //    BattleDescription = main.transform.Find("DescriptionFrame").Find("BattleDescription").GetComponent<Text>();
+        //    BattleDescription = main.transform.Find("DescriptionFrame").Find("BattleDescription").GetComponent<Text>();
+        Confirm = main.transform.Find("Confirm").GetComponent<Button>();
     }
     public void SetWinData()
     {
@@ -44,6 +47,7 @@ public class BattleUiManager : MonoBehaviour
         alliedStatus.text = "Victory";
         enemyStatus.text = "Defeat";
         animator.runtimeAnimatorController = winAnimation;
+        Confirm.onClick.AddListener(sendToWinMenu);
     }
     public void SetLossData()
     {
@@ -55,8 +59,14 @@ public class BattleUiManager : MonoBehaviour
         enemyStatus.text = "Victory";
         animator.runtimeAnimatorController = lossAnimation;
     }
-    public string NameReturn(string name)
+    public void sendToWinMenu()
     {
-        return null;
+        SceneManager.LoadScene(2);
+        FindObjectOfType<QuestControll>().Selected.QG.currentAmount++;
     }
+    public void sendToLoss()
+    {
+        SceneManager.LoadScene(2);
+    }
+    
 }

@@ -143,23 +143,20 @@ public class EnemyAi : MonoBehaviour
     }
 
 
-    private void MoveTowardsPlayerUnits()
+    public void MoveTowardsPlayerUnits(FieldMovement Enemy)
     {
-        foreach (FieldMovement enemyUnit in battleManager.enemyCharacters)
+        if (Enemy != null && !Enemy.isDead)
         {
-            if (enemyUnit != null && !enemyUnit.isDead)
+            FieldMovement closestPlayerUnit = FindClosestPlayerUnit(Enemy.transform.position);
+            if (closestPlayerUnit != null)
             {
-                FieldMovement closestPlayerUnit = FindClosestPlayerUnit(enemyUnit.transform.position);
-                if (closestPlayerUnit != null)
-                {
                     // Získání cesty od pozice nepøátelské jednotky k pozici hráèovy jednotky
-                    List<Vector3> path = battleManager.moveControl.pathfinding.FindPath(enemyUnit.transform.position, closestPlayerUnit.transform.position);
+                 List<Vector3> path = battleManager.moveControl.pathfinding.FindPath(Enemy.transform.position, closestPlayerUnit.transform.position);
 
                     // Pokud existuje cesta, nastavíme cílovou pozici na první bod cesty
-                    if (path != null && path.Count > 1)
-                    {
-                        enemyUnit.SetTargetPosition(path[1]); // Index 0 je pozice jednotky samotné
-                    }
+                if (path != null && path.Count > 1)
+                {
+                    Enemy.SetTargetPosition(path[3]); // Index 0 je pozice jednotky samotné
                 }
             }
         }

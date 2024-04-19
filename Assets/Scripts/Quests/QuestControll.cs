@@ -145,4 +145,11 @@ public class QuestControll : MonoBehaviour
         VP.clip = win;
         FindObjectOfType<AudioManager>().Play("victory");
     }
+    public void Abandon()
+    {
+        cutScene.SetActive(true);
+        VideoPlayer VP = cutScene.transform.Find("Video Player").GetComponent<VideoPlayer>();
+        VP.clip = loss;
+        FindObjectOfType<AudioManager>().Play("lost");
+    }
 }

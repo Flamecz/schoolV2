@@ -15,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Terrain
   - 
   - 
   - 
@@ -50,4 +50,7 @@ TagManager:
     locked: 0
   - name: Non-Walkable
     uniqueID: 2561963093
+    locked: 0
+  - name: Secondary
+    uniqueID: 1403304517
     locked: 0

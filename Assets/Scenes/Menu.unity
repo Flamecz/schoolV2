@@ -9247,6 +9247,22 @@ MonoBehaviour:
     loop: 1
     Effect: 0
     Music: 1
+  - name: Battle
+    clip: {fileID: 8300000, guid: 63a7732e555f74443b9da89473e28808, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+    Effect: 0
+    Music: 1
+  - name: Hit
+    clip: {fileID: 8300000, guid: b6b0eb0c82e126248925f025e43ba674, type: 3}
+    volume: 0.3
+    pitch: 0.65
+    source: {fileID: 0}
+    loop: 0
+    Effect: 1
+    Music: 0
 --- !u!4 &1992607375
 Transform:
   m_ObjectHideFlags: 0

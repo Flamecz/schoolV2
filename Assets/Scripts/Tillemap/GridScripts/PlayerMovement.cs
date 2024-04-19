@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private List<Vector3> pathVectorList;
     public bool building = false;
 
+
     private void Start()
     {
         float x = PlayerPrefs.GetFloat("PosX");
@@ -90,7 +91,6 @@ public class PlayerMovement : MonoBehaviour
             pathVectorList.RemoveAt(0);
         }
     }
-
     public static Vector3 GetMouseWorldPosition()
     {
         Vector3 vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);

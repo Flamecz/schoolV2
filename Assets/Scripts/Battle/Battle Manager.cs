@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,9 +28,10 @@ public class BattleManager : MonoBehaviour
     private int currentTurn = 0;
     private bool isTurnInProgress = false;
     private int change = 0, change1 = 0;
-
+    int futureturn;
     void Awake()
     {
+        FindObjectOfType<AudioManager>().Play("Battle");
         for (int i = 0; i < playerUnits.unitList.Length;i++)
         {
             if (playerUnits.unitList[i] != null)
@@ -46,6 +48,7 @@ public class BattleManager : MonoBehaviour
         }
         playerCharacters = new FieldMovement[change];
         enemyCharacters = new FieldMovement[change1];
+        FindObjectOfType<SpellCall>().Enemys = new FieldMovement[change1];
         for (int i = 0; i < playerUnits.unitList.Length; i++)
         {
             if(playerUnits.unitList[i] != null)
@@ -74,10 +77,6 @@ public class BattleManager : MonoBehaviour
             DecisionPrefab.SetActive(true);
             FindObjectOfType<BattleUiManager>().SetLossData();
         }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            EndTurn();
-        }
     }
     public void CreateAliedUnit(int i, Unit unit)
     {
@@ -91,10 +90,31 @@ public class BattleManager : MonoBehaviour
             playerCharacters[i].shots = unit.Shots;
         }
     }
+    public void CreateNewAliedUnit( Unit unit)
+    {
+        int currentLenght = playerCharacters.Length;
+        if (currentLenght < 7 )
+        {
+            FieldMovement[] copy = new FieldMovement[currentLenght];
+            Array.Copy(playerCharacters, copy, currentLenght); // Copy elements from the original array
+            playerCharacters = new FieldMovement[currentLenght + 1]; // Increase the size
+            Array.Copy(copy, playerCharacters, currentLenght);
+        }
+        GameObject go = Instantiate(unitPefab, aliedPosition[currentLenght].transform.position, aliedPosition[currentLenght].transform.rotation, aliedUnitsParent);
+        playerCharacters[currentLenght] = go.GetComponent<FieldMovement>();
+        playerCharacters[currentLenght].unit = unit;
+        playerCharacters[currentLenght].health = PlayerReturnHP(currentLenght, unit);
+        playerCharacters[currentLenght].count = playerUnits.unitCount[currentLenght];
+        if (playerCharacters[currentLenght].unit.ATKT == Unit.attackType.ranger)
+        {
+            playerCharacters[currentLenght].shots = unit.Shots;
+        }
+    }
     public void CreateEnemyUnit(int i, Unit unit)
     {
         GameObject go = Instantiate(unitPefab, enemyPosition[i].transform.position, enemyPosition[i].transform.rotation, enemyUnitsParent);
         enemyCharacters[i] = go.GetComponent<FieldMovement>();
+        FindObjectOfType<SpellCall>().Enemys[i] = go.GetComponent<FieldMovement>();
         enemyCharacters[i].unit = unit;
         enemyCharacters[i].isEnemy = true;
         enemyCharacters[i].health = EnemyReturnHP(i, unit);
@@ -112,11 +132,9 @@ public class BattleManager : MonoBehaviour
 
         isTurnInProgress = true;
 
-        // Check if there are any units left for the current turn
+        // Check if there are any player-controlled units left
         bool anyUnitsLeft = false;
-        activeUnits = currentTurn < playerCharacters.Length ? playerCharacters : enemyCharacters;
-
-        foreach (FieldMovement fm in activeUnits)
+        foreach (FieldMovement fm in playerCharacters)
         {
             if (fm != null && !fm.isDead)
             {
@@ -125,105 +143,172 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        foreach (FieldMovement fm in activeUnits)
+        foreach (FieldMovement fm in playerCharacters)
         {
             if (fm != null) fm.enabled = false;
         }
 
         // Start the turn with the current value of currentTurn
-        if (currentTurn < activeUnits.Length && activeUnits[currentTurn] != null && !activeUnits[currentTurn].isDead)
+        if (currentTurn < playerCharacters.Length && playerCharacters[currentTurn] != null && !playerCharacters[currentTurn].isDead)
         {
-            activeUnits[currentTurn].enabled = true;
-            moveControl.unitPathfinding = activeUnits[currentTurn];
-            Debug.Log("Current unit: " + activeUnits[currentTurn].unit + ", Speed: " + activeUnits[currentTurn].unit.speed);
-            moveControl.pathfinding.SetSettedValue(activeUnits[currentTurn].unit.speed * 10);
+            playerCharacters[currentTurn].enabled = true;
+            moveControl.unitPathfinding = playerCharacters[currentTurn];
+            Debug.Log("Current unit: " + playerCharacters[currentTurn].unit + ", Speed: " + playerCharacters[currentTurn].unit.speed);
+            moveControl.set = playerCharacters[currentTurn].unit.speed * 10;
+            moveControl.pathfinding.SetSettedValue(playerCharacters[currentTurn].unit.speed * 10);
         }
         // Increment currentTurn after starting the turn
         currentTurn++;
-        Debug.Log(currentTurn);
     }
-
     public void EndTurn()
     {
-        if (!isTurnInProgress) return;
+        if (!isTurnInProgress) return; // Prevent ending a turn that hasn't started
 
         isTurnInProgress = false;
 
-        // Update the current turn index to the next unit
-        FieldMovement[] activeUnits = currentTurn < playerCharacters.Length ? playerCharacters : enemyCharacters;
-        int nextTurnIndex = (currentTurn + 1) % activeUnits.Length;
+        // Update the current turn index to the next player-controlled unit
 
-        if (nextTurnIndex == 0)
+        if (currentTurn < playerCharacters.Length)
         {
-            // If the next turn index indicates the start of a new cycle,
-            // check if any player or enemy units have moved
-            if (CheckAnyUnitMoved(playerCharacters) || CheckAnyUnitMoved(enemyCharacters))
-            {
-                // If any unit has moved, execute enemy turn
-                ExecuteEnemyTurn();
-            }
-            else
-            {
-                // If no unit has moved, start the player turn again
-                currentTurn = 0;
-                StartTurn();
-            }
+            StartTurn();
         }
         else
         {
-            currentTurn = nextTurnIndex;
-            StartTurn();
+            StartCoroutine(ExecuteEnemyTurn());
         }
     }
-    private void ExecuteEnemyTurn()
+    public void EndCycle()
     {
-        // Boolovská promìnná pro urèení, zda nìjaká nepøátelská jednotka provedla akci
-        bool enemyActionTaken = false;
-
-        // Projdeme všechny nepøátelské jednotky
-        foreach (FieldMovement enemyUnit in enemyCharacters)
-        {
-            if (enemyUnit != null && !enemyUnit.isDead && !enemyActionTaken)
-            {
-                // Deaktivujeme všechny hráèovy jednotky
-                foreach (FieldMovement playerUnit in playerCharacters)
-                {
-                    if (playerUnit != null)
-                    {
-                        playerUnit.enabled = false;
-                        Debug.Log("Deaktivovat hráèovy jednotky.");
-                    }
-                }
-
-                // Spustíme tah vybrané nepøátelské jednotky
-                enemyUnit.enabled = true;
-                enemyUnit.GetComponent<EnemyAi>().ExecuteAITurn();
-            }
-        }
-        // Po dokonèení tahù deaktivujeme všechny nepøátelské jednotky
-        foreach (FieldMovement enemyUnit in enemyCharacters)
-        {
-            if (enemyUnit != null)
-            {
-                enemyUnit.enabled = false;
-            }
-        }
+        futureturn = 0;
         currentTurn = 0;
+    }
+    private IEnumerator ExecuteEnemyTurn()
+    {
+        Debug.Log("fired");
+
+
+        for (int i = 0; i < enemyCharacters.Length; i++)
+        {
+
+            enemyCharacters[i].enabled = true;
+            enemyCharacters[i].enemyHasTurn = true;
+            Destroy(enemyCharacters[i].gameObject.GetComponent<BoxCollider>());
+            FieldMovement closestPlayerUnit = FindClosestPlayerUnit(enemyCharacters[i].transform.position);
+            float distanceBefore = Vector3.Distance(enemyCharacters[i].transform.position, closestPlayerUnit.transform.position);
+            Debug.Log(distanceBefore);
+            // Move towards the player unit if not already within attack range
+            if (distanceBefore > 60f)
+            {
+                Vector3 startPosition = enemyCharacters[i].transform.position;
+                Vector3 targetPosition = startPosition + new Vector3(-30f, 0f, 0f); // Move 30 units to the left
+
+                float journeyLength = Vector3.Distance(startPosition, targetPosition);
+                float startTime = Time.time;
+
+                while (true)
+                {
+                    float distanceCovered = (Time.time - startTime) * 40; // Assuming moveSpeed is defined
+                    float journeyFraction = distanceCovered / journeyLength;
+                    enemyCharacters[i].transform.position = Vector3.Lerp(startPosition, targetPosition, journeyFraction);
+
+                    if (journeyFraction >= 1f)
+                        break;
+
+                    yield return null;
+                }
+            }
+            else if( distanceBefore >= 17 && distanceBefore <= 60f)
+            {
+                enemyCharacters[i].SetAttackPosition(closestPlayerUnit.transform.position);
+                enemyCharacters[i].OnEnemy = true;
+            }
+            else if (distanceBefore <= 17f)
+            {
+                // Attack the player unit
+                AttackPlayer(enemyCharacters[i]);
+                FindObjectOfType<AudioManager>().Play("Hit");
+
+            }
+            // Check if the enemy unit is within attack range
+
+            yield return new WaitForSeconds(1f); // Wait for 1 second between each enemy's action
+            enemyCharacters[i].enabled = false;
+            enemyCharacters[i].gameObject.AddComponent<BoxCollider>();
+        }
+
+        EndCycle();
         StartTurn();
     }
 
-    private bool CheckAnyUnitMoved(FieldMovement[] units)
+    private FieldMovement FindClosestPlayerUnit(Vector3 position)
     {
-        foreach (FieldMovement unit in units)
+        FieldMovement closestUnit = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (FieldMovement playerUnit in playerCharacters)
         {
-            if (unit != null && !unit.isDead && unit.HasPerformedAction())
+            if (playerUnit != null && !playerUnit.isDead)
             {
-                return true;
+                float distance = Vector3.Distance(position, playerUnit.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestUnit = playerUnit;
+                    closestDistance = distance;
+                }
             }
         }
-        return false;
+
+        return closestUnit;
+    }
+    private void AttackPlayer(FieldMovement enemyUnit)
+    {
+        // Získání hráèovy jednotky, na kterou bude nepøátelská jednotka útoèit
+        FieldMovement targetPlayerUnit = FindClosestPlayerUnit(enemyUnit.transform.position);
+
+        // Pokud existuje hráèova jednotka k útoku
+        if (targetPlayerUnit != null)
+        {
+            // Vypoèítání poškození
+            int damage = CalculateDamage(enemyUnit.unit, enemyUnit.count);
+
+            targetPlayerUnit.health -= damage;
+
+            if (targetPlayerUnit.health <= 0)
+            {
+                Destroy(targetPlayerUnit.gameObject);
+            }
+        }
     }
 
+    private int CalculateDamage(Unit attacker, int count)
+    {
+        // Výpoèet poškození na základì síly útoèící jednotky a obrany cílové jednotky
+        int damage = UnityEngine.Random.Range(attacker.minDamage, attacker.maxDamage);
+
+        // Zajištìní, že poškození bude alespoò 1
+        damage = damage * count;
+
+        return damage;
+    }
+    private void MoveTowardsClosestPlayerUnit(FieldMovement enemyUnit)
+    {
+        FieldMovement closestPlayerUnit = FindClosestPlayerUnit(enemyUnit.transform.position);
+        if (closestPlayerUnit != null)
+        {
+            float distanceToPlayer = Vector3.Distance(enemyUnit.transform.position, closestPlayerUnit.transform.position);
+            if (distanceToPlayer <= 17f)
+            {
+                // If the enemy unit is within 17 units from the player unit, attack and stop moving
+                AttackPlayer(enemyUnit);
+                return; // Stop moving
+            }
+            else
+            {
+                // Move towards the player unit
+                enemyUnit.SetTargetPosition(closestPlayerUnit.transform.position);
+            }
+        }
+    }
     private float EnemyReturnHP(int index, Unit unit)
     {
         int count = enemyUnits.unitCount[index];
