@@ -6,13 +6,17 @@ using UnityEngine.UI;
 
 public class MissionCreator : MonoBehaviour
 {
+    [Header("Data about mission")]
     public MissionData missionD;
-    public GameObject Canvas;
-    public int LevelIndex;
+    public Quest data;
+    [Header("Units")]
     public InvetorySaver invetorySaver;
     public Unit[] units;
     public int[] countOfUnits;
     public UnitStructure unitStructure;
+
+    public GameObject Canvas;
+    public int LevelIndex;
     public Sprite cityBackground;
     private int selectedUnits;
 
@@ -195,28 +199,29 @@ public class MissionCreator : MonoBehaviour
         FindObjectOfType<BuildingManager>().save.cityBackground = cityBackground;
         if(Theme == sound.good)
         {
-            PlayerPrefs.SetFloat("PosX", 15);
-            PlayerPrefs.SetFloat("PosY", 15);
+            PlayerPrefs.SetFloat("PosX", 205);
+            PlayerPrefs.SetFloat("PosY", 75);
             PlayerPrefs.SetFloat("PosZ", 5);
             FindObjectOfType<BuildingManager>().save.CityType = SaveDataObject.type.Castel;
         }
         if (Theme == sound.neutral)
         {
-            PlayerPrefs.SetFloat("PosX", 15);
-            PlayerPrefs.SetFloat("PosY", 15);
+            PlayerPrefs.SetFloat("PosX", 20);
+            PlayerPrefs.SetFloat("PosY", 45);
             PlayerPrefs.SetFloat("PosZ", 5);
             FindObjectOfType<BuildingManager>().save.CityType = SaveDataObject.type.Rampart;
         }
         if (Theme == sound.evil)
         {
-            PlayerPrefs.SetFloat("PosX", 15);
-            PlayerPrefs.SetFloat("PosY", 15);
+            PlayerPrefs.SetFloat("PosX", 20);
+            PlayerPrefs.SetFloat("PosY", 45);
             PlayerPrefs.SetFloat("PosZ", 5);
             FindObjectOfType<BuildingManager>().save.CityType = SaveDataObject.type.Necropolis;
         }
         PlayerPrefs.SetInt("den", 1);
         PlayerPrefs.DeleteKey("Test Scene");
         PlayerPrefs.SetInt("Setted", 1);
+        FindObjectOfType<QuestControll>().Selected = data;
         FindObjectOfType<MenuUIContorler>().LoadGrid();
     }
     public string GetInfo(int index)

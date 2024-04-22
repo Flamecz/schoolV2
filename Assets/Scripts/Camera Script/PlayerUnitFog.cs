@@ -13,12 +13,12 @@ public class PlayerUnitFog : MonoBehaviour
         if (test.pathfinding.settedValue < 20)
         { 
             fogOfWarBig.GetComponent<MeshRenderer>().material = small;
-            fogOfWarBig.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 5);
+            fogOfWarBig.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
         }
         else
         {
             fogOfWarBig.GetComponent<MeshRenderer>().material = big;
-            fogOfWarBig.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 5);
+            fogOfWarBig.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
         }
     }
 }

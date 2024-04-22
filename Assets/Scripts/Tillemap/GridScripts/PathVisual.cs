@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PathVisual : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class PathVisual : MonoBehaviour
     public Grid<PathNode> grid;
     private Mesh mesh;
     private bool updateMesh;
-
+    public GameObject ForestTile;
     private void Awake()
     {
         mesh = new Mesh();
@@ -157,6 +158,11 @@ public class PathVisual : MonoBehaviour
                 node.SetIsWalkable(isWalkable);
                 bool isWalkable1 = cellChar == 'X';
                 node.SetIsWalkable(!isWalkable1);
+                if(isWalkable1)
+                {
+                    var rot = new Vector3((x * 10) + 5, (y * 10) + 5, 0f);
+                    Instantiate(ForestTile, rot, Quaternion.identity);
+                }
             }
         }
     }

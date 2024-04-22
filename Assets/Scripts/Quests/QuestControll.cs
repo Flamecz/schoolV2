@@ -10,68 +10,55 @@ public class QuestControll : MonoBehaviour
     private static QuestControll instance;
 
 
-    public Quest[] data;
-    public MissionDataShower MDS;
 
-    public Quest Selected;
-    public GameObject FinnishedQuestTemp;
-    public CameraMovement CM;
-    public GameObject QuestWindow;
-    public SaveDataObject SDO;
+    [Header("Instances")]
+    public GameObject questWindow;
+    public GameObject finnishedQuestTemp;
     public GameObject cutScene;
+    public GameObject pauseMenu;
+    [Header("Quest Data")]
+    public Quest Selected;
+    [Header("Controlers")]
+    public MissionDataShower MDS;
+    public SaveDataObject SDO;
+    [Header("Misc")]
     public VideoClip win, loss;
-    public Button GoBack;
-    public GameObject End;
-
+    public Canvas canvas;
+    private Button GoBack;
     private Text Condition;
     private Text Description;
     private Button Accept;
-    private bool Set = false;
-    private bool beenseen;
     private Button Resume,abandon,SaveandBack;
+    private GameObject questOpen,finnishOpen,cutOpen,pauseOpen;
+    private static bool OneWorks;
 
-    private string sceneName;
-
-    private void Start()
-    {
-        sceneName = SceneManager.GetActiveScene().name;
-        Debug.Log(sceneName);
-
-        if (!beenseen && !PlayerPrefs.HasKey(sceneName))
-        {
-            OpenQuest();
-        }
-    }
     void Awake()
     {
-        if (Set)
-        {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-                return;
-            }
-        }
+       if (instance == null)
+       {
+         instance = this;
+       }
+       else
+       {
+         Destroy(gameObject);
+         return;
+       }
     }
 
     private void Update()
     {
         bool isdone = Selected.QG.QuestDone();
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !OneWorks)
         {
             Pause();
         }
     }
     public void Pause()
     {
-        End.SetActive(true);
-        Resume = End.transform.Find("Resume").GetComponent<Button>();
-        abandon = End.transform.Find("Abandon").GetComponent<Button>();
-        SaveandBack = End.transform.Find("SaveandBack").GetComponent<Button>();
+        pauseOpen = Instantiate(pauseMenu, canvas.transform);
+        Resume = pauseOpen.transform.Find("Resume").GetComponent<Button>();
+        abandon = pauseOpen.transform.Find("Abandon").GetComponent<Button>();
+        SaveandBack = pauseOpen.transform.Find("SaveandBack").GetComponent<Button>();
 
         Resume.onClick.AddListener(ResumeTime);
         abandon.onClick.AddListener(Abandon);
@@ -81,18 +68,13 @@ public class QuestControll : MonoBehaviour
     private void ResumeTime()
     {
         Time.timeScale = 1;
-        End.SetActive(false);
-    }
-    private void GoToMenu()
-    {
-        SceneManager.LoadScene(0);
-        Destroy(gameObject);
+        Destroy(pauseOpen);
     }
     public void OpenQuest()
     {
         Debug.Log("Hap");
         FindObjectOfType<Testing>().CanBeAccest(false);
-        QuestWindow.SetActive(true);
+        questOpen = Instantiate(questWindow, canvas.transform);
         if (MDS.whatMission == 0)
         {
             Selected = data[0];
@@ -118,17 +100,17 @@ public class QuestControll : MonoBehaviour
         {
             Debug.Log("error");
         }
-        Condition = QuestWindow.gameObject.transform.Find("Condition").GetComponent<Text>();
+        Condition = questOpen.gameObject.transform.Find("Condition").GetComponent<Text>();
         if (Condition != null)
         {
             Debug.Log(Condition.name);
         }
-        Description = QuestWindow.gameObject.transform.Find("Description").GetComponent<Text>();
+        Description = questOpen.gameObject.transform.Find("Description").GetComponent<Text>();
         if (Description != null)
         {
             Debug.Log(Description.name);
         }
-        Accept = QuestWindow.gameObject.transform.Find("Accept").GetComponent<Button>();
+        Accept = questOpen.gameObject.transform.Find("Accept").GetComponent<Button>();
         if (Accept != null)
         {
             Debug.Log(Accept.name);
@@ -136,57 +118,60 @@ public class QuestControll : MonoBehaviour
         Condition.text = Selected.condition;
         Description.text = Selected.description;
         Accept.onClick.AddListener(ActivateQuest);
-        Set = true;
-        DontDestroyOnLoad(gameObject);
-        PlayerPrefs.SetInt(sceneName, 1);
-        PlayerPrefs.Save();
+        OneWorks = true;
     }
     public void ActivateQuest()
     {
-        QuestWindow.SetActive(false);
+        Destroy(questOpen);
         FindObjectOfType<Testing>().CanBeAccest(true);
-        beenseen = true;
+        OneWorks = false;
     }
     public void FinnishedQuest()
     {
-        FinnishedQuestTemp.SetActive(true);
+        finnishOpen = Instantiate(finnishedQuestTemp, canvas.transform);
         FindObjectOfType<Testing>().CanBeAccest(false);
 
-        Text Condition = FinnishedQuestTemp.transform.Find("Condition").GetComponent<Text>();
-        Text Description = FinnishedQuestTemp.transform.Find("Description").GetComponent<Text>();
-        Button Finnish = FinnishedQuestTemp.transform.Find("Accept").GetComponent<Button>();
+        Text Condition = finnishOpen.transform.Find("Condition").GetComponent<Text>();
+        Text Description = finnishOpen.transform.Find("Description").GetComponent<Text>();
+        Button Finnish = finnishOpen.transform.Find("Accept").GetComponent<Button>();
 
         Condition.text = "Victory";
         Description.text = "Your servis has been noted in history";
         Finnish.onClick.AddListener(OpenWinCutscene);
         FindObjectOfType<AudioManager>().Stop("HeroesInWorld");
+        OneWorks = true;
     }
     public void OpenWinCutscene()
     {
-        FinnishedQuestTemp.SetActive(false);
-        cutScene.SetActive(true);
-        VideoPlayer VP = cutScene.transform.Find("Video Player").GetComponent<VideoPlayer>();
+        Destroy(finnishOpen);
+        cutOpen = Instantiate(cutScene, canvas.transform);
+        GoBack = cutOpen.transform.Find("BackButton").GetComponent<Button>();
+        VideoPlayer VP = cutOpen.transform.Find("Video Player").GetComponent<VideoPlayer>();
         VP.clip = win;
         GoBack.onClick.AddListener(LoadScene0);
         PlayerPrefs.SetInt("Achivment", 1);
         int c = PlayerPrefs.GetInt("Achivment");
         PlayerPrefs.SetInt("Achivment", c + 1);
         FindObjectOfType<AudioManager>().Play("victory");
+        OneWorks = true;
     }
     public void Abandon()
     {
         PlayerPrefs.SetInt("Setted", 0);
-        End.SetActive(false);
-        cutScene.SetActive(true);
-        VideoPlayer VP = cutScene.transform.Find("Video Player").GetComponent<VideoPlayer>();
+        Destroy(pauseOpen);
+        cutOpen = Instantiate(cutScene, canvas.transform);
+        GoBack = cutOpen.transform.Find("BackButton").GetComponent<Button>();
+        VideoPlayer VP = cutOpen.transform.Find("Video Player").GetComponent<VideoPlayer>();
         VP.clip = loss;
         GoBack.onClick.AddListener(LoadScene0);
         FindObjectOfType<AudioManager>().Play("lost");
+        OneWorks = true;
     }
     public void LoadScene0()
     {
         SceneManager.LoadScene(0);
         FindObjectOfType<AudioManager>().Stop("victory");
         FindObjectOfType<AudioManager>().Play("mainTheme");
+        OneWorks = true;
     }
 }

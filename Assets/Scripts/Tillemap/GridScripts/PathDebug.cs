@@ -36,7 +36,6 @@ public class PathDebug : MonoBehaviour
                 visualNodeList.Add(visualNode);
             }
         }
-        HideNodeVisuals();
     }
 
     private void Update()
@@ -85,7 +84,6 @@ public class PathDebug : MonoBehaviour
     public void TakeSnapshot(Grid<PathNode> grid, PathNode current, List<PathNode> openList, List<PathNode> closedList)
     {
         GridSnapshotAction gridSnapshotAction = new GridSnapshotAction();
-        gridSnapshotAction.AddAction(HideNodeVisuals);
 
         for (int x = 0; x < grid.GetWidth(); x++)
         {
@@ -133,7 +131,6 @@ public class PathDebug : MonoBehaviour
     public void TakeSnapshotFinalPath(Grid<PathNode> grid, List<PathNode> path)
     {
         GridSnapshotAction gridSnapshotAction = new GridSnapshotAction();
-        gridSnapshotAction.AddAction(HideNodeVisuals);
 
         for (int x = 0; x < grid.GetWidth(); x++)
         {
@@ -170,11 +167,6 @@ public class PathDebug : MonoBehaviour
         }
 
         gridSnapshotActionList.Add(gridSnapshotAction);
-    }
-
-    private void HideNodeVisuals()
-    {
-
     }
 
     private Transform CreateVisualNode(Vector3 position)

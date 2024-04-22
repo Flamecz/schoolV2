@@ -8,6 +8,7 @@ TagManager:
   - stop
   - hrad
   - Suroviny
+  - Enemy
   layers:
   - Default
   - TransparentFX

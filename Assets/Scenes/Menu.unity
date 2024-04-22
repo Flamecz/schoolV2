@@ -382,14 +382,23 @@ MonoBehaviour:
     Enemy: {r: 1, g: 0, b: 0, a: 1}
     UvodObraz: {fileID: 21300000, guid: 44d052849f267e2439ea571c987810cc, type: 3}
     Map: {fileID: 21300000, guid: ee3cfd1a52943684290d786af2ab6079, type: 3}
-  Canvas: {fileID: 512850956}
-  LevelIndex: 0
+  data:
+    condition: 
+    description: 
+    isActive: 0
+    Finnished: 0
+    QG:
+      goalType: 0
+      requiredAmount: 0
+      currentAmount: 0
   invetorySaver: {fileID: 11400000, guid: 8bff52702f4e79947b8396cdd4220633, type: 2}
   units:
   - {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
   - {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
   countOfUnits: 230000000c000000
   unitStructure: {fileID: 11400000, guid: 1816ce008e9acd84c97edc045cd7e764, type: 2}
+  Canvas: {fileID: 512850956}
+  LevelIndex: 0
   cityBackground: {fileID: 21300000, guid: ea3adfc30d453f746a573e0f41fcd36b, type: 3}
   Theme: 0
   sendBuildings:
@@ -3063,9 +3072,9 @@ RectTransform:
   - {fileID: 1616910544}
   m_Father: {fileID: 182125855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -216.18184}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &646668979
@@ -3969,6 +3978,95 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803937968}
   m_CullTransparentMesh: 1
+--- !u!1 &819293009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 819293011}
+  - component: {fileID: 819293010}
+  m_Layer: 0
+  m_Name: Quest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &819293010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819293009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f194e37f71ff449b2d14a796bb96ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questWindow: {fileID: 7782119713495768550, guid: c690d20a98e724b8d822ce8a974290b8, type: 3}
+  finnishedQuestTemp: {fileID: 4695594888872032753, guid: 643a9f9276b5beb469e643ffe8d7937d, type: 3}
+  cutScene: {fileID: 8405524466444768985, guid: 6e3b6b4e0fcbfc7408624636e5113ff5, type: 3}
+  pauseMenu: {fileID: 8710347441901404023, guid: 43b96666d3bea4e4b9f4b7479213fbf7, type: 3}
+  data:
+  - condition: Find a way to castel
+    description: You must navigate through terain in the map and get to the castel
+    isActive: 0
+    Finnished: 0
+    QG:
+      goalType: 2
+      requiredAmount: 1
+      currentAmount: 0
+  - condition: Gather old mines
+    description: You have to find every mine. They were lost in the past. Its finnaly
+      time to put the back in our control.
+    isActive: 0
+    Finnished: 0
+    QG:
+      goalType: 1
+      requiredAmount: 6
+      currentAmount: 0
+  - condition: Hunt down Adela
+    description: Our spyes noticed that our enemy has entred our teritory. Find him
+      and kill him.
+    isActive: 0
+    Finnished: 0
+    QG:
+      goalType: 0
+      requiredAmount: 1
+      currentAmount: 0
+  Selected:
+    condition: 
+    description: 
+    isActive: 0
+    Finnished: 0
+    QG:
+      goalType: 0
+      requiredAmount: 0
+      currentAmount: 0
+  MDS: {fileID: 11400000, guid: ea6398a186fe1d14ea8d3343587b7b06, type: 2}
+  SDO: {fileID: 11400000, guid: 14ca6d2e3ced24651b65741a18d8db7e, type: 2}
+  win: {fileID: 32900000, guid: 3e17c7c0e635744b6bd9a06e8ea7aff0, type: 3}
+  loss: {fileID: 32900000, guid: ac1374311cadc418c8cb7dd646a58e68, type: 3}
+  canvas: {fileID: 512850959}
+--- !u!4 &819293011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819293009}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 158.89618, y: 58.45328, z: -167.78178}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &838322657
 GameObject:
   m_ObjectHideFlags: 0
@@ -4079,9 +4177,9 @@ RectTransform:
   - {fileID: 703020559}
   m_Father: {fileID: 182125855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -15}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &847619290
@@ -5121,8 +5219,15 @@ MonoBehaviour:
     Enemy: {r: 1, g: 0, b: 0, a: 1}
     UvodObraz: {fileID: 21300000, guid: 5c8b620520d5c5643bda4af63ba9ed87, type: 3}
     Map: {fileID: 21300000, guid: d29ee67dfff2d7a4c8206be40f5dce76, type: 3}
-  Canvas: {fileID: 512850956}
-  LevelIndex: 2
+  data:
+    condition: 
+    description: 
+    isActive: 0
+    Finnished: 0
+    QG:
+      goalType: 0
+      requiredAmount: 0
+      currentAmount: 0
   invetorySaver: {fileID: 11400000, guid: 8bff52702f4e79947b8396cdd4220633, type: 2}
   units:
   - {fileID: 11400000, guid: 42886ce941af5472b93557d13bbb882a, type: 2}
@@ -5130,6 +5235,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e0dc38cd81e54073b5e07f6b3eba59e, type: 2}
   countOfUnits: 50000000240000000a000000
   unitStructure: {fileID: 11400000, guid: b790addd9f371074a9d93975d43376f9, type: 2}
+  Canvas: {fileID: 512850956}
+  LevelIndex: 2
   cityBackground: {fileID: 0}
   Theme: 2
   sendBuildings:
@@ -5967,8 +6074,15 @@ MonoBehaviour:
     Enemy: {r: 1, g: 0, b: 0, a: 1}
     UvodObraz: {fileID: 21300000, guid: ffbdb0f6c20526a4ba168d56647f5d35, type: 3}
     Map: {fileID: 21300000, guid: 2932bb0fd97ce4d4b807554f54fbdac3, type: 3}
-  Canvas: {fileID: 512850956}
-  LevelIndex: 1
+  data:
+    condition: 
+    description: 
+    isActive: 0
+    Finnished: 0
+    QG:
+      goalType: 0
+      requiredAmount: 0
+      currentAmount: 0
   invetorySaver: {fileID: 11400000, guid: 8bff52702f4e79947b8396cdd4220633, type: 2}
   units:
   - {fileID: 11400000, guid: 42886ce941af5472b93557d13bbb882a, type: 2}
@@ -5977,6 +6091,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
   countOfUnits: 370000001a0000000c00000005000000
   unitStructure: {fileID: 11400000, guid: 0f085476c9cd7844cb3af21fccece937, type: 2}
+  Canvas: {fileID: 512850956}
+  LevelIndex: 1
   cityBackground: {fileID: 0}
   Theme: 1
   sendBuildings:
@@ -6656,9 +6772,9 @@ RectTransform:
   - {fileID: 2133391832}
   m_Father: {fileID: 182125855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -65.295456}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1420355052
@@ -8382,9 +8498,9 @@ RectTransform:
   - {fileID: 1325984959}
   m_Father: {fileID: 182125855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -165.88638}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1793599602
@@ -9448,9 +9564,9 @@ RectTransform:
   - {fileID: 170845059}
   m_Father: {fileID: 182125855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -115.59092}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2001573534
@@ -10212,3 +10328,4 @@ SceneRoots:
   - {fileID: 2087646897}
   - {fileID: 1992607375}
   - {fileID: 1621934021}
+  - {fileID: 819293011}

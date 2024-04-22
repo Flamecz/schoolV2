@@ -11,6 +11,7 @@ public class ReciveData : MonoBehaviour
     public Resources resources;
     public InvetorySaver inventorySaver;
     public UnitStructure[] unitStruc;
+    public GameObject[] Maps;
     private int var;
     private void Awake()
     {
@@ -26,20 +27,22 @@ public class ReciveData : MonoBehaviour
         whatResource = MDS.whatResource;
         whatMission = MDS.whatMission;
         whatDificulty = MDS.whatDificulty;
-        if(MDS.whatMission == 0)
+        if (MDS.whatMission == 0)
         {
-            MDS.Width = 40;
+            MDS.Width = 21;
             MDS.Height = 15;
         }
         if (MDS.whatMission == 1)
         {
-            MDS.Width = 50;
-            MDS.Height = 20;
+            MDS.Width = 21;
+            MDS.Height = 15;
+         Maps[0].SetActive(false); Maps[1].SetActive(false);
         }
         if (MDS.whatMission == 2)
         {
-            MDS.Width = 50;
-            MDS.Height = 50;
+            MDS.Width = 21;
+            MDS.Height = 15;
+            Maps[0].SetActive(false); Maps[1].SetActive(true);
         }
     }
 

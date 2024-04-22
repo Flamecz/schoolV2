@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -103,20 +104,19 @@ public class CameraMovement : MonoBehaviour
                 }
                 else if(hitObject.tag == "Suroviny" && distanceToTarget < 17)
                 {
-                    hitObject.GetComponent<ResourceObject>().BeClaimed.claimed = true;
-                    SendToQuest++;
-                    for (int i = 0; i < questObject.Length; i++)
+                    hitObject.GetComponent<ResourceObject>();
+                    if(FindObjectOfType<QuestControll>().Selected.QG.goalType == GoalType.Gather)
                     {
-                        if (questObject[i].claimed == true)
-                        {
-                            
-                        }
-                        else if (questObject[i].claimed == false)
-                        {
-                            break;
-                        }
+                        FindObjectOfType<QuestControll>().Selected.QG.QuestGatherd();
+                        
                     }
-                    
+                    FindObjectOfType<ResourceManager>().ModifyResources("Gems", 1);
+                    Destroy(hitObject);
+                }
+                else if (hitObject.tag == "Enemy" && distanceToTarget < 17)
+                {
+                    SceneManager.LoadScene(3);
+                    FindObjectOfType<AudioManager>().Play("Battle");
                 }
             }
         }
