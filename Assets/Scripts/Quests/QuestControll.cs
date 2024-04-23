@@ -24,6 +24,8 @@ public class QuestControll : MonoBehaviour
     [Header("Misc")]
     public VideoClip win, loss;
     public Canvas canvas;
+    public Texture2D StartCursor;
+
     private Button GoBack;
     private Text Condition;
     private Text Description;
@@ -31,9 +33,12 @@ public class QuestControll : MonoBehaviour
     private Button Resume,abandon,SaveandBack;
     private GameObject questOpen,finnishOpen,cutOpen,pauseOpen;
     private static bool OneWorks;
+    private string sceneName;
+    private bool sceneFound;
 
     void Awake()
     {
+        DontDestroyOnLoad(gameObject);
        if (instance == null)
        {
          instance = this;
@@ -43,10 +48,22 @@ public class QuestControll : MonoBehaviour
          Destroy(gameObject);
          return;
        }
+        Debug.Log("h");
     }
 
     private void Update()
     {
+        if(!sceneFound)
+        {
+            Scene scene = SceneManager.GetActiveScene();
+            sceneName = scene.name;
+            canvas = FindObjectOfType<Canvas>();
+            if (sceneName == "Test Scene")
+            {
+                sceneFound = true;
+                OpenQuest();
+            }
+        }
         bool isdone = Selected.QG.QuestDone();
         if (Input.GetKeyDown(KeyCode.Escape) && !OneWorks)
         {
@@ -75,31 +92,6 @@ public class QuestControll : MonoBehaviour
         Debug.Log("Hap");
         FindObjectOfType<Testing>().CanBeAccest(false);
         questOpen = Instantiate(questWindow, canvas.transform);
-        if (MDS.whatMission == 0)
-        {
-            Selected = data[0];
-            Selected.isActive = true;
-            Selected.QG.requiredAmount = data[0].QG.requiredAmount;
-            Debug.Log("Hap1");
-        }
-        else if (MDS.whatMission == 1)
-        {
-            Selected = data[1];
-            Selected.isActive = true;
-            Selected.QG.requiredAmount = data[1].QG.requiredAmount;
-            Debug.Log("Hap1");
-        }
-        else if (MDS.whatMission == 2)
-        {
-            Selected = data[2];
-            Selected.isActive = true;
-            Selected.QG.requiredAmount = data[2].QG.requiredAmount;
-            Debug.Log("Hap1");
-        }
-        else
-        {
-            Debug.Log("error");
-        }
         Condition = questOpen.gameObject.transform.Find("Condition").GetComponent<Text>();
         if (Condition != null)
         {
@@ -153,6 +145,7 @@ public class QuestControll : MonoBehaviour
         int c = PlayerPrefs.GetInt("Achivment");
         PlayerPrefs.SetInt("Achivment", c + 1);
         FindObjectOfType<AudioManager>().Play("victory");
+        sceneFound = false;
         OneWorks = true;
     }
     public void Abandon()
@@ -165,6 +158,7 @@ public class QuestControll : MonoBehaviour
         VP.clip = loss;
         GoBack.onClick.AddListener(LoadScene0);
         FindObjectOfType<AudioManager>().Play("lost");
+        sceneFound = false;
         OneWorks = true;
     }
     public void LoadScene0()

@@ -7,17 +7,22 @@ using UnityEngine.UI;
 public class MissionCreator : MonoBehaviour
 {
     [Header("Data about mission")]
+    public int LevelIndex;
     public MissionData missionD;
     public Quest data;
+    public sound Theme;
+    public BonusThingsinMission[] BTM;
     [Header("Units")]
     public InvetorySaver invetorySaver;
     public Unit[] units;
     public int[] countOfUnits;
     public UnitStructure unitStructure;
 
+    [Header("invetory")]
+    public Unit[] unitsToSet;
+
+    [Header("Misc")]
     public GameObject Canvas;
-    public int LevelIndex;
-    public Sprite cityBackground;
     private int selectedUnits;
 
     private string nazev;
@@ -48,12 +53,7 @@ public class MissionCreator : MonoBehaviour
         neutral,
         evil
     }
-    public sound Theme;
 
-    public CityBuldings[] sendBuildings;
-    public Unit[] unitsToSet;
-
-    public BonusThingsinMission[] BTM;
     void Start()
     {
         nazev = gameObject.name;
@@ -142,43 +142,9 @@ public class MissionCreator : MonoBehaviour
             int var = 0;
             if (selectedUnits == 1 && invetorySaver.unitList[i] == unitStructure.unit && var == 0)
             {
-                Debug.Log("fired");
                 invetorySaver.unitCount[i] += unitStructure.count / 3;
                 var = 1;
             }
-        }
-    }
-    private void ClearData()
-    {
-        sendBuildings[0].builded = true;
-        sendBuildings[1].builded = true;
-        sendBuildings[2].builded = false;
-        sendBuildings[3].builded = false;
-        sendBuildings[4].builded = true;
-        sendBuildings[5].builded = true;
-        sendBuildings[6].builded = false;
-        sendBuildings[7].builded = false;
-        sendBuildings[8].builded = false;
-        sendBuildings[9].builded = false;
-        sendBuildings[10].builded = false;
-        for(int i = 0; i < sendBuildings.Length; i++)
-        {
-            sendBuildings[i].upgraded = false;  
-        }
-        sendBuildings[0].builded = true;
-        sendBuildings[1].builded = true;
-        sendBuildings[2].builded = false;
-        sendBuildings[3].builded = false;
-        sendBuildings[4].builded = true;
-        sendBuildings[5].builded = true;
-        sendBuildings[6].builded = false;
-        sendBuildings[7].builded = false;
-        sendBuildings[8].builded = false;
-        sendBuildings[9].builded = false;
-        sendBuildings[10].builded = false;
-        for (int i = 0; i < sendBuildings.Length; i++)
-        {
-            sendBuildings[i].upgraded = false;
         }
     }
     public void LoadGame()
@@ -193,10 +159,7 @@ public class MissionCreator : MonoBehaviour
             invetorySaver.unitList[i] = units[i];
             invetorySaver.unitCount[i] = countOfUnits[i];
         }
-        ClearData();
-        FindObjectOfType<BuildingManager>().save.CityBuldings = sendBuildings;
         FindObjectOfType<BuildingManager>().save.UnitSetting = unitsToSet;
-        FindObjectOfType<BuildingManager>().save.cityBackground = cityBackground;
         if(Theme == sound.good)
         {
             PlayerPrefs.SetFloat("PosX", 205);
@@ -222,7 +185,10 @@ public class MissionCreator : MonoBehaviour
         PlayerPrefs.DeleteKey("Test Scene");
         PlayerPrefs.SetInt("Setted", 1);
         FindObjectOfType<QuestControll>().Selected = data;
+        FindObjectOfType<QuestControll>().Selected.isActive = true;
+        FindObjectOfType<QuestControll>().Selected.QG = data.QG;
         FindObjectOfType<MenuUIContorler>().LoadGrid();
+
     }
     public string GetInfo(int index)
     { 
