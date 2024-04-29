@@ -10,6 +10,7 @@ public class PathVisual : MonoBehaviour
     private Mesh mesh;
     private bool updateMesh;
     public GameObject ForestTile;
+    public GameObject HradTile;
     private void Awake()
     {
         mesh = new Mesh();
@@ -162,6 +163,11 @@ public class PathVisual : MonoBehaviour
                 {
                     var rot = new Vector3((x * 10) + 5, (y * 10) + 5, 0f);
                     Instantiate(ForestTile, rot, Quaternion.identity);
+                }
+                if (cellChar == 'H')
+                {
+                    var rot = new Vector3((x * 10) + 5, (y * 10) + 5, 0f);
+                    Instantiate(HradTile, rot, Quaternion.Euler(new Vector3(0, 180, 0)));
                 }
             }
         }

@@ -46,9 +46,11 @@ public class DisplayStatsOfUnits : MonoBehaviour
     void Start()
     {
         building = FindObjectOfType<BuildingManager>().save.CityBuldings[buildingNumber];
+    }
+    private void Awake()
+    {
         GetData();
     }
-
     // Update is called once per frame
     void Update()
     {

@@ -19,9 +19,15 @@ public class CameraMovement : MonoBehaviour
     public Quest quest;
     public int SendToQuest;
     public SaveDataObject SDO;
+    public bool OnWay;
+    private GameObject holdObject;
     void Start()
     {
         orthographicCamera = GetComponent<Camera>();
+        float x = PlayerPrefs.GetFloat("PosX");
+        float y = PlayerPrefs.GetFloat("PosY");
+
+        orthographicCamera.transform.position = new Vector3(x, y, orthographicCamera.transform.position.z);
     }
 
     void Update()
@@ -65,7 +71,7 @@ public class CameraMovement : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-
+            OnWay = true;
             if (Physics.Raycast(ray, out hit))
             {
                 GameObject hitObject = hit.collider.gameObject;
@@ -111,13 +117,33 @@ public class CameraMovement : MonoBehaviour
                         
                     }
                     FindObjectOfType<ResourceManager>().ModifyResources("Gems", 1);
-                    Destroy(hitObject);
+                    Destroy(hitObject.gameObject);
+                }
+                else if (hitObject.tag == "Suroviny" && distanceToTarget > 17)
+                {
+                    hitObject.GetComponent<ResourceObject>();
+                    if (FindObjectOfType<QuestControll>().Selected.QG.goalType == GoalType.Gather)
+                    {
+                        FindObjectOfType<QuestControll>().Selected.QG.QuestGatherd();
+
+                    }
+                    FindObjectOfType<ResourceManager>().ModifyResources("Gems", 1);
+                    holdObject = hitObject.gameObject;
                 }
                 else if (hitObject.tag == "Enemy" && distanceToTarget < 17)
                 {
                     SceneManager.LoadScene(3);
                     FindObjectOfType<AudioManager>().Play("Battle");
                 }
+            }
+        }
+        if(!OnWay)
+        {
+            if(holdObject != null)
+            {
+                Destroy(holdObject);
+                holdObject = null;
+                OnWay = false;
             }
         }
     }

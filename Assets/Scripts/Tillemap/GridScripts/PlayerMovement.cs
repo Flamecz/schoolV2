@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private int currentPathIndex;
     private List<Vector3> pathVectorList;
     public bool building = false;
-
+    public bool resource = false;
 
     private void Start()
     {
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovement()
     {
-        if (pathVectorList != null && !building)
+        if (pathVectorList != null && !building && !resource)
         {
             Vector3 targetPosition = pathVectorList[currentPathIndex];
             if (Vector3.Distance(transform.position, targetPosition) > 1f)
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        else if(pathVectorList != null && building)
+        else if (pathVectorList != null && building && !resource)
         {
             Vector3 targetPosition = pathVectorList[currentPathIndex];
             if (Vector3.Distance(transform.position, targetPosition) > 1f)
@@ -62,10 +62,30 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 currentPathIndex++;
-                if (currentPathIndex >= pathVectorList.Count -1)
+                if (currentPathIndex >= pathVectorList.Count - 1)
                 {
                     StopMoving();
 
+                }
+            }
+        }
+        else if(pathVectorList != null && !building && resource)
+        {
+            Vector3 targetPosition = pathVectorList[currentPathIndex];
+            if (Vector3.Distance(transform.position, targetPosition) > 1f)
+            {
+                Vector3 moveDir = (targetPosition - transform.position).normalized;
+
+                float distanceBefore = Vector3.Distance(transform.position, targetPosition);
+                transform.position = transform.position + moveDir * speed * Time.deltaTime;
+            }
+            else
+            {
+                currentPathIndex++;
+                if (currentPathIndex >= pathVectorList.Count - 1)
+                {
+                    StopMoving();
+                    FindObjectOfType<CameraMovement>().OnWay = false;
                 }
             }
         }

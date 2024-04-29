@@ -43,13 +43,6 @@ public class Testing : MonoBehaviour {
                 pathfinding.RemoveCost();
             }
         }
-
-        if (Input.GetMouseButtonDown(1) && canBeAccest)
-        {
-            Vector3 mouseWorldPosition = GetMouseWorldPosition();
-            pathfinding.GetGrid().GetXY(mouseWorldPosition, out int x, out int y);
-            pathfinding.GetNode(x, y).SetIsWalkable(!pathfinding.GetNode(x, y).isWalkable);
-        }
     }
     public bool CanBeAccest( bool acces)
     {

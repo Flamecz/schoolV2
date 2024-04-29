@@ -53,7 +53,7 @@ public class MissionCreator : MonoBehaviour
         neutral,
         evil
     }
-
+    public CityBuldings[] sendBuildings;
     void Start()
     {
         nazev = gameObject.name;
@@ -147,6 +147,39 @@ public class MissionCreator : MonoBehaviour
             }
         }
     }
+    private void ClearData()
+    {
+        sendBuildings[0].builded = true;
+        sendBuildings[1].builded = true;
+        sendBuildings[2].builded = false;
+        sendBuildings[3].builded = false;
+        sendBuildings[4].builded = true;
+        sendBuildings[5].builded = true;
+        sendBuildings[6].builded = false;
+        sendBuildings[7].builded = false;
+        sendBuildings[8].builded = false;
+        sendBuildings[9].builded = false;
+        sendBuildings[10].builded = false;
+        for (int i = 0; i < sendBuildings.Length; i++)
+        {
+            sendBuildings[i].upgraded = false;
+        }
+        sendBuildings[0].builded = true;
+        sendBuildings[1].builded = true;
+        sendBuildings[2].builded = false;
+        sendBuildings[3].builded = false;
+        sendBuildings[4].builded = true;
+        sendBuildings[5].builded = true;
+        sendBuildings[6].builded = false;
+        sendBuildings[7].builded = false;
+        sendBuildings[8].builded = false;
+        sendBuildings[9].builded = false;
+        sendBuildings[10].builded = false;
+        for (int i = 0; i < sendBuildings.Length; i++)
+        {
+            sendBuildings[i].upgraded = false;
+        }
+    }
     public void LoadGame()
     {
         for (int i = 0; i < invetorySaver.unitList.Length; i++)
@@ -159,6 +192,7 @@ public class MissionCreator : MonoBehaviour
             invetorySaver.unitList[i] = units[i];
             invetorySaver.unitCount[i] = countOfUnits[i];
         }
+        ClearData();
         FindObjectOfType<BuildingManager>().save.UnitSetting = unitsToSet;
         if(Theme == sound.good)
         {

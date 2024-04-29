@@ -35,9 +35,9 @@ public class MenuController : MonoBehaviour
         {
             StartCampain.GetComponentInChildren<Text>().text = "Start Campain";
             LoadCampain.GetComponentInChildren<Text>().text = "Load Campain";
-            Options.GetComponentInChildren<Text>().text = "options";
-            Credits.GetComponentInChildren<Text>().text = "credits";
-            Quit.GetComponentInChildren<Text>().text = "quit";
+            Options.GetComponentInChildren<Text>().text = "Options";
+            Credits.GetComponentInChildren<Text>().text = "Credits";
+            Quit.GetComponentInChildren<Text>().text = "Quit";
         }
         Button1.onClick.AddListener(StartCampainScene);
         Button2.onClick.AddListener(LoadCampainScene);
