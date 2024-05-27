@@ -1470,6 +1470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d62e51ddb85eb841b1e98a0f6fdcb9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ForestTile: {fileID: 0}
+  HradTile: {fileID: 0}
 --- !u!4 &746043715
 Transform:
   m_ObjectHideFlags: 0
@@ -2494,7 +2496,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1383803788}
   - component: {fileID: 1383803787}
-  - component: {fileID: 1383803789}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -2555,18 +2556,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1383803789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383803786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28ec62cd638f0ec45a502178a1436562, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1393651382
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,7 +31,6 @@ public class BattleManager : MonoBehaviour
     int futureturn;
     void Awake()
     {
-        FindObjectOfType<AudioManager>().Play("Battle");
         for (int i = 0; i < playerUnits.unitList.Length;i++)
         {
             if (playerUnits.unitList[i] != null)
@@ -90,10 +89,10 @@ public class BattleManager : MonoBehaviour
             playerCharacters[i].shots = unit.Shots;
         }
     }
-    public void CreateNewAliedUnit( Unit unit)
+    public void CreateNewAliedUnit(Unit unit)
     {
         int currentLenght = playerCharacters.Length;
-        if (currentLenght < 7 )
+        if (currentLenght < 7)
         {
             FieldMovement[] copy = new FieldMovement[currentLenght];
             Array.Copy(playerCharacters, copy, currentLenght); // Copy elements from the original array
@@ -105,6 +104,7 @@ public class BattleManager : MonoBehaviour
         playerCharacters[currentLenght].unit = unit;
         playerCharacters[currentLenght].health = PlayerReturnHP(currentLenght, unit);
         playerCharacters[currentLenght].count = playerUnits.unitCount[currentLenght];
+
         if (playerCharacters[currentLenght].unit.ATKT == Unit.attackType.ranger)
         {
             playerCharacters[currentLenght].shots = unit.Shots;
@@ -145,15 +145,21 @@ public class BattleManager : MonoBehaviour
 
         foreach (FieldMovement fm in playerCharacters)
         {
-            if (fm != null) fm.enabled = false;
+            if (fm != null)
+            { 
+                fm.enabled = false;
+                fm.transform.Find("BackGround").GetComponent<MeshRenderer>().enabled = false;
+            }
+            
         }
 
         // Start the turn with the current value of currentTurn
         if (currentTurn < playerCharacters.Length && playerCharacters[currentTurn] != null && !playerCharacters[currentTurn].isDead)
         {
             playerCharacters[currentTurn].enabled = true;
+            playerCharacters[currentTurn].transform.Find("BackGround").GetComponent<MeshRenderer>().enabled = true;
             moveControl.unitPathfinding = playerCharacters[currentTurn];
-            Debug.Log("Current unit: " + playerCharacters[currentTurn].unit + ", Speed: " + playerCharacters[currentTurn].unit.speed);
+            Debug.Log("Current unit: " + playerCharacters[currentTurn].unit + ", Speed: " + playerCharacters[currentTurn].unit.speed);    
             moveControl.set = playerCharacters[currentTurn].unit.speed * 10;
             moveControl.pathfinding.SetSettedValue(playerCharacters[currentTurn].unit.speed * 10);
         }
@@ -185,13 +191,20 @@ public class BattleManager : MonoBehaviour
     private IEnumerator ExecuteEnemyTurn()
     {
         Debug.Log("fired");
-
+        foreach (FieldMovement fm in playerCharacters)
+        {
+            if (fm != null)
+            {
+                fm.transform.Find("BackGround").GetComponent<MeshRenderer>().enabled = false;
+            }
+        }
 
         for (int i = 0; i < enemyCharacters.Length; i++)
         {
 
             enemyCharacters[i].enabled = true;
             enemyCharacters[i].enemyHasTurn = true;
+            enemyCharacters[i].transform.Find("BackGround").GetComponent<MeshRenderer>().enabled = true;
             Destroy(enemyCharacters[i].gameObject.GetComponent<BoxCollider>());
             FieldMovement closestPlayerUnit = FindClosestPlayerUnit(enemyCharacters[i].transform.position);
             float distanceBefore = Vector3.Distance(enemyCharacters[i].transform.position, closestPlayerUnit.transform.position);
@@ -234,6 +247,7 @@ public class BattleManager : MonoBehaviour
             yield return new WaitForSeconds(1f); // Wait for 1 second between each enemy's action
             enemyCharacters[i].enabled = false;
             enemyCharacters[i].gameObject.AddComponent<BoxCollider>();
+            enemyCharacters[i].transform.Find("BackGround").GetComponent<MeshRenderer>().enabled = false;
         }
 
         EndCycle();
