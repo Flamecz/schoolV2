@@ -46,9 +46,10 @@ public class MarketPriceList : MonoBehaviour, IPointerClickHandler
     }
     private void Update()
     {
-        LeftSelected.transform.Find("Amount").GetComponent<Text>().text = count.ToString();
-        lastResourceCount = ReturnCount();
-        RightSelected.transform.Find("Amount").GetComponent<Text>().text = ReturnCount().ToString();
+            LeftSelected.transform.Find("Amount").GetComponent<Text>().text = ReturnCount().ToString();
+            lastResourceCount = ReturnCount();
+        Debug.Log(lastResourceCount);
+            RightSelected.transform.Find("Amount").GetComponent<Text>().text = count.ToString();
     }
     public void GetProperty()
     {
@@ -206,39 +207,8 @@ public class MarketPriceList : MonoBehaviour, IPointerClickHandler
             Selected2 = false;
         }
     }
-    public void CalculateSubstraction()
-    {
-        Debug.Log(index);
-        switch(index)
-        {
-            case 0:
-                RM.ModifyResources("Wood", -lastResourceCount);
-                break;
-            case 1:
-                RM.ModifyResources("Iron", -lastResourceCount);
-                break;
-            case 2:
-                RM.ModifyResources("Stone", -lastResourceCount);
-                break;
-            case 3:
-                RM.ModifyResources("Sulfur", -lastResourceCount);
-                break;
-            case 4:
-                RM.ModifyResources("Minerals", -lastResourceCount);
-                break;
-            case 5:
-                RM.ModifyResources("Gems", -lastResourceCount);
-                break;
-            case 6:
-                RM.ModifyResources("Gold", -lastResourceCount);
-                break;
-        }
-        
-    }
-    public void BuyResources()
-    {
 
-    }
+
     public void Debuger()
     {
         FindObjectOfType<UpdateTexts>().Debugger(WoodCost,StoneCost,IronCost,MineralsCost,SulfurCost,GemsCost,(int)GoldCost);

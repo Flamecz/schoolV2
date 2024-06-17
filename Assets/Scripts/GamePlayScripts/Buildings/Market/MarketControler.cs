@@ -44,24 +44,45 @@ public class MarketControler : MonoBehaviour
         {
             case 0:
                 RM.ModifyResources("Wood", -ReturnCount());
+                FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                index1 = 0;
+                index2 = 0;
                 break;
             case 1:
                 RM.ModifyResources("Iron", -ReturnCount());
+                FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                index1 = 0;
+                index2 = 0;
                 break;
             case 2:
                 RM.ModifyResources("Stone", -ReturnCount());
+                FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                index1 = 0;
+                index2 = 0;
                 break;
             case 3:
                 RM.ModifyResources("Sulfur", -ReturnCount());
+                FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                index1 = 0;
+                index2 = 0;
                 break;
             case 4:
                 RM.ModifyResources("Minerals", -ReturnCount());
+                FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                index1 = 0;
+                index2 = 0;
                 break;
             case 5:
                 RM.ModifyResources("Gems", -ReturnCount());
+                FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                index1 = 0;
+                index2 = 0;
                 break;
             case 6:
-                RM.ModifyResources("Gold", -ReturnCount());
+                RM.ModifyResources("Gold", +ReturnCount());
+                FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                index1 = 0;
+                index2 = 0;
                 break;
         }
         switch (index2)
@@ -85,7 +106,7 @@ public class MarketControler : MonoBehaviour
                 RM.ModifyResources("Gems", count);
                 break;
             case 6:
-                RM.ModifyResources("Gold", count);
+                RM.ModifyResources("Gold", +ReturnCount());
                 break;
         }
     }

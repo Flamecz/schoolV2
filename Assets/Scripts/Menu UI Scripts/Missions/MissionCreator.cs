@@ -17,7 +17,7 @@ public class MissionCreator : MonoBehaviour
     public Unit[] units;
     public int[] countOfUnits;
     public UnitStructure unitStructure;
-
+    public Sprite cityBackground;
     [Header("invetory")]
     public Unit[] unitsToSet;
 
@@ -193,8 +193,10 @@ public class MissionCreator : MonoBehaviour
             invetorySaver.unitCount[i] = countOfUnits[i];
         }
         ClearData();
+        FindObjectOfType<BuildingManager>().save.CityBuldings = sendBuildings;
         FindObjectOfType<BuildingManager>().save.UnitSetting = unitsToSet;
-        if(Theme == sound.good)
+        FindObjectOfType<BuildingManager>().save.cityBackground = cityBackground;
+        if (Theme == sound.good)
         {
             PlayerPrefs.SetFloat("PosX", 205);
             PlayerPrefs.SetFloat("PosY", 75);

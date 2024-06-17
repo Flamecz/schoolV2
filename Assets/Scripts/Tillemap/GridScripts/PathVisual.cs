@@ -11,6 +11,7 @@ public class PathVisual : MonoBehaviour
     private bool updateMesh;
     public GameObject ForestTile;
     public GameObject HradTile;
+    public GameObject Buildings,Resources;
     private void Awake()
     {
         mesh = new Mesh();
@@ -168,6 +169,16 @@ public class PathVisual : MonoBehaviour
                 {
                     var rot = new Vector3((x * 10) + 5, (y * 10) + 5, 0f);
                     Instantiate(HradTile, rot, Quaternion.Euler(new Vector3(0, 180, 0)));
+                }
+                if (cellChar == 'R')
+                {
+                    var rot = new Vector3((x * 10) + 5, (y * 10) + 5, 0f);
+                    Instantiate(Resources, rot, Quaternion.Euler(new Vector3(0, 180, 0)));
+                }
+                if (cellChar == 'B')
+                {
+                    var rot = new Vector3((x * 10) + 5, (y * 10) + 5, 0f);
+                    Instantiate(Buildings, rot, Quaternion.Euler(new Vector3(0, 180, 0)));
                 }
             }
         }

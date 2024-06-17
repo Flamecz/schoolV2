@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FieldMovement : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class FieldMovement : MonoBehaviour
     private bool canAttack = true;
     private float attackCooldown = 1f; // Adjust the cooldown duration as needed
     private float lastAttackTime = 0f;
+    public GameObject self;
     private void Update()
     {
         HandleMovement();
@@ -120,6 +122,7 @@ public class FieldMovement : MonoBehaviour
                 shots--;
                 Debug.Log("Dealt " + unit.damage + " ranged damage to the enemy unit!");
                 ResetAttackCooldown();
+                enemyUnit.self.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = enemyUnit.count.ToString();
                 EndPlayerTurn();
             }
             else if (unit.ATKT == Unit.attackType.ranger && shots <= 0 && distanceToTarget < 17)
@@ -129,6 +132,7 @@ public class FieldMovement : MonoBehaviour
                 enemyUnit.ReceiveDamage(minDamage, maxDamage);
                 Debug.Log("Dealt " + unit.damage + " melee damage due to no ammunition!");
                 ResetAttackCooldown();
+                enemyUnit.self.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = enemyUnit.count.ToString();
                 EndPlayerTurn();
             }
             else if (unit.ATKT == Unit.attackType.melee && distanceToTarget < 17)
@@ -138,6 +142,7 @@ public class FieldMovement : MonoBehaviour
                 enemyUnit.ReceiveDamage(minDamage, maxDamage);
                 Debug.Log("Dealt " + unit.damage + " melee damage to the enemy unit!");
                 ResetAttackCooldown();
+                enemyUnit.self.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = enemyUnit.count.ToString();
                 EndPlayerTurn();
             }
             StartCoroutine(ResetAttackCooldown());

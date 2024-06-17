@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.Animations;
 using UnityEngine.SceneManagement;
 
@@ -88,6 +89,8 @@ public class BattleManager : MonoBehaviour
         {
             playerCharacters[i].shots = unit.Shots;
         }
+        playerCharacters[i].self = go;
+        go.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = playerCharacters[i].count.ToString();
     }
     public void CreateNewAliedUnit(Unit unit)
     {
@@ -104,11 +107,13 @@ public class BattleManager : MonoBehaviour
         playerCharacters[currentLenght].unit = unit;
         playerCharacters[currentLenght].health = PlayerReturnHP(currentLenght, unit);
         playerCharacters[currentLenght].count = playerUnits.unitCount[currentLenght];
+        playerCharacters[currentLenght].self = go;
 
         if (playerCharacters[currentLenght].unit.ATKT == Unit.attackType.ranger)
         {
             playerCharacters[currentLenght].shots = unit.Shots;
         }
+        go.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = playerCharacters[currentLenght].count.ToString();
     }
     public void CreateEnemyUnit(int i, Unit unit)
     {
@@ -124,6 +129,8 @@ public class BattleManager : MonoBehaviour
             enemyCharacters[i].shots = unit.Shots;
         }
         go.AddComponent<EnemyAi>();
+        enemyCharacters[i].self = go;
+        go.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = enemyCharacters[i].count.ToString();
         enemyCharacters[i].enabled = false;
     }
     public void StartTurn()
@@ -332,5 +339,9 @@ public class BattleManager : MonoBehaviour
     {
         int count = enemyUnits.unitCount[index];
         return unit.health * count;
+    }
+    public void UpdateCount(FieldMovement fm)
+    {
+        
     }
 }

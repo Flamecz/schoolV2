@@ -80,9 +80,10 @@ public class CameraMovement : MonoBehaviour
                 Debug.Log(distanceToTarget);
                 if (hitObject.tag == "hrad" && distanceToTarget < 17)
                 {
-
+                    Debug.Log("yep");
                     if(FindObjectOfType<QuestControll>().Selected.QG.goalType == GoalType.GetTo)
                     {
+                        Debug.Log("yeeee");
                         FindObjectOfType<QuestControll>().Selected.QG.QuestGatherd();
                         bool isdone = FindObjectOfType<QuestControll>().Selected.QG.QuestDone();
                         if(isdone)

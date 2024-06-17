@@ -403,6 +403,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
   countOfUnits: 230000000c000000
   unitStructure: {fileID: 11400000, guid: 1816ce008e9acd84c97edc045cd7e764, type: 2}
+  cityBackground: {fileID: 0}
   unitsToSet:
   - {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
   - {fileID: 11400000, guid: 42886ce941af5472b93557d13bbb882a, type: 2}
@@ -5214,6 +5215,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e0dc38cd81e54073b5e07f6b3eba59e, type: 2}
   countOfUnits: 50000000240000000a000000
   unitStructure: {fileID: 11400000, guid: b790addd9f371074a9d93975d43376f9, type: 2}
+  cityBackground: {fileID: 0}
   unitsToSet:
   - {fileID: 11400000, guid: 0fc5e05975bd84c8d9b2d803ba606f7d, type: 2}
   - {fileID: 11400000, guid: b129884d8071a435385a03c312e586fe, type: 2}
@@ -6048,13 +6050,13 @@ MonoBehaviour:
     UvodObraz: {fileID: 21300000, guid: ffbdb0f6c20526a4ba168d56647f5d35, type: 3}
     Map: {fileID: 21300000, guid: 2932bb0fd97ce4d4b807554f54fbdac3, type: 3}
   data:
-    condition: 
-    description: 
+    condition: Gather Supply
+    description: You have to find lost minerals scatered by caravans
     isActive: 0
     Finnished: 0
     QG:
-      goalType: 0
-      requiredAmount: 0
+      goalType: 1
+      requiredAmount: 6
       currentAmount: 0
   Theme: 1
   BTM:
@@ -6069,6 +6071,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
   countOfUnits: 370000001a0000000c00000005000000
   unitStructure: {fileID: 11400000, guid: 0f085476c9cd7844cb3af21fccece937, type: 2}
+  cityBackground: {fileID: 0}
   unitsToSet:
   - {fileID: 11400000, guid: 583b8055529c94dc7a6a45c0d58556b1, type: 2}
   - {fileID: 11400000, guid: e0e31ff27498948dab4efd9d0d903b60, type: 2}

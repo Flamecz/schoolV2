@@ -29,6 +29,7 @@ public class QuestControll : MonoBehaviour
     private Button GoBack;
     private Text Condition;
     private Text Description;
+    public Text state;
     private Button Accept;
     private Button Resume,abandon,SaveandBack;
     private GameObject questOpen,finnishOpen,cutOpen,pauseOpen;
@@ -139,7 +140,9 @@ public class QuestControll : MonoBehaviour
         cutOpen = Instantiate(cutScene, canvas.transform);
         GoBack = cutOpen.transform.Find("BackButton").GetComponent<Button>();
         VideoPlayer VP = cutOpen.transform.Find("Video Player").GetComponent<VideoPlayer>();
+        state = cutOpen.transform.Find("Victory").GetComponent<Text>();
         VP.clip = win;
+        state.text = "Victory";
         GoBack.onClick.AddListener(LoadScene0);
         PlayerPrefs.SetInt("Achivment", 1);
         int c = PlayerPrefs.GetInt("Achivment");
@@ -150,12 +153,15 @@ public class QuestControll : MonoBehaviour
     }
     public void Abandon()
     {
+        Debug.Log("Wat");
         PlayerPrefs.SetInt("Setted", 0);
         Destroy(pauseOpen);
         cutOpen = Instantiate(cutScene, canvas.transform);
         GoBack = cutOpen.transform.Find("BackButton").GetComponent<Button>();
         VideoPlayer VP = cutOpen.transform.Find("Video Player").GetComponent<VideoPlayer>();
+        state = cutOpen.transform.Find("Victory").GetComponent<Text>();
         VP.clip = loss;
+        state.text = "Lost";
         GoBack.onClick.AddListener(LoadScene0);
         FindObjectOfType<AudioManager>().Play("lost");
         sceneFound = false;

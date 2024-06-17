@@ -19,6 +19,7 @@ public class OpenPrefabUnits : MonoBehaviour
     private Text costForOne, costForAll;
     private Text availableRecrutes, recrutableRecrutes;
     private Slider slider;
+    private Button left, right;
     private Button buyUnitsButton, cancelButton;
 
     private bool leftSelected = true;
@@ -35,7 +36,10 @@ public class OpenPrefabUnits : MonoBehaviour
             button.onClick.AddListener(CreatePopUp);
         }
     }
-
+    private void Update()
+    {
+        CheckButtonState();
+    }
     public void GetData()
     {
         Instance = Instantiate(buyUnitprefab, parent.transform);
@@ -52,6 +56,8 @@ public class OpenPrefabUnits : MonoBehaviour
         availableRecrutes = image.Find("AvaibleToRecruteUnits").Find("Amount").GetComponent<Text>();
         recrutableRecrutes = image.Find("RecruteToRecruteUnits").Find("Amount").GetComponent<Text>();
         slider = image.Find("Slider").GetComponent<Slider>();
+        left = image.Find("LeftButton").GetComponent<Button>();
+        right = image.Find("RightButton").GetComponent<Button>();
         buyUnitsButton = image.Find("BuyUnitsButton").GetComponent<Button>();
         Transform cancel = image.Find("CancelButton");
         cancelButton = cancel.GetComponent<Button>();
@@ -71,6 +77,9 @@ public class OpenPrefabUnits : MonoBehaviour
             UpdateUI(unit1);
             buyUnitsButton.onClick.RemoveAllListeners(); // Remove previous listeners
             buyUnitsButton.onClick.AddListener(() => buyUnits(unit1)); // Add new listener for buying units
+            left.onClick.AddListener(OnButtonMinusClick);
+            right.onClick.AddListener(OnButtonPlusClick);
+            CheckButtonState();
         });
 
         unitImage2Button.onClick.AddListener(() =>
@@ -79,6 +88,9 @@ public class OpenPrefabUnits : MonoBehaviour
             UpdateUI(unit2);
             buyUnitsButton.onClick.RemoveAllListeners(); // Remove previous listeners
             buyUnitsButton.onClick.AddListener(() => buyUnits(unit2)); // Add new listener for buying units
+            left.onClick.AddListener(OnButtonMinusClick);
+            right.onClick.AddListener(OnButtonPlusClick);
+            CheckButtonState();
         });
     }
     void UpdateUI(Unit unit)
@@ -112,6 +124,10 @@ public class OpenPrefabUnits : MonoBehaviour
         availableRecrutes.text = max.ToString();
         int wholeCount = (int)slider.value;
         recrutableRecrutes.text = wholeCount.ToString();
+        buyUnitsButton.onClick.AddListener(() => buyUnits(unit2));
+        left.onClick.AddListener(OnButtonMinusClick);
+        right.onClick.AddListener(OnButtonPlusClick);
+        CheckButtonState();
     }   
     public void CreatePopUp()
     {
@@ -146,7 +162,6 @@ public class OpenPrefabUnits : MonoBehaviour
     {
         int wholeCount = (int)slider.value;
         int moneycost = wholeCount * selected.cost;
-
         growthManager.currentBuyableUnits -= wholeCount;
         resourceManger.Data.Gold -= moneycost;
 
@@ -162,5 +177,39 @@ public class OpenPrefabUnits : MonoBehaviour
     {
         Debug.Log("Right");
         leftSelected = false ;
+    }
+    private void OnButtonMinusClick()
+    {
+        // Decrement the slider value
+        slider.value -= 1;
+
+        // Ensure the slider value doesn't go below zero
+        if (slider.value < 0)
+        {
+            slider.value = 0;
+        }
+
+        // Check if the button should be disabled
+        CheckButtonState();
+    }
+    private void OnButtonPlusClick()
+    {
+        // Decrement the slider value
+        slider.value += 1;
+
+        // Ensure the slider value doesn't go below zero
+        if (slider.value > slider.maxValue)
+        {
+            slider.value = slider.maxValue;
+        }
+
+        // Check if the button should be disabled
+        CheckButtonState();
+    }
+    void CheckButtonState()
+    {
+        // Disable the button if the slider value is zero
+        left.interactable = slider.value > 0;
+        right.interactable = slider.value < slider.maxValue;
     }
 }

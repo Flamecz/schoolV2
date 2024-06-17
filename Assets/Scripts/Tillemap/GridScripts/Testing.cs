@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class Testing : MonoBehaviour {
 
     public int selectedMap;
@@ -12,6 +13,7 @@ public class Testing : MonoBehaviour {
     public int set;
     public MapManager mapManager;
     public static bool canBeAccest = false;
+    public Slider staminaIndicator;
 
     private void Start()
     {
@@ -43,6 +45,7 @@ public class Testing : MonoBehaviour {
                 pathfinding.RemoveCost();
             }
         }
+        staminaIndicator.value = pathfinding.settedValue;
     }
     public bool CanBeAccest( bool acces)
     {
