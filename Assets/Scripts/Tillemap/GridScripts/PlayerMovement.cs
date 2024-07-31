@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     private int currentPathIndex;
     private List<Vector3> pathVectorList;
+    public List<Vector3> activePathList;
     public bool building = false;
     public bool resource = false;
 
@@ -105,6 +106,7 @@ public class PlayerMovement : MonoBehaviour
     {
         currentPathIndex = 0;
         pathVectorList = PathFinding.Instance.FindPath(GetPosition(), targetPosition);
+        activePathList = pathVectorList;
 
         if (pathVectorList != null && pathVectorList.Count > 1)
         {

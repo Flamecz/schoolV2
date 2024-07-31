@@ -434,6 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd08ff459e25cf141bf8349c9b57c773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activePathList: []
   building: 0
   resource: 0
 --- !u!4 &147066217
@@ -3522,6 +3523,7 @@ MonoBehaviour:
   characterPathfinding: {fileID: 147066216}
   pathfinding:
     settedValue: 300
+    Remove: 0
   set: 300
   mapManager: {fileID: 1529426511}
   staminaIndicator: {fileID: 2090458418}
@@ -3548,6 +3550,7 @@ GameObject:
   - component: {fileID: 1560599503}
   - component: {fileID: 1560599502}
   - component: {fileID: 1560599501}
+  - component: {fileID: 1560599504}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -3643,6 +3646,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 180, y: 180, z: 180}
+--- !u!114 &1560599504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560599500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3f9e82eacedc849844b979c87f5031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RandomUnits:
+  - {fileID: 11400000, guid: b129884d8071a435385a03c312e586fe, type: 2}
+  - {fileID: 11400000, guid: ecde1a1dcdf1a4a588b6dcacfb452867, type: 2}
+  RandomUnitCount: 0500000002000000
+  enemyUnits: {fileID: 11400000, guid: 57539e76c7e164e95a08274f7205d047, type: 2}
 --- !u!1 &1593773498
 GameObject:
   m_ObjectHideFlags: 0

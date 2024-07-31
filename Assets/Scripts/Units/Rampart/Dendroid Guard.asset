@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58d1f15ab15547a193b15548dfd474e, type: 3}
   m_Name: Dendroid Guard
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  imageInBattle: {fileID: 0}
+  sprite: {fileID: 21300000, guid: c797b4ab8a1839e4fbf71ebb0b9ddbae, type: 3}
+  imageInBattle: {fileID: 21300000, guid: 4e134fca699c1cb4e99abdb11df85c7c, type: 3}
   unitName: Dendroid Guard
   town: Rampart
   lvl: 5

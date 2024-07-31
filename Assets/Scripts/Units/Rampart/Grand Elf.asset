@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58d1f15ab15547a193b15548dfd474e, type: 3}
   m_Name: Grand Elf
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  imageInBattle: {fileID: 0}
+  sprite: {fileID: 21300000, guid: d685c66e547cb154f84c40b5d5831f0e, type: 3}
+  imageInBattle: {fileID: 21300000, guid: 37d8c2796c6d148478e9c50ad317c1e4, type: 3}
   unitName: Grand Elf
   town: Rampart
   lvl: 3.5

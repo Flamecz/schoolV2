@@ -11,10 +11,11 @@ public class PathFinding
         public static PathFinding Instance { get; private set; }
 
         public Grid<PathNode> grid;
-        private int Remove;
+        public int Remove;
         private List<PathNode> openList;
         private List<PathNode> closedList;
 
+   
         public PathFinding(int width, int height)
         {
             Instance = this;
@@ -172,7 +173,7 @@ public class PathFinding
                 currentNode = currentNode.cameFromNode;
             }
             path.Reverse();
-        Remove = path.Count;
+        Remove = path.Count - 1;
         return path;
         }
 

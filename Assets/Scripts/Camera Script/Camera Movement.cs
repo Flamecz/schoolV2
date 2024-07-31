@@ -133,8 +133,11 @@ public class CameraMovement : MonoBehaviour
                 }
                 else if (hitObject.tag == "Enemy" && distanceToTarget < 17)
                 {
-                    SceneManager.LoadScene(3);
+                    hitObject.GetComponent<EnemyUnitsContol>().ResetToNullUnits();
+                    hitObject.GetComponent<EnemyUnitsContol>().SetEnemyUnits();
+                    FindObjectOfType<AudioManager>().Stop("HeroesInWorld");
                     FindObjectOfType<AudioManager>().Play("Battle");
+                    SceneManager.LoadScene(3);
                 }
             }
         }

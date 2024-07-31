@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58d1f15ab15547a193b15548dfd474e, type: 3}
   m_Name: Gold Dragon
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  imageInBattle: {fileID: 0}
+  sprite: {fileID: 21300000, guid: b43ea506aa986fa408262ffd34586ddc, type: 3}
+  imageInBattle: {fileID: 21300000, guid: 44d5c84da05896c40b50175c10905200, type: 3}
   unitName: Gold Dragon
   town: Rampart
   lvl: 7.5

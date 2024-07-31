@@ -56,6 +56,7 @@ MonoBehaviour:
   enemyHasTurn: 0
   shots: 0
   OnEnemy: 0
+  self: {fileID: 0}
 --- !u!65 &1480927585144041273
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -105,7 +106,7 @@ Transform:
   m_GameObject: {fileID: 2930781270420108534}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.401, y: -0.562, z: 0.24719837}
+  m_LocalPosition: {x: 0.401, y: -0.25, z: -0.03}
   m_LocalScale: {x: 0.72367, y: 0.30917534, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -209,7 +210,7 @@ Transform:
   m_GameObject: {fileID: 4278079178414911818}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0.6, z: -0.2}
   m_LocalScale: {x: 1, y: 2, z: 0.03}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -465,7 +466,7 @@ Transform:
   m_GameObject: {fileID: 7239318845017123900}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00804, y: 0.56699, z: 0.5}
+  m_LocalPosition: {x: -0.00804, y: 0.56699, z: 0.4}
   m_LocalScale: {x: 0.74264526, y: 2.13397, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

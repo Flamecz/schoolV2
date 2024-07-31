@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58d1f15ab15547a193b15548dfd474e, type: 3}
   m_Name: Pegasus
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  imageInBattle: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 5fee3e0667dc4fc4a9cac3f216d57b9c, type: 3}
+  imageInBattle: {fileID: 21300000, guid: 0a68f472b00598a419bfbb1d45d89783, type: 3}
   unitName: Pegasus
   town: Rampart
   lvl: 4

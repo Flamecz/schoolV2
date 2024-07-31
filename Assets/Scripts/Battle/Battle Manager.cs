@@ -90,6 +90,7 @@ public class BattleManager : MonoBehaviour
             playerCharacters[i].shots = unit.Shots;
         }
         playerCharacters[i].self = go;
+        go.transform.Find("Cube").GetComponent<SpriteRenderer>().sprite = playerCharacters[i].unit.imageInBattle;
         go.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = playerCharacters[i].count.ToString();
     }
     public void CreateNewAliedUnit(Unit unit)
@@ -108,7 +109,7 @@ public class BattleManager : MonoBehaviour
         playerCharacters[currentLenght].health = PlayerReturnHP(currentLenght, unit);
         playerCharacters[currentLenght].count = playerUnits.unitCount[currentLenght];
         playerCharacters[currentLenght].self = go;
-
+        go.transform.Find("Cube").GetComponent<SpriteRenderer>().sprite = playerCharacters[currentLenght].unit.imageInBattle;
         if (playerCharacters[currentLenght].unit.ATKT == Unit.attackType.ranger)
         {
             playerCharacters[currentLenght].shots = unit.Shots;
@@ -130,6 +131,8 @@ public class BattleManager : MonoBehaviour
         }
         go.AddComponent<EnemyAi>();
         enemyCharacters[i].self = go;
+        go.transform.Find("Cube").GetComponent<SpriteRenderer>().sprite = enemyCharacters[i].unit.imageInBattle;
+        go.transform.Find("Cube").transform.rotation = Quaternion.Euler(0,180,0);
         go.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = enemyCharacters[i].count.ToString();
         enemyCharacters[i].enabled = false;
     }
@@ -217,37 +220,44 @@ public class BattleManager : MonoBehaviour
             float distanceBefore = Vector3.Distance(enemyCharacters[i].transform.position, closestPlayerUnit.transform.position);
             Debug.Log(distanceBefore);
             // Move towards the player unit if not already within attack range
-            if (distanceBefore > 60f)
+            if (enemyCharacters[i].unit.ATKT == Unit.attackType.ranger && enemyCharacters[i].shots > 0)
             {
-                Vector3 startPosition = enemyCharacters[i].transform.position;
-                Vector3 targetPosition = startPosition + new Vector3(-30f, 0f, 0f); // Move 30 units to the left
-
-                float journeyLength = Vector3.Distance(startPosition, targetPosition);
-                float startTime = Time.time;
-
-                while (true)
-                {
-                    float distanceCovered = (Time.time - startTime) * 40; // Assuming moveSpeed is defined
-                    float journeyFraction = distanceCovered / journeyLength;
-                    enemyCharacters[i].transform.position = Vector3.Lerp(startPosition, targetPosition, journeyFraction);
-
-                    if (journeyFraction >= 1f)
-                        break;
-
-                    yield return null;
-                }
-            }
-            else if( distanceBefore >= 17 && distanceBefore <= 60f)
-            {
-                enemyCharacters[i].SetAttackPosition(closestPlayerUnit.transform.position);
-                enemyCharacters[i].OnEnemy = true;
-            }
-            else if (distanceBefore <= 17f)
-            {
-                // Attack the player unit
                 AttackPlayer(enemyCharacters[i]);
-                FindObjectOfType<AudioManager>().Play("Hit");
+            }
+            else if (enemyCharacters[i].unit.ATKT != Unit.attackType.ranger || enemyCharacters[i].shots == 0)
+            {
+                if (distanceBefore > 60f)
+                {
+                    Vector3 startPosition = enemyCharacters[i].transform.position;
+                    Vector3 targetPosition = startPosition + new Vector3(-30f, 0f, 0f); // Move 30 units to the left
 
+                    float journeyLength = Vector3.Distance(startPosition, targetPosition);
+                    float startTime = Time.time;
+
+                    while (true)
+                    {
+                        float distanceCovered = (Time.time - startTime) * 40; // Assuming moveSpeed is defined
+                        float journeyFraction = distanceCovered / journeyLength;
+                        enemyCharacters[i].transform.position = Vector3.Lerp(startPosition, targetPosition, journeyFraction);
+
+                        if (journeyFraction >= 1f)
+                            break;
+
+                        yield return null;
+                    }
+                }
+                else if (distanceBefore >= 17 && distanceBefore <= 60f)
+                {
+                    enemyCharacters[i].SetAttackPosition(closestPlayerUnit.transform.position);
+                    enemyCharacters[i].OnEnemy = true;
+                }
+                else if (distanceBefore <= 17f)
+                {
+                    // Attack the player unit
+                    AttackPlayer(enemyCharacters[i]);
+                    FindObjectOfType<AudioManager>().Play("Hit");
+
+                }
             }
             // Check if the enemy unit is within attack range
 
@@ -291,7 +301,7 @@ public class BattleManager : MonoBehaviour
         {
             // Vypoèítání poškození
             int damage = CalculateDamage(enemyUnit.unit, enemyUnit.count);
-
+            Debug.Log(damage);
             targetPlayerUnit.health -= damage;
 
             if (targetPlayerUnit.health <= 0)
