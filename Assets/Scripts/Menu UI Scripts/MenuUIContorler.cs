@@ -63,6 +63,7 @@ public class MenuUIContorler : MonoBehaviour
             if (j != i)
             {
                 Campains[j].gameObject.SetActive(false);
+                Campains[j].GetComponent<MissionCreator>().enabled = false;
             }
         }
         ScenarioMenu.SetActive(true);
@@ -74,6 +75,7 @@ public class MenuUIContorler : MonoBehaviour
         for (int j = 0; j < Campains.Length; j++)
         {
             Campains[j].SetActive(true);
+            Campains[j].GetComponent<MissionCreator>().enabled = true;
         }
         ScenarioMenu.SetActive(false);
         FindObjectOfType<AudioManager>().Play("mainTheme");

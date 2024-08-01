@@ -29,6 +29,7 @@ public class BattleManager : MonoBehaviour
     private int currentTurn = 0;
     private bool isTurnInProgress = false;
     private int change = 0, change1 = 0;
+    private bool enemyTurn;
     int futureturn;
     void Awake()
     {
@@ -67,6 +68,10 @@ public class BattleManager : MonoBehaviour
     }
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Space) && !enemyTurn)
+        {
+            EndTurn();
+        }
         if (enemyUnitsParent.childCount < 1)
         {
             DecisionPrefab.SetActive(true);
@@ -190,6 +195,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
+            enemyTurn = true;
             StartCoroutine(ExecuteEnemyTurn());
         }
     }
@@ -223,6 +229,7 @@ public class BattleManager : MonoBehaviour
             if (enemyCharacters[i].unit.ATKT == Unit.attackType.ranger && enemyCharacters[i].shots > 0)
             {
                 AttackPlayer(enemyCharacters[i]);
+                FindObjectOfType<AudioManager>().Play("Hit");
             }
             else if (enemyCharacters[i].unit.ATKT != Unit.attackType.ranger || enemyCharacters[i].shots == 0)
             {
@@ -269,6 +276,7 @@ public class BattleManager : MonoBehaviour
 
         EndCycle();
         StartTurn();
+        enemyTurn = false;
     }
 
     private FieldMovement FindClosestPlayerUnit(Vector3 position)
@@ -288,22 +296,20 @@ public class BattleManager : MonoBehaviour
                 }
             }
         }
-
         return closestUnit;
     }
     private void AttackPlayer(FieldMovement enemyUnit)
     {
         // Získání hráèovy jednotky, na kterou bude nepøátelská jednotka útoèit
         FieldMovement targetPlayerUnit = FindClosestPlayerUnit(enemyUnit.transform.position);
-
         // Pokud existuje hráèova jednotka k útoku
         if (targetPlayerUnit != null)
         {
             // Vypoèítání poškození
             int damage = CalculateDamage(enemyUnit.unit, enemyUnit.count);
-            Debug.Log(damage);
             targetPlayerUnit.health -= damage;
-
+            targetPlayerUnit.howManyAlive();
+            targetPlayerUnit.self.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = targetPlayerUnit.count.ToString();
             if (targetPlayerUnit.health <= 0)
             {
                 Destroy(targetPlayerUnit.gameObject);

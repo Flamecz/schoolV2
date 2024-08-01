@@ -87,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     StopMoving();
                     FindObjectOfType<CameraMovement>().OnWay = false;
+                    resource = false;
                 }
             }
         }
@@ -111,6 +112,19 @@ public class PlayerMovement : MonoBehaviour
         if (pathVectorList != null && pathVectorList.Count > 1)
         {
             pathVectorList.RemoveAt(0);
+        }
+    }
+    public void SetTargetPositionInEnd(Vector3 targetPosition)
+    {
+        currentPathIndex = 0;
+        pathVectorList = PathFinding.Instance.FindPath(GetPosition(), targetPosition);
+        activePathList = pathVectorList;
+
+        if (pathVectorList != null && pathVectorList.Count > 1)
+        {
+            Debug.Log(activePathList.Count);
+            pathVectorList.RemoveAt(1);
+            Debug.Log(activePathList.Count);
         }
     }
     public static Vector3 GetMouseWorldPosition()

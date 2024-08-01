@@ -1910,7 +1910,7 @@ MonoBehaviour:
   ForestTile: {fileID: 4147653083637623143, guid: f10008dfe15b6014e96aa4f30e78fe1a, type: 3}
   HradTile: {fileID: 1204584055381051613, guid: b4967971162f04be1a5c90d241cbf775, type: 3}
   Buildings: {fileID: 0}
-  Resources: {fileID: 0}
+  Resources: {fileID: 3565280618726000069, guid: 2cd5fc9b4f27a1a408bb9b5c2c75c54d, type: 3}
 --- !u!4 &867269157
 Transform:
   m_ObjectHideFlags: 0
@@ -2051,6 +2051,7 @@ MonoBehaviour:
   maxBoundary: {x: 393, y: 140}
   coliders: []
   playerMovement: {fileID: 147066215}
+  testing: {fileID: 1529426510}
   isInRange: 0
   questObject: []
   quest:
@@ -3527,6 +3528,7 @@ MonoBehaviour:
   set: 300
   mapManager: {fileID: 1529426511}
   staminaIndicator: {fileID: 2090458418}
+  resource: 0
 --- !u!114 &1529426511
 MonoBehaviour:
   m_ObjectHideFlags: 0

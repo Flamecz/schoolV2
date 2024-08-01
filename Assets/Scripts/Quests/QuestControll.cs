@@ -49,7 +49,6 @@ public class QuestControll : MonoBehaviour
          Destroy(gameObject);
          return;
        }
-        Debug.Log("h");
     }
 
     private void Update()
@@ -148,7 +147,7 @@ public class QuestControll : MonoBehaviour
         int c = PlayerPrefs.GetInt("Achivment");
         PlayerPrefs.SetInt("Achivment", c + 1);
         FindObjectOfType<AudioManager>().Play("victory");
-        sceneFound = false;
+        sceneFound = true;
         OneWorks = true;
     }
     public void Abandon()

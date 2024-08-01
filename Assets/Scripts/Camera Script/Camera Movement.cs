@@ -12,6 +12,7 @@ public class CameraMovement : MonoBehaviour
     public Vector2 maxBoundary; // Maximum boundary of the map
     public GameObject[] coliders;
     public GameObject playerMovement;
+    public Testing testing;
 
     private Camera orthographicCamera;
     public bool isInRange;
@@ -72,6 +73,7 @@ public class CameraMovement : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             OnWay = true;
+            testing.resource = false;
             if (Physics.Raycast(ray, out hit))
             {
                 GameObject hitObject = hit.collider.gameObject;
@@ -80,10 +82,8 @@ public class CameraMovement : MonoBehaviour
                 Debug.Log(distanceToTarget);
                 if (hitObject.tag == "hrad" && distanceToTarget < 17)
                 {
-                    Debug.Log("yep");
                     if(FindObjectOfType<QuestControll>().Selected.QG.goalType == GoalType.GetTo)
                     {
-                        Debug.Log("yeeee");
                         FindObjectOfType<QuestControll>().Selected.QG.QuestGatherd();
                         bool isdone = FindObjectOfType<QuestControll>().Selected.QG.QuestDone();
                         if(isdone)
@@ -109,7 +109,7 @@ public class CameraMovement : MonoBehaviour
                         SceneManager.LoadScene(1);
                     }
                 }
-                else if(hitObject.tag == "Suroviny" && distanceToTarget < 17)
+                else if(hitObject.tag == "Suroviny" && distanceToTarget < 17 && testing.pathfinding.settedValue > 14)
                 {
                     hitObject.GetComponent<ResourceObject>();
                     if(FindObjectOfType<QuestControll>().Selected.QG.goalType == GoalType.Gather)
@@ -122,14 +122,7 @@ public class CameraMovement : MonoBehaviour
                 }
                 else if (hitObject.tag == "Suroviny" && distanceToTarget > 17)
                 {
-                    hitObject.GetComponent<ResourceObject>();
-                    if (FindObjectOfType<QuestControll>().Selected.QG.goalType == GoalType.Gather)
-                    {
-                        FindObjectOfType<QuestControll>().Selected.QG.QuestGatherd();
-
-                    }
-                    FindObjectOfType<ResourceManager>().ModifyResources("Gems", 1);
-                    holdObject = hitObject.gameObject;
+                    testing.resource = true;
                 }
                 else if (hitObject.tag == "Enemy" && distanceToTarget < 17)
                 {

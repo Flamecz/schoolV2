@@ -9,7 +9,9 @@ public class MissionCreator : MonoBehaviour
     [Header("Data about mission")]
     public int LevelIndex;
     public MissionData missionD;
+    public MissionDataShower MDS;
     public Quest data;
+    public QuestControll QC;
     public sound Theme;
     public BonusThingsinMission[] BTM;
     [Header("Units")]
@@ -24,6 +26,7 @@ public class MissionCreator : MonoBehaviour
     [Header("Misc")]
     public GameObject Canvas;
     private int selectedUnits;
+    private bool Check = false;
 
     private string nazev;
     private Button GetSome;
@@ -220,10 +223,14 @@ public class MissionCreator : MonoBehaviour
         PlayerPrefs.SetInt("den", 1);
         PlayerPrefs.DeleteKey("Test Scene");
         PlayerPrefs.SetInt("Setted", 1);
-        FindObjectOfType<QuestControll>().Selected = data;
-        FindObjectOfType<QuestControll>().Selected.isActive = true;
-        FindObjectOfType<QuestControll>().Selected.QG = data.QG;
+        if(LevelIndex == MDS.whatMission)
+        {
+            QC.Selected = data;
+            QC.Selected.isActive = true;
+            QC.Selected.QG = data.QG;
+        }
         FindObjectOfType<MenuUIContorler>().LoadGrid();
+        Debug.Log(QC.Selected.condition);
 
     }
     public string GetInfo(int index)

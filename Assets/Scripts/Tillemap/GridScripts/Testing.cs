@@ -14,6 +14,8 @@ public class Testing : MonoBehaviour {
     public MapManager mapManager;
     public static bool canBeAccest = false;
     public Slider staminaIndicator;
+    [HideInInspector]
+    public bool resource;
 
     private void Start()
     {
@@ -33,8 +35,6 @@ public class Testing : MonoBehaviour {
             int PlayerY = (int)PlayerPrefs.GetFloat("PosY");
             Vector3 mouseWorldPosition = GetMouseWorldPosition();
             pathfinding.GetGrid().GetXY(mouseWorldPosition, out int x, out int y);
-            float distance = Vector3.Distance(new Vector3(PlayerX, PlayerY, 5), mouseWorldPosition);
-            Debug.Log(distance);
             List<PathNode> path = pathfinding.FindPath(0, 0, x, y);
             if (path != null)
             {
@@ -43,14 +43,24 @@ public class Testing : MonoBehaviour {
                     Debug.DrawLine(new Vector3(path[i].x, path[i].y) * 10f + Vector3.one * 5f, new Vector3(path[i + 1].x, path[i + 1].y) * 10f + Vector3.one * 5f, Color.green, 5f);
                 }
             }
-
+            if(resource)
+            {
+                characterPathfinding.resource = true;
                 characterPathfinding.SetTargetPosition(mouseWorldPosition);
-                Debug.Log(characterPathfinding.activePathList.Count);
-                Debug.Log(pathfinding.Remove + " removed number" + pathfinding.Remove * 14 + " / ");
                 if (characterPathfinding.activePathList.Count > 0)
                 {
                     pathfinding.RemoveCost();
                 }
+            }
+            else
+            {
+                characterPathfinding.resource = false;
+                characterPathfinding.SetTargetPosition(mouseWorldPosition);
+                if (characterPathfinding.activePathList.Count > 0)
+                {
+                    pathfinding.RemoveCost();
+                }
+            }
             
         }
         staminaIndicator.value = pathfinding.settedValue;
