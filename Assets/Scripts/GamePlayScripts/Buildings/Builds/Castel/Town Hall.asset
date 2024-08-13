@@ -17,7 +17,7 @@ MonoBehaviour:
   popis: 'Generates Money '
   objectToBuild: {fileID: 0}
   canBeBuild: 1
-  builded: 0
+  builded: 1
   canBeUpgraded: 0
-  upgraded: 0
+  upgraded: 1
   required: {fileID: 11400000, guid: a2b01f4be32924ef0b0e8f422f6dd5cf, type: 2}

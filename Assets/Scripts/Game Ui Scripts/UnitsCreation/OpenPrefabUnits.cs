@@ -166,6 +166,7 @@ public class OpenPrefabUnits : MonoBehaviour
         resourceManger.Data.Gold -= moneycost;
 
         FindObjectOfType<InvenotoryManagement>().AddItem(selected, wholeCount);
+        FindObjectOfType<InvenotoryManagement>().CheckAtBuy() ;
         DemolishPopUp();
     }
     private void SelectedLeft()

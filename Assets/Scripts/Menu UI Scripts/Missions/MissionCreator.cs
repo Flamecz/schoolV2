@@ -59,6 +59,7 @@ public class MissionCreator : MonoBehaviour
     public CityBuldings[] sendBuildings;
     void Start()
     {
+        
         nazev = gameObject.name;
         getSceneData();
         nameStart.text = missionD.misionName;
@@ -68,8 +69,8 @@ public class MissionCreator : MonoBehaviour
         PlayMission.onClick.AddListener(LoadGame);
     }
     public void getSceneData()
-    { 
-
+    {
+        QC = FindObjectOfType<QuestControll>();
         Transform MissionsPanel = Canvas.transform.Find("Mission");
 
         Transform StartMenu = Canvas.transform.Find("StartMenu");

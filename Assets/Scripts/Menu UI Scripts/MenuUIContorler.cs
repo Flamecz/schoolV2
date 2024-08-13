@@ -14,6 +14,14 @@ public class MenuUIContorler : MonoBehaviour
     public GameObject ScenarioMenu;
     public GameObject[] Campains;
 
+    private void Start()
+    {
+        if (FindObjectOfType<QuestControll>().SavedQuit)
+        {
+            FindObjectOfType<QuestControll>().sceneFound = true;
+        }
+        FindObjectOfType<QuestControll>().sceneFound = false;
+    }
     public void SetMainCanvas()
     {
         MainCanvas.SetActive(true);

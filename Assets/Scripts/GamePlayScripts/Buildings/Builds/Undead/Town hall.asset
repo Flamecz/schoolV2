@@ -19,5 +19,5 @@ MonoBehaviour:
   canBeBuild: 1
   builded: 1
   canBeUpgraded: 0
-  upgraded: 1
+  upgraded: 0
   required: {fileID: 0}

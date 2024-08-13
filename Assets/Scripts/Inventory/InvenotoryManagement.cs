@@ -29,6 +29,23 @@ public class InvenotoryManagement : MonoBehaviour
             }
         }
     }
+    public void CheckAtBuy()
+    {
+        for (int i = 0; i < invetorySaver.unitList.Length; i++)
+        {
+            InventorySlot slot = inventorySlots[i];
+            InventoryItem ItemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (ItemInSlot != null)
+            {
+                Destroy(ItemInSlot.gameObject);
+                if (invetorySaver.unitList[i] != null)
+                {
+                    SpawnNewItem(invetorySaver.unitList[i], slot, invetorySaver.unitCount[i]);
+                }
+
+            }
+        }
+    }
     public bool AddItem(Unit item,int count)
     {
         for (int i = 0; i < inventorySlots.Length; i++)

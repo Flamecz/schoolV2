@@ -36,13 +36,11 @@ public class ReciveData : MonoBehaviour
         {
             MDS.Width = 21;
             MDS.Height = 15;
-         Maps[0].SetActive(false); Maps[1].SetActive(false);
         }
         if (MDS.whatMission == 2)
         {
             MDS.Width = 21;
             MDS.Height = 15;
-            Maps[0].SetActive(false); Maps[1].SetActive(true);
         }
     }
 

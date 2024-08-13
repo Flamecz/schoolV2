@@ -393,7 +393,7 @@ MonoBehaviour:
       goalType: 2
       requiredAmount: 1
       currentAmount: 0
-  QC: {fileID: 819293010}
+  QC: {fileID: 0}
   Theme: 0
   BTM:
   - {fileID: 11400000, guid: d1c90000e23a89b4290c2d82056c96c1, type: 2}
@@ -4029,6 +4029,8 @@ MonoBehaviour:
   canvas: {fileID: 512850959}
   StartCursor: {fileID: 2800000, guid: 4952c781e06d94fd88aae88c794ae9b4, type: 3}
   state: {fileID: 0}
+  sceneFound: 0
+  SavedQuit: 0
 --- !u!4 &819293011
 Transform:
   m_ObjectHideFlags: 0
@@ -5207,7 +5209,7 @@ MonoBehaviour:
       goalType: 0
       requiredAmount: 1
       currentAmount: 0
-  QC: {fileID: 819293010}
+  QC: {fileID: 0}
   Theme: 2
   BTM:
   - {fileID: 11400000, guid: bd36efb73feb1664c8212aea04a4f9e1, type: 2}
@@ -6064,7 +6066,7 @@ MonoBehaviour:
       goalType: 1
       requiredAmount: 6
       currentAmount: 0
-  QC: {fileID: 819293010}
+  QC: {fileID: 0}
   Theme: 1
   BTM:
   - {fileID: 11400000, guid: 2e8389edbed9d2d439d841b8e0f7cfd0, type: 2}
@@ -6096,7 +6098,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2ee722c6c38d3f34eb748fad88f016b4, type: 2}
   Canvas: {fileID: 512850956}
   sendBuildings:
-  - {fileID: 11400000, guid: 888c8f61d048644cfad93226eda56911, type: 2}
+  - {fileID: 11400000, guid: cf9d1b634660c514584b0b5c7c434449, type: 2}
   - {fileID: 11400000, guid: 3394aa2b0a14842b3bd8030ecc686982, type: 2}
   - {fileID: 11400000, guid: 06fe4f14f2db34d71816f7ff7985a7a0, type: 2}
   - {fileID: 11400000, guid: 33064bbcc86ec4327958c04b93354462, type: 2}
@@ -9397,7 +9399,7 @@ MonoBehaviour:
     volume: 0.3
     pitch: 1
     source: {fileID: 0}
-    loop: 1
+    loop: 0
     Effect: 0
     Music: 1
   - name: Battle
@@ -9412,6 +9414,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b6b0eb0c82e126248925f025e43ba674, type: 3}
     volume: 0.3
     pitch: 0.65
+    source: {fileID: 0}
+    loop: 0
+    Effect: 1
+    Music: 0
+  - name: NewWeek
+    clip: {fileID: 8300000, guid: 1563ddb9bfb3e704a878cc85b5a70e95, type: 3}
+    volume: 0.503
+    pitch: 1
     source: {fileID: 0}
     loop: 0
     Effect: 1
