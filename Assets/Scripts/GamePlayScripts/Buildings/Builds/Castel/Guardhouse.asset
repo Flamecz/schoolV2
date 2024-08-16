@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Guardhouse
   m_EditorClassIdentifier: 
   nazev: Guardhouse
-  Obrazek: {fileID: 21300000, guid: cedd017145d1a45f1a03a6e566a26236, type: 3}
+  Obrazek: {fileID: 21300000, guid: 544168a7c42012d4fa784450143e0470, type: 3}
   popis: 'Generates Money '
   objectToBuild: {fileID: 0}
   canBeBuild: 1
-  builded: 0
-  canBeUpgraded: 0
+  builded: 1
+  canBeUpgraded: 1
   upgraded: 0
   required: {fileID: 11400000, guid: a2b01f4be32924ef0b0e8f422f6dd5cf, type: 2}

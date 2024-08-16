@@ -65,8 +65,8 @@ public class MapManager : MonoBehaviour
             "XXX...X.......X..XX..",
             "XXXX.....XXX.........",
             "XXXXXX..XXX.........X",
-            "Xxx......XXRX......XX",
-            "XX.......XXXX.....XXX",
+            "Xxx......XXRX.....RXX",
+            "XX.......XXXX...RRXXX",
             "XX...XX...XXX.XXXXXXX",
             "....XXXX...XXXXXXXXXX"
 

@@ -267,11 +267,11 @@ public class SliderUpdate : MonoBehaviour
                         FindObjectOfType<MarketPriceList>().ReturnResource(SulfurCost);
                         return;
                     case 4:
-                        slider.maxValue = RM.Data.Gold;
+                        slider.maxValue = RM.Data.Gold/MineralsCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(MineralsCost);
                         return;
                     case 5:
-                        slider.maxValue = RM.Data.Gold;
+                        slider.maxValue = RM.Data.Gold/GemsCost;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GemsCost);
                         return;
                     case 6:

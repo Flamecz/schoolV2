@@ -162,7 +162,6 @@ public class FieldMovement : MonoBehaviour
     private FieldMovement FindEnemyUnitAtPosition(Vector3 position)
     {
         Collider[] colliders = Physics.OverlapSphere(position, 0.5f); // Adjust the radius as needed
-        Debug.Log("what");
         foreach (Collider collider in colliders)
         {
             FieldMovement enemyUnit = collider.GetComponent<FieldMovement>();
@@ -182,14 +181,27 @@ public class FieldMovement : MonoBehaviour
         if (health <= 0)
         {
             Die();
+
         }
     }
-
-    private void Die()
+    public void Die()
     {
-        isDead = true;
-        // Additional logic when the unit dies, e.g., play death animation, remove from the battle, etc.
-        Destroy(gameObject); // Deactivate the game object
+        Destroy(gameObject);
+        // Aktualizace pole playerCharacters
+        List<FieldMovement> fml = new List<FieldMovement>();
+        int NewenemyCount = 0;
+        BattleManager bm = FindObjectOfType<BattleManager>();
+        for (int i = 0; i < bm.enemyCharacters.Length; i++)
+        {
+            if (bm.enemyCharacters[i].health > 1)
+            {
+                NewenemyCount++;
+                fml.Add(bm.enemyCharacters[i]);
+            }
+        }
+        Debug.Log(NewenemyCount);
+        bm.enemyCharacters = new FieldMovement[NewenemyCount];
+        bm.enemyCharacters = fml.ToArray();
     }
     public void howManyAlive()
     {

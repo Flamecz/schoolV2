@@ -24,7 +24,7 @@ public class MainCanvasControler : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Backspace))
         {
             ExitCity();
         }
@@ -96,8 +96,10 @@ public class MainCanvasControler : MonoBehaviour
     }
     public void ExitCity()
     {
-        FindObjectOfType<AudioManager>().Play("mainTheme");
-        SceneManager.LoadScene(1);
+        FindObjectOfType<AudioManager>().Play("HeroesInWorld");
+        SceneManager.LoadScene(2);
+        FindObjectOfType<AudioManager>().Stop("Castel");
+        FindObjectOfType<AudioManager>().Stop("Rampart");
         FindObjectOfType<AudioManager>().Stop("undeadCityTheme");
     }
 

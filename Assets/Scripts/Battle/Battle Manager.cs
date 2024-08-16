@@ -19,6 +19,7 @@ public class BattleManager : MonoBehaviour
     public InvetorySaver enemyUnits;
     public GameObject unitPefab;
     public BattleFieldPlate moveControl;
+    private int NewPlayerCount;
     [Header ("Gifs")]
 
     public GameObject DecisionPrefab;
@@ -171,12 +172,12 @@ public class BattleManager : MonoBehaviour
         // Start the turn with the current value of currentTurn
         if (currentTurn < playerCharacters.Length && playerCharacters[currentTurn] != null && !playerCharacters[currentTurn].isDead)
         {
-            playerCharacters[currentTurn].enabled = true;
-            playerCharacters[currentTurn].transform.Find("BackGround").GetComponent<MeshRenderer>().enabled = true;
-            moveControl.unitPathfinding = playerCharacters[currentTurn];
-            Debug.Log("Current unit: " + playerCharacters[currentTurn].unit + ", Speed: " + playerCharacters[currentTurn].unit.speed);    
-            moveControl.set = playerCharacters[currentTurn].unit.speed * 10;
-            moveControl.pathfinding.SetSettedValue(playerCharacters[currentTurn].unit.speed * 10);
+                playerCharacters[currentTurn].enabled = true;
+                playerCharacters[currentTurn].transform.Find("BackGround").GetComponent<MeshRenderer>().enabled = true;
+                moveControl.unitPathfinding = playerCharacters[currentTurn];
+                Debug.Log("Current unit: " + playerCharacters[currentTurn].unit + ", Speed: " + playerCharacters[currentTurn].unit.speed);
+                moveControl.set = playerCharacters[currentTurn].unit.speed * 10;
+                moveControl.pathfinding.SetSettedValue(playerCharacters[currentTurn].unit.speed * 10);
         }
         // Increment currentTurn after starting the turn
         currentTurn++;
@@ -218,18 +219,18 @@ public class BattleManager : MonoBehaviour
         for (int i = 0; i < enemyCharacters.Length; i++)
         {
 
+
             enemyCharacters[i].enabled = true;
             enemyCharacters[i].enemyHasTurn = true;
             enemyCharacters[i].transform.Find("BackGround").GetComponent<MeshRenderer>().enabled = true;
             Destroy(enemyCharacters[i].gameObject.GetComponent<BoxCollider>());
             FieldMovement closestPlayerUnit = FindClosestPlayerUnit(enemyCharacters[i].transform.position);
             float distanceBefore = Vector3.Distance(enemyCharacters[i].transform.position, closestPlayerUnit.transform.position);
-            Debug.Log(distanceBefore);
             // Move towards the player unit if not already within attack range
             if (enemyCharacters[i].unit.ATKT == Unit.attackType.ranger && enemyCharacters[i].shots > 0)
             {
                 AttackPlayer(enemyCharacters[i]);
-                FindObjectOfType<AudioManager>().Play("Hit");
+               // FindObjectOfType<AudioManager>().Play("Hit");
             }
             else if (enemyCharacters[i].unit.ATKT != Unit.attackType.ranger || enemyCharacters[i].shots == 0)
             {
@@ -262,7 +263,7 @@ public class BattleManager : MonoBehaviour
                 {
                     // Attack the player unit
                     AttackPlayer(enemyCharacters[i]);
-                    FindObjectOfType<AudioManager>().Play("Hit");
+                 //   FindObjectOfType<AudioManager>().Play("Hit");
 
                 }
             }
@@ -310,9 +311,22 @@ public class BattleManager : MonoBehaviour
             targetPlayerUnit.health -= damage;
             targetPlayerUnit.howManyAlive();
             targetPlayerUnit.self.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = targetPlayerUnit.count.ToString();
-            if (targetPlayerUnit.health <= 0)
+            if (targetPlayerUnit.health <= 1)
             {
                 Destroy(targetPlayerUnit.gameObject);
+                // Aktualizace pole playerCharacters
+                List<FieldMovement> fml = new List<FieldMovement>();
+                for (int i = 0; i < playerCharacters.Length; i++)
+                {
+                    if (playerCharacters[i].health > 1)
+                    {
+                        NewPlayerCount++;
+                        fml.Add(playerCharacters[i]);
+                    }
+                }
+                Debug.Log(NewPlayerCount);
+                playerCharacters = new FieldMovement[NewPlayerCount];
+                playerCharacters = fml.ToArray();
             }
         }
     }
@@ -355,9 +369,5 @@ public class BattleManager : MonoBehaviour
     {
         int count = enemyUnits.unitCount[index];
         return unit.health * count;
-    }
-    public void UpdateCount(FieldMovement fm)
-    {
-        
     }
 }

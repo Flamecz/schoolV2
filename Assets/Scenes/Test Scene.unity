@@ -716,7 +716,7 @@ GameObject:
   - component: {fileID: 387448352}
   m_Layer: 6
   m_Name: resource
-  m_TagString: Suroviny
+  m_TagString: BuildingW
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -780,7 +780,7 @@ Transform:
   m_GameObject: {fileID: 387448346}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 55, y: 15, z: 5}
+  m_LocalPosition: {x: 75, y: 65, z: 4}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2047,11 +2047,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panSpeed: 400
   panBorderThickness: 20
-  minBoundary: {x: 72, y: 20}
-  maxBoundary: {x: 393, y: 140}
+  minBoundary: {x: 71, y: 35}
+  maxBoundary: {x: 139, y: 110}
   coliders: []
   playerMovement: {fileID: 147066215}
   testing: {fileID: 1529426510}
+  buildingstored: {fileID: 11400000, guid: 5db6906e435aef8439e7b77163a936a3, type: 2}
   isInRange: 0
   questObject: []
   quest:
@@ -3523,9 +3524,9 @@ MonoBehaviour:
   pathVisual: {fileID: 867269156}
   characterPathfinding: {fileID: 147066216}
   pathfinding:
-    settedValue: 300
+    settedValue: 200
     Remove: 0
-  set: 300
+  set: 200
   mapManager: {fileID: 1529426511}
   staminaIndicator: {fileID: 2090458418}
   resource: 0
@@ -4036,6 +4037,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SDO: {fileID: 11400000, guid: 14ca6d2e3ced24651b65741a18d8db7e, type: 2}
   days: {fileID: 11400000, guid: 3a519774bab3940bd91577c8e72df345, type: 2}
+  StoredData: {fileID: 11400000, guid: 5db6906e435aef8439e7b77163a936a3, type: 2}
 --- !u!1 &1809655176
 GameObject:
   m_ObjectHideFlags: 0

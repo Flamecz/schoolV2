@@ -19,8 +19,8 @@ MonoBehaviour:
   lvl: 2
   damage: 6
   defence: 3
-  minDamage: 2
-  maxDamage: 3
+  minDamage: 20
+  maxDamage: 30
   health: 10
   speed: 4
   growth: 9

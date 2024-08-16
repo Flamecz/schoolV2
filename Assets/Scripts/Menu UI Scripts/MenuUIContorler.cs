@@ -16,11 +16,11 @@ public class MenuUIContorler : MonoBehaviour
 
     private void Start()
     {
-        if (FindObjectOfType<QuestControll>().SavedQuit)
+        if (FindObjectOfType<QuestControll>().sld.SavedQuit)
         {
-            FindObjectOfType<QuestControll>().sceneFound = true;
+            FindObjectOfType<QuestControll>().sld.sceneFound = true;
         }
-        FindObjectOfType<QuestControll>().sceneFound = false;
+        FindObjectOfType<QuestControll>().sld.sceneFound = false;
     }
     public void SetMainCanvas()
     {

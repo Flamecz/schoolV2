@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         else if (pathVectorList != null && building && !resource)
         {
             Vector3 targetPosition = pathVectorList[currentPathIndex];
-            if (Vector3.Distance(transform.position, targetPosition) > 1f)
+            if (Vector3.Distance(transform.position, targetPosition) > 12f)
             {
                 Vector3 moveDir = (targetPosition - transform.position).normalized;
 
@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 currentPathIndex++;
-                if (currentPathIndex >= pathVectorList.Count - 1)
+                if (currentPathIndex >= pathVectorList.Count)
                 {
                     StopMoving();
 

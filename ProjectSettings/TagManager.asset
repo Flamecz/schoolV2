@@ -9,6 +9,13 @@ TagManager:
   - hrad
   - Suroviny
   - Enemy
+  - BuildingG
+  - BuildingGe
+  - BuildingM
+  - BuildingS
+  - BuildingI
+  - BuildingSt
+  - BuildingW
   layers:
   - Default
   - TransparentFX

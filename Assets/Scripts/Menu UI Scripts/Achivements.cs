@@ -15,6 +15,7 @@ public class Achivements : MonoBehaviour
     public string[] Descritions;
     private void Awake()
     {
+        Debug.Log(PlayerPrefs.GetInt("Smurfing"));
         if (PlayerPrefs.GetInt("Achivment") == 1)
         {
             GameObject go = Instantiate(achivementWindow, Holder.transform);
@@ -29,7 +30,7 @@ public class Achivements : MonoBehaviour
     }
     public void Smurin()
     {
-        if (PlayerPrefs.GetInt("Smurfing") == 1)
+        if (PlayerPrefs.GetInt("Smurfing") == 4)
         {
             GameObject go = Instantiate(achivementWindow, Holder.transform.position, Holder.transform.rotation, Holder.transform);
             image = go.transform.Find("Image").GetComponent<Image>();

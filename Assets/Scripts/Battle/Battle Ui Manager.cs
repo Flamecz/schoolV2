@@ -58,15 +58,21 @@ public class BattleUiManager : MonoBehaviour
         alliedStatus.text = "Defeat";
         enemyStatus.text = "Victory";
         animator.runtimeAnimatorController = lossAnimation;
+        Confirm.onClick.AddListener(sendToLoss);
     }
     public void sendToWinMenu()
     {
         SceneManager.LoadScene(2);
         FindObjectOfType<QuestControll>().Selected.QG.currentAmount++;
+        FindObjectOfType<AudioManager>().Stop("Battle");
+        FindObjectOfType<AudioManager>().Play("HeroesInWorld");
     }
     public void sendToLoss()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(2); 
+        FindObjectOfType<AudioManager>().Stop("Battle");
+        FindObjectOfType<AudioManager>().Play("HeroesInWorld");
+        FindObjectOfType<QuestControll>().Abandon();
     }
     
 }

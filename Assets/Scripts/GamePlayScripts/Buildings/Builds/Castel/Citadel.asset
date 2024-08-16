@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Citadel
   m_EditorClassIdentifier: 
   nazev: Citadel
-  Obrazek: {fileID: 0}
+  Obrazek: {fileID: 21300000, guid: 4138aecb6bcf80e4fa989e2a894b50f4, type: 3}
   popis: 
   objectToBuild: {fileID: 0}
   canBeBuild: 1
   builded: 1
-  canBeUpgraded: 0
+  canBeUpgraded: 1
   upgraded: 0
   required: {fileID: 0}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Barracks
   m_EditorClassIdentifier: 
   nazev: Barracks
-  Obrazek: {fileID: 21300000, guid: cedd017145d1a45f1a03a6e566a26236, type: 3}
+  Obrazek: {fileID: 21300000, guid: fc40b11dc0487bb4ba9edf3b124a060b, type: 3}
   popis: 'Generates Money '
   objectToBuild: {fileID: 0}
   canBeBuild: 1

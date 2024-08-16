@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Training grounds
   m_EditorClassIdentifier: 
   nazev: Training Grounds
-  Obrazek: {fileID: 21300000, guid: cedd017145d1a45f1a03a6e566a26236, type: 3}
+  Obrazek: {fileID: 21300000, guid: a34af3a5e7e291741b3ee7cdc33a6110, type: 3}
   popis: 'Generates Money '
   objectToBuild: {fileID: 0}
   canBeBuild: 1

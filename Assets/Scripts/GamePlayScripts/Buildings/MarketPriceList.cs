@@ -48,7 +48,6 @@ public class MarketPriceList : MonoBehaviour, IPointerClickHandler
     {
             LeftSelected.transform.Find("Amount").GetComponent<Text>().text = ReturnCount().ToString();
             lastResourceCount = ReturnCount();
-        Debug.Log(lastResourceCount);
             RightSelected.transform.Find("Amount").GetComponent<Text>().text = count.ToString();
     }
     public void GetProperty()

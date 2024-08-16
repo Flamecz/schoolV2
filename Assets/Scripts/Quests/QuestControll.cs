@@ -35,8 +35,7 @@ public class QuestControll : MonoBehaviour
     private GameObject questOpen,finnishOpen,cutOpen,pauseOpen;
     private static bool OneWorks;
     private string sceneName;
-    public bool sceneFound;
-    public bool SavedQuit;
+    public SaveLoadData sld;
 
     void Awake()
     {
@@ -54,14 +53,14 @@ public class QuestControll : MonoBehaviour
 
     private void Update()
     {
-        if(!sceneFound)
+        if(!sld.sceneFound)
         {
             Scene scene = SceneManager.GetActiveScene();
             sceneName = scene.name;
             canvas = FindObjectOfType<Canvas>();
-            if (sceneName == "Test Scene")
+            if (sceneName == "Test Scene" && sld.SavedQuit == false)
             {
-                sceneFound = true;
+                sld.sceneFound = true;
                 OpenQuest();
             }
         }
@@ -121,6 +120,7 @@ public class QuestControll : MonoBehaviour
     }
     public void OpenWinCutscene()
     {
+        PlayerPrefs.SetInt("Setted", 0);
         Destroy(finnishOpen);
         cutOpen = Instantiate(cutScene, canvas.transform);
         GoBack = cutOpen.transform.Find("BackButton").GetComponent<Button>();
@@ -155,9 +155,10 @@ public class QuestControll : MonoBehaviour
     public void SaveAndQuit()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
         FindObjectOfType<AudioManager>().Stop("HeroesInWorld");
         FindObjectOfType<AudioManager>().Play("mainTheme");
-        SavedQuit = true;
+        sld.SavedQuit = true;
     }
     public void LoadScene0()
     {
@@ -166,5 +167,6 @@ public class QuestControll : MonoBehaviour
         FindObjectOfType<AudioManager>().Stop("Loss");
         FindObjectOfType<AudioManager>().Play("mainTheme");
         OneWorks = true;
+        sld.SavedQuit = false;
     }
 }

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: ArcherTower
   m_EditorClassIdentifier: 
   nazev: Archer Tower
-  Obrazek: {fileID: 0}
+  Obrazek: {fileID: 21300000, guid: 2c83e3ea234652e4985a04ec82c17c32, type: 3}
   popis: 
   objectToBuild: {fileID: 0}
   canBeBuild: 1
   builded: 1
-  canBeUpgraded: 0
-  upgraded: 1
+  canBeUpgraded: 1
+  upgraded: 0
   required: {fileID: 0}

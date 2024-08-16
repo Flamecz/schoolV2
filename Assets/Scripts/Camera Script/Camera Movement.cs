@@ -13,6 +13,7 @@ public class CameraMovement : MonoBehaviour
     public GameObject[] coliders;
     public GameObject playerMovement;
     public Testing testing;
+    public StoredData buildingstored;
 
     private Camera orthographicCamera;
     public bool isInRange;
@@ -82,11 +83,11 @@ public class CameraMovement : MonoBehaviour
                 Debug.Log(distanceToTarget);
                 if (hitObject.tag == "hrad" && distanceToTarget < 17)
                 {
-                    if(FindObjectOfType<QuestControll>().Selected.QG.goalType == GoalType.GetTo)
+                    if (FindObjectOfType<QuestControll>().Selected.QG.goalType == GoalType.GetTo)
                     {
                         FindObjectOfType<QuestControll>().Selected.QG.QuestGatherd();
                         bool isdone = FindObjectOfType<QuestControll>().Selected.QG.QuestDone();
-                        if(isdone)
+                        if (isdone)
                         {
                             FindObjectOfType<QuestControll>().FinnishedQuest();
                         }
@@ -109,13 +110,16 @@ public class CameraMovement : MonoBehaviour
                         SceneManager.LoadScene(1);
                     }
                 }
-                else if(hitObject.tag == "Suroviny" && distanceToTarget < 17 && testing.pathfinding.settedValue > 14)
+                else if (hitObject.tag == "Suroviny" && distanceToTarget < 17 && testing.pathfinding.settedValue > 14)
                 {
                     hitObject.GetComponent<ResourceObject>();
-                    if(FindObjectOfType<QuestControll>().Selected.QG.goalType == GoalType.Gather)
+                    if (FindObjectOfType<QuestControll>().Selected.QG.goalType == GoalType.Gather)
                     {
                         FindObjectOfType<QuestControll>().Selected.QG.QuestGatherd();
-                        
+                        if(FindObjectOfType<QuestControll>().Selected.QG.QuestDone())
+                        {
+                            FindObjectOfType<QuestControll>().FinnishedQuest();
+                        }
                     }
                     FindObjectOfType<ResourceManager>().ModifyResources("Gems", 1);
                     Destroy(hitObject.gameObject);
@@ -131,6 +135,22 @@ public class CameraMovement : MonoBehaviour
                     FindObjectOfType<AudioManager>().Stop("HeroesInWorld");
                     FindObjectOfType<AudioManager>().Play("Battle");
                     SceneManager.LoadScene(3);
+                }
+                else if (hitObject.tag == "BuildingG" || hitObject.tag == "BuildingGe" || hitObject.tag == "BuildingM" || hitObject.tag == "BuildingS" || hitObject.tag == "BuildingI" || hitObject.tag == "BuildingSt" || hitObject.tag == "BuildingW" && distanceToTarget < 17)
+                {
+                    for (int i = 0; i < buildingstored.storeTag.Length; i++)
+                    {
+                        if(buildingstored.storeTag[i] == hitObject.tag)
+                        {
+                            break;
+                        }
+                        else if(buildingstored.storeTag[i] == "")
+                        {
+                            buildingstored.storeTag[i] = hitObject.tag;
+                            Debug.Log(hitObject.tag);
+                            break;
+                        }
+                    }
                 }
             }
         }

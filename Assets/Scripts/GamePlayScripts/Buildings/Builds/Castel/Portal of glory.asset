@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Portal of glory
   m_EditorClassIdentifier: 
   nazev: Portal of glory
-  Obrazek: {fileID: 21300000, guid: cedd017145d1a45f1a03a6e566a26236, type: 3}
+  Obrazek: {fileID: 21300000, guid: 23f169928862e6c47bf6edae9199a47f, type: 3}
   popis: 'Generates Money '
   objectToBuild: {fileID: 0}
   canBeBuild: 1
-  builded: 1
+  builded: 0
   canBeUpgraded: 0
   upgraded: 0
   required: {fileID: 11400000, guid: a2b01f4be32924ef0b0e8f422f6dd5cf, type: 2}

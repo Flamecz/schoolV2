@@ -55,6 +55,7 @@ public class Testing : MonoBehaviour {
             else
             {
                 characterPathfinding.resource = false;
+                characterPathfinding.building = false;
                 characterPathfinding.SetTargetPosition(mouseWorldPosition);
                 if (characterPathfinding.activePathList.Count > 0)
                 {

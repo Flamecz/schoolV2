@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: PlayerUnitControl
   m_EditorClassIdentifier: 
   unitList:
+  - {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
+  - {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  unitCount: 00000000000000000000000000000000000000000000000000000000
+  unitCount: 230000000c0000000000000000000000000000000000000000000000
