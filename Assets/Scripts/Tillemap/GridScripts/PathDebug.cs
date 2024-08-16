@@ -38,33 +38,6 @@ public class PathDebug : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ShowNextSnapshot();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            autoShowSnapshots = true;
-        }
-
-        if (autoShowSnapshots)
-        {
-            float autoShowSnapshotsTimerMax = .05f;
-            autoShowSnapshotsTimer -= Time.deltaTime;
-            if (autoShowSnapshotsTimer <= 0f)
-            {
-                autoShowSnapshotsTimer += autoShowSnapshotsTimerMax;
-                ShowNextSnapshot();
-                if (gridSnapshotActionList.Count == 0)
-                {
-                    autoShowSnapshots = false;
-                }
-            }
-        }
-    }
 
     private void ShowNextSnapshot()
     {

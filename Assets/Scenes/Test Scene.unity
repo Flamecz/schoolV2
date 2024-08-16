@@ -3666,6 +3666,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ecde1a1dcdf1a4a588b6dcacfb452867, type: 2}
   RandomUnitCount: 0500000002000000
   enemyUnits: {fileID: 11400000, guid: 57539e76c7e164e95a08274f7205d047, type: 2}
+  EnemyRemove: {fileID: 11400000, guid: af8648077f4846b448adfae63e67f495, type: 2}
 --- !u!1 &1593773498
 GameObject:
   m_ObjectHideFlags: 0

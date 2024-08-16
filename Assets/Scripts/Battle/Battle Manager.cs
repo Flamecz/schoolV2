@@ -31,9 +31,18 @@ public class BattleManager : MonoBehaviour
     private bool isTurnInProgress = false;
     private int change = 0, change1 = 0;
     private bool enemyTurn;
-    int futureturn;
+    private int futureturn;
+    public UnitsLost Ul;
+    private bool Over = false;
     void Awake()
     {
+        Ul.PlayerUnitsCountLost = new int[7];
+        Ul.PlayerUnitsLost = new Unit[7];
+        Ul.PlayerUnitsStart = new int[7];
+
+        Ul.EnemyUnitsCountLost = new int[7];
+        Ul.EnemyUnitsLost = new Unit[7];
+        Ul.EnemyUnitsStart = new int[7];
         for (int i = 0; i < playerUnits.unitList.Length;i++)
         {
             if (playerUnits.unitList[i] != null)
@@ -56,15 +65,27 @@ public class BattleManager : MonoBehaviour
             if(playerUnits.unitList[i] != null)
             {
                 CreateAliedUnit(i, playerUnits.unitList[i]);
+                if(Ul.PlayerUnitsLost[i]== null)
+                {
+                    Ul.PlayerUnitsLost[i] = playerCharacters[i].unit;
+                    Ul.PlayerUnitsStart[i] = playerCharacters[i].count;
+                }
+
             }
         }
         for (int i = 0; i < enemyUnits.unitList.Length; i++)
         {
             if (enemyUnits.unitList[i] != null)
             {
-                CreateEnemyUnit(i, enemyUnits.unitList[i]); 
+                CreateEnemyUnit(i, enemyUnits.unitList[i]);
+                if (Ul.EnemyUnitsLost[i] == null)
+                {
+                    Ul.EnemyUnitsLost[i] = enemyCharacters[i].unit;
+                    Ul.EnemyUnitsStart[i] = enemyCharacters[i].count;
+                }
             }
         }
+
         StartTurn();
     }
     private void Update()
@@ -73,14 +94,16 @@ public class BattleManager : MonoBehaviour
         {
             EndTurn();
         }
-        if (enemyUnitsParent.childCount < 1)
+        if (enemyUnitsParent.childCount < 1 && !Over)
         {
             DecisionPrefab.SetActive(true);
+            Over = true;
             FindObjectOfType<BattleUiManager>().SetWinData();
         }
-        if (aliedUnitsParent.childCount < 1 )
+        if (aliedUnitsParent.childCount < 1 && !Over)
         {
             DecisionPrefab.SetActive(true);
+            Over = true;
             FindObjectOfType<BattleUiManager>().SetLossData();
         }
     }
@@ -96,6 +119,7 @@ public class BattleManager : MonoBehaviour
             playerCharacters[i].shots = unit.Shots;
         }
         playerCharacters[i].self = go;
+        playerCharacters[i].Ul = Ul;
         go.transform.Find("Cube").GetComponent<SpriteRenderer>().sprite = playerCharacters[i].unit.imageInBattle;
         go.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = playerCharacters[i].count.ToString();
     }
@@ -121,6 +145,7 @@ public class BattleManager : MonoBehaviour
             playerCharacters[currentLenght].shots = unit.Shots;
         }
         go.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = playerCharacters[currentLenght].count.ToString();
+        playerCharacters[currentLenght].Ul = Ul;
     }
     public void CreateEnemyUnit(int i, Unit unit)
     {
@@ -141,9 +166,11 @@ public class BattleManager : MonoBehaviour
         go.transform.Find("Cube").transform.rotation = Quaternion.Euler(0,180,0);
         go.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = enemyCharacters[i].count.ToString();
         enemyCharacters[i].enabled = false;
+        enemyCharacters[i].Ul = Ul;
     }
     public void StartTurn()
     {
+
         if (isTurnInProgress) return;
 
         isTurnInProgress = true;
@@ -219,7 +246,7 @@ public class BattleManager : MonoBehaviour
         for (int i = 0; i < enemyCharacters.Length; i++)
         {
 
-
+            moveControl.pathfinding.SetSettedValue(300);
             enemyCharacters[i].enabled = true;
             enemyCharacters[i].enemyHasTurn = true;
             enemyCharacters[i].transform.Find("BackGround").GetComponent<MeshRenderer>().enabled = true;
@@ -230,29 +257,13 @@ public class BattleManager : MonoBehaviour
             if (enemyCharacters[i].unit.ATKT == Unit.attackType.ranger && enemyCharacters[i].shots > 0)
             {
                 AttackPlayer(enemyCharacters[i]);
-               // FindObjectOfType<AudioManager>().Play("Hit");
+               //FindObjectOfType<AudioManager>().Play("Hit");
             }
             else if (enemyCharacters[i].unit.ATKT != Unit.attackType.ranger || enemyCharacters[i].shots == 0)
             {
                 if (distanceBefore > 60f)
                 {
-                    Vector3 startPosition = enemyCharacters[i].transform.position;
-                    Vector3 targetPosition = startPosition + new Vector3(-30f, 0f, 0f); // Move 30 units to the left
-
-                    float journeyLength = Vector3.Distance(startPosition, targetPosition);
-                    float startTime = Time.time;
-
-                    while (true)
-                    {
-                        float distanceCovered = (Time.time - startTime) * 40; // Assuming moveSpeed is defined
-                        float journeyFraction = distanceCovered / journeyLength;
-                        enemyCharacters[i].transform.position = Vector3.Lerp(startPosition, targetPosition, journeyFraction);
-
-                        if (journeyFraction >= 1f)
-                            break;
-
-                        yield return null;
-                    }
+                   enemyCharacters[i].SetTargetPositionSections(closestPlayerUnit.transform.position);
                 }
                 else if (distanceBefore >= 17 && distanceBefore <= 60f)
                 {
@@ -263,13 +274,13 @@ public class BattleManager : MonoBehaviour
                 {
                     // Attack the player unit
                     AttackPlayer(enemyCharacters[i]);
-                 //   FindObjectOfType<AudioManager>().Play("Hit");
+                   // FindObjectOfType<AudioManager>().Play("Hit");
 
                 }
             }
             // Check if the enemy unit is within attack range
 
-            yield return new WaitForSeconds(1f); // Wait for 1 second between each enemy's action
+            yield return new WaitForSeconds(2f); // Wait for 1 second between each enemy's action
             enemyCharacters[i].enabled = false;
             enemyCharacters[i].gameObject.AddComponent<BoxCollider>();
             enemyCharacters[i].transform.Find("BackGround").GetComponent<MeshRenderer>().enabled = false;
@@ -311,8 +322,22 @@ public class BattleManager : MonoBehaviour
             targetPlayerUnit.health -= damage;
             targetPlayerUnit.howManyAlive();
             targetPlayerUnit.self.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = targetPlayerUnit.count.ToString();
+            for (int i = 0; i < Ul.PlayerUnitsLost.Length; i++)
+            {
+                if (targetPlayerUnit.unit == Ul.PlayerUnitsLost[i])
+                {
+                    Ul.PlayerUnitsCountLost[i] = targetPlayerUnit.count;
+                }
+            }
             if (targetPlayerUnit.health <= 1)
             {
+                for (int i = 0; i < Ul.PlayerUnitsLost.Length; i++)
+                {
+                    if (targetPlayerUnit.unit == Ul.PlayerUnitsLost[i])
+                    {
+                        Ul.PlayerUnitsCountLost[i] = targetPlayerUnit.count;
+                    }
+                }
                 Destroy(targetPlayerUnit.gameObject);
                 // Aktualizace pole playerCharacters
                 List<FieldMovement> fml = new List<FieldMovement>();
@@ -335,7 +360,6 @@ public class BattleManager : MonoBehaviour
     {
         // Výpoèet poškození na základì síly útoèící jednotky a obrany cílové jednotky
         int damage = UnityEngine.Random.Range(attacker.minDamage, attacker.maxDamage);
-
         // Zajištìní, že poškození bude alespoò 1
         damage = damage * count;
 
@@ -367,7 +391,29 @@ public class BattleManager : MonoBehaviour
     }
     private float PlayerReturnHP(int index, Unit unit)
     {
-        int count = enemyUnits.unitCount[index];
+        int count = playerUnits.unitCount[index];
         return unit.health * count;
     }
 }
+
+/*                  if (distanceBefore > 60f)
+ *                  {
+ *                 Vector3 startPosition = enemyCharacters[i].transform.position;
+                    Vector3 targetPosition = startPosition + new Vector3(-30f, 0f, 0f); // Move 30 units to the left
+
+                    float journeyLength = Vector3.Distance(startPosition, targetPosition);
+                    float startTime = Time.time;
+
+                    while (true)
+                    {
+                        float distanceCovered = (Time.time - startTime) * 40; // Assuming moveSpeed is defined
+                        float journeyFraction = distanceCovered / journeyLength;
+                        enemyCharacters[i].transform.position = Vector3.Lerp(startPosition, targetPosition, journeyFraction);
+
+                        if (journeyFraction >= 1f)
+                            break;
+
+                        yield return null;
+                    }
+                }
+*/

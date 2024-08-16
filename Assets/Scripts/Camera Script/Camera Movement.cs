@@ -18,7 +18,6 @@ public class CameraMovement : MonoBehaviour
     private Camera orthographicCamera;
     public bool isInRange;
     public Claim[] questObject;
-    public Quest quest;
     public int SendToQuest;
     public SaveDataObject SDO;
     public bool OnWay;

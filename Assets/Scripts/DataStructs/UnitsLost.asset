@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dfe066d7ad876949a598e610165e8c8, type: 3}
+  m_Name: UnitsLost
+  m_EditorClassIdentifier: 
+  PlayerUnitsLost:
+  - {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
+  - {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  EnemyUnitsLost:
+  - {fileID: 11400000, guid: 117e2ced2f7a848128a241b06f3ef999, type: 2}
+  - {fileID: 11400000, guid: e5e2e946acdf24da28bf194ab1789b68, type: 2}
+  - {fileID: 11400000, guid: 583b8055529c94dc7a6a45c0d58556b1, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  PlayerUnitsStart: 18000000060000000000000000000000000000000000000000000000
+  EnemyUnitsStart: 0a0000000a0000000a00000000000000000000000000000000000000
+  PlayerUnitsCountLost: 00000000000000000000000000000000000000000000000000000000
+  EnemyUnitsCountLost: 00000000000000000000000000000000000000000000000000000000

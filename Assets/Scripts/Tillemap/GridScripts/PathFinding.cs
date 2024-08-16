@@ -81,8 +81,6 @@ public class PathFinding
          // Store the nodes that are already processed to avoid redundant operations
          HashSet<PathNode> processedNodes = new HashSet<PathNode>();
  
-         PathDebug.Instance.ClearSnapshots();
-        PathDebug.Instance.TakeSnapshot(grid, startNode, openList, closedList);
 
         while (openList.Count > 0)
         {
@@ -90,8 +88,6 @@ public class PathFinding
             if (currentNode == endNode)
             {
                 // Reached final node
-                PathDebug.Instance.TakeSnapshot(grid, currentNode, openList, closedList);
-                PathDebug.Instance.TakeSnapshotFinalPath(grid, CalculatePath(endNode));
                 return CalculatePath(endNode);
             }
 
@@ -121,7 +117,6 @@ public class PathFinding
                         openList.Add(neighbourNode);
                     }
                 }
-                PathDebug.Instance.TakeSnapshot(grid, currentNode, openList, closedList);
             }
         }
         return null;

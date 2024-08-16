@@ -7,6 +7,7 @@ public class EnemyUnitsContol : MonoBehaviour
     public Unit[] RandomUnits;
     public int[] RandomUnitCount;
     public InvetorySaver enemyUnits;
+    public EnemysToRemove EnemyRemove;
 
     public void SetEnemyUnits()
     {
@@ -22,6 +23,13 @@ public class EnemyUnitsContol : MonoBehaviour
         {
             enemyUnits.unitList[i] = null;
             enemyUnits.unitCount[i] = 0;
+        }
+    }
+    private void Update()
+    {
+        if(EnemyRemove.Dead)
+        {
+            Destroy(gameObject);
         }
     }
 }

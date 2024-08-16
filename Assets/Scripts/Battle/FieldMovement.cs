@@ -22,6 +22,7 @@ public class FieldMovement : MonoBehaviour
     private float attackCooldown = 1f; // Adjust the cooldown duration as needed
     private float lastAttackTime = 0f;
     public GameObject self;
+    public UnitsLost Ul;
     private void Update()
     {
         HandleMovement();
@@ -67,6 +68,7 @@ public class FieldMovement : MonoBehaviour
             else
             {
                 currentPathIndex++;
+                Debug.Log(currentPathIndex + " : " + pathVectorList.Count);
                 if (currentPathIndex >= pathVectorList.Count - 1)
                 {
                     StopMoving();
@@ -101,6 +103,15 @@ public class FieldMovement : MonoBehaviour
             pathVectorList.RemoveAt(0);
         }
     }
+    public void SetTargetPositionSections(Vector3 targetPosition)
+    {
+        currentPathIndex = 0;
+        pathVectorList = PathFinding.Instance.FindPath(GetPosition(), targetPosition);
+        if (pathVectorList != null && pathVectorList.Count > 1)
+        {
+            pathVectorList.RemoveAt(0);
+        }
+    }
     public void SetAttackPosition(Vector3 targetPosition)
     {
         canAttack = false;
@@ -123,6 +134,14 @@ public class FieldMovement : MonoBehaviour
                 Debug.Log("Dealt " + unit.damage + " ranged damage to the enemy unit!");
                 ResetAttackCooldown();
                 enemyUnit.self.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = enemyUnit.count.ToString();
+                for (int i = 0; i < Ul.EnemyUnitsLost.Length; i++)
+                {
+                    if (enemyUnit.unit == Ul.EnemyUnitsLost[i])
+                    {
+                        Debug.Log("Added");
+                        Ul.EnemyUnitsCountLost[i] = enemyUnit.count;
+                    }
+                }
                 EndPlayerTurn();
             }
             else if (unit.ATKT == Unit.attackType.ranger && shots <= 0 && distanceToTarget < 17)
@@ -133,6 +152,13 @@ public class FieldMovement : MonoBehaviour
                 Debug.Log("Dealt " + unit.damage + " melee damage due to no ammunition!");
                 ResetAttackCooldown();
                 enemyUnit.self.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = enemyUnit.count.ToString();
+                for (int i = 0; i < Ul.EnemyUnitsLost.Length; i++)
+                {
+                    if (enemyUnit.unit == Ul.EnemyUnitsLost[i])
+                    {
+                        Ul.EnemyUnitsCountLost[i] = enemyUnit.count;
+                    }
+                }
                 EndPlayerTurn();
             }
             else if (unit.ATKT == Unit.attackType.melee && distanceToTarget < 17)
@@ -143,6 +169,13 @@ public class FieldMovement : MonoBehaviour
                 Debug.Log("Dealt " + unit.damage + " melee damage to the enemy unit!");
                 ResetAttackCooldown();
                 enemyUnit.self.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = enemyUnit.count.ToString();
+                for (int i = 0; i < Ul.EnemyUnitsLost.Length; i++)
+                {
+                    if (enemyUnit.unit == Ul.EnemyUnitsLost[i])
+                    {
+                        Ul.EnemyUnitsCountLost[i] = enemyUnit.count;
+                    }
+                }
                 EndPlayerTurn();
             }
             StartCoroutine(ResetAttackCooldown());
@@ -186,7 +219,7 @@ public class FieldMovement : MonoBehaviour
     }
     public void Die()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
         // Aktualizace pole playerCharacters
         List<FieldMovement> fml = new List<FieldMovement>();
         int NewenemyCount = 0;
