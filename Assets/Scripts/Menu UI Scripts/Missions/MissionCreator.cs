@@ -49,7 +49,7 @@ public class MissionCreator : MonoBehaviour
     private Image vyber1;
     private Image vyber2;
     private Image vyber3;
-
+    public SaveDataObject SDO;
     public enum sound
     {
         good,
@@ -168,71 +168,139 @@ public class MissionCreator : MonoBehaviour
         {
             sendBuildings[i].upgraded = false;
         }
-        sendBuildings[0].builded = true;
-        sendBuildings[1].builded = true;
-        sendBuildings[2].builded = false;
-        sendBuildings[3].builded = false;
-        sendBuildings[4].builded = true;
-        sendBuildings[5].builded = true;
-        sendBuildings[6].builded = false;
-        sendBuildings[7].builded = false;
-        sendBuildings[8].builded = false;
-        sendBuildings[9].builded = false;
-        sendBuildings[10].builded = false;
-        for (int i = 0; i < sendBuildings.Length; i++)
-        {
-            sendBuildings[i].upgraded = false;
-        }
     }
     public void LoadGame()
     {
-        for (int i = 0; i < invetorySaver.unitList.Length; i++)
+        if(MDS.whatMission == 0)
         {
-            invetorySaver.unitList[i] = null;
-            invetorySaver.unitCount[i] = 0;
-        }
-        for (int i = 0; i < units.Length; i++)
-        {
-            invetorySaver.unitList[i] = units[i];
-            invetorySaver.unitCount[i] = countOfUnits[i];
-        }
-        ClearData();
-        FindObjectOfType<BuildingManager>().save.CityBuldings = sendBuildings;
-        FindObjectOfType<BuildingManager>().save.UnitSetting = unitsToSet;
-        FindObjectOfType<BuildingManager>().save.cityBackground = cityBackground;
-        if (Theme == sound.good)
-        {
-            PlayerPrefs.SetFloat("PosX", 205);
-            PlayerPrefs.SetFloat("PosY", 75);
-            PlayerPrefs.SetFloat("PosZ", 5);
-            FindObjectOfType<BuildingManager>().save.CityType = SaveDataObject.type.Castel;
-        }
-        if (Theme == sound.neutral)
-        {
-            PlayerPrefs.SetFloat("PosX", 20);
-            PlayerPrefs.SetFloat("PosY", 45);
-            PlayerPrefs.SetFloat("PosZ", 5);
-            FindObjectOfType<BuildingManager>().save.CityType = SaveDataObject.type.Rampart;
-        }
-        if (Theme == sound.evil)
-        {
-            PlayerPrefs.SetFloat("PosX", 20);
-            PlayerPrefs.SetFloat("PosY", 45);
-            PlayerPrefs.SetFloat("PosZ", 5);
-            FindObjectOfType<BuildingManager>().save.CityType = SaveDataObject.type.Necropolis;
-        }
-        PlayerPrefs.SetInt("den", 1);
-        PlayerPrefs.DeleteKey("Test Scene");
-        PlayerPrefs.SetInt("Setted", 1);
-        if(LevelIndex == MDS.whatMission)
-        {
-            QC.Selected = data;
-            QC.Selected.isActive = true;
-            QC.Selected.QG = data.QG;
-        }
-        FindObjectOfType<MenuUIContorler>().LoadGrid();
-        Debug.Log(QC.Selected.condition);
+            ClearData();
+            if (Theme == sound.good)
+            {
+                PlayerPrefs.SetFloat("PosX", 205);
+                PlayerPrefs.SetFloat("PosY", 75);
+                PlayerPrefs.SetFloat("PosZ", 5);
+                SDO.CityType = SaveDataObject.type.Castel;
 
+                for (int i = 0; i < SDO.CityBuldings.Length; i++)
+                {
+                    SDO.CityBuldings[i] = sendBuildings[i];
+                }
+                for (int i = 0; i < SDO.UnitSetting.Length; i++)
+                {
+                    SDO.UnitSetting[i] = unitsToSet[i];
+                }
+                for (int i = 0; i < invetorySaver.unitList.Length; i++)
+                {
+                    invetorySaver.unitList[i] = null;
+                    invetorySaver.unitCount[i] = 0;
+                    Debug.Log("done");
+                }
+                for (int i = 0; i < units.Length; i++)
+                {
+                    invetorySaver.unitList[i] = units[i];
+                    invetorySaver.unitCount[i] = countOfUnits[i];
+                    Debug.Log("done1");
+                }
+                SDO.cityBackground = cityBackground;
+            }
+            PlayerPrefs.SetInt("den", 1);
+            PlayerPrefs.DeleteKey("Test Scene");
+            PlayerPrefs.SetInt("Setted", 1);
+            if (MDS.whatMission == LevelIndex)
+            {
+                QC.Selected = data;
+                QC.Selected.isActive = true;
+                QC.Selected.QG = data.QG;
+            }
+            FindObjectOfType<MenuUIContorler>().LoadGrid();
+            Debug.Log(QC.Selected.condition);
+        }
+        else if (MDS.whatMission == 1)
+        {
+            ClearData();
+            if (Theme == sound.neutral)
+            {
+                PlayerPrefs.SetFloat("PosX", 15);
+                PlayerPrefs.SetFloat("PosY", 45);
+                PlayerPrefs.SetFloat("PosZ", 5);
+                SDO.CityType = SaveDataObject.type.Rampart;
+                for (int i = 0; i < SDO.CityBuldings.Length; i++)
+                {
+                    SDO.CityBuldings[i] = sendBuildings[i];
+                }
+                for (int i = 0; i < SDO.UnitSetting.Length; i++)
+                {
+                    SDO.UnitSetting[i] = unitsToSet[i];
+                }
+                for (int i = 0; i < invetorySaver.unitList.Length; i++)
+                {
+                    invetorySaver.unitList[i] = null;
+                    invetorySaver.unitCount[i] = 0;
+                    Debug.Log("done");
+                }
+                for (int i = 0; i < units.Length; i++)
+                {
+                    invetorySaver.unitList[i] = units[i];
+                    invetorySaver.unitCount[i] = countOfUnits[i];
+                    Debug.Log("done1");
+                }
+                SDO.cityBackground = cityBackground;
+            }   
+            PlayerPrefs.SetInt("den", 1);
+            PlayerPrefs.DeleteKey("Test Scene");
+            PlayerPrefs.SetInt("Setted", 1);
+            if (MDS.whatMission == LevelIndex)
+            {
+                QC.Selected = data;
+                QC.Selected.isActive = true;
+                QC.Selected.QG = data.QG;
+            }
+            FindObjectOfType<MenuUIContorler>().LoadGrid();
+            Debug.Log(QC.Selected.condition);
+        }
+        else if (MDS.whatMission == 2)
+        {
+            ClearData();
+            if (Theme == sound.evil)
+            {
+                PlayerPrefs.SetFloat("PosX", 20);
+                PlayerPrefs.SetFloat("PosY", 45);
+                PlayerPrefs.SetFloat("PosZ", 5);
+                SDO.CityType = SaveDataObject.type.Necropolis;
+                for (int i = 0; i < SDO.CityBuldings.Length; i++)
+                {
+                    SDO.CityBuldings[i] = sendBuildings[i];
+                }
+                for (int i = 0; i < SDO.UnitSetting.Length; i++)
+                {
+                    SDO.UnitSetting[i] = unitsToSet[i];
+                }
+                for (int i = 0; i < invetorySaver.unitList.Length; i++)
+                {
+                    invetorySaver.unitList[i] = null;
+                    invetorySaver.unitCount[i] = 0;
+                    Debug.Log("done");
+                }
+                for (int i = 0; i < units.Length; i++)
+                {
+                    invetorySaver.unitList[i] = units[i];
+                    invetorySaver.unitCount[i] = countOfUnits[i];
+                    Debug.Log("done1");
+                }
+                SDO.cityBackground = cityBackground;
+            }
+            PlayerPrefs.SetInt("den", 1);
+            PlayerPrefs.DeleteKey("Test Scene");
+            PlayerPrefs.SetInt("Setted", 1);
+            if(MDS.whatMission == LevelIndex)
+            {
+                QC.Selected = data;
+                QC.Selected.isActive = true;
+                QC.Selected.QG = data.QG;
+            }
+            FindObjectOfType<MenuUIContorler>().LoadGrid();
+            Debug.Log(QC.Selected.condition);
+        }
     }
     public string GetInfo(int index)
     { 
@@ -247,3 +315,21 @@ public class MissionCreator : MonoBehaviour
         PlayMission.interactable = trueOrFalse;
     }
 }
+/*            else if (Theme == sound.neutral)
+            {
+                PlayerPrefs.SetFloat("PosX", 20);
+                PlayerPrefs.SetFloat("PosY", 45);
+                PlayerPrefs.SetFloat("PosZ", 5);
+                SDO.CityType = SaveDataObject.type.Rampart;
+                Debug.Log("done3");
+            }
+            else if (Theme == sound.evil)
+            {
+                PlayerPrefs.SetFloat("PosX", 20);
+                PlayerPrefs.SetFloat("PosY", 45);
+                PlayerPrefs.SetFloat("PosZ", 5);
+                SDO.CityType = SaveDataObject.type.Necropolis;
+                Debug.Log("done4");
+            }
+ * 
+ */

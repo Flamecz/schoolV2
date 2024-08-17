@@ -422,6 +422,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5a2c1c66a827f4ad88f4532430e115ea, type: 2}
   - {fileID: 11400000, guid: 70027a49a51594bf6864aa08227d6878, type: 2}
   Canvas: {fileID: 512850956}
+  SDO: {fileID: 11400000, guid: 14ca6d2e3ced24651b65741a18d8db7e, type: 2}
   sendBuildings:
   - {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
   - {fileID: 11400000, guid: a2b01f4be32924ef0b0e8f422f6dd5cf, type: 2}
@@ -5200,8 +5201,8 @@ MonoBehaviour:
     Map: {fileID: 21300000, guid: d29ee67dfff2d7a4c8206be40f5dce76, type: 3}
   MDS: {fileID: 11400000, guid: ea6398a186fe1d14ea8d3343587b7b06, type: 2}
   data:
-    condition: 
-    description: 
+    condition: KIll your Enemy
+    description: For long time they have been standing in your way. End their lives
     isActive: 0
     Finnished: 0
     QG:
@@ -5238,6 +5239,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ccd4b348e06bb4fcea1d6f8ff1103749, type: 2}
   - {fileID: 11400000, guid: 39422040f857d43a0b3c511d5f6b8b31, type: 2}
   Canvas: {fileID: 512850956}
+  SDO: {fileID: 11400000, guid: 14ca6d2e3ced24651b65741a18d8db7e, type: 2}
   sendBuildings:
   - {fileID: 11400000, guid: 62176d448c3a843e9b4f3ed070b7083e, type: 2}
   - {fileID: 11400000, guid: 76ceff7c5f28f4e28b479e8760771926, type: 2}
@@ -6096,6 +6098,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8744422da76ac9d4ab0f77f85da11ea7, type: 2}
   - {fileID: 11400000, guid: 2ee722c6c38d3f34eb748fad88f016b4, type: 2}
   Canvas: {fileID: 512850956}
+  SDO: {fileID: 11400000, guid: 14ca6d2e3ced24651b65741a18d8db7e, type: 2}
   sendBuildings:
   - {fileID: 11400000, guid: cf9d1b634660c514584b0b5c7c434449, type: 2}
   - {fileID: 11400000, guid: 3394aa2b0a14842b3bd8030ecc686982, type: 2}
