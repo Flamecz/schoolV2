@@ -33,7 +33,7 @@ public class BattleManager : MonoBehaviour
     private bool enemyTurn;
     private int futureturn;
     public UnitsLost Ul;
-    private bool Over = false;
+    public bool Over = false;
     void Awake()
     {
         Ul.PlayerUnitsCountLost = new int[7];

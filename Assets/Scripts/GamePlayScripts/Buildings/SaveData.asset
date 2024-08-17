@@ -12,7 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2294170903fc4123b21ca4c8e46577d, type: 3}
   m_Name: SaveData
   m_EditorClassIdentifier: 
-  CityType: 0
-  CityBuldings: []
-  UnitSetting: []
-  cityBackground: {fileID: 0}
+  CityType: 1
+  CityBuldings:
+  - {fileID: 11400000, guid: cf9d1b634660c514584b0b5c7c434449, type: 2}
+  - {fileID: 11400000, guid: 3394aa2b0a14842b3bd8030ecc686982, type: 2}
+  - {fileID: 11400000, guid: 06fe4f14f2db34d71816f7ff7985a7a0, type: 2}
+  - {fileID: 11400000, guid: 33064bbcc86ec4327958c04b93354462, type: 2}
+  - {fileID: 11400000, guid: 65dba9a771c2045c58deb6ddfb9fad34, type: 2}
+  - {fileID: 11400000, guid: 6a5bbbe7dc0d342a8afc0a4db665f939, type: 2}
+  - {fileID: 11400000, guid: 1224bdf04bc634768bb666adcf2f3e65, type: 2}
+  - {fileID: 11400000, guid: 165ca745d2b2a43a3ba338d818a09401, type: 2}
+  - {fileID: 11400000, guid: ec196c0b306f24d679f000d00962bf92, type: 2}
+  - {fileID: 11400000, guid: 0e437925ca26f4e7bb8f8b91508fed14, type: 2}
+  - {fileID: 11400000, guid: be25a1694fcc94bd0bfd9409256f66f8, type: 2}
+  UnitSetting:
+  - {fileID: 11400000, guid: 583b8055529c94dc7a6a45c0d58556b1, type: 2}
+  - {fileID: 11400000, guid: e0e31ff27498948dab4efd9d0d903b60, type: 2}
+  - {fileID: 11400000, guid: 117e2ced2f7a848128a241b06f3ef999, type: 2}
+  - {fileID: 11400000, guid: 18d285f383bb44dcd9e0876533ed56e3, type: 2}
+  - {fileID: 11400000, guid: e5e2e946acdf24da28bf194ab1789b68, type: 2}
+  - {fileID: 11400000, guid: 52c3757609c0747eeb5350f54129e381, type: 2}
+  - {fileID: 11400000, guid: 158821e4f26f4409fb9157cbf1f0abc6, type: 2}
+  - {fileID: 11400000, guid: 9fcb38188bf5146f4900799526d183e2, type: 2}
+  - {fileID: 11400000, guid: 2d99fb275e4ad4beeba398a2725ed131, type: 2}
+  - {fileID: 11400000, guid: 380de20c6c8353c4d84db823ae0101d0, type: 2}
+  - {fileID: 11400000, guid: 40a96dc6a31034748ab77d9fd9df9854, type: 2}
+  - {fileID: 11400000, guid: 24bde716b71d15049864e9a30752d6d4, type: 2}
+  - {fileID: 11400000, guid: 8744422da76ac9d4ab0f77f85da11ea7, type: 2}
+  - {fileID: 11400000, guid: 2ee722c6c38d3f34eb748fad88f016b4, type: 2}
+  cityBackground: {fileID: 21300000, guid: ea3adfc30d453f746a573e0f41fcd36b, type: 3}

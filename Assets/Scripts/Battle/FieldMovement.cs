@@ -211,7 +211,7 @@ public class FieldMovement : MonoBehaviour
         float damage = Random.Range(minDamage, maxDamage + 1);
         health -= damage * count;
         howManyAlive();
-        if (health <= 0)
+        if (health <= 1)
         {
             Die();
 

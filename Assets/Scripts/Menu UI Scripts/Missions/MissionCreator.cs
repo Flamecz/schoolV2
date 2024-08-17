@@ -22,6 +22,7 @@ public class MissionCreator : MonoBehaviour
     public Sprite cityBackground;
     [Header("invetory")]
     public Unit[] unitsToSet;
+    public StoredData storeData;
 
     [Header("Misc")]
     public GameObject Canvas;
@@ -171,7 +172,7 @@ public class MissionCreator : MonoBehaviour
     }
     public void LoadGame()
     {
-        if(MDS.whatMission == 0)
+        if (MDS.whatMission == 0)
         {
             ClearData();
             if (Theme == sound.good)
@@ -180,7 +181,10 @@ public class MissionCreator : MonoBehaviour
                 PlayerPrefs.SetFloat("PosY", 75);
                 PlayerPrefs.SetFloat("PosZ", 5);
                 SDO.CityType = SaveDataObject.type.Castel;
-
+                for (int i = 0; i < storeData.storeTag.Length; i++)
+                {
+                    storeData.storeTag[i] = null;
+                }
                 for (int i = 0; i < SDO.CityBuldings.Length; i++)
                 {
                     SDO.CityBuldings[i] = sendBuildings[i];
@@ -224,6 +228,10 @@ public class MissionCreator : MonoBehaviour
                 PlayerPrefs.SetFloat("PosY", 45);
                 PlayerPrefs.SetFloat("PosZ", 5);
                 SDO.CityType = SaveDataObject.type.Rampart;
+                for (int i = 0; i < storeData.storeTag.Length; i++)
+                {
+                    storeData.storeTag[i] = null;
+                }
                 for (int i = 0; i < SDO.CityBuldings.Length; i++)
                 {
                     SDO.CityBuldings[i] = sendBuildings[i];
@@ -267,6 +275,10 @@ public class MissionCreator : MonoBehaviour
                 PlayerPrefs.SetFloat("PosY", 45);
                 PlayerPrefs.SetFloat("PosZ", 5);
                 SDO.CityType = SaveDataObject.type.Necropolis;
+                for (int i = 0; i < storeData.storeTag.Length; i++)
+                {
+                    storeData.storeTag[i] = null;
+                }
                 for (int i = 0; i < SDO.CityBuldings.Length; i++)
                 {
                     SDO.CityBuldings[i] = sendBuildings[i];
