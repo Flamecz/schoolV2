@@ -10,7 +10,7 @@ public class Testing : MonoBehaviour {
     [SerializeField] public PathVisual pathVisual;
     [SerializeField] private PlayerMovement characterPathfinding;
     public PathFinding pathfinding;
-    public int set;
+    public StoreStamina set;
     public MapManager mapManager;
     public static bool canBeAccest = false;
     public Slider staminaIndicator;
@@ -22,7 +22,7 @@ public class Testing : MonoBehaviour {
         pathfinding = new PathFinding(width, height);
         pathDebug.Setup(pathfinding.GetGrid());
         pathVisual.SetGrid(pathfinding.GetGrid());
-        pathfinding.settedValue = set;
+        pathfinding.settedValue = set.stamina;
         string[] mapLayout = MapManager.Instance.GetMapLayout(selectedMap);
         pathVisual.UpdateGridFrom2DString(mapLayout);
     }
@@ -50,6 +50,7 @@ public class Testing : MonoBehaviour {
                 if (characterPathfinding.activePathList.Count > 0)
                 {
                     pathfinding.RemoveCost();
+                    set.stamina = pathfinding.settedValue;
                 }
             }
             else
@@ -60,6 +61,7 @@ public class Testing : MonoBehaviour {
                 if (characterPathfinding.activePathList.Count > 0)
                 {
                     pathfinding.RemoveCost();
+                    set.stamina = pathfinding.settedValue;
                 }
             }
             

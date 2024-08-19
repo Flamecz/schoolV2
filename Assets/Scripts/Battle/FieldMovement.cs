@@ -219,7 +219,6 @@ public class FieldMovement : MonoBehaviour
     }
     public void Die()
     {
-        gameObject.SetActive(false);
         // Aktualizace pole playerCharacters
         List<FieldMovement> fml = new List<FieldMovement>();
         int NewenemyCount = 0;
@@ -235,6 +234,7 @@ public class FieldMovement : MonoBehaviour
         Debug.Log(NewenemyCount);
         bm.enemyCharacters = new FieldMovement[NewenemyCount];
         bm.enemyCharacters = fml.ToArray();
+        Destroy(gameObject);
     }
     public void howManyAlive()
     {

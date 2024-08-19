@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 331d5adc19ebd4383926c984f355cb1c, type: 3}
-  m_Name: DataContainer
+  m_Script: {fileID: 11500000, guid: 12226ab7c7cb14449acfca0b8a0fd64c, type: 3}
+  m_Name: StoreStamina
   m_EditorClassIdentifier: 
-  whatResource: 1
-  whatMission: 1
-  whatDificulty: 4
-  Width: 21
-  Height: 15
+  stamina: 0

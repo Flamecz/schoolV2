@@ -9,6 +9,7 @@ public class DataSender : MonoBehaviour
 {
     public static DataSender instance;
     public MissionDataShower show;
+    public MissionDataShower Load;
     public BuildingManager buildingManager;
 
     void Awake()
@@ -24,27 +25,16 @@ public class DataSender : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            SceneManager.LoadScene(1);
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            SceneManager.LoadScene(2);
-        }
-    }
     public void GetIndex(int index)
     {
-        show.whatResource = index;
+        Load.whatResource = index;
     }
     public void GetMission(int index)
     {
-        show.whatMission = index;
+        Load.whatMission = index;
     }
     public void GetDificulty(int index)
     {
-        show.whatDificulty = index;
+        Load.whatDificulty = index;
     }
 }

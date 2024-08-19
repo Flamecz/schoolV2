@@ -257,13 +257,13 @@ public class BattleManager : MonoBehaviour
             if (enemyCharacters[i].unit.ATKT == Unit.attackType.ranger && enemyCharacters[i].shots > 0)
             {
                 AttackPlayer(enemyCharacters[i]);
-               //FindObjectOfType<AudioManager>().Play("Hit");
+               FindObjectOfType<AudioManager>().Play("Hit");
             }
             else if (enemyCharacters[i].unit.ATKT != Unit.attackType.ranger || enemyCharacters[i].shots == 0)
             {
                 if (distanceBefore > 60f)
                 {
-                   enemyCharacters[i].SetTargetPositionSections(closestPlayerUnit.transform.position);
+                   enemyCharacters[i].SetAttackPosition(closestPlayerUnit.transform.position);
                 }
                 else if (distanceBefore >= 17 && distanceBefore <= 60f)
                 {
@@ -274,7 +274,7 @@ public class BattleManager : MonoBehaviour
                 {
                     // Attack the player unit
                     AttackPlayer(enemyCharacters[i]);
-                   // FindObjectOfType<AudioManager>().Play("Hit");
+                    FindObjectOfType<AudioManager>().Play("Hit");
 
                 }
             }

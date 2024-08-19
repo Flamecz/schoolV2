@@ -16,6 +16,13 @@ TagManager:
   - BuildingI
   - BuildingSt
   - BuildingW
+  - SurovinyG
+  - SurovinyGe
+  - SurovinyM
+  - SurovinyS
+  - SurovinyI
+  - SurovinySt
+  - SurovinyW
   layers:
   - Default
   - TransparentFX

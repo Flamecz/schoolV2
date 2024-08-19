@@ -22,12 +22,17 @@ public class CameraMovement : MonoBehaviour
     public SaveDataObject SDO;
     public bool OnWay;
     private GameObject holdObject;
+    private bool done;
+    private QuestControll QC;
+
+
     void Start()
     {
         orthographicCamera = GetComponent<Camera>();
         float x = PlayerPrefs.GetFloat("PosX");
         float y = PlayerPrefs.GetFloat("PosY");
-
+        QC = FindObjectOfType<QuestControll>();
+        QC.canvas = FindObjectOfType<Canvas>();
         orthographicCamera.transform.position = new Vector3(x, y, orthographicCamera.transform.position.z);
     }
 
@@ -65,8 +70,12 @@ public class CameraMovement : MonoBehaviour
         transform.position = new Vector3(
             Mathf.Clamp(transform.position.x + pan.x * panSpeed * Time.deltaTime, minBoundary.x, maxBoundary.x),
             Mathf.Clamp(transform.position.y + pan.y * panSpeed * Time.deltaTime, minBoundary.y, maxBoundary.y),
-            transform.position.z
-        );
+            transform.position.z);
+        if (QC.Selected.QG.QuestDone() && !done)
+        {
+            FindObjectOfType<QuestControll>().FinnishedQuest();
+            done = true;
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -109,21 +118,49 @@ public class CameraMovement : MonoBehaviour
                         SceneManager.LoadScene(1);
                     }
                 }
-                else if (hitObject.tag == "Suroviny" && distanceToTarget < 17 && testing.pathfinding.settedValue > 14)
+                else if ((hitObject.tag == "SurovinyG" || hitObject.tag == "SurovinyGe" || hitObject.tag == "SurovinyM" || hitObject.tag == "SurovinyS" || hitObject.tag == "SurovinyI" || hitObject.tag == "SurovinySt" || hitObject.tag == "SurovinyW") && distanceToTarget < 17 && testing.pathfinding.settedValue > 14)
                 {
                     hitObject.GetComponent<ResourceObject>();
-                    if (FindObjectOfType<QuestControll>().Selected.QG.goalType == GoalType.Gather)
+                    if (QC.Selected.QG.goalType == GoalType.Gather)
                     {
-                        FindObjectOfType<QuestControll>().Selected.QG.QuestGatherd();
-                        if(FindObjectOfType<QuestControll>().Selected.QG.QuestDone())
+                        QC.Selected.QG.QuestGatherd();
+                        if (QC.Selected.QG.QuestDone())
                         {
                             FindObjectOfType<QuestControll>().FinnishedQuest();
                         }
                     }
-                    FindObjectOfType<ResourceManager>().ModifyResources("Gems", 1);
+                    if (hitObject.tag == "SurovinyG")
+                    {
+                        FindObjectOfType<ResourceManager>().ModifyResources("Gold", 1);
+                    }
+                    if (hitObject.tag == "SurovinyGe")
+                    {
+                        FindObjectOfType<ResourceManager>().ModifyResources("Gems", 1);
+                    }
+                    if (hitObject.tag == "SurovinyM")
+                    {
+                        FindObjectOfType<ResourceManager>().ModifyResources("Minerals", 1);
+                    }
+                    if (hitObject.tag == "SurovinyS")
+                    {
+                        FindObjectOfType<ResourceManager>().ModifyResources("Sulfur", 1);
+                    }
+                    if (hitObject.tag == "SurovinyI")
+                    {
+                        FindObjectOfType<ResourceManager>().ModifyResources("Iron", 1);
+                    }
+                    if (hitObject.tag == "SurovinySt")
+                    {
+                        FindObjectOfType<ResourceManager>().ModifyResources("Stone", 1);
+                    }
+                    if (hitObject.tag == "SurovinyW")
+                    {
+                        FindObjectOfType<ResourceManager>().ModifyResources("Wood", 1);
+                    }
+                    hitObject.GetComponent<ResourceIfColected>().claim.claimed = true;
                     Destroy(hitObject.gameObject);
                 }
-                else if (hitObject.tag == "Suroviny" && distanceToTarget > 17)
+                else if (hitObject.tag == "SurovinyG" || hitObject.tag == "SurovinyGe" || hitObject.tag == "SurovinyM" || hitObject.tag == "SurovinyS" || hitObject.tag == "SurovinyI" || hitObject.tag == "SurovinySt" || hitObject.tag == "SurovinyW" && distanceToTarget > 17)
                 {
                     testing.resource = true;
                 }
@@ -135,6 +172,10 @@ public class CameraMovement : MonoBehaviour
                     FindObjectOfType<AudioManager>().Play("Battle");
                     SceneManager.LoadScene(3);
                 }
+                else if (hitObject.tag == "Enemy" && distanceToTarget >17)
+                {
+                    testing.resource = true;
+                }
                 else if (hitObject.tag == "BuildingG" || hitObject.tag == "BuildingGe" || hitObject.tag == "BuildingM" || hitObject.tag == "BuildingS" || hitObject.tag == "BuildingI" || hitObject.tag == "BuildingSt" || hitObject.tag == "BuildingW" && distanceToTarget < 17)
                 {
                     for (int i = 0; i < buildingstored.storeTag.Length; i++)
@@ -143,7 +184,7 @@ public class CameraMovement : MonoBehaviour
                         {
                             break;
                         }
-                        else if(buildingstored.storeTag[i] == "")
+                        else if(buildingstored.storeTag[i] == null)
                         {
                             buildingstored.storeTag[i] = hitObject.tag;
                             Debug.Log(hitObject.tag);

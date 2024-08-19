@@ -5,7 +5,7 @@ using UnityEngine;
 public class ResourceIfColected : MonoBehaviour
 {
     public Claim claim;
-    private void Awake()
+    private void Update()
     {
         if(claim.claimed)
         {

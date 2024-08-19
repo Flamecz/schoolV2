@@ -93,7 +93,6 @@ public class MenuUIContorler : MonoBehaviour
     }
     public void LoadGrid()
     {
-        FindObjectOfType<MissionCreator>().GetBonus();
         SceneManager.LoadScene(2);
         FindObjectOfType<AudioManager>().Stop("HeroesGoodtheme");
         FindObjectOfType<AudioManager>().Stop("Neutral");

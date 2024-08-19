@@ -13,10 +13,21 @@ MonoBehaviour:
   m_Name: StoreBuildings
   m_EditorClassIdentifier: 
   storeTag:
-  - BuildingW
   - 
   - 
   - 
   - 
   - 
   - 
+  - 
+  ResourcesTaken:
+  - {fileID: 11400000, guid: f7a9e1dbb5823c14e833eff6e17dba55, type: 2}
+  - {fileID: 11400000, guid: 2b313fe5f47d4b14aa6f9b12627b7732, type: 2}
+  - {fileID: 11400000, guid: d2c52110df3aa1a4ba0b99a6494d8e4e, type: 2}
+  - {fileID: 11400000, guid: bb7a7c79334db154dbe7642ebdb226e5, type: 2}
+  - {fileID: 11400000, guid: ca1cea1ea987251488a43da183173e12, type: 2}
+  - {fileID: 11400000, guid: 83bc1763d37156c478ea1635aa5c6465, type: 2}
+  - {fileID: 11400000, guid: 23795ea57df8b314b8c7792ff88ad705, type: 2}
+  - {fileID: 11400000, guid: 7e91123a7ca8c26468f38cc6ccaa6660, type: 2}
+  - {fileID: 11400000, guid: e89f0bc81c794914b9a2f65e67634cdc, type: 2}
+  - {fileID: 11400000, guid: e57014a057a1d2a4d9e3cd8a24d941c1, type: 2}

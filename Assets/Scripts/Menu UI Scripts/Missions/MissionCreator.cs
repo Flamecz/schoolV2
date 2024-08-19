@@ -9,7 +9,8 @@ public class MissionCreator : MonoBehaviour
     [Header("Data about mission")]
     public int LevelIndex;
     public MissionData missionD;
-    public MissionDataShower MDS;
+    public MissionDataShower missionDataShower;
+    public MissionDataShower MIssionLoader;
     public Quest data;
     public QuestControll QC;
     public sound Theme;
@@ -23,11 +24,14 @@ public class MissionCreator : MonoBehaviour
     [Header("invetory")]
     public Unit[] unitsToSet;
     public StoredData storeData;
-
+    public StoreStamina set;
     [Header("Misc")]
     public GameObject Canvas;
     private int selectedUnits;
     private bool Check = false;
+    public EnemysToRemove ETR;
+    public SaveLoadData SLD;
+    public StoredData SD;
 
     private string nazev;
     private Button GetSome;
@@ -169,10 +173,17 @@ public class MissionCreator : MonoBehaviour
         {
             sendBuildings[i].upgraded = false;
         }
+        if(MIssionLoader.whatResource == 2)
+        {
+            sendBuildings[6].builded = true;
+        }
     }
     public void LoadGame()
     {
-        if (MDS.whatMission == 0)
+        ETR.Dead = false;
+        SLD.SavedQuit = false;
+        SD.storeTag = new string[7];
+        if (MIssionLoader.whatMission == 0)
         {
             ClearData();
             if (Theme == sound.good)
@@ -205,21 +216,30 @@ public class MissionCreator : MonoBehaviour
                     invetorySaver.unitCount[i] = countOfUnits[i];
                     Debug.Log("done1");
                 }
+                for(int i = 0; i < storeData.ResourcesTaken.Length; i++)
+                {
+                    storeData.ResourcesTaken[i].claimed = false;
+                }
                 SDO.cityBackground = cityBackground;
             }
             PlayerPrefs.SetInt("den", 1);
             PlayerPrefs.DeleteKey("Test Scene");
             PlayerPrefs.SetInt("Setted", 1);
-            if (MDS.whatMission == LevelIndex)
+            if (MIssionLoader.whatMission == LevelIndex)
             {
-                QC.Selected = data;
+                QC.Selected.condition = data.condition;
+                QC.Selected.description = data.description;
                 QC.Selected.isActive = true;
                 QC.Selected.QG = data.QG;
             }
+            set.stamina = 200;
+            missionDataShower.whatDificulty = MIssionLoader.whatDificulty;
+            missionDataShower.whatMission = MIssionLoader.whatMission;
+            missionDataShower.whatResource = MIssionLoader.whatResource;
             FindObjectOfType<MenuUIContorler>().LoadGrid();
             Debug.Log(QC.Selected.condition);
         }
-        else if (MDS.whatMission == 1)
+        else if (MIssionLoader.whatMission == 1)
         {
             ClearData();
             if (Theme == sound.neutral)
@@ -252,26 +272,35 @@ public class MissionCreator : MonoBehaviour
                     invetorySaver.unitCount[i] = countOfUnits[i];
                     Debug.Log("done1");
                 }
+                for (int i = 0; i < storeData.ResourcesTaken.Length; i++)
+                {
+                    storeData.ResourcesTaken[i].claimed = false;
+                }
                 SDO.cityBackground = cityBackground;
             }   
             PlayerPrefs.SetInt("den", 1);
             PlayerPrefs.DeleteKey("Test Scene");
             PlayerPrefs.SetInt("Setted", 1);
-            if (MDS.whatMission == LevelIndex)
+            if (MIssionLoader.whatMission == LevelIndex)
             {
-                QC.Selected = data;
+                QC.Selected.condition = data.condition;
+                QC.Selected.description = data.description;
                 QC.Selected.isActive = true;
                 QC.Selected.QG = data.QG;
             }
+            set.stamina = 200;
+            missionDataShower.whatDificulty = MIssionLoader.whatDificulty;
+            missionDataShower.whatMission = MIssionLoader.whatMission;
+            missionDataShower.whatResource = MIssionLoader.whatResource;
             FindObjectOfType<MenuUIContorler>().LoadGrid();
             Debug.Log(QC.Selected.condition);
         }
-        else if (MDS.whatMission == 2)
+        else if (MIssionLoader.whatMission == 2)
         {
             ClearData();
             if (Theme == sound.evil)
             {
-                PlayerPrefs.SetFloat("PosX", 20);
+                PlayerPrefs.SetFloat("PosX", 15);
                 PlayerPrefs.SetFloat("PosY", 45);
                 PlayerPrefs.SetFloat("PosZ", 5);
                 SDO.CityType = SaveDataObject.type.Necropolis;
@@ -299,17 +328,26 @@ public class MissionCreator : MonoBehaviour
                     invetorySaver.unitCount[i] = countOfUnits[i];
                     Debug.Log("done1");
                 }
+                for (int i = 0; i < storeData.ResourcesTaken.Length; i++)
+                {
+                    storeData.ResourcesTaken[i].claimed = false;
+                }
                 SDO.cityBackground = cityBackground;
             }
             PlayerPrefs.SetInt("den", 1);
             PlayerPrefs.DeleteKey("Test Scene");
             PlayerPrefs.SetInt("Setted", 1);
-            if(MDS.whatMission == LevelIndex)
+            if(MIssionLoader.whatMission == LevelIndex)
             {
-                QC.Selected = data;
+                QC.Selected.condition = data.condition;
+                QC.Selected.description = data.description;
                 QC.Selected.isActive = true;
                 QC.Selected.QG = data.QG;
             }
+            set.stamina = 200;
+            missionDataShower.whatDificulty = MIssionLoader.whatDificulty;
+            missionDataShower.whatMission = MIssionLoader.whatMission;
+            missionDataShower.whatResource = MIssionLoader.whatResource;
             FindObjectOfType<MenuUIContorler>().LoadGrid();
             Debug.Log(QC.Selected.condition);
         }

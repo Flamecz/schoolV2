@@ -79,6 +79,7 @@ public class BattleUiManager : MonoBehaviour
         }
         FindObjectOfType<AudioManager>().Stop("Battle");
         FindObjectOfType<AudioManager>().Play("HeroesInWorld");
+        FindObjectOfType<QuestControll>().Selected.QG.currentAmount++;
         remove.Dead = true;
     }
     public void sendToLoss()

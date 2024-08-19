@@ -17,9 +17,8 @@ public class QuestControll : MonoBehaviour
     public GameObject cutScene;
     public GameObject pauseMenu;
     [Header("Quest Data")]
-    public Quest Selected;
+    public QuestHold Selected;
     [Header("Controlers")]
-    public MissionDataShower MDS;
     public SaveDataObject SDO;
     [Header("Misc")]
     public VideoClip win, loss;
@@ -66,7 +65,13 @@ public class QuestControll : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape) && !OneWorks)
         {
-            Pause();
+            Scene scene = SceneManager.GetActiveScene();
+            string sceneName2 = scene.name;
+            canvas = FindObjectOfType<Canvas>();
+            if(sceneName2 != "Menu")
+            {
+                Pause();
+            }
         }
     }
     public void Pause()
@@ -78,11 +83,13 @@ public class QuestControll : MonoBehaviour
         Resume.onClick.AddListener(ResumeTime);
         abandon.onClick.AddListener(Abandon);
         SaveandBack.onClick.AddListener(SaveAndQuit);
+        OneWorks = true;
         Time.timeScale = 0; 
     }
     private void ResumeTime()
     {
         Time.timeScale = 1;
+        OneWorks = false;
         Destroy(pauseOpen);
     }
     public void OpenQuest()

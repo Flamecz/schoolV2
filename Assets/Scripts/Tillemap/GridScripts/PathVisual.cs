@@ -12,6 +12,8 @@ public class PathVisual : MonoBehaviour
     public GameObject ForestTile;
     public GameObject HradTile;
     public GameObject Buildings,Resources;
+    public Claim[] claims;
+    private int next = 0;
     private void Awake()
     {
         mesh = new Mesh();
@@ -173,7 +175,38 @@ public class PathVisual : MonoBehaviour
                 if (cellChar == 'R')
                 {
                     var rot = new Vector3((x * 10) + 5, (y * 10) + 5, 0f);
-                    Instantiate(Resources, rot, Quaternion.Euler(new Vector3(0, 180, 0)));
+                    GameObject go = Instantiate(Resources, rot, Quaternion.Euler(new Vector3(0, 180, 0)));
+                    go.GetComponent<ResourceIfColected>().claim = claims[next];
+                    int lol = Random.Range(0, 6);
+                    if(lol == 0)
+                    {
+                        go.tag = "SurovinyG";
+                    }
+                    if (lol == 1)
+                    {
+                        go.tag = "SurovinyGe";
+                    }
+                    if (lol == 2)
+                    {
+                        go.tag = "SurovinyM";
+                    }
+                    if (lol == 3)
+                    {
+                        go.tag = "SurovinyS";
+                    }
+                    if (lol == 4)
+                    {
+                        go.tag = "SurovinyI";
+                    }
+                    if (lol == 5)
+                    {
+                        go.tag = "SurovinySt";
+                    }
+                    if (lol == 6)
+                    {
+                        go.tag = "SurovinyW";
+                    }
+                    next++;
                 }
                 if (cellChar == 'B')
                 {

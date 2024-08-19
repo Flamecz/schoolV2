@@ -7,11 +7,13 @@ public class ResetData : MonoBehaviour
     public SaveDataObject SDO;
     public Days days;
     public StoredData StoredData;
+    public StoreStamina set;
 
     // Start is called before the first frame update
     public void ResetDataTesting()
     {
-        FindObjectOfType<Testing>().pathfinding.settedValue = 300;
+        FindObjectOfType<Testing>().pathfinding.settedValue = 200;
+        set.stamina = 200;
         CheckForResourceUpdate();
         if (!SDO.CityBuldings[0].upgraded)
         {

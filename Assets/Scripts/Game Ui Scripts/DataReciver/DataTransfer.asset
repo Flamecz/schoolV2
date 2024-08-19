@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 331d5adc19ebd4383926c984f355cb1c, type: 3}
-  m_Name: DataContainer
+  m_Name: DataTransfer
   m_EditorClassIdentifier: 
   whatResource: 1
   whatMission: 1
