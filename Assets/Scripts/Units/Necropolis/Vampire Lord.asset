@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58d1f15ab15547a193b15548dfd474e, type: 3}
   m_Name: Vampire Lord
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  imageInBattle: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 30ef8a674fbd43f4abf39ee86b8b3af3, type: 3}
+  imageInBattle: {fileID: 21300000, guid: 3a6b229692190c747aecc7fed767e2c3, type: 3}
   unitName: Vampire Lord
   town: Necropolis
   lvl: 4.5

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58d1f15ab15547a193b15548dfd474e, type: 3}
   m_Name: Royal Griffin
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: b5149555dd70a314c99623383ab4dfec, type: 3}
   imageInBattle: {fileID: 21300000, guid: 7d577dc3b612c4be69a463d306cff599, type: 3}
   unitName: Royal Griffin
   town: Castel

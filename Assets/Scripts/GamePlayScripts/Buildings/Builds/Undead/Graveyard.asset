@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Graveyard
   m_EditorClassIdentifier: 
   nazev: Graveyard
-  Obrazek: {fileID: 0}
-  popis: 
-  objectToBuild: {fileID: 0}
+  Obrazek: {fileID: 21300000, guid: 99397e07ff015cb4c9ce25e6e2e192b1, type: 3}
+  popis: Enables Rectutments of Undead
+  objectToBuild: {fileID: 9176433191522929920, guid: 996b5db4276bc454f96e590c98b18c3f, type: 3}
   canBeBuild: 1
   builded: 1
   canBeUpgraded: 0
-  upgraded: 1
+  upgraded: 0
   required: {fileID: 0}

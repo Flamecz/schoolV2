@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Citadel
   m_EditorClassIdentifier: 
   nazev: Citadel
-  Obrazek: {fileID: 0}
-  popis: 
-  objectToBuild: {fileID: 0}
+  Obrazek: {fileID: 21300000, guid: e2d81aec50aba07458dfe145ad802bb9, type: 3}
+  popis: Enables you to Build more units
+  objectToBuild: {fileID: 5527797224660400540, guid: 5acf3039cf980e14580c29db081cb0cd, type: 3}
   canBeBuild: 1
   builded: 1
   canBeUpgraded: 0

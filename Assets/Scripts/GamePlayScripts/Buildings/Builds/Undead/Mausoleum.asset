@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Mausoleum
   m_EditorClassIdentifier: 
   nazev: Mausoleum
-  Obrazek: {fileID: 0}
-  popis: 
-  objectToBuild: {fileID: 0}
+  Obrazek: {fileID: 21300000, guid: 41a3330eea3d1f74db9ce4b78786a13d, type: 3}
+  popis: Enables Rectutments of Liches
+  objectToBuild: {fileID: 1238223124718711163, guid: 339125bdf4d84f04eac8e93f5d12ad6a, type: 3}
   canBeBuild: 1
-  builded: 1
+  builded: 0
   canBeUpgraded: 0
-  upgraded: 1
-  required: {fileID: 0}
+  upgraded: 0
+  required: {fileID: 11400000, guid: 9c74b9843db55418fbfa1b092fc97753, type: 2}

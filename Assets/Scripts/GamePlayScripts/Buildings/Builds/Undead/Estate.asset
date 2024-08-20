@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Estate
   m_EditorClassIdentifier: 
   nazev: Estate
-  Obrazek: {fileID: 0}
-  popis: 
-  objectToBuild: {fileID: 0}
+  Obrazek: {fileID: 21300000, guid: 482ac0b942a59b942a7249667cc45bda, type: 3}
+  popis: Enables Rectutments of Vampires
+  objectToBuild: {fileID: 1532386350816968845, guid: 0562b36805ff4c343ab42c956e661aaa, type: 3}
   canBeBuild: 1
-  builded: 1
+  builded: 0
   canBeUpgraded: 0
-  upgraded: 1
-  required: {fileID: 0}
+  upgraded: 0
+  required: {fileID: 11400000, guid: 9c74b9843db55418fbfa1b092fc97753, type: 2}

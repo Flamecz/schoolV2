@@ -77,7 +77,7 @@ public class MapManager : MonoBehaviour
         {
             "XXXX.................",
             "XXXXX................",
-            "XX.XXXXXX............",
+            "XH.XXXXXX............",
             "...XX..XX............",
             "...XXXXXXXXXXXXXXXXXX",
             "X.XXXXXX....XXXXXXXXX",

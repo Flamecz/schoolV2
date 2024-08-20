@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement ;
 public class BattleUiManager : MonoBehaviour
 {
     public GameObject cavas;
-    public Sprite alliedHero, enemyHero;
+    public SavePlayerImages heroes;
     public string alliedHeroName, enemyHeroName;
     public RuntimeAnimatorController winAnimation, lossAnimation;
     private Transform main;
@@ -48,8 +48,8 @@ public class BattleUiManager : MonoBehaviour
     }
     public void SetWinData()
     {
-        alliedHeroImage.sprite = alliedHero;
-        enemyHeroImage.sprite = enemyHero;
+        alliedHeroImage.sprite = heroes.player;
+        enemyHeroImage.sprite = heroes.enemy;
         alliedHeroNameText.text = alliedHeroName;
         enemyHeroNameText.text = enemyHeroName;
         alliedStatus.text = "Victory";
@@ -60,8 +60,8 @@ public class BattleUiManager : MonoBehaviour
     }
     public void SetLossData()
     {
-        alliedHeroImage.sprite = alliedHero;
-        enemyHeroImage.sprite = enemyHero;
+        alliedHeroImage.sprite = heroes.player;
+        enemyHeroImage.sprite = heroes.enemy;
         alliedHeroNameText.text = alliedHeroName;
         enemyHeroNameText.text = enemyHeroName;
         alliedStatus.text = "Defeat";

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Unicorn Glade
   m_EditorClassIdentifier: 
   nazev: Unicorn Glade
-  Obrazek: {fileID: 0}
-  popis: 
-  objectToBuild: {fileID: 0}
+  Obrazek: {fileID: 21300000, guid: e963f81a9868cc94db03189ca50d4aa8, type: 3}
+  popis: Enables Recrutment of Unicorns
+  objectToBuild: {fileID: 1267355062344768807, guid: df3d2a08afb9ad043971f3c7cd7ba8ba, type: 3}
   canBeBuild: 1
   builded: 1
-  canBeUpgraded: 0
-  upgraded: 1
-  required: {fileID: 0}
+  canBeUpgraded: 1
+  upgraded: 0
+  required: {fileID: 11400000, guid: 165ca745d2b2a43a3ba338d818a09401, type: 2}

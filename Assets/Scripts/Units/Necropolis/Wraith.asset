@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58d1f15ab15547a193b15548dfd474e, type: 3}
   m_Name: Wraith
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  imageInBattle: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 980d85ddfdeff9e449178d30a8462721, type: 3}
+  imageInBattle: {fileID: 21300000, guid: 703c6f9531e02e94a8d14a66cb2e2322, type: 3}
   unitName: Wraith
   town: Necropolis
   lvl: 3.5

@@ -25,6 +25,8 @@ public class MissionCreator : MonoBehaviour
     public Unit[] unitsToSet;
     public StoredData storeData;
     public StoreStamina set;
+    public Sprite playerImage, EnemyImage;
+    public Sprite cityImage;
     [Header("Misc")]
     public GameObject Canvas;
     private int selectedUnits;
@@ -55,6 +57,7 @@ public class MissionCreator : MonoBehaviour
     private Image vyber2;
     private Image vyber3;
     public SaveDataObject SDO;
+    public SavePlayerImages savePlayerImages;
     public enum sound
     {
         good,
@@ -160,8 +163,8 @@ public class MissionCreator : MonoBehaviour
     {
         sendBuildings[0].builded = true;
         sendBuildings[1].builded = true;
-        sendBuildings[2].builded = false;
-        sendBuildings[3].builded = false;
+        sendBuildings[2].builded = true;
+        sendBuildings[3].builded = true;
         sendBuildings[4].builded = true;
         sendBuildings[5].builded = true;
         sendBuildings[6].builded = false;
@@ -177,6 +180,9 @@ public class MissionCreator : MonoBehaviour
         {
             sendBuildings[6].builded = true;
         }
+        sendBuildings[1].upgraded= true;
+        sendBuildings[2].upgraded = true;
+        sendBuildings[3].upgraded = true;
     }
     public void LoadGame()
     {
@@ -221,6 +227,10 @@ public class MissionCreator : MonoBehaviour
                     storeData.ResourcesTaken[i].claimed = false;
                 }
                 SDO.cityBackground = cityBackground;
+                savePlayerImages.player = playerImage;
+                savePlayerImages.enemy = EnemyImage;
+                savePlayerImages.cityPicture = cityImage;
+                savePlayerImages.cityName = "Gateway";
             }
             PlayerPrefs.SetInt("den", 1);
             PlayerPrefs.DeleteKey("Test Scene");
@@ -277,6 +287,10 @@ public class MissionCreator : MonoBehaviour
                     storeData.ResourcesTaken[i].claimed = false;
                 }
                 SDO.cityBackground = cityBackground;
+                savePlayerImages.player = playerImage;
+                savePlayerImages.enemy = EnemyImage;
+                savePlayerImages.cityPicture = cityImage;
+                savePlayerImages.cityName = "Elfwind";
             }   
             PlayerPrefs.SetInt("den", 1);
             PlayerPrefs.DeleteKey("Test Scene");
@@ -333,6 +347,10 @@ public class MissionCreator : MonoBehaviour
                     storeData.ResourcesTaken[i].claimed = false;
                 }
                 SDO.cityBackground = cityBackground;
+                savePlayerImages.player = playerImage;
+                savePlayerImages.enemy = EnemyImage;
+                savePlayerImages.cityPicture = cityImage;
+                savePlayerImages.cityName = "Blackquarter";
             }
             PlayerPrefs.SetInt("den", 1);
             PlayerPrefs.DeleteKey("Test Scene");

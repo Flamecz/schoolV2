@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nazev: Mage guild
   Obrazek: {fileID: 0}
-  popis: 
+  popis: Enables spells
   objectToBuild: {fileID: 0}
   canBeBuild: 1
   builded: 1

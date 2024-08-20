@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Dwarf Cottage
   m_EditorClassIdentifier: 
   nazev: Dwarf Cottage
-  Obrazek: {fileID: 0}
-  popis: 
-  objectToBuild: {fileID: 0}
+  Obrazek: {fileID: 21300000, guid: a02075bbca929e345a42127785338567, type: 3}
+  popis: Enables Recrutment of Dwarfs
+  objectToBuild: {fileID: 2881668708227361637, guid: 78efc794c7e44084f8a7ab1ce1c6557f, type: 3}
   canBeBuild: 1
   builded: 1
-  canBeUpgraded: 0
+  canBeUpgraded: 1
   upgraded: 1
-  required: {fileID: 0}
+  required: {fileID: 11400000, guid: 65dba9a771c2045c58deb6ddfb9fad34, type: 2}

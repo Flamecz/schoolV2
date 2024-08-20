@@ -8,6 +8,7 @@ public class EnemyUnitsContol : MonoBehaviour
     public int[] RandomUnitCount;
     public InvetorySaver enemyUnits;
     public EnemysToRemove EnemyRemove;
+    private bool done;
 
     public void SetEnemyUnits()
     {
@@ -29,7 +30,18 @@ public class EnemyUnitsContol : MonoBehaviour
     {
         if(EnemyRemove.Dead)
         {
+            PathFinding pathfinding = FindObjectOfType<Testing>().pathfinding;
+            pathfinding.GetGrid().GetXY(gameObject.transform.position, out int x, out int y);
+            pathfinding.GetNode(x, y).SetIsWalkable(true);
             Destroy(gameObject);
+        }
+        if(!EnemyRemove.Dead && !done)
+        {
+            PathFinding pathfinding = FindObjectOfType<Testing>().pathfinding;
+            pathfinding.GetGrid().GetXY(gameObject.transform.position, out int x, out int y);
+            pathfinding.GetNode(x, y).SetIsWalkable(false);
+            done = true;
+            Debug.Log("yes");
         }
     }
 }

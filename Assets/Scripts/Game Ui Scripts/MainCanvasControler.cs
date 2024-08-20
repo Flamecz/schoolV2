@@ -13,7 +13,7 @@ public class MainCanvasControler : MonoBehaviour
     public GameObject Fortress;
     public GameObject MarketPlace;
     public GameObject inventory;
-
+    public SaveDataObject SDO;
     private float loadingTime = 0.5f;
 
     private void Start()
@@ -21,6 +21,18 @@ public class MainCanvasControler : MonoBehaviour
         OpenButton.onClick.AddListener(OpenBuildingUI);
         ExitCityButton.onClick.AddListener(CloseAllScreens);
         StartOpenAndCloseUISequence();
+        if(SDO.CityType == SaveDataObject.type.Castel)
+        {
+            FindObjectOfType<AudioManager>().Play("Castel");
+        }
+        if (SDO.CityType == SaveDataObject.type.Rampart)
+        {
+            FindObjectOfType<AudioManager>().Play("Rampart");
+        }
+        if (SDO.CityType == SaveDataObject.type.Necropolis)
+        {
+            FindObjectOfType<AudioManager>().Play("undeadCityTheme");
+        }
     }
     private void Update()
     {

@@ -38,7 +38,7 @@ public class BuildButton : MonoBehaviour
     {
         // Add a click listener to the button
 
-
+        objectToBuild = cityBuldings.objectToBuild;
         GetPosition(NameOfPosition);
         GetParents(nameOfTheButtonBackground);
         GetComponent<Button>().onClick.AddListener(CreatePopUp);

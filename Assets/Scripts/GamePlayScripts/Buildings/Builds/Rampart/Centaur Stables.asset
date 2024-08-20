@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Centaur Stables
   m_EditorClassIdentifier: 
   nazev: Centraur Stables
-  Obrazek: {fileID: 0}
-  popis: 
-  objectToBuild: {fileID: 0}
-  canBeBuild: 1
+  Obrazek: {fileID: 21300000, guid: f3b716166b15dcb41ae3920d911eb363, type: 3}
+  popis: Enables Rectutments of Centaurs
+  objectToBuild: {fileID: 6905110104422643579, guid: 7f49e36d5c761f449ad35960af7d98f7, type: 3}
+  canBeBuild: 0
   builded: 1
-  canBeUpgraded: 0
+  canBeUpgraded: 1
   upgraded: 1
   required: {fileID: 0}

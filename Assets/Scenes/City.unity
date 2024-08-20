@@ -9416,7 +9416,6 @@ GameObject:
   - component: {fileID: 593525818}
   - component: {fileID: 593525820}
   - component: {fileID: 593525819}
-  - component: {fileID: 593525822}
   - component: {fileID: 593525821}
   m_Layer: 5
   m_Name: HeroSlot
@@ -9457,7 +9456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4433962, g: 0.3241812, b: 0.3241812, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9491,36 +9490,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 593525817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ef7c9569320ccf489a273d311dd38d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 4
-  m_StartCorner: 2
-  m_StartAxis: 0
-  m_CellSize: {x: 45, y: 45}
-  m_Spacing: {x: 0, y: 0}
-  m_Constraint: 0
-  m_ConstraintCount: 2
---- !u!114 &593525822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 593525817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29bc4449be4100747b9bce25d5b6693f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  HeroSlot: 1
-  itemInSlot: {fileID: 0}
+  SPI: {fileID: 11400000, guid: bb7ac51757ebf2540aaf4ca3a6af5f5f, type: 2}
 --- !u!1 &597242120
 GameObject:
   m_ObjectHideFlags: 0
@@ -19687,6 +19660,7 @@ MonoBehaviour:
   Fortress: {fileID: 621724777}
   MarketPlace: {fileID: 2087728951}
   inventory: {fileID: 1807959381}
+  SDO: {fileID: 11400000, guid: 14ca6d2e3ced24651b65741a18d8db7e, type: 2}
 --- !u!1 &1091272749
 GameObject:
   m_ObjectHideFlags: 0
@@ -32487,6 +32461,7 @@ GameObject:
   - component: {fileID: 1853148790}
   - component: {fileID: 1853148792}
   - component: {fileID: 1853148791}
+  - component: {fileID: 1853148793}
   m_Layer: 5
   m_Name: CItyData
   m_TagString: Untagged
@@ -32553,6 +32528,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853148789}
   m_CullTransparentMesh: 1
+--- !u!114 &1853148793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853148789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d770c649b395045aa0d2f8318b6727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 1700901646}
+  text: {fileID: 265469371}
+  savePlayerImages: {fileID: 11400000, guid: bb7ac51757ebf2540aaf4ca3a6af5f5f, type: 2}
 --- !u!1 &1858442524
 GameObject:
   m_ObjectHideFlags: 0
@@ -35741,7 +35731,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ea3adfc30d453f746a573e0f41fcd36b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9bc244c9afcf6de4f87ed11b7a84b44d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

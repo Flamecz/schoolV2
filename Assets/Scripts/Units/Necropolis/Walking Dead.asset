@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58d1f15ab15547a193b15548dfd474e, type: 3}
   m_Name: Walking Dead
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  imageInBattle: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f62711d88eb03f6448beef625f98ce27, type: 3}
+  imageInBattle: {fileID: 21300000, guid: 2e7a6e0f5d8757c4d83188f9cf13c974, type: 3}
   unitName: Walking Dead
   town: Necropolis
   lvl: 2

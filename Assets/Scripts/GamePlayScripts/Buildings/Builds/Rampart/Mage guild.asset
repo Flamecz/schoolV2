@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Mage guild
   m_EditorClassIdentifier: 
   nazev: Mage guild
-  Obrazek: {fileID: 0}
-  popis: 
-  objectToBuild: {fileID: 0}
+  Obrazek: {fileID: 21300000, guid: 10bbb8e48b247a14dbb8487d6160c255, type: 3}
+  popis: Enables spells
+  objectToBuild: {fileID: 6214499817487801697, guid: c7590f579e143a54db009a43aa884acd, type: 3}
   canBeBuild: 1
   builded: 1
-  canBeUpgraded: 0
+  canBeUpgraded: 1
   upgraded: 1
   required: {fileID: 0}

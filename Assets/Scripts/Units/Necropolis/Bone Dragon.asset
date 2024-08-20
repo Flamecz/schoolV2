@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58d1f15ab15547a193b15548dfd474e, type: 3}
   m_Name: Bone Dragon
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  imageInBattle: {fileID: 0}
+  sprite: {fileID: 21300000, guid: aa74d93c302430d4a856edd79da5bedc, type: 3}
+  imageInBattle: {fileID: 21300000, guid: 4774c05f02b5c7a449f75d3017ef8bd9, type: 3}
   unitName: Bone Dragon
   town: Necropolis
   lvl: 7

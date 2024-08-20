@@ -425,11 +425,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 70027a49a51594bf6864aa08227d6878, type: 2}
   storeData: {fileID: 11400000, guid: 5db6906e435aef8439e7b77163a936a3, type: 2}
   set: {fileID: 11400000, guid: 9ca571ef77970c44db0a37d0ca9eb9d8, type: 2}
+  playerImage: {fileID: 21300000, guid: 8dfa396f455204709a5228bf5a1212b8, type: 3}
+  EnemyImage: {fileID: 21300000, guid: 473b69b947f2f44198ceec32c6e3e360, type: 3}
+  cityImage: {fileID: 21300000, guid: 43eeeae230d65924d9ffaf6fb74d736b, type: 3}
   Canvas: {fileID: 512850956}
   ETR: {fileID: 11400000, guid: af8648077f4846b448adfae63e67f495, type: 2}
   SLD: {fileID: 11400000, guid: fd591aaaf21d6ab40a029cb91f2d8198, type: 2}
   SD: {fileID: 11400000, guid: 5db6906e435aef8439e7b77163a936a3, type: 2}
   SDO: {fileID: 11400000, guid: 14ca6d2e3ced24651b65741a18d8db7e, type: 2}
+  savePlayerImages: {fileID: 11400000, guid: bb7ac51757ebf2540aaf4ca3a6af5f5f, type: 2}
   sendBuildings:
   - {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
   - {fileID: 11400000, guid: a2b01f4be32924ef0b0e8f422f6dd5cf, type: 2}
@@ -5222,7 +5226,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e0dc38cd81e54073b5e07f6b3eba59e, type: 2}
   countOfUnits: 50000000240000000a000000
   unitStructure: {fileID: 11400000, guid: b790addd9f371074a9d93975d43376f9, type: 2}
-  cityBackground: {fileID: 0}
+  cityBackground: {fileID: 21300000, guid: 8ab6767397bd64741b10c153e82fb76b, type: 3}
   unitsToSet:
   - {fileID: 11400000, guid: 0fc5e05975bd84c8d9b2d803ba606f7d, type: 2}
   - {fileID: 11400000, guid: b129884d8071a435385a03c312e586fe, type: 2}
@@ -5240,11 +5244,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 39422040f857d43a0b3c511d5f6b8b31, type: 2}
   storeData: {fileID: 11400000, guid: 5db6906e435aef8439e7b77163a936a3, type: 2}
   set: {fileID: 11400000, guid: 9ca571ef77970c44db0a37d0ca9eb9d8, type: 2}
+  playerImage: {fileID: 21300000, guid: 473b69b947f2f44198ceec32c6e3e360, type: 3}
+  EnemyImage: {fileID: 21300000, guid: 6b60845acc88c2a4d9c80ce4d56d0ca9, type: 3}
+  cityImage: {fileID: 21300000, guid: 64e0def319d59124f93ddd8d8675e252, type: 3}
   Canvas: {fileID: 512850956}
   ETR: {fileID: 11400000, guid: af8648077f4846b448adfae63e67f495, type: 2}
   SLD: {fileID: 11400000, guid: fd591aaaf21d6ab40a029cb91f2d8198, type: 2}
   SD: {fileID: 11400000, guid: 5db6906e435aef8439e7b77163a936a3, type: 2}
   SDO: {fileID: 11400000, guid: 14ca6d2e3ced24651b65741a18d8db7e, type: 2}
+  savePlayerImages: {fileID: 11400000, guid: bb7ac51757ebf2540aaf4ca3a6af5f5f, type: 2}
   sendBuildings:
   - {fileID: 11400000, guid: 62176d448c3a843e9b4f3ed070b7083e, type: 2}
   - {fileID: 11400000, guid: 76ceff7c5f28f4e28b479e8760771926, type: 2}
@@ -6086,7 +6094,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
   countOfUnits: 370000001a0000000c00000005000000
   unitStructure: {fileID: 11400000, guid: 0f085476c9cd7844cb3af21fccece937, type: 2}
-  cityBackground: {fileID: 21300000, guid: ea3adfc30d453f746a573e0f41fcd36b, type: 3}
+  cityBackground: {fileID: 21300000, guid: 9bc244c9afcf6de4f87ed11b7a84b44d, type: 3}
   unitsToSet:
   - {fileID: 11400000, guid: 583b8055529c94dc7a6a45c0d58556b1, type: 2}
   - {fileID: 11400000, guid: e0e31ff27498948dab4efd9d0d903b60, type: 2}
@@ -6104,11 +6112,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2ee722c6c38d3f34eb748fad88f016b4, type: 2}
   storeData: {fileID: 11400000, guid: 5db6906e435aef8439e7b77163a936a3, type: 2}
   set: {fileID: 11400000, guid: 9ca571ef77970c44db0a37d0ca9eb9d8, type: 2}
+  playerImage: {fileID: 21300000, guid: 5971d55322b963b46b1b639309d929bb, type: 3}
+  EnemyImage: {fileID: 21300000, guid: cfa91fc58681240c6bbac5d3bb0b30e6, type: 3}
+  cityImage: {fileID: 21300000, guid: 30af1df62c98316428d9b81f990d7789, type: 3}
   Canvas: {fileID: 512850956}
   ETR: {fileID: 11400000, guid: af8648077f4846b448adfae63e67f495, type: 2}
   SLD: {fileID: 11400000, guid: fd591aaaf21d6ab40a029cb91f2d8198, type: 2}
   SD: {fileID: 11400000, guid: 5db6906e435aef8439e7b77163a936a3, type: 2}
   SDO: {fileID: 11400000, guid: 14ca6d2e3ced24651b65741a18d8db7e, type: 2}
+  savePlayerImages: {fileID: 11400000, guid: bb7ac51757ebf2540aaf4ca3a6af5f5f, type: 2}
   sendBuildings:
   - {fileID: 11400000, guid: cf9d1b634660c514584b0b5c7c434449, type: 2}
   - {fileID: 11400000, guid: 3394aa2b0a14842b3bd8030ecc686982, type: 2}

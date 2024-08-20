@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Homestead
   m_EditorClassIdentifier: 
   nazev: Homestead
-  Obrazek: {fileID: 0}
-  popis: 
-  objectToBuild: {fileID: 0}
+  Obrazek: {fileID: 21300000, guid: 487da3f73d2ee534f9e6c82a29452d78, type: 3}
+  popis: Enables recrutment of Elfs
+  objectToBuild: {fileID: 7983539361263884876, guid: 1e7483253cf771d4287b805e1ce00578, type: 3}
   canBeBuild: 1
   builded: 1
-  canBeUpgraded: 0
-  upgraded: 1
-  required: {fileID: 0}
+  canBeUpgraded: 1
+  upgraded: 0
+  required: {fileID: 11400000, guid: 65dba9a771c2045c58deb6ddfb9fad34, type: 2}

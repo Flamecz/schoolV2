@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Market place
   m_EditorClassIdentifier: 
   nazev: Market
-  Obrazek: {fileID: 0}
-  popis: 
-  objectToBuild: {fileID: 0}
+  Obrazek: {fileID: 21300000, guid: 861a09041fdb7a94791d4eb78cf7fd60, type: 3}
+  popis: Enables you to trade resources
+  objectToBuild: {fileID: 4459823887830318946, guid: a56d0e36a19370f4f878dd6747c9e4e8, type: 3}
   canBeBuild: 1
   builded: 1
-  canBeUpgraded: 0
+  canBeUpgraded: 1
   upgraded: 1
   required: {fileID: 0}

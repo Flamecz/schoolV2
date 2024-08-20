@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Dragon Cliffs
   m_EditorClassIdentifier: 
   nazev: Dragon Cliffs
-  Obrazek: {fileID: 0}
-  popis: 
-  objectToBuild: {fileID: 0}
+  Obrazek: {fileID: 21300000, guid: 7a45ba539e95deb448a81abdc047042c, type: 3}
+  popis: Enables Recrutment of Dragons
+  objectToBuild: {fileID: 3611907411465498285, guid: c1997e8f84d931e469c00d5996cbb758, type: 3}
   canBeBuild: 1
   builded: 1
-  canBeUpgraded: 0
-  upgraded: 1
-  required: {fileID: 0}
+  canBeUpgraded: 1
+  upgraded: 0
+  required: {fileID: 11400000, guid: 0e437925ca26f4e7bb8f8b91508fed14, type: 2}

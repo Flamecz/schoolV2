@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58d1f15ab15547a193b15548dfd474e, type: 3}
   m_Name: Skeleton Warrior
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  imageInBattle: {fileID: 0}
+  sprite: {fileID: 21300000, guid: dead7f12db652d04f83db7efe37ed8e0, type: 3}
+  imageInBattle: {fileID: 21300000, guid: 43f93b3ab0597d94f8d3e51b0d6daa70, type: 3}
   unitName: Skeleton Warrior
   town: Necropolis
   lvl: 1.5

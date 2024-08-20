@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Hall of Darkness
   m_EditorClassIdentifier: 
   nazev: Hall of Darkness
-  Obrazek: {fileID: 0}
-  popis: 
-  objectToBuild: {fileID: 0}
+  Obrazek: {fileID: 21300000, guid: 75f5f5629bc83764888943df14401fb0, type: 3}
+  popis: Enables Rectutments of Black Knights
+  objectToBuild: {fileID: 8407840997906162790, guid: 200b9592970ee5c4889bb3f84ba3b07f, type: 3}
   canBeBuild: 1
-  builded: 1
+  builded: 0
   canBeUpgraded: 0
-  upgraded: 1
-  required: {fileID: 0}
+  upgraded: 0
+  required: {fileID: 11400000, guid: 585fb98d6a90444a2be05eefc295f629, type: 2}

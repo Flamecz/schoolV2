@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Dendroid arches
   m_EditorClassIdentifier: 
   nazev: Dendroid arches
-  Obrazek: {fileID: 0}
-  popis: 
-  objectToBuild: {fileID: 0}
+  Obrazek: {fileID: 21300000, guid: cd7d56ac44711d94f86eff332d518458, type: 3}
+  popis: Enables Recrutment of Dendroids
+  objectToBuild: {fileID: 8216076250571627350, guid: d8a2bccc95444a54dbeaad4fbf61a01a, type: 3}
   canBeBuild: 1
   builded: 1
-  canBeUpgraded: 0
-  upgraded: 1
-  required: {fileID: 0}
+  canBeUpgraded: 1
+  upgraded: 0
+  required: {fileID: 11400000, guid: 1224bdf04bc634768bb666adcf2f3e65, type: 2}

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Dragon vault
   m_EditorClassIdentifier: 
   nazev: Dragon Vault
-  Obrazek: {fileID: 0}
-  popis: 
-  objectToBuild: {fileID: 0}
+  Obrazek: {fileID: 21300000, guid: 9596cd660bd7bd3439b365f7212b0fa7, type: 3}
+  popis: Enables Rectutments of Dragons
+  objectToBuild: {fileID: 7513071110073747136, guid: 5250dc7d16e10c940b34f39a2318bf59, type: 3}
   canBeBuild: 1
-  builded: 1
+  builded: 0
   canBeUpgraded: 0
-  upgraded: 1
-  required: {fileID: 0}
+  upgraded: 0
+  required: {fileID: 11400000, guid: a24748c1dfe0b4134adc57bd95a89b51, type: 2}
