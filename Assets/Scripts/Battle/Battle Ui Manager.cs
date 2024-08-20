@@ -41,31 +41,39 @@ public class BattleUiManager : MonoBehaviour
         enemyStatus = main.transform.Find("EnemyStateOfBattle").Find("Name").GetComponent<Text>();
         animator = main.transform.Find("Gif").GetComponent<Animator>();
         StateDescription = main.transform.Find("DescriptionFrame").Find("StateDescription").GetComponent<Text>();
-        //    BattleDescription = main.transform.Find("DescriptionFrame").Find("BattleDescription").GetComponent<Text>();
+        BattleDescription = main.transform.Find("DescriptionFrame").Find("BattleDiscription").GetComponent<Text>();
         PlayerLosses = main.transform.Find("Player").Find("Sorter").gameObject;
         EnemyLosses = main.transform.Find("Enemy").Find("Sorter").gameObject;
         Confirm = main.transform.Find("Confirm").GetComponent<Button>();
     }
     public void SetWinData()
     {
+        FindObjectOfType<AudioManager>().Stop("Battle");
+        FindObjectOfType<AudioManager>().Play("BattleVictory");
         alliedHeroImage.sprite = heroes.player;
         enemyHeroImage.sprite = heroes.enemy;
         alliedHeroNameText.text = alliedHeroName;
         enemyHeroNameText.text = enemyHeroName;
         alliedStatus.text = "Victory";
         enemyStatus.text = "Defeat";
+        StateDescription.text = "A Glorius victory";
+        BattleDescription.text = "This Battle was great display of valor";
         animator.runtimeAnimatorController = winAnimation;
         Confirm.onClick.AddListener(sendToWinMenu);
         AddLostUnits();
     }
     public void SetLossData()
     {
+        FindObjectOfType<AudioManager>().Stop("Battle");
+        FindObjectOfType<AudioManager>().Play("BattleLoss");
         alliedHeroImage.sprite = heroes.player;
         enemyHeroImage.sprite = heroes.enemy;
         alliedHeroNameText.text = alliedHeroName;
         enemyHeroNameText.text = enemyHeroName;
         alliedStatus.text = "Defeat";
         enemyStatus.text = "Victory";
+        StateDescription.text = "Pitiful loss";
+        BattleDescription.text = "Your death will be felt through out the lands";
         animator.runtimeAnimatorController = lossAnimation;
         Confirm.onClick.AddListener(sendToLoss);
         AddLostUnits();
@@ -79,7 +87,10 @@ public class BattleUiManager : MonoBehaviour
         }
         FindObjectOfType<AudioManager>().Stop("Battle");
         FindObjectOfType<AudioManager>().Play("HeroesInWorld");
-        FindObjectOfType<QuestControll>().Selected.QG.currentAmount++;
+        if(FindFirstObjectByType<QuestControll>().Selected.QG.goalType == GoalType.Kill)
+        {
+            FindObjectOfType<QuestControll>().Selected.QG.currentAmount++;
+        }
         remove.Dead = true;
     }
     public void sendToLoss()
@@ -91,6 +102,7 @@ public class BattleUiManager : MonoBehaviour
         }
         FindObjectOfType<AudioManager>().Stop("Battle");
         FindObjectOfType<AudioManager>().Play("HeroesInWorld");
+        FindFirstObjectByType<QuestControll>().PlayerLost = true;
     }
     private IEnumerator LoadScene()
     {

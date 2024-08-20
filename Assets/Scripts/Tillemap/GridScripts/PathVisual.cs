@@ -13,6 +13,7 @@ public class PathVisual : MonoBehaviour
     public GameObject HradTile;
     public GameObject Buildings,Resources;
     public Claim[] claims;
+    public BuildingImage buildingImage;
     private int next = 0;
     private void Awake()
     {
@@ -170,7 +171,9 @@ public class PathVisual : MonoBehaviour
                 if (cellChar == 'H')
                 {
                     var rot = new Vector3((x * 10) + 5, (y * 10) + 5, 0f);
-                    Instantiate(HradTile, rot, Quaternion.Euler(new Vector3(0, 180, 0)));
+                    GameObject go = Instantiate(HradTile, rot, Quaternion.Euler(new Vector3(0, 180, 0)));
+                    go.AddComponent<ChangeCity>();
+                    go.GetComponent<ChangeCity>().buildingImage = buildingImage;
                 }
                 if (cellChar == 'R')
                 {

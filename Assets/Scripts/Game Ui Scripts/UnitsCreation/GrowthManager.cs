@@ -5,10 +5,12 @@ using UnityEngine;
 public class GrowthManager : MonoBehaviour
 {
     public ResourceManager resourceManager;
+    public int whatUnit;
     public int currentBuyableUnits;
     public Unit unit;
     private void Start()
     {
+        unit = FindObjectOfType<BuildingManager>().save.UnitSetting[whatUnit];
         currentBuyableUnits = unit.growth;
     }
     public int CalculateUnits(Unit unit)

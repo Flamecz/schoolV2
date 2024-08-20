@@ -20,6 +20,7 @@ public class MarketPriceList : MonoBehaviour, IPointerClickHandler
     [HideInInspector]
     public int GoldCost;
 
+    public bool RightgoldSelected;
     public int index;
     public GameObject[] Obrazky;
     public Button[] DisableImage;
@@ -46,9 +47,18 @@ public class MarketPriceList : MonoBehaviour, IPointerClickHandler
     }
     private void Update()
     {
+        if(RightgoldSelected)
+        {
             LeftSelected.transform.Find("Amount").GetComponent<Text>().text = ReturnCount().ToString();
             lastResourceCount = ReturnCount();
             RightSelected.transform.Find("Amount").GetComponent<Text>().text = count.ToString();
+        }
+        else
+        {
+            LeftSelected.transform.Find("Amount").GetComponent<Text>().text = count.ToString();
+            lastResourceCount = ReturnCount();
+            RightSelected.transform.Find("Amount").GetComponent<Text>().text = ReturnCount().ToString();
+        }
     }
     public void GetProperty()
     {

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DisplayStatsOfUnits : MonoBehaviour
 {
     public Unit  ut;
+    public int whatUnit;
     public GrowthManager gM;
     public string nameOfTrueBuilding;
     public GameObject Canvas;
@@ -46,6 +47,7 @@ public class DisplayStatsOfUnits : MonoBehaviour
     void Start()
     {
         building = FindObjectOfType<BuildingManager>().save.CityBuldings[buildingNumber];
+        ut = FindObjectOfType<BuildingManager>().save.UnitSetting[whatUnit];
     }
     private void Awake()
     {

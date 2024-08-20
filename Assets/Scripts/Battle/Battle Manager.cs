@@ -170,7 +170,7 @@ public class BattleManager : MonoBehaviour
     }
     public void StartTurn()
     {
-
+        playerCharacters[currentTurn].TurnDone = false;
         if (isTurnInProgress) return;
 
         isTurnInProgress = true;
@@ -223,6 +223,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
+            FindObjectOfType<BattleFieldPlate>().unitPathfinding = null;
             enemyTurn = true;
             StartCoroutine(ExecuteEnemyTurn());
         }
@@ -246,9 +247,11 @@ public class BattleManager : MonoBehaviour
         for (int i = 0; i < enemyCharacters.Length; i++)
         {
 
+            PathFinding pathfinding = FindObjectOfType<BattleFieldPlate>().pathfinding;
+            pathfinding.GetGrid().GetXY(enemyCharacters[i].transform.position, out int x, out int y);
+            pathfinding.GetNode(x, y).SetIsWalkable(true);
             moveControl.pathfinding.SetSettedValue(300);
             enemyCharacters[i].enabled = true;
-            enemyCharacters[i].enemyHasTurn = true;
             enemyCharacters[i].transform.Find("BackGround").GetComponent<MeshRenderer>().enabled = true;
             Destroy(enemyCharacters[i].gameObject.GetComponent<BoxCollider>());
             FieldMovement closestPlayerUnit = FindClosestPlayerUnit(enemyCharacters[i].transform.position);
@@ -261,7 +264,7 @@ public class BattleManager : MonoBehaviour
             }
             else if (enemyCharacters[i].unit.ATKT != Unit.attackType.ranger || enemyCharacters[i].shots == 0)
             {
-                if (distanceBefore > 60f)
+                if (distanceBefore > 60f)  
                 {
                    enemyCharacters[i].SetAttackPosition(closestPlayerUnit.transform.position);
                 }
@@ -280,12 +283,14 @@ public class BattleManager : MonoBehaviour
             }
             // Check if the enemy unit is within attack range
 
-            yield return new WaitForSeconds(2f); // Wait for 1 second between each enemy's action
+            yield return new WaitForSeconds(1f); // Wait for 1 second between each enemy's action
             enemyCharacters[i].enabled = false;
             enemyCharacters[i].gameObject.AddComponent<BoxCollider>();
             enemyCharacters[i].transform.Find("BackGround").GetComponent<MeshRenderer>().enabled = false;
+            pathfinding = FindObjectOfType<BattleFieldPlate>().pathfinding;
+            pathfinding.GetGrid().GetXY(enemyCharacters[i].transform.position, out int a, out int b);
+            pathfinding.GetNode(a, b).SetIsWalkable(false);
         }
-
         EndCycle();
         StartTurn();
         enemyTurn = false;
@@ -305,6 +310,8 @@ public class BattleManager : MonoBehaviour
                 {
                     closestUnit = playerUnit;
                     closestDistance = distance;
+                    Debug.Log(distance);
+                    Debug.Log(playerUnit.transform.position);
                 }
             }
         }
@@ -338,6 +345,7 @@ public class BattleManager : MonoBehaviour
                         Ul.PlayerUnitsCountLost[i] = targetPlayerUnit.count;
                     }
                 }
+
                 Destroy(targetPlayerUnit.gameObject);
                 // Aktualizace pole playerCharacters
                 List<FieldMovement> fml = new List<FieldMovement>();

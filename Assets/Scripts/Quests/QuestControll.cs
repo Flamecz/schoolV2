@@ -32,9 +32,10 @@ public class QuestControll : MonoBehaviour
     private Button Accept;
     private Button Resume,abandon,SaveandBack;
     private GameObject questOpen,finnishOpen,cutOpen,pauseOpen;
-    private static bool OneWorks;
+    public bool OneWorks;
     private string sceneName;
     public SaveLoadData sld;
+    public bool PlayerLost;
 
     void Awake()
     {
@@ -68,10 +69,15 @@ public class QuestControll : MonoBehaviour
             Scene scene = SceneManager.GetActiveScene();
             string sceneName2 = scene.name;
             canvas = FindObjectOfType<Canvas>();
-            if(sceneName2 != "Menu")
+            if(sceneName2 != "Menu" && sceneName2 != "City")
             {
                 Pause();
             }
+        }
+        if(PlayerLost)
+        {
+            Abandon();
+            PlayerLost = false;
         }
     }
     public void Pause()
@@ -140,7 +146,10 @@ public class QuestControll : MonoBehaviour
         int c = PlayerPrefs.GetInt("Achivment");
         PlayerPrefs.SetInt("Achivment", c + 1);
         FindObjectOfType<AudioManager>().Play("victory");
-        Selected = null;
+        Selected.condition = null;
+        Selected.description = null;
+        Selected.isActive = false;
+        Selected.QG = null;
         OneWorks = true;
     }
     public void Abandon()
@@ -166,6 +175,7 @@ public class QuestControll : MonoBehaviour
         FindObjectOfType<AudioManager>().Stop("HeroesInWorld");
         FindObjectOfType<AudioManager>().Play("mainTheme");
         sld.SavedQuit = true;
+        OneWorks = false;
     }
     public void LoadScene0()
     {
@@ -173,7 +183,11 @@ public class QuestControll : MonoBehaviour
         FindObjectOfType<AudioManager>().Stop("victory");
         FindObjectOfType<AudioManager>().Stop("Loss");
         FindObjectOfType<AudioManager>().Play("mainTheme");
-        OneWorks = true;
+        OneWorks = false;
         sld.SavedQuit = false;
+        Selected.condition = null;
+        Selected.description = null;
+        Selected.isActive = false;
+        Selected.QG = null;
     }
 }

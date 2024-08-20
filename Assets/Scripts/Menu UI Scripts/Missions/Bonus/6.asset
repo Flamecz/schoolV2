@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ada1527e3be6a488194a7a4b7281ec3e, type: 3}
   m_Name: 6
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 881e5f43ecb1a47a99cdcdc91e44c2e6, type: 3}
+  image: {fileID: 21300000, guid: 487da3f73d2ee534f9e6c82a29452d78, type: 3}
   name: Budova
-  description: Gives you a building for free
+  description: Gives you Homestead
   count: 0
   isBool: 1

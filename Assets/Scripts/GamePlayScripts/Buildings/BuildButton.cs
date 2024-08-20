@@ -12,7 +12,7 @@ public class BuildButton : MonoBehaviour
     public Canvas canvas;
     public string NameOfPosition;
     public string nameOfTheButtonBackground;
-
+    public IsSomethingBuild isSomethingBuild;
 
     public GameObject objectToBuild; // the building to build 
     private Text NameOfTheButton;//its the text in the button of the building button
@@ -75,7 +75,7 @@ public class BuildButton : MonoBehaviour
 
     public void CreatePopUp()
     {
-        if (!cityBuldings.builded)
+        if (!cityBuldings.builded && !isSomethingBuild.isBuilded)
         {
                 if (resourceManager.Data.Wood >= woodCost &&
                 resourceManager.Data.Iron >= ironCost &&
@@ -140,7 +140,7 @@ public class BuildButton : MonoBehaviour
                     CreateBuildedPopUp();
                 }  
         }
-        else if (cityBuldings.canBeUpgraded && !cityBuldings.upgraded)
+        else if (cityBuldings.canBeUpgraded && !cityBuldings.upgraded && !isSomethingBuild.isBuilded)
         {
             if (resourceManager.Data.Wood >= woodCost &&
                resourceManager.Data.Iron >= ironCost &&
@@ -205,7 +205,11 @@ public class BuildButton : MonoBehaviour
                 CreateInfoPopUp();
             }
         }
-        else if (cityBuldings.builded)
+        else if (isSomethingBuild.isBuilded)
+        {
+            CreateInfoPopUp();
+        }
+        else if (cityBuldings.builded && cityBuldings.upgraded)
         {
             CreateInfoPopUp();
         }
@@ -295,6 +299,7 @@ public class BuildButton : MonoBehaviour
         saveManager.Save(new ResourceData { Builded = Builded });
         FindObjectOfType<MainCanvasControler>().CloseBuildingUI();
         CostOfBuilding();
+        isSomethingBuild.isBuilded = true;
         DestroyPopUp();
     }
     public void UpgradeObject()
@@ -304,6 +309,7 @@ public class BuildButton : MonoBehaviour
         saveManager.Save(new ResourceData { Builded = Builded });
         FindObjectOfType<MainCanvasControler>().CloseBuildingUI();
         CostOfBuilding();
+        isSomethingBuild.isBuilded = true;
         DestroyPopUp();
     }
     public void BuildObjectFromData()

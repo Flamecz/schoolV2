@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255f21a922d4aac459a47b06580d81d6, type: 3}
   m_Name: QuestHold
   m_EditorClassIdentifier: 
-  condition: 
-  description: 
-  isActive: 0
+  condition: Gather Supply
+  description: You have to find lost minerals scatered by caravans
+  isActive: 1
   Finnished: 0
   QG:
-    goalType: 0
-    requiredAmount: 0
+    goalType: 1
+    requiredAmount: 6
     currentAmount: 0

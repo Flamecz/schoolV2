@@ -6,5 +6,6 @@ public class SavePlayerImages : ScriptableObject
 {
     public Sprite player, enemy;
     public Sprite cityPicture;
+    public string enemyName, playerName;
     public string cityName;
 }

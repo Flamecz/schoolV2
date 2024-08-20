@@ -8,6 +8,7 @@ public class MainCanvasControler : MonoBehaviour
 {
     [Header("Important Resources")]
     public Button OpenButton;
+    public Button CloseCity;
     public Button ExitCityButton;
     public GameObject BUildingsUI;
     public GameObject Fortress;
@@ -20,6 +21,7 @@ public class MainCanvasControler : MonoBehaviour
     {
         OpenButton.onClick.AddListener(OpenBuildingUI);
         ExitCityButton.onClick.AddListener(CloseAllScreens);
+        CloseCity.onClick.AddListener(ExitCity);
         StartOpenAndCloseUISequence();
         if(SDO.CityType == SaveDataObject.type.Castel)
         {

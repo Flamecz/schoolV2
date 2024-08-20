@@ -40,75 +40,121 @@ public class MarketControler : MonoBehaviour
     }
     public void CalculateSubstraction()
     {
-        switch (index1)
+        if(FindObjectOfType<MarketPriceList>().RightgoldSelected)
         {
-            case 0:
-                RM.ModifyResources("Wood", -ReturnCount());
-                FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
-                Debug.Log(ReturnCount());
-                break;
-            case 1:
-                RM.ModifyResources("Iron", -ReturnCount());
-                FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
-                Debug.Log(ReturnCount());
-                break;
-            case 2:
-                RM.ModifyResources("Stone", -ReturnCount());
-                FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
-                Debug.Log(ReturnCount());
-                break;
-            case 3:
-                RM.ModifyResources("Sulfur", -ReturnCount());
-                FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
-                Debug.Log(ReturnCount());
-                break;
-            case 4:
-                RM.ModifyResources("Minerals", -ReturnCount());
-                FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
-                Debug.Log(ReturnCount());
-                break;
-            case 5:
-                RM.ModifyResources("Gems", -ReturnCount());
-                FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
-                Debug.Log(ReturnCount());
-                break;
-            case 6:
-                RM.ModifyResources("Gold", -ReturnCount());
-                FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
-                Debug.Log(ReturnCount());
-
-                break;
+            switch (index1)
+            {
+                case 0:
+                    RM.ModifyResources("Wood", -count);
+                    FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                    Debug.Log(ReturnCount());
+                    break;
+                case 1:
+                    RM.ModifyResources("Iron", -count);
+                    FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                    Debug.Log(ReturnCount());
+                    break;
+                case 2:
+                    RM.ModifyResources("Stone", -count);
+                    FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                    Debug.Log(ReturnCount());
+                    break;
+                case 3:
+                    RM.ModifyResources("Sulfur", -count);
+                    FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                    Debug.Log(ReturnCount());
+                    break;
+                case 4:
+                    RM.ModifyResources("Minerals", -count);
+                    FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                    Debug.Log(ReturnCount());
+                    break;
+                case 5:
+                    RM.ModifyResources("Gems", -count);
+                    FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                    Debug.Log(ReturnCount());
+                    break;
+            }
+            switch(index2)
+            {
+                case 6:
+                    RM.ModifyResources("Gold", +ReturnCount());
+                    Debug.Log(count);
+                    break;
+            }
         }
-        switch (index2)
+        else
         {
-            case 0:
-                RM.ModifyResources("Wood", count);
-                Debug.Log(count);
-                break;
-            case 1:
-                RM.ModifyResources("Iron", count);
-                Debug.Log(count);
-                break;
-            case 2:
-                RM.ModifyResources("Stone", count);
-                Debug.Log(count);
-                break;
-            case 3:
-                RM.ModifyResources("Sulfur", count);
-                Debug.Log(count);
-                break;
-            case 4:
-                RM.ModifyResources("Minerals", count);
-                Debug.Log(count);
-                break;
-            case 5:
-                RM.ModifyResources("Gems", count);
-                Debug.Log(count);
-                break;
-            case 6:
-                RM.ModifyResources("Gold", +ReturnCount());
-                Debug.Log(count);
-                break;
+            switch (index1)
+            {
+                case 0:
+                    RM.ModifyResources("Wood", -ReturnCount());
+                    FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                    Debug.Log(ReturnCount());
+                    break;
+                case 1:
+                    RM.ModifyResources("Iron", -ReturnCount());
+                    FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                    Debug.Log(ReturnCount());
+                    break;
+                case 2:
+                    RM.ModifyResources("Stone", -ReturnCount());
+                    FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                    Debug.Log(ReturnCount());
+                    break;
+                case 3:
+                    RM.ModifyResources("Sulfur", -ReturnCount());
+                    FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                    Debug.Log(ReturnCount());
+                    break;
+                case 4:
+                    RM.ModifyResources("Minerals", -ReturnCount());
+                    FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                    Debug.Log(ReturnCount());
+                    break;
+                case 5:
+                    RM.ModifyResources("Gems", -ReturnCount());
+                    FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                    Debug.Log(ReturnCount());
+                    break;
+                case 6:
+                    RM.ModifyResources("Gold", -ReturnCount());
+                    FindObjectOfType<SliderUpdate>().slider.maxValue = 0;
+                    Debug.Log(ReturnCount());
+
+                    break;
+            }
+            switch (index2)
+            {
+                case 0:
+                    RM.ModifyResources("Wood", count);
+                    Debug.Log(count);
+                    break;
+                case 1:
+                    RM.ModifyResources("Iron", count);
+                    Debug.Log(count);
+                    break;
+                case 2:
+                    RM.ModifyResources("Stone", count);
+                    Debug.Log(count);
+                    break;
+                case 3:
+                    RM.ModifyResources("Sulfur", count);
+                    Debug.Log(count);
+                    break;
+                case 4:
+                    RM.ModifyResources("Minerals", count);
+                    Debug.Log(count);
+                    break;
+                case 5:
+                    RM.ModifyResources("Gems", count);
+                    Debug.Log(count);
+                    break;
+                case 6:
+                    RM.ModifyResources("Gold", -ReturnCount());
+                    Debug.Log(count);
+                    break;
+            }
         }
     }
 }

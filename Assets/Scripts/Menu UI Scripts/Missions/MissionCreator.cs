@@ -34,6 +34,10 @@ public class MissionCreator : MonoBehaviour
     public EnemysToRemove ETR;
     public SaveLoadData SLD;
     public StoredData SD;
+    public IsSomethingBuild isSomethingBuild;
+    public BuildingImage buildingImage;
+    public Material CityImage;
+
 
     private string nazev;
     private Button GetSome;
@@ -58,6 +62,7 @@ public class MissionCreator : MonoBehaviour
     private Image vyber3;
     public SaveDataObject SDO;
     public SavePlayerImages savePlayerImages;
+    public string playerName,enemyName;
     public enum sound
     {
         good,
@@ -152,9 +157,9 @@ public class MissionCreator : MonoBehaviour
         for (int i = 0; i < units.Length; i++)
         {
             int var = 0;
-            if (selectedUnits == 1 && invetorySaver.unitList[i] == unitStructure.unit && var == 0)
+            if (MIssionLoader.whatResource == 1 && invetorySaver.unitList[i] == unitStructure.unit && var == 0)
             {
-                invetorySaver.unitCount[i] += unitStructure.count / 3;
+                invetorySaver.unitCount[i] += unitStructure.count;
                 var = 1;
             }
         }
@@ -186,6 +191,7 @@ public class MissionCreator : MonoBehaviour
     }
     public void LoadGame()
     {
+        isSomethingBuild.isBuilded = false;
         ETR.Dead = false;
         SLD.SavedQuit = false;
         SD.storeTag = new string[7];
@@ -230,7 +236,11 @@ public class MissionCreator : MonoBehaviour
                 savePlayerImages.player = playerImage;
                 savePlayerImages.enemy = EnemyImage;
                 savePlayerImages.cityPicture = cityImage;
+                savePlayerImages.playerName = playerName;
+                savePlayerImages.enemyName = enemyName;
                 savePlayerImages.cityName = "Gateway";
+                GetBonus();
+                buildingImage.image = CityImage;
             }
             PlayerPrefs.SetInt("den", 1);
             PlayerPrefs.DeleteKey("Test Scene");
@@ -241,6 +251,7 @@ public class MissionCreator : MonoBehaviour
                 QC.Selected.description = data.description;
                 QC.Selected.isActive = true;
                 QC.Selected.QG = data.QG;
+                Debug.Log("Yes it Happened");
             }
             set.stamina = 200;
             missionDataShower.whatDificulty = MIssionLoader.whatDificulty;
@@ -290,18 +301,22 @@ public class MissionCreator : MonoBehaviour
                 savePlayerImages.player = playerImage;
                 savePlayerImages.enemy = EnemyImage;
                 savePlayerImages.cityPicture = cityImage;
+                savePlayerImages.playerName = playerName;
+                savePlayerImages.enemyName = enemyName;
                 savePlayerImages.cityName = "Elfwind";
+                if (MIssionLoader.whatMission == LevelIndex)
+                {
+                    QC.Selected.condition = data.condition;
+                    QC.Selected.description = data.description;
+                    QC.Selected.isActive = true;
+                    QC.Selected.QG = data.QG;
+                }
+                GetBonus();
+                buildingImage.image = CityImage;
             }   
             PlayerPrefs.SetInt("den", 1);
             PlayerPrefs.DeleteKey("Test Scene");
             PlayerPrefs.SetInt("Setted", 1);
-            if (MIssionLoader.whatMission == LevelIndex)
-            {
-                QC.Selected.condition = data.condition;
-                QC.Selected.description = data.description;
-                QC.Selected.isActive = true;
-                QC.Selected.QG = data.QG;
-            }
             set.stamina = 200;
             missionDataShower.whatDificulty = MIssionLoader.whatDificulty;
             missionDataShower.whatMission = MIssionLoader.whatMission;
@@ -350,7 +365,11 @@ public class MissionCreator : MonoBehaviour
                 savePlayerImages.player = playerImage;
                 savePlayerImages.enemy = EnemyImage;
                 savePlayerImages.cityPicture = cityImage;
+                savePlayerImages.playerName = playerName;
+                savePlayerImages.enemyName = enemyName;
                 savePlayerImages.cityName = "Blackquarter";
+                GetBonus();
+                buildingImage.image = CityImage;
             }
             PlayerPrefs.SetInt("den", 1);
             PlayerPrefs.DeleteKey("Test Scene");
@@ -362,6 +381,7 @@ public class MissionCreator : MonoBehaviour
                 QC.Selected.isActive = true;
                 QC.Selected.QG = data.QG;
             }
+
             set.stamina = 200;
             missionDataShower.whatDificulty = MIssionLoader.whatDificulty;
             missionDataShower.whatMission = MIssionLoader.whatMission;

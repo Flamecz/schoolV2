@@ -12,7 +12,7 @@ public class FieldMovement : MonoBehaviour
     public int count;
     private float speed = 40f;
 
-    public bool enemyHasTurn;
+    public bool TurnDone;
     public int shots;
     public bool OnEnemy;
     private int currentPathIndex;
@@ -27,9 +27,10 @@ public class FieldMovement : MonoBehaviour
     {
         HandleMovement();
 
-        if (Input.GetMouseButtonDown(0) && !enemyHasTurn )
+        if (Input.GetMouseButtonDown(0) && !TurnDone )
         {
                 SetAttackPosition(GetMouseWorldPosition());
+            FindObjectOfType<BattleFieldPlate>().unitPathfinding = null;
         }
     }
 
@@ -37,6 +38,7 @@ public class FieldMovement : MonoBehaviour
     {
         if (pathVectorList != null &&  !OnEnemy)
         {
+            TurnDone = true;
             Vector3 targetPosition = pathVectorList[currentPathIndex];
             if (Vector3.Distance(transform.position, targetPosition) > 1f)
             {
@@ -57,6 +59,7 @@ public class FieldMovement : MonoBehaviour
         }
         else if (pathVectorList != null && OnEnemy)
         {
+            TurnDone = true;
             Vector3 targetPosition = pathVectorList[currentPathIndex];
             if (Vector3.Distance(transform.position, targetPosition) > 1f)
             {
@@ -231,6 +234,9 @@ public class FieldMovement : MonoBehaviour
                 fml.Add(bm.enemyCharacters[i]);
             }
         }
+        PathFinding pathfinding = FindObjectOfType<BattleFieldPlate>().pathfinding;
+        pathfinding.GetGrid().GetXY(gameObject.transform.position, out int a, out int b);
+        pathfinding.GetNode(a, b).SetIsWalkable(true);
         Debug.Log(NewenemyCount);
         bm.enemyCharacters = new FieldMovement[NewenemyCount];
         bm.enemyCharacters = fml.ToArray();

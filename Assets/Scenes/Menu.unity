@@ -432,8 +432,13 @@ MonoBehaviour:
   ETR: {fileID: 11400000, guid: af8648077f4846b448adfae63e67f495, type: 2}
   SLD: {fileID: 11400000, guid: fd591aaaf21d6ab40a029cb91f2d8198, type: 2}
   SD: {fileID: 11400000, guid: 5db6906e435aef8439e7b77163a936a3, type: 2}
+  isSomethingBuild: {fileID: 11400000, guid: cf8cfe6bed0222842bfe918178db1c33, type: 2}
+  buildingImage: {fileID: 11400000, guid: f7572bb39d239124199ec80645177bdc, type: 2}
+  CityImage: {fileID: 2100000, guid: 6f53f374a797250459244f78ff9a181e, type: 2}
   SDO: {fileID: 11400000, guid: 14ca6d2e3ced24651b65741a18d8db7e, type: 2}
   savePlayerImages: {fileID: 11400000, guid: bb7ac51757ebf2540aaf4ca3a6af5f5f, type: 2}
+  playerName: Catherine
+  enemyName: Moandor
   sendBuildings:
   - {fileID: 11400000, guid: 9f118d20bda2f429da8d611dd8c17028, type: 2}
   - {fileID: 11400000, guid: a2b01f4be32924ef0b0e8f422f6dd5cf, type: 2}
@@ -4032,7 +4037,9 @@ MonoBehaviour:
   canvas: {fileID: 512850959}
   StartCursor: {fileID: 2800000, guid: 4952c781e06d94fd88aae88c794ae9b4, type: 3}
   state: {fileID: 0}
+  OneWorks: 0
   sld: {fileID: 11400000, guid: fd591aaaf21d6ab40a029cb91f2d8198, type: 2}
+  PlayerLost: 0
 --- !u!4 &819293011
 Transform:
   m_ObjectHideFlags: 0
@@ -5221,9 +5228,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3f8986ceff8efeb448a48fbfc9bd039e, type: 2}
   invetorySaver: {fileID: 11400000, guid: 8bff52702f4e79947b8396cdd4220633, type: 2}
   units:
-  - {fileID: 11400000, guid: 42886ce941af5472b93557d13bbb882a, type: 2}
-  - {fileID: 11400000, guid: e53ed469382f34caf99f719d8eae6b62, type: 2}
-  - {fileID: 11400000, guid: 9e0dc38cd81e54073b5e07f6b3eba59e, type: 2}
+  - {fileID: 11400000, guid: b129884d8071a435385a03c312e586fe, type: 2}
+  - {fileID: 11400000, guid: ecde1a1dcdf1a4a588b6dcacfb452867, type: 2}
+  - {fileID: 11400000, guid: ac18e2d3fb234410d9f6e8b93bf85127, type: 2}
   countOfUnits: 50000000240000000a000000
   unitStructure: {fileID: 11400000, guid: b790addd9f371074a9d93975d43376f9, type: 2}
   cityBackground: {fileID: 21300000, guid: 8ab6767397bd64741b10c153e82fb76b, type: 3}
@@ -5251,8 +5258,13 @@ MonoBehaviour:
   ETR: {fileID: 11400000, guid: af8648077f4846b448adfae63e67f495, type: 2}
   SLD: {fileID: 11400000, guid: fd591aaaf21d6ab40a029cb91f2d8198, type: 2}
   SD: {fileID: 11400000, guid: 5db6906e435aef8439e7b77163a936a3, type: 2}
+  isSomethingBuild: {fileID: 11400000, guid: cf8cfe6bed0222842bfe918178db1c33, type: 2}
+  buildingImage: {fileID: 11400000, guid: f7572bb39d239124199ec80645177bdc, type: 2}
+  CityImage: {fileID: 2100000, guid: 2869429bebd994b4996877e9bd12e19c, type: 2}
   SDO: {fileID: 11400000, guid: 14ca6d2e3ced24651b65741a18d8db7e, type: 2}
   savePlayerImages: {fileID: 11400000, guid: bb7ac51757ebf2540aaf4ca3a6af5f5f, type: 2}
+  playerName: Moandor
+  enemyName: Christian
   sendBuildings:
   - {fileID: 11400000, guid: 62176d448c3a843e9b4f3ed070b7083e, type: 2}
   - {fileID: 11400000, guid: 76ceff7c5f28f4e28b479e8760771926, type: 2}
@@ -6088,10 +6100,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2f0c3c82c3d62fa4e9c11b87db3e25b6, type: 2}
   invetorySaver: {fileID: 11400000, guid: 8bff52702f4e79947b8396cdd4220633, type: 2}
   units:
-  - {fileID: 11400000, guid: 42886ce941af5472b93557d13bbb882a, type: 2}
-  - {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
-  - {fileID: 11400000, guid: a3c580a20f5a0436999515246f8aa2f8, type: 2}
-  - {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
+  - {fileID: 11400000, guid: e0e31ff27498948dab4efd9d0d903b60, type: 2}
+  - {fileID: 11400000, guid: 18d285f383bb44dcd9e0876533ed56e3, type: 2}
+  - {fileID: 11400000, guid: e5e2e946acdf24da28bf194ab1789b68, type: 2}
+  - {fileID: 11400000, guid: 158821e4f26f4409fb9157cbf1f0abc6, type: 2}
   countOfUnits: 370000001a0000000c00000005000000
   unitStructure: {fileID: 11400000, guid: 0f085476c9cd7844cb3af21fccece937, type: 2}
   cityBackground: {fileID: 21300000, guid: 9bc244c9afcf6de4f87ed11b7a84b44d, type: 3}
@@ -6119,8 +6131,13 @@ MonoBehaviour:
   ETR: {fileID: 11400000, guid: af8648077f4846b448adfae63e67f495, type: 2}
   SLD: {fileID: 11400000, guid: fd591aaaf21d6ab40a029cb91f2d8198, type: 2}
   SD: {fileID: 11400000, guid: 5db6906e435aef8439e7b77163a936a3, type: 2}
+  isSomethingBuild: {fileID: 11400000, guid: cf8cfe6bed0222842bfe918178db1c33, type: 2}
+  buildingImage: {fileID: 11400000, guid: f7572bb39d239124199ec80645177bdc, type: 2}
+  CityImage: {fileID: 2100000, guid: b3fc0ae9a39d66b41aa6c66f8a1643a7, type: 2}
   SDO: {fileID: 11400000, guid: 14ca6d2e3ced24651b65741a18d8db7e, type: 2}
   savePlayerImages: {fileID: 11400000, guid: bb7ac51757ebf2540aaf4ca3a6af5f5f, type: 2}
+  playerName: Ivor
+  enemyName: Adela
   sendBuildings:
   - {fileID: 11400000, guid: cf9d1b634660c514584b0b5c7c434449, type: 2}
   - {fileID: 11400000, guid: 3394aa2b0a14842b3bd8030ecc686982, type: 2}
@@ -9445,6 +9462,22 @@ MonoBehaviour:
     Music: 0
   - name: NewWeek
     clip: {fileID: 8300000, guid: 1563ddb9bfb3e704a878cc85b5a70e95, type: 3}
+    volume: 0.503
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    Effect: 1
+    Music: 0
+  - name: BattleVictory
+    clip: {fileID: 8300000, guid: 735e51fbf340952468cede4955659ce9, type: 3}
+    volume: 0.503
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    Effect: 1
+    Music: 0
+  - name: BattleLoss
+    clip: {fileID: 8300000, guid: e30b3891efbcfe3448abdcd410b9f1eb, type: 3}
     volume: 0.503
     pitch: 1
     source: {fileID: 0}

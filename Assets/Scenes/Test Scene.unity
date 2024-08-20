@@ -1922,6 +1922,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7e91123a7ca8c26468f38cc6ccaa6660, type: 2}
   - {fileID: 11400000, guid: e89f0bc81c794914b9a2f65e67634cdc, type: 2}
   - {fileID: 11400000, guid: e57014a057a1d2a4d9e3cd8a24d941c1, type: 2}
+  buildingImage: {fileID: 11400000, guid: f7572bb39d239124199ec80645177bdc, type: 2}
 --- !u!4 &867269157
 Transform:
   m_ObjectHideFlags: 0
@@ -4042,6 +4043,7 @@ MonoBehaviour:
   days: {fileID: 11400000, guid: 3a519774bab3940bd91577c8e72df345, type: 2}
   StoredData: {fileID: 11400000, guid: 5db6906e435aef8439e7b77163a936a3, type: 2}
   set: {fileID: 11400000, guid: 9ca571ef77970c44db0a37d0ca9eb9d8, type: 2}
+  isSomethingBuild: {fileID: 11400000, guid: cf8cfe6bed0222842bfe918178db1c33, type: 2}
 --- !u!1 &1809655176
 GameObject:
   m_ObjectHideFlags: 0

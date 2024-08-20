@@ -56,6 +56,7 @@ public class SliderUpdate : MonoBehaviour
         switch (index1)
         {
             case 0:
+                FindObjectOfType<MarketPriceList>().RightgoldSelected = false;
                 switch (index2)
                 {
                     case 0:
@@ -83,11 +84,13 @@ public class SliderUpdate : MonoBehaviour
                         return;
                     case 6:
                         slider.maxValue = RM.Data.Wood ;
+                        FindObjectOfType<MarketPriceList>().RightgoldSelected = true;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GoldCost);
                         return;
                 }
                 return;
             case 1:
+                FindObjectOfType<MarketPriceList>().RightgoldSelected = false;
                 switch (index2)
                 {
                     case 0:
@@ -115,11 +118,13 @@ public class SliderUpdate : MonoBehaviour
                         return;
                     case 6:
                         slider.maxValue = RM.Data.Iron ;
+                        FindObjectOfType<MarketPriceList>().RightgoldSelected = true;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GoldCost);
                         return;
                 }
                 return;
             case 2:
+                FindObjectOfType<MarketPriceList>().RightgoldSelected = false;
                 switch (index2)
                 {
                     case 0:
@@ -147,11 +152,13 @@ public class SliderUpdate : MonoBehaviour
                         return;
                     case 6:
                         slider.maxValue = RM.Data.Stone ;
+                        FindObjectOfType<MarketPriceList>().RightgoldSelected = true;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GoldCost);
                         return;
                 }
                 return;
             case 3:
+                FindObjectOfType<MarketPriceList>().RightgoldSelected = false;
                 switch (index2)
                 {
                     case 0:
@@ -179,11 +186,13 @@ public class SliderUpdate : MonoBehaviour
                         return;
                     case 6:
                         slider.maxValue = RM.Data.Sulfur ;
+                        FindObjectOfType<MarketPriceList>().RightgoldSelected = true;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GoldCost);
                         return;
                 }
                 return;
             case 4:
+                FindObjectOfType<MarketPriceList>().RightgoldSelected = false;
                 switch (index2)
                 {
                     case 0:
@@ -211,11 +220,13 @@ public class SliderUpdate : MonoBehaviour
                         return;
                     case 6:
                         slider.maxValue = RM.Data.Minerals ;
+                        FindObjectOfType<MarketPriceList>().RightgoldSelected = true;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GoldCost);
                         return;
                 }
                 return;
             case 5:
+                FindObjectOfType<MarketPriceList>().RightgoldSelected = false;
                 switch (index2)
                 {
                     case 0:
@@ -243,11 +254,13 @@ public class SliderUpdate : MonoBehaviour
                         return;
                     case 6:
                         slider.maxValue = RM.Data.Gems ;
+                        FindObjectOfType<MarketPriceList>().RightgoldSelected = true;
                         FindObjectOfType<MarketPriceList>().ReturnResource(GoldCost);
                         return;
                 }
                 return;
             case 6:
+                FindObjectOfType<MarketPriceList>().RightgoldSelected = false;
                 switch (index2)
                 {
                     case 0:
