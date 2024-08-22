@@ -454,7 +454,11 @@ MonoBehaviour:
   enemyHeroName: Moador
   winAnimation: {fileID: 9100000, guid: 03b75388f73c643f8ad088ff89c1316e, type: 2}
   lossAnimation: {fileID: 9100000, guid: 272926a5d90464e3a9d131c027b0baa6, type: 2}
-  remove: {fileID: 11400000, guid: af8648077f4846b448adfae63e67f495, type: 2}
+  remove:
+  - {fileID: 11400000, guid: af8648077f4846b448adfae63e67f495, type: 2}
+  - {fileID: 11400000, guid: 2386c4d365215cb418d83d62a923c1db, type: 2}
+  - {fileID: 11400000, guid: 3beb9ef966bdc9647ad6a6128756dd02, type: 2}
+  whatDelete: {fileID: 11400000, guid: c39547ca3a637734e9bdc1d1196ad13d, type: 2}
   Loading: {fileID: 1564668887}
   LoadingFill: {fileID: 1788160862}
   Ul: {fileID: 11400000, guid: 5c0ddc4765ad5a3408fb2de52dbf3867, type: 2}
@@ -1573,7 +1577,13 @@ MonoBehaviour:
   HradTile: {fileID: 0}
   Buildings: {fileID: 0}
   Resources: {fileID: 0}
+  Enemy: {fileID: 0}
+  enemyUnits: {fileID: 0}
   claims: []
+  buildingImage: {fileID: 0}
+  DataForEnemy: []
+  enemysToRemove: []
+  what: {fileID: 0}
 --- !u!4 &746043715
 Transform:
   m_ObjectHideFlags: 0
@@ -4668,6 +4678,7 @@ MonoBehaviour:
     settedValue: 0
     Remove: 0
   mapManager: {fileID: 1972634776}
+  EnemyTurn: 0
 --- !u!1 &2014999539
 GameObject:
   m_ObjectHideFlags: 0

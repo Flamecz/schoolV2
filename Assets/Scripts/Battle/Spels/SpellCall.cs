@@ -63,7 +63,7 @@ public class SpellCall : MonoBehaviour
         }
         else if (whatSpell == 2)
         {
-            FindObjectOfType<BattleManager>().CreateNewAliedUnit(WhatPlayer[2].unitToResurect);
+            FindObjectOfType<BattleManager>().CreateNewAliedUnit(WhatPlayer[2].unitToResurect, 10);
             CloseSpellBook();
             mana -= 20;
         }

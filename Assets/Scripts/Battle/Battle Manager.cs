@@ -123,7 +123,7 @@ public class BattleManager : MonoBehaviour
         go.transform.Find("Cube").GetComponent<SpriteRenderer>().sprite = playerCharacters[i].unit.imageInBattle;
         go.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = playerCharacters[i].count.ToString();
     }
-    public void CreateNewAliedUnit(Unit unit)
+    public void CreateNewAliedUnit(Unit unit, int UnitCount)
     {
         int currentLenght = playerCharacters.Length;
         if (currentLenght < 7)
@@ -136,8 +136,8 @@ public class BattleManager : MonoBehaviour
         GameObject go = Instantiate(unitPefab, aliedPosition[currentLenght].transform.position, aliedPosition[currentLenght].transform.rotation, aliedUnitsParent);
         playerCharacters[currentLenght] = go.GetComponent<FieldMovement>();
         playerCharacters[currentLenght].unit = unit;
+        playerCharacters[currentLenght].count = UnitCount;
         playerCharacters[currentLenght].health = PlayerReturnHP(currentLenght, unit);
-        playerCharacters[currentLenght].count = playerUnits.unitCount[currentLenght];
         playerCharacters[currentLenght].self = go;
         go.transform.Find("Cube").GetComponent<SpriteRenderer>().sprite = playerCharacters[currentLenght].unit.imageInBattle;
         if (playerCharacters[currentLenght].unit.ATKT == Unit.attackType.ranger)

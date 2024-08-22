@@ -176,7 +176,7 @@ public class CameraMovement : MonoBehaviour
                 {
                     testing.resource = true;
                 }
-                else if (hitObject.tag == "BuildingG" || hitObject.tag == "BuildingGe" || hitObject.tag == "BuildingM" || hitObject.tag == "BuildingS" || hitObject.tag == "BuildingI" || hitObject.tag == "BuildingSt" || hitObject.tag == "BuildingW" && distanceToTarget < 17)
+                else if ((hitObject.tag == "BuildingG" || hitObject.tag == "BuildingGe" || hitObject.tag == "BuildingM" || hitObject.tag == "BuildingS" || hitObject.tag == "BuildingI" || hitObject.tag == "BuildingSt" || hitObject.tag == "BuildingW") && distanceToTarget < 17)
                 {
                     for (int i = 0; i < buildingstored.storeTag.Length; i++)
                     {
@@ -184,9 +184,11 @@ public class CameraMovement : MonoBehaviour
                         {
                             break;
                         }
-                        else if(buildingstored.storeTag[i] == null)
+                        else if(buildingstored.storeTag[i] == null )
                         {
                             buildingstored.storeTag[i] = hitObject.tag;
+                            hitObject.GetComponent<ResourceObject>().BeClaimed.claimed = true;
+                            hitObject.GetComponent<MeshRenderer>().material = hitObject.GetComponent<ResourceObject>().taken;
                             Debug.Log(hitObject.tag);
                             break;
                         }

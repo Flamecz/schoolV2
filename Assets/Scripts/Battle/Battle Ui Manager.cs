@@ -17,7 +17,8 @@ public class BattleUiManager : MonoBehaviour
     private Animator animator;
     private Text StateDescription, BattleDescription;
     private GameObject PlayerLosses, EnemyLosses;
-    public EnemysToRemove remove;
+    public EnemysToRemove[] remove;
+    public WhatDelete whatDelete;
     private Button Confirm;
     public GameObject Loading;
     public Image LoadingFill;
@@ -91,7 +92,7 @@ public class BattleUiManager : MonoBehaviour
         {
             FindObjectOfType<QuestControll>().Selected.QG.currentAmount++;
         }
-        remove.Dead = true;
+        remove[whatDelete.delete].Dead = true;
     }
     public void sendToLoss()
     {
@@ -117,16 +118,13 @@ public class BattleUiManager : MonoBehaviour
     {
         for (int i = 0; i < Ul.PlayerUnitsStart.Length; i++)
         {
-            int lost1 = Ul.PlayerUnitsStart[i] - Ul.PlayerUnitsCountLost[i];
-            if (Ul.PlayerUnitsStart[i] != 0)
+            if (Ul.PlayerUnitsCountLost[i] != 0)
             {
+                int lost1 = Ul.PlayerUnitsStart[i] - Ul.PlayerUnitsCountLost[i];
                 GameObject Create = Instantiate(lostUnitPrefab, PlayerLosses.transform);
                 Create.GetComponent<Image>().sprite = Ul.PlayerUnitsLost[i].sprite;
                 Text text = Create.transform.Find("Count").GetComponent<Text>();
                 text.text = lost1.ToString();
-            }
-            if(Ul.PlayerUnitsLost[i] == PlayerUnits.unitList[i])
-            {
                 PlayerUnits.unitCount[i] = Ul.PlayerUnitsCountLost[i];
             }
         }

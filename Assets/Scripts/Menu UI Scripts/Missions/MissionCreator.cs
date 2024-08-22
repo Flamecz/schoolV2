@@ -15,6 +15,7 @@ public class MissionCreator : MonoBehaviour
     public QuestControll QC;
     public sound Theme;
     public BonusThingsinMission[] BTM;
+    public Claim[] buildingReset;
     [Header("Units")]
     public InvetorySaver invetorySaver;
     public Unit[] units;
@@ -27,17 +28,26 @@ public class MissionCreator : MonoBehaviour
     public StoreStamina set;
     public Sprite playerImage, EnemyImage;
     public Sprite cityImage;
+    public DataForEnemy[] dataForEnemy;
+    public EnemysToRemove[] ETR;
     [Header("Misc")]
     public GameObject Canvas;
     private int selectedUnits;
     private bool Check = false;
-    public EnemysToRemove ETR;
     public SaveLoadData SLD;
     public StoredData SD;
     public IsSomethingBuild isSomethingBuild;
     public BuildingImage buildingImage;
     public Material CityImage;
 
+
+    public Unit[] Enemy1Units;
+    public Unit[] Enemy2Units;
+    public Unit[] Enemy3Units;
+
+    public int[] enemy1Count;
+    public int[] enemy2Count;
+    public int[] enemy3Count;
 
     private string nazev;
     private Button GetSome;
@@ -192,7 +202,14 @@ public class MissionCreator : MonoBehaviour
     public void LoadGame()
     {
         isSomethingBuild.isBuilded = false;
-        ETR.Dead = false;
+        for(int i = 0; i < ETR.Length; i++)
+        {
+            ETR[i].Dead = false;
+        }
+        for(int i = 0; i < buildingReset.Length; i++)
+        {
+            buildingReset[i].claimed = false;
+        }
         SLD.SavedQuit = false;
         SD.storeTag = new string[7];
         if (MIssionLoader.whatMission == 0)
@@ -200,8 +217,8 @@ public class MissionCreator : MonoBehaviour
             ClearData();
             if (Theme == sound.good)
             {
-                PlayerPrefs.SetFloat("PosX", 205);
-                PlayerPrefs.SetFloat("PosY", 75);
+                PlayerPrefs.SetFloat("PosX", 5);
+                PlayerPrefs.SetFloat("PosY", 5);
                 PlayerPrefs.SetFloat("PosZ", 5);
                 SDO.CityType = SaveDataObject.type.Castel;
                 for (int i = 0; i < storeData.storeTag.Length; i++)
@@ -228,9 +245,32 @@ public class MissionCreator : MonoBehaviour
                     invetorySaver.unitCount[i] = countOfUnits[i];
                     Debug.Log("done1");
                 }
-                for(int i = 0; i < storeData.ResourcesTaken.Length; i++)
+                for (int i = 0; i < storeData.ResourcesTaken.Length; i++)
                 {
                     storeData.ResourcesTaken[i].claimed = false;
+                }
+                for (int i = 0; i < dataForEnemy.Length; i++)
+                {
+                    for (int x = 0; x < dataForEnemy[i].unitsData.Length; x++)
+                    {
+                        dataForEnemy[i].unitsData[x].unit = null;
+                        dataForEnemy[i].unitsData[x].count = 0;
+                    }
+                }
+                for (int i = 0; i < Enemy1Units.Length; i++)
+                {
+                    dataForEnemy[0].unitsData[i].unit = Enemy1Units[i];
+                    dataForEnemy[0].unitsData[i].count = enemy1Count[i];
+                }
+                for (int i = 0; i < Enemy2Units.Length; i++)
+                {
+                    dataForEnemy[1].unitsData[i].unit = Enemy2Units[i];
+                    dataForEnemy[1].unitsData[i].count = enemy2Count[i];
+                }
+                for (int i = 0; i < Enemy3Units.Length; i++)
+                {
+                    dataForEnemy[2].unitsData[i].unit = Enemy3Units[i];
+                    dataForEnemy[2].unitsData[i].count = enemy3Count[i];
                 }
                 SDO.cityBackground = cityBackground;
                 savePlayerImages.player = playerImage;
@@ -265,8 +305,8 @@ public class MissionCreator : MonoBehaviour
             ClearData();
             if (Theme == sound.neutral)
             {
-                PlayerPrefs.SetFloat("PosX", 15);
-                PlayerPrefs.SetFloat("PosY", 45);
+                PlayerPrefs.SetFloat("PosX", 95);
+                PlayerPrefs.SetFloat("PosY", 65);
                 PlayerPrefs.SetFloat("PosZ", 5);
                 SDO.CityType = SaveDataObject.type.Rampart;
                 for (int i = 0; i < storeData.storeTag.Length; i++)
@@ -296,6 +336,29 @@ public class MissionCreator : MonoBehaviour
                 for (int i = 0; i < storeData.ResourcesTaken.Length; i++)
                 {
                     storeData.ResourcesTaken[i].claimed = false;
+                }
+                for (int i = 0; i < dataForEnemy.Length; i++)
+                {
+                    for (int x = 0; x < dataForEnemy[i].unitsData.Length; x++)
+                    {
+                        dataForEnemy[i].unitsData[x].unit = null;
+                        dataForEnemy[i].unitsData[x].count = 0;
+                    }
+                }
+                for (int i = 0; i < Enemy1Units.Length; i++)
+                {
+                    dataForEnemy[0].unitsData[i].unit = Enemy1Units[i];
+                    dataForEnemy[0].unitsData[i].count = enemy1Count[i];
+                }
+                for (int i = 0; i < Enemy2Units.Length; i++)
+                {
+                    dataForEnemy[1].unitsData[i].unit = Enemy2Units[i];
+                    dataForEnemy[1].unitsData[i].count = enemy2Count[i];
+                }
+                for (int i = 0; i < Enemy3Units.Length; i++)
+                {
+                    dataForEnemy[2].unitsData[i].unit = Enemy3Units[i];
+                    dataForEnemy[2].unitsData[i].count = enemy3Count[i];
                 }
                 SDO.cityBackground = cityBackground;
                 savePlayerImages.player = playerImage;
@@ -360,6 +423,29 @@ public class MissionCreator : MonoBehaviour
                 for (int i = 0; i < storeData.ResourcesTaken.Length; i++)
                 {
                     storeData.ResourcesTaken[i].claimed = false;
+                }
+                for (int i = 0; i < dataForEnemy.Length; i++)
+                {
+                    for (int x = 0; x < dataForEnemy[i].unitsData.Length; x++)
+                    {
+                        dataForEnemy[i].unitsData[x].unit = null;
+                        dataForEnemy[i].unitsData[x].count = 0;
+                    }
+                }
+                for (int i = 0; i < Enemy1Units.Length; i++)
+                {
+                    dataForEnemy[0].unitsData[i].unit = Enemy1Units[i];
+                    dataForEnemy[0].unitsData[i].count = enemy1Count[i];
+                }
+                for (int i = 0; i < Enemy2Units.Length; i++)
+                {
+                    dataForEnemy[1].unitsData[i].unit = Enemy2Units[i];
+                    dataForEnemy[1].unitsData[i].count = enemy2Count[i];
+                }
+                for (int i = 0; i < Enemy3Units.Length; i++)
+                {
+                    dataForEnemy[2].unitsData[i].unit = Enemy3Units[i];
+                    dataForEnemy[2].unitsData[i].count = enemy3Count[i];
                 }
                 SDO.cityBackground = cityBackground;
                 savePlayerImages.player = playerImage;

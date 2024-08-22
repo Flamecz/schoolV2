@@ -142,9 +142,15 @@ public class QuestControll : MonoBehaviour
         VP.clip = win;
         state.text = "Victory";
         GoBack.onClick.AddListener(LoadScene0);
-        PlayerPrefs.SetInt("Achivment", 1);
         int c = PlayerPrefs.GetInt("Achivment");
-        PlayerPrefs.SetInt("Achivment", c + 1);
+        if(c == 0)
+        {
+            PlayerPrefs.SetInt("Achivment", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Achivment", c + 1);
+        }
         FindObjectOfType<AudioManager>().Play("victory");
         Selected.condition = null;
         Selected.description = null;

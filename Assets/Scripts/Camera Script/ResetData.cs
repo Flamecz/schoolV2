@@ -33,6 +33,12 @@ public class ResetData : MonoBehaviour
             days.days = 1;
             days.weeks++;
         }
+        else
+        {
+            FindObjectOfType<AudioManager>().Stop("HeroesInWorld");
+            FindObjectOfType<AudioManager>().Play("NewDay");
+            StartCoroutine(PlaySound());
+        }
         days.days++;
     }
     IEnumerator PlaySound()

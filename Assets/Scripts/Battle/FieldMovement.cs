@@ -133,6 +133,7 @@ public class FieldMovement : MonoBehaviour
                 float minDamage = unit.minDamage;
                 float maxDamage = unit.maxDamage;
                 enemyUnit.ReceiveDamage(minDamage, maxDamage);
+                FindObjectOfType<AudioManager>().Play("Hit");
                 shots--;
                 Debug.Log("Dealt " + unit.damage + " ranged damage to the enemy unit!");
                 ResetAttackCooldown();
@@ -152,6 +153,7 @@ public class FieldMovement : MonoBehaviour
                 float minDamage = unit.minDamage;
                 float maxDamage = unit.maxDamage;
                 enemyUnit.ReceiveDamage(minDamage, maxDamage);
+                FindObjectOfType<AudioManager>().Play("Hit");
                 Debug.Log("Dealt " + unit.damage + " melee damage due to no ammunition!");
                 ResetAttackCooldown();
                 enemyUnit.self.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = enemyUnit.count.ToString();
@@ -169,6 +171,7 @@ public class FieldMovement : MonoBehaviour
                 float minDamage = unit.minDamage;
                 float maxDamage = unit.maxDamage;
                 enemyUnit.ReceiveDamage(minDamage, maxDamage);
+                FindObjectOfType<AudioManager>().Play("Hit");
                 Debug.Log("Dealt " + unit.damage + " melee damage to the enemy unit!");
                 ResetAttackCooldown();
                 enemyUnit.self.transform.Find("Number").Find("Text").GetComponent<TextMeshPro>().text = enemyUnit.count.ToString();

@@ -6,12 +6,5 @@ public class ResourceObject : MonoBehaviour
 {
     public Claim BeClaimed;
     public Material taken;
-    private void Update()
-    {
-        if(BeClaimed.claimed)
-        {
-            gameObject.GetComponent<MeshRenderer>().material = taken;
-        }
-    }
-
+    public Material notTaken;
 }

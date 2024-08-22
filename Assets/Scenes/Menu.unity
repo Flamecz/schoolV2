@@ -401,6 +401,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d1c90000e23a89b4290c2d82056c96c1, type: 2}
   - {fileID: 11400000, guid: 3236f68283a3af440a4951ea7d703af2, type: 2}
   - {fileID: 11400000, guid: a7905a147cb8e2840ae1c28004f91a66, type: 2}
+  buildingReset:
+  - {fileID: 11400000, guid: 0b7f49e7530b776488c4b8f3cb70cf2e, type: 2}
+  - {fileID: 11400000, guid: ee194d1816e9f2d47997698724ce82c6, type: 2}
+  - {fileID: 11400000, guid: 8d2bf1d8e5a9e714b8b4ce8c50567c57, type: 2}
+  - {fileID: 11400000, guid: 26c29291730e662488c3cf7a0fdd01b6, type: 2}
+  - {fileID: 11400000, guid: a3940a7867a205547a649cedbd1adb1a, type: 2}
+  - {fileID: 11400000, guid: bc6980e7a289acb4d8be191b7ed4c9c1, type: 2}
+  - {fileID: 11400000, guid: a42f93eebe3771b40b170692fe312e73, type: 2}
   invetorySaver: {fileID: 11400000, guid: 8bff52702f4e79947b8396cdd4220633, type: 2}
   units:
   - {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
@@ -428,13 +436,31 @@ MonoBehaviour:
   playerImage: {fileID: 21300000, guid: 8dfa396f455204709a5228bf5a1212b8, type: 3}
   EnemyImage: {fileID: 21300000, guid: 473b69b947f2f44198ceec32c6e3e360, type: 3}
   cityImage: {fileID: 21300000, guid: 43eeeae230d65924d9ffaf6fb74d736b, type: 3}
+  dataForEnemy:
+  - {fileID: 11400000, guid: 7cc590f87a926184a90e6660056e428a, type: 2}
+  - {fileID: 11400000, guid: badbe96f1a84b4d47af9f173db02dc77, type: 2}
+  - {fileID: 11400000, guid: ac727a2368d4eb942900979782c77be7, type: 2}
+  ETR:
+  - {fileID: 11400000, guid: af8648077f4846b448adfae63e67f495, type: 2}
+  - {fileID: 11400000, guid: 2386c4d365215cb418d83d62a923c1db, type: 2}
+  - {fileID: 11400000, guid: 3beb9ef966bdc9647ad6a6128756dd02, type: 2}
   Canvas: {fileID: 512850956}
-  ETR: {fileID: 11400000, guid: af8648077f4846b448adfae63e67f495, type: 2}
   SLD: {fileID: 11400000, guid: fd591aaaf21d6ab40a029cb91f2d8198, type: 2}
   SD: {fileID: 11400000, guid: 5db6906e435aef8439e7b77163a936a3, type: 2}
   isSomethingBuild: {fileID: 11400000, guid: cf8cfe6bed0222842bfe918178db1c33, type: 2}
   buildingImage: {fileID: 11400000, guid: f7572bb39d239124199ec80645177bdc, type: 2}
   CityImage: {fileID: 2100000, guid: 6f53f374a797250459244f78ff9a181e, type: 2}
+  Enemy1Units:
+  - {fileID: 11400000, guid: eaf9e7b1d92d74a4db0ce501066aa615, type: 2}
+  - {fileID: 11400000, guid: 0fc5e05975bd84c8d9b2d803ba606f7d, type: 2}
+  Enemy2Units:
+  - {fileID: 11400000, guid: eaf9e7b1d92d74a4db0ce501066aa615, type: 2}
+  - {fileID: 11400000, guid: 0fc5e05975bd84c8d9b2d803ba606f7d, type: 2}
+  Enemy3Units:
+  - {fileID: 11400000, guid: 0fc5e05975bd84c8d9b2d803ba606f7d, type: 2}
+  enemy1Count: 140000000c000000
+  enemy2Count: 050000000a000000
+  enemy3Count: 0f000000
   SDO: {fileID: 11400000, guid: 14ca6d2e3ced24651b65741a18d8db7e, type: 2}
   savePlayerImages: {fileID: 11400000, guid: bb7ac51757ebf2540aaf4ca3a6af5f5f, type: 2}
   playerName: Catherine
@@ -2074,7 +2100,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8dfa396f455204709a5228bf5a1212b8, type: 3}
   - {fileID: 21300000, guid: 5fbf912d97bb54d6fb8ef04edddbfb11, type: 3}
   Names:
-  - GG
+  - Walk in the park
   - You SmUrFIn
   Descritions:
   - Win your first Campain
@@ -5226,6 +5252,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bd36efb73feb1664c8212aea04a4f9e1, type: 2}
   - {fileID: 11400000, guid: ea1d9c1df7917ac42bb7ffd4157c8405, type: 2}
   - {fileID: 11400000, guid: 3f8986ceff8efeb448a48fbfc9bd039e, type: 2}
+  buildingReset:
+  - {fileID: 11400000, guid: 0b7f49e7530b776488c4b8f3cb70cf2e, type: 2}
+  - {fileID: 11400000, guid: ee194d1816e9f2d47997698724ce82c6, type: 2}
+  - {fileID: 11400000, guid: 8d2bf1d8e5a9e714b8b4ce8c50567c57, type: 2}
+  - {fileID: 11400000, guid: 26c29291730e662488c3cf7a0fdd01b6, type: 2}
+  - {fileID: 11400000, guid: a3940a7867a205547a649cedbd1adb1a, type: 2}
+  - {fileID: 11400000, guid: bc6980e7a289acb4d8be191b7ed4c9c1, type: 2}
+  - {fileID: 11400000, guid: a42f93eebe3771b40b170692fe312e73, type: 2}
   invetorySaver: {fileID: 11400000, guid: 8bff52702f4e79947b8396cdd4220633, type: 2}
   units:
   - {fileID: 11400000, guid: b129884d8071a435385a03c312e586fe, type: 2}
@@ -5254,13 +5288,35 @@ MonoBehaviour:
   playerImage: {fileID: 21300000, guid: 473b69b947f2f44198ceec32c6e3e360, type: 3}
   EnemyImage: {fileID: 21300000, guid: 6b60845acc88c2a4d9c80ce4d56d0ca9, type: 3}
   cityImage: {fileID: 21300000, guid: 64e0def319d59124f93ddd8d8675e252, type: 3}
+  dataForEnemy:
+  - {fileID: 11400000, guid: 7cc590f87a926184a90e6660056e428a, type: 2}
+  - {fileID: 11400000, guid: badbe96f1a84b4d47af9f173db02dc77, type: 2}
+  - {fileID: 11400000, guid: ac727a2368d4eb942900979782c77be7, type: 2}
+  ETR:
+  - {fileID: 11400000, guid: af8648077f4846b448adfae63e67f495, type: 2}
+  - {fileID: 11400000, guid: 2386c4d365215cb418d83d62a923c1db, type: 2}
+  - {fileID: 11400000, guid: 3beb9ef966bdc9647ad6a6128756dd02, type: 2}
   Canvas: {fileID: 512850956}
-  ETR: {fileID: 11400000, guid: af8648077f4846b448adfae63e67f495, type: 2}
   SLD: {fileID: 11400000, guid: fd591aaaf21d6ab40a029cb91f2d8198, type: 2}
   SD: {fileID: 11400000, guid: 5db6906e435aef8439e7b77163a936a3, type: 2}
   isSomethingBuild: {fileID: 11400000, guid: cf8cfe6bed0222842bfe918178db1c33, type: 2}
   buildingImage: {fileID: 11400000, guid: f7572bb39d239124199ec80645177bdc, type: 2}
   CityImage: {fileID: 2100000, guid: 2869429bebd994b4996877e9bd12e19c, type: 2}
+  Enemy1Units:
+  - {fileID: 11400000, guid: 42886ce941af5472b93557d13bbb882a, type: 2}
+  - {fileID: 11400000, guid: e53ed469382f34caf99f719d8eae6b62, type: 2}
+  - {fileID: 11400000, guid: 9e0dc38cd81e54073b5e07f6b3eba59e, type: 2}
+  - {fileID: 11400000, guid: 8852dadf36a4649279cd972f15d3a00c, type: 2}
+  - {fileID: 11400000, guid: 728efa6f2cc1145f282211461cf0492a, type: 2}
+  - {fileID: 11400000, guid: 8107f833d8c9d485aae5029f9420ef93, type: 2}
+  - {fileID: 11400000, guid: 70027a49a51594bf6864aa08227d6878, type: 2}
+  Enemy2Units:
+  - {fileID: 11400000, guid: 42886ce941af5472b93557d13bbb882a, type: 2}
+  Enemy3Units:
+  - {fileID: 11400000, guid: 42886ce941af5472b93557d13bbb882a, type: 2}
+  enemy1Count: fa00000078000000320000001e000000140000000a00000005000000
+  enemy2Count: 14000000
+  enemy3Count: 14000000
   SDO: {fileID: 11400000, guid: 14ca6d2e3ced24651b65741a18d8db7e, type: 2}
   savePlayerImages: {fileID: 11400000, guid: bb7ac51757ebf2540aaf4ca3a6af5f5f, type: 2}
   playerName: Moandor
@@ -6098,6 +6154,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2e8389edbed9d2d439d841b8e0f7cfd0, type: 2}
   - {fileID: 11400000, guid: a0f3c172484aaf14ab721ad27c20ad26, type: 2}
   - {fileID: 11400000, guid: 2f0c3c82c3d62fa4e9c11b87db3e25b6, type: 2}
+  buildingReset:
+  - {fileID: 11400000, guid: 0b7f49e7530b776488c4b8f3cb70cf2e, type: 2}
+  - {fileID: 11400000, guid: ee194d1816e9f2d47997698724ce82c6, type: 2}
+  - {fileID: 11400000, guid: 8d2bf1d8e5a9e714b8b4ce8c50567c57, type: 2}
+  - {fileID: 11400000, guid: 26c29291730e662488c3cf7a0fdd01b6, type: 2}
+  - {fileID: 11400000, guid: a3940a7867a205547a649cedbd1adb1a, type: 2}
+  - {fileID: 11400000, guid: bc6980e7a289acb4d8be191b7ed4c9c1, type: 2}
+  - {fileID: 11400000, guid: a42f93eebe3771b40b170692fe312e73, type: 2}
   invetorySaver: {fileID: 11400000, guid: 8bff52702f4e79947b8396cdd4220633, type: 2}
   units:
   - {fileID: 11400000, guid: e0e31ff27498948dab4efd9d0d903b60, type: 2}
@@ -6127,13 +6191,36 @@ MonoBehaviour:
   playerImage: {fileID: 21300000, guid: 5971d55322b963b46b1b639309d929bb, type: 3}
   EnemyImage: {fileID: 21300000, guid: cfa91fc58681240c6bbac5d3bb0b30e6, type: 3}
   cityImage: {fileID: 21300000, guid: 30af1df62c98316428d9b81f990d7789, type: 3}
+  dataForEnemy:
+  - {fileID: 11400000, guid: 7cc590f87a926184a90e6660056e428a, type: 2}
+  - {fileID: 11400000, guid: badbe96f1a84b4d47af9f173db02dc77, type: 2}
+  - {fileID: 11400000, guid: ac727a2368d4eb942900979782c77be7, type: 2}
+  ETR:
+  - {fileID: 11400000, guid: af8648077f4846b448adfae63e67f495, type: 2}
+  - {fileID: 11400000, guid: 2386c4d365215cb418d83d62a923c1db, type: 2}
+  - {fileID: 11400000, guid: 3beb9ef966bdc9647ad6a6128756dd02, type: 2}
   Canvas: {fileID: 512850956}
-  ETR: {fileID: 11400000, guid: af8648077f4846b448adfae63e67f495, type: 2}
   SLD: {fileID: 11400000, guid: fd591aaaf21d6ab40a029cb91f2d8198, type: 2}
   SD: {fileID: 11400000, guid: 5db6906e435aef8439e7b77163a936a3, type: 2}
   isSomethingBuild: {fileID: 11400000, guid: cf8cfe6bed0222842bfe918178db1c33, type: 2}
   buildingImage: {fileID: 11400000, guid: f7572bb39d239124199ec80645177bdc, type: 2}
   CityImage: {fileID: 2100000, guid: b3fc0ae9a39d66b41aa6c66f8a1643a7, type: 2}
+  Enemy1Units:
+  - {fileID: 11400000, guid: 42886ce941af5472b93557d13bbb882a, type: 2}
+  - {fileID: 11400000, guid: e53ed469382f34caf99f719d8eae6b62, type: 2}
+  - {fileID: 11400000, guid: 9e0dc38cd81e54073b5e07f6b3eba59e, type: 2}
+  - {fileID: 11400000, guid: 60fda6442bd7845438757c1c2362b28c, type: 2}
+  - {fileID: 11400000, guid: 138015183ab5841a081291f174f7e96c, type: 2}
+  Enemy2Units:
+  - {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
+  - {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
+  - {fileID: 11400000, guid: a3c580a20f5a0436999515246f8aa2f8, type: 2}
+  Enemy3Units:
+  - {fileID: 11400000, guid: 284bc2a85073e42dc890db5dff0fcaf1, type: 2}
+  - {fileID: 11400000, guid: 27dc3ed51127f495098878e3f7beb421, type: 2}
+  enemy1Count: 640000002d0000000d0000000500000003000000
+  enemy2Count: 280000001400000006000000
+  enemy3Count: 140000000a000000
   SDO: {fileID: 11400000, guid: 14ca6d2e3ced24651b65741a18d8db7e, type: 2}
   savePlayerImages: {fileID: 11400000, guid: bb7ac51757ebf2540aaf4ca3a6af5f5f, type: 2}
   playerName: Ivor
@@ -9478,6 +9565,14 @@ MonoBehaviour:
     Music: 0
   - name: BattleLoss
     clip: {fileID: 8300000, guid: e30b3891efbcfe3448abdcd410b9f1eb, type: 3}
+    volume: 0.503
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    Effect: 1
+    Music: 0
+  - name: NewDay
+    clip: {fileID: 8300000, guid: 1053dea73d360204bb4895ae847a5405, type: 3}
     volume: 0.503
     pitch: 1
     source: {fileID: 0}

@@ -32,43 +32,48 @@ public class MapManager : MonoBehaviour
     {
         mapLayouts = new string[5][];
 
-        // Example map layouts
+        //X - zeï
+        //. - prázný prostor
+        //H - hrad
+        //R - rudy
+        //B - Budovy
+        //E - nepøítel
         mapLayouts[0] = new string[]
         {
-            "XXXX.................",
-            "XXXXX................",
-            "XH.XXXXXX............",
-            "...XX..XX............",
-            "...XXXXXXXXXXXXXXXXXX",
-            "X.XXXXXXXXXXXXXXXXXXX",
-            "X..XXXXXXXXXXXXXXXXXX",
-            "....XXX......XXX..XX.",
-            "XXX...X.......X..XX..",
-            "XXXX.....XXX.........",
-            "XXXXXX..XXX.........X",
-            "XXX......XX.X......XX",
-            "XX.......XXXX.....XXX",
-            "XX...XX...XXX.XXXXXXX",
-            "....XXXX...XXXXXXXXXX"
+            "...XXXXXBXXXXXXXXXXXX",
+            "X..XXXXX.RXXXX..RXXXX",
+            "X..XXXXX....X...XXXXX",
+            "XR.XXXXX.......XXXXXX",
+            "XX..XXX..XX...XXXXXXX",
+            "XXX.XX...XXXX.E..XXXX",
+            "XX..XX.BXXXXXXX..XXXX",
+            "XXEXX...XXXXXXX..XXXX",
+            "......XXXXXXXXXX...XX",
+            ".X..RXXXXXXXXX......X",
+            ".X...XXXXXXXXXB.XXX..",
+            ".XX...XXXXXXXXXXXXX..",
+            ".BXX..XXXXXXXXXXXXXEX",
+            "XXXX...XXXXXXXXXXX...",
+            "XXXXB.RXXXXXXXXXXR..H"
         };
 
         mapLayouts[1] = new string[]
         {
-            "XXXX.................",
-            "XXXXX................",
-            "XH.XXXXXX............",
-            "...XX..XX............",
-            "...XXXXXXXXXXXXXXXXXX",
-            "X.XXXXXXR...XXXXXXXXX",
-            "X..XXXXXX..XXXXXXXXXX",
-            "....XXXR.....XXX..XX.",
-            "XXX...X.......X..XX..",
-            "XXXX.....XXX.........",
-            "XXXXXX..XXX.........X",
-            "Xxx......XXRX.....RXX",
-            "XX.......XXXX...RRXXX",
-            "XX...XX...XXX.XXXXXXX",
-            "....XXXX...XXXXXXXXXX"
+            "XXXXXXXXXXXXXXXXXXXXX",
+            "XXXXR...XX....XXXX.BX",
+            "XXXXX....E......X..XX",
+            "XXXXXXXXXXXXX......XX",
+            "XXXXXXXXXXXXXXXX...XX",
+            "XXXXXXXXXHXXXXX..XXXX",
+            "XXXXXXXX...BXX...BXXX",
+            "XR...BXXX..XX...XXXXX",
+            "XXX....X.......XXXXXX",
+            "XXXXX......XXXXXXXXXX",
+            "XRXXXEXXBX..XXXXXXXXX",
+            "X..X..XXXX...XXXXX.RX",
+            "X.....XXXXX...XXX...X",
+            "XR...XXXXXXB...E...RX",
+            "XXXXXXXXXXXXXXXXXXXXX"
 
 
 

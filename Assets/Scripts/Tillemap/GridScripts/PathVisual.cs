@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class PathVisual : MonoBehaviour
 {
@@ -12,9 +12,19 @@ public class PathVisual : MonoBehaviour
     public GameObject ForestTile;
     public GameObject HradTile;
     public GameObject Buildings,Resources;
-    public Claim[] claims;
+    public GameObject Enemy;
+    public InvetorySaver enemyUnits;
+    public Claim[] claimedResource;
+    public Claim[] claimedBuilding;
+    public Material[] nonClaimedbuild;
+    public Material[] claimedbuild;
     public BuildingImage buildingImage;
+    public DataForEnemy[] DataForEnemy;
+    public EnemysToRemove[] enemysToRemove;
+    public WhatDelete what;
     private int next = 0;
+    private int enemyNext;
+    private int nextBuilding;
     private void Awake()
     {
         mesh = new Mesh();
@@ -179,7 +189,7 @@ public class PathVisual : MonoBehaviour
                 {
                     var rot = new Vector3((x * 10) + 5, (y * 10) + 5, 0f);
                     GameObject go = Instantiate(Resources, rot, Quaternion.Euler(new Vector3(0, 180, 0)));
-                    go.GetComponent<ResourceIfColected>().claim = claims[next];
+                    go.GetComponent<ResourceIfColected>().claim = claimedResource[next];
                     int lol = Random.Range(0, 6);
                     if(lol == 0)
                     {
@@ -214,7 +224,125 @@ public class PathVisual : MonoBehaviour
                 if (cellChar == 'B')
                 {
                     var rot = new Vector3((x * 10) + 5, (y * 10) + 5, 0f);
-                    Instantiate(Buildings, rot, Quaternion.Euler(new Vector3(0, 180, 0)));
+                    GameObject go = Instantiate(Buildings, rot, Quaternion.Euler(new Vector3(0, 180, 0)));
+                    node.SetIsWalkable(false);
+                    if (nextBuilding == 0)
+                    {
+                        go.tag = "BuildingG";
+                        go.GetComponent<ResourceObject>().BeClaimed = claimedBuilding[nextBuilding];
+                        go.GetComponent<ResourceObject>().notTaken = nonClaimedbuild[nextBuilding];
+                        go.GetComponent<ResourceObject>().taken = claimedbuild[nextBuilding];
+                        if(claimedBuilding[nextBuilding].claimed)
+                        {
+                            go.GetComponent<MeshRenderer>().material = claimedbuild[nextBuilding];
+                        }
+                        else
+                        {
+                            go.GetComponent<MeshRenderer>().material = nonClaimedbuild[nextBuilding];
+                        }
+                    }
+                    if (nextBuilding == 1)
+                    {
+                        go.tag = "BuildingGE";
+                        go.GetComponent<ResourceObject>().BeClaimed = claimedBuilding[nextBuilding];
+                        go.GetComponent<ResourceObject>().notTaken = nonClaimedbuild[nextBuilding];
+                        go.GetComponent<ResourceObject>().taken = claimedbuild[nextBuilding];
+                        if (claimedBuilding[nextBuilding].claimed)
+                        {
+                            go.GetComponent<MeshRenderer>().material = claimedbuild[nextBuilding];
+                        }
+                        else
+                        {
+                            go.GetComponent<MeshRenderer>().material = nonClaimedbuild[nextBuilding];
+                        }
+                    }
+                    if (nextBuilding == 2)
+                    {
+                        go.tag = "BuildingM";
+                        go.GetComponent<ResourceObject>().BeClaimed = claimedBuilding[nextBuilding];
+                        go.GetComponent<ResourceObject>().notTaken = nonClaimedbuild[nextBuilding];
+                        go.GetComponent<ResourceObject>().taken = claimedbuild[nextBuilding];
+                        if (claimedBuilding[nextBuilding].claimed)
+                        {
+                            go.GetComponent<MeshRenderer>().material = claimedbuild[nextBuilding];
+                        }
+                        else
+                        {
+                            go.GetComponent<MeshRenderer>().material = nonClaimedbuild[nextBuilding];
+                        }
+                    }
+                    if (nextBuilding == 3)
+                    {
+                        go.tag = "BuildingS";
+                        go.GetComponent<ResourceObject>().BeClaimed = claimedBuilding[nextBuilding];
+                        go.GetComponent<ResourceObject>().notTaken = nonClaimedbuild[nextBuilding];
+                        go.GetComponent<ResourceObject>().taken = claimedbuild[nextBuilding];
+                        if (claimedBuilding[nextBuilding].claimed)
+                        {
+                            go.GetComponent<MeshRenderer>().material = claimedbuild[nextBuilding];
+                        }
+                        else
+                        {
+                            go.GetComponent<MeshRenderer>().material = nonClaimedbuild[nextBuilding];
+                        }
+                    }
+                    if (nextBuilding == 4)
+                    {
+                        go.tag = "BuildingI";
+                        go.GetComponent<ResourceObject>().BeClaimed = claimedBuilding[nextBuilding];
+                        go.GetComponent<ResourceObject>().notTaken = nonClaimedbuild[nextBuilding];
+                        go.GetComponent<ResourceObject>().taken = claimedbuild[nextBuilding];
+                        if (claimedBuilding[nextBuilding].claimed)
+                        {
+                            go.GetComponent<MeshRenderer>().material = claimedbuild[nextBuilding];
+                        }
+                        else
+                        {
+                            go.GetComponent<MeshRenderer>().material = nonClaimedbuild[nextBuilding];
+                        }
+                    }
+                    if (nextBuilding == 5)
+                    {
+                        go.tag = "BuildingSt";
+                        go.GetComponent<ResourceObject>().BeClaimed = claimedBuilding[nextBuilding];
+                        go.GetComponent<ResourceObject>().notTaken = nonClaimedbuild[nextBuilding];
+                        go.GetComponent<ResourceObject>().taken = claimedbuild[nextBuilding];
+                        if (claimedBuilding[nextBuilding].claimed)
+                        {
+                            go.GetComponent<MeshRenderer>().material = claimedbuild[nextBuilding];
+                        }
+                        else
+                        {
+                            go.GetComponent<MeshRenderer>().material = nonClaimedbuild[nextBuilding];
+                        }
+                    }
+                    if (nextBuilding == 6)
+                    {
+                        go.tag = "BuildingW";
+                        go.GetComponent<ResourceObject>().BeClaimed = claimedBuilding[nextBuilding];
+                        go.GetComponent<ResourceObject>().notTaken = nonClaimedbuild[nextBuilding];
+                        go.GetComponent<ResourceObject>().taken = claimedbuild[nextBuilding];
+                        if (claimedBuilding[nextBuilding].claimed)
+                        {
+                            go.GetComponent<MeshRenderer>().material = claimedbuild[nextBuilding];
+                        }
+                        else
+                        {
+                            go.GetComponent<MeshRenderer>().material = nonClaimedbuild[nextBuilding];
+                        }
+                    }
+                    nextBuilding++;
+                }
+                if(cellChar == 'E')
+                {
+                    var rot = new Vector3((x * 10) + 5, (y * 10) + 5, 0f);
+                    GameObject go = Instantiate(Enemy, rot, Quaternion.Euler(new Vector3(0, 180, 0)));
+                    go.GetComponent<EnemyUnitsContol>().unitStructs = DataForEnemy[enemyNext];
+                    go.GetComponent<EnemyUnitsContol>().enemyUnits = enemyUnits;
+                    go.GetComponent<EnemyUnitsContol>().EnemyRemove = enemysToRemove[enemyNext];
+                    go.GetComponent<EnemyUnitsContol>().delete = enemyNext;
+                    go.GetComponent<EnemyUnitsContol>().whatDelete = what;
+                    enemyNext++;
                 }
             }
         }

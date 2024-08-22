@@ -15,10 +15,11 @@ public class Achivements : MonoBehaviour
     public string[] Descritions;
     private void Awake()
     {
-        Debug.Log(PlayerPrefs.GetInt("Smurfing"));
+        //PlayerPrefs.SetInt("Smurfing",0);
+        //PlayerPrefs.SetInt("Achivment", 0);
         if (PlayerPrefs.GetInt("Achivment") == 1)
         {
-            GameObject go = Instantiate(achivementWindow, Holder.transform);
+            GameObject go = Instantiate(achivementWindow, Holder.transform.position, Holder.transform.rotation, Holder.transform);
             image = go.transform.Find("Image").GetComponent<Image>();
             Nadpis = go.transform.Find("Text").GetComponent<Text>();
             Popis = go.transform.Find("Popis").GetComponent<Text>();
@@ -26,6 +27,7 @@ public class Achivements : MonoBehaviour
             Nadpis.text = Names[0];
             Popis.text = Descritions[0];
             Destroy(go, 5f);
+            PlayerPrefs.SetInt("Achivment", 2);
         }
     }
     public void Smurin()
