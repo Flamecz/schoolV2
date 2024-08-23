@@ -5307,14 +5307,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e53ed469382f34caf99f719d8eae6b62, type: 2}
   - {fileID: 11400000, guid: 9e0dc38cd81e54073b5e07f6b3eba59e, type: 2}
   - {fileID: 11400000, guid: 8852dadf36a4649279cd972f15d3a00c, type: 2}
-  - {fileID: 11400000, guid: 728efa6f2cc1145f282211461cf0492a, type: 2}
-  - {fileID: 11400000, guid: 8107f833d8c9d485aae5029f9420ef93, type: 2}
-  - {fileID: 11400000, guid: 70027a49a51594bf6864aa08227d6878, type: 2}
   Enemy2Units:
   - {fileID: 11400000, guid: 42886ce941af5472b93557d13bbb882a, type: 2}
   Enemy3Units:
   - {fileID: 11400000, guid: 42886ce941af5472b93557d13bbb882a, type: 2}
-  enemy1Count: fa00000078000000320000001e000000140000000a00000005000000
+  enemy1Count: 64000000320000001400000005000000
   enemy2Count: 14000000
   enemy3Count: 14000000
   SDO: {fileID: 11400000, guid: 14ca6d2e3ced24651b65741a18d8db7e, type: 2}
@@ -9575,6 +9572,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 1053dea73d360204bb4895ae847a5405, type: 3}
     volume: 0.503
     pitch: 1
+    source: {fileID: 0}
+    loop: 0
+    Effect: 1
+    Music: 0
+  - name: PickUp
+    clip: {fileID: 8300000, guid: 4a5d96238f2572f458c52b5546a9e257, type: 3}
+    volume: 0.503
+    pitch: 0.6
     source: {fileID: 0}
     loop: 0
     Effect: 1

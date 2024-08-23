@@ -59,7 +59,6 @@ public class EnemyUnitsContol : MonoBehaviour
             pathfinding.GetGrid().GetXY(gameObject.transform.position, out int x, out int y);
             pathfinding.GetNode(x, y).SetIsWalkable(false);
             done = true;
-            Debug.Log("yes");
         }
     }
 }

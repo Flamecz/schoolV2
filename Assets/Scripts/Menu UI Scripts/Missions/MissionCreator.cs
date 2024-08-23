@@ -190,6 +190,7 @@ public class MissionCreator : MonoBehaviour
         for (int i = 0; i < sendBuildings.Length; i++)
         {
             sendBuildings[i].upgraded = false;
+            sendBuildings[i].canBeUpgraded = false;
         }
         if(MIssionLoader.whatResource == 2)
         {

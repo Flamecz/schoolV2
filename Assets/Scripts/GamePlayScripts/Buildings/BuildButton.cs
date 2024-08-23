@@ -27,6 +27,9 @@ public class BuildButton : MonoBehaviour
     public int mineralsCost;
     public int stoneCost;
     public int ironCost;
+    public int GemCost;
+    public int SulfurCost;
+    public int GoldCost;
 
     private bool Builded;
     private GameObject popUpWindow;
@@ -42,7 +45,7 @@ public class BuildButton : MonoBehaviour
         GetPosition(NameOfPosition);
         GetParents(nameOfTheButtonBackground);
         GetComponent<Button>().onClick.AddListener(CreatePopUp);
-        Checker.onClick.AddListener(CheckStatus) ;
+        Checker.onClick.AddListener(CheckStatus);
 
         NameOfTheButton.text = cityBuldings.nazev;
         Image.sprite = cityBuldings.Obrazek;
@@ -75,77 +78,95 @@ public class BuildButton : MonoBehaviour
 
     public void CreatePopUp()
     {
-        if (!cityBuldings.builded && !isSomethingBuild.isBuilded)
+        if ((!cityBuldings.builded && !isSomethingBuild.isBuilded) && cityBuldings.required.builded)
         {
-                if (resourceManager.Data.Wood >= woodCost &&
-                resourceManager.Data.Iron >= ironCost &&
-                resourceManager.Data.Minerals >= mineralsCost &&
-                resourceManager.Data.Stone >= stoneCost)
+            if (resourceManager.Data.Wood >= woodCost &&
+           resourceManager.Data.Iron >= ironCost &&
+           resourceManager.Data.Minerals >= mineralsCost &&
+           resourceManager.Data.Stone >= stoneCost &&
+           resourceManager.Data.Gems >= GemCost &&
+           resourceManager.Data.Sulfur >= SulfurCost &&
+           resourceManager.Data.Gold >= GoldCost)
+            {
+                //centring object in middle and creating popUp
+
+                popUpWindow = Instantiate(PopUpWindow, PopUpParrent.transform);
+                RectTransform rectTransform = popUpWindow.GetComponent<RectTransform>();
+                rectTransform.anchoredPosition = Vector2.zero;
+
+                //Working with children of the object and adding listeners
+
+                Transform acceptButtonTransform = popUpWindow.transform.Find("BuyButton");
+                Button acceptButton = acceptButtonTransform.GetComponent<Button>();
+                acceptButton.onClick.AddListener(BuildObject);
+                Transform CancelButtonTransform = popUpWindow.transform.Find("CanceledButton");
+                Button CancelButton = CancelButtonTransform.GetComponent<Button>();
+                CancelButton.onClick.AddListener(DestroyPopUp);
+
+                //Adding text in Popup;
+
+                Transform NameObjectTransform = popUpWindow.transform.Find("NameOfBuildingInPopUp");
+                Text TextNameOfOBject = NameObjectTransform.GetComponent<Text>();
+                TextNameOfOBject.text = cityBuldings.nazev;
+
+                Transform DescriptionObjectTransform = popUpWindow.transform.Find("DescriptionOfBuildingInPopUp");
+                Text TextDescriptionOfOBject = DescriptionObjectTransform.GetComponent<Text>();
+                TextDescriptionOfOBject.text = cityBuldings.popis;
+
+                //Adding Sprite to the object
+                Transform SpriteImageTransform = popUpWindow.transform.Find("SpriteOfTheBuildingInPopUp");
+                Image Image = SpriteImageTransform.GetComponent<Image>();
+                Image.GetComponent<Image>().sprite = cityBuldings.Obrazek;
+
+                //Adding cost of the building in resources;
+                Transform GetTextResources = popUpWindow.transform.Find("ResourseText");
+                Text ResourcesText = GetTextResources.GetComponent<Text>();
+                StringBuilder sb = new StringBuilder();
+                if (woodCost > 0)
                 {
-                    //centring object in middle and creating popUp
-
-                    popUpWindow = Instantiate(PopUpWindow, PopUpParrent.transform);
-                    RectTransform rectTransform = popUpWindow.GetComponent<RectTransform>();
-                    rectTransform.anchoredPosition = Vector2.zero;
-
-                    //Working with children of the object and adding listeners
-
-                    Transform acceptButtonTransform = popUpWindow.transform.Find("BuyButton");
-                    Button acceptButton = acceptButtonTransform.GetComponent<Button>();
-                    acceptButton.onClick.AddListener(BuildObject);
-                    Transform CancelButtonTransform = popUpWindow.transform.Find("CanceledButton");
-                    Button CancelButton = CancelButtonTransform.GetComponent<Button>();
-                    CancelButton.onClick.AddListener(DestroyPopUp);
-
-                    //Adding text in Popup;
-
-                    Transform NameObjectTransform = popUpWindow.transform.Find("NameOfBuildingInPopUp");
-                    Text TextNameOfOBject = NameObjectTransform.GetComponent<Text>();
-                    TextNameOfOBject.text = cityBuldings.nazev;
-
-                    Transform DescriptionObjectTransform = popUpWindow.transform.Find("DescriptionOfBuildingInPopUp");
-                    Text TextDescriptionOfOBject = DescriptionObjectTransform.GetComponent<Text>();
-                    TextDescriptionOfOBject.text = cityBuldings.popis;
-
-                    //Adding Sprite to the object
-                    Transform SpriteImageTransform = popUpWindow.transform.Find("SpriteOfTheBuildingInPopUp");
-                    Image Image = SpriteImageTransform.GetComponent<Image>();
-                    Image.GetComponent<Image>().sprite = cityBuldings.Obrazek;
-
-                    //Adding cost of the building in resources;
-                    Transform GetTextResources = popUpWindow.transform.Find("ResourseText");
-                    Text ResourcesText = GetTextResources.GetComponent<Text>();
-                    StringBuilder sb = new StringBuilder();
-                    if (woodCost > 0)
-                    {
-                        sb.Append("Wood : " + woodCost + " ,");
-                    }
-                    if (stoneCost > 0)
-                    {
-                        sb.Append("Stone : " + stoneCost + " ,");
-                    }
-                    if (ironCost > 0)
-                    {
-                        sb.Append("Iron : " + ironCost + " ,");
-                    }
-                    if (mineralsCost > 0)
-                    {
-                        sb.Append("Mineral : " + mineralsCost + " ,");
-                    }
-
-                    ResourcesText.text = sb.ToString();
+                    sb.Append("Wood : " + woodCost + " ,");
                 }
-                else
+                if (stoneCost > 0)
                 {
-                    CreateBuildedPopUp();
-                }  
+                    sb.Append("Stone : " + stoneCost + " ,");
+                }
+                if (ironCost > 0)
+                {
+                    sb.Append("Iron : " + ironCost + " ,");
+                }
+                if (mineralsCost > 0)
+                {
+                    sb.Append("Mineral : " + mineralsCost + " ,");
+                }
+                if (GemCost > 0)
+                {
+                    sb.Append("Gem : " + GemCost + " ,");
+                }
+                if (SulfurCost > 0)
+                {
+                    sb.Append("Sulfur : " + SulfurCost + " ,");
+                }
+                if (GoldCost > 0)
+                {
+                    sb.Append("Gold : " + GoldCost);
+                }
+
+                ResourcesText.text = sb.ToString();
+            }
+            else
+            {
+                CreateBuildedPopUp();
+            }
         }
         else if (cityBuldings.canBeUpgraded && !cityBuldings.upgraded && !isSomethingBuild.isBuilded)
         {
             if (resourceManager.Data.Wood >= woodCost &&
                resourceManager.Data.Iron >= ironCost &&
                resourceManager.Data.Minerals >= mineralsCost &&
-               resourceManager.Data.Stone >= stoneCost)
+               resourceManager.Data.Stone >= stoneCost &&
+               resourceManager.Data.Gems >= GemCost &&
+               resourceManager.Data.Sulfur >= SulfurCost &&
+           resourceManager.Data.Gold >= GoldCost)
             {
                 //centring object in middle and creating popUp
 
@@ -197,6 +218,18 @@ public class BuildButton : MonoBehaviour
                 {
                     sb.Append("Mineral : " + mineralsCost + " ,");
                 }
+                if (GemCost > 0)
+                {
+                    sb.Append("Gem : " + GemCost + " ,");
+                }
+                if (SulfurCost > 0)
+                {
+                    sb.Append("Sulfur : " + SulfurCost + " ,");
+                }
+                if (GoldCost > 0)
+                {
+                    sb.Append("Gold : " + GoldCost);
+                }
 
                 ResourcesText.text = sb.ToString();
             }
@@ -205,7 +238,7 @@ public class BuildButton : MonoBehaviour
                 CreateInfoPopUp();
             }
         }
-        else if (isSomethingBuild.isBuilded)
+        else if (isSomethingBuild.isBuilded || !cityBuldings.required.builded)
         {
             CreateInfoPopUp();
         }
@@ -219,11 +252,13 @@ public class BuildButton : MonoBehaviour
     {
         if (!cityBuldings.builded && !cityBuldings.upgraded)
         {
-            if (
-            resourceManager.Data.Wood >= woodCost &&
-            resourceManager.Data.Iron >= ironCost &&
-            resourceManager.Data.Minerals >= mineralsCost &&
-            resourceManager.Data.Stone >= stoneCost)
+            if (resourceManager.Data.Wood >= woodCost &&
+               resourceManager.Data.Iron >= ironCost &&
+               resourceManager.Data.Minerals >= mineralsCost &&
+               resourceManager.Data.Stone >= stoneCost &&
+               resourceManager.Data.Gems >= GemCost &&
+               resourceManager.Data.Sulfur >= SulfurCost &&
+           resourceManager.Data.Gold >= GoldCost)
             {
                 if (cityBuldings.Done())
                 {
@@ -248,11 +283,13 @@ public class BuildButton : MonoBehaviour
 
         if (cityBuldings.builded && !cityBuldings.upgraded)
         {
-            if (
-            resourceManager.Data.Wood >= woodCost &&
-            resourceManager.Data.Iron >= ironCost &&
-            resourceManager.Data.Minerals >= mineralsCost &&
-            resourceManager.Data.Stone >= stoneCost)
+            if (resourceManager.Data.Wood >= woodCost &&
+               resourceManager.Data.Iron >= ironCost &&
+               resourceManager.Data.Minerals >= mineralsCost &&
+               resourceManager.Data.Stone >= stoneCost &&
+               resourceManager.Data.Gems >= GemCost &&
+               resourceManager.Data.Sulfur >= SulfurCost &&
+           resourceManager.Data.Gold >= GoldCost)
             {
                 if (cityBuldings.canBeUpgraded)
                 {
@@ -281,7 +318,10 @@ public class BuildButton : MonoBehaviour
         resourceManager.Data.Wood -= woodCost;
         resourceManager.Data.Iron -= ironCost;
         resourceManager.Data.Minerals -= mineralsCost;
-        resourceManager.Data.Stone -= stoneCost; 
+        resourceManager.Data.Stone -= stoneCost;
+        resourceManager.Data.Gems -= GemCost;
+        resourceManager.Data.Sulfur -= SulfurCost;
+        resourceManager.Data.Gold -= GoldCost;
     }
 
     public void OnLoadUpdate()
@@ -394,6 +434,18 @@ public class BuildButton : MonoBehaviour
         if (mineralsCost > 0)
         {
             sb.Append("Mineral : " + mineralsCost + " ,");
+        }
+        if (GemCost > 0)
+        {
+            sb.Append("Gem : " + GemCost + " ,");
+        }
+        if (SulfurCost > 0)
+        {
+            sb.Append("Sulfur : " + SulfurCost + " ,");
+        }
+        if (GoldCost > 0)
+        {
+            sb.Append("Gold : " + GoldCost);
         }
 
         ResourcesText.text = sb.ToString();

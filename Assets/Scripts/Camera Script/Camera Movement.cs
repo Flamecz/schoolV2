@@ -158,6 +158,7 @@ public class CameraMovement : MonoBehaviour
                         FindObjectOfType<ResourceManager>().ModifyResources("Wood", 1);
                     }
                     hitObject.GetComponent<ResourceIfColected>().claim.claimed = true;
+                    FindObjectOfType<AudioManager>().Play("PickUp");
                     Destroy(hitObject.gameObject);
                 }
                 else if (hitObject.tag == "SurovinyG" || hitObject.tag == "SurovinyGe" || hitObject.tag == "SurovinyM" || hitObject.tag == "SurovinyS" || hitObject.tag == "SurovinyI" || hitObject.tag == "SurovinySt" || hitObject.tag == "SurovinyW" && distanceToTarget > 17)
@@ -176,11 +177,12 @@ public class CameraMovement : MonoBehaviour
                 {
                     testing.resource = true;
                 }
-                else if ((hitObject.tag == "BuildingG" || hitObject.tag == "BuildingGe" || hitObject.tag == "BuildingM" || hitObject.tag == "BuildingS" || hitObject.tag == "BuildingI" || hitObject.tag == "BuildingSt" || hitObject.tag == "BuildingW") && distanceToTarget < 17)
+                if (hitObject.tag == "BuildingG" && distanceToTarget < 17 || hitObject.tag == "BuildingGe" && distanceToTarget < 17 || hitObject.tag == "BuildingM" && distanceToTarget < 17 || hitObject.tag == "BuildingS" && distanceToTarget < 17 || hitObject.tag == "BuildingI" && distanceToTarget < 17 || hitObject.tag == "BuildingSt" && distanceToTarget < 17 || hitObject.tag == "BuildingW" && distanceToTarget < 17)
                 {
                     for (int i = 0; i < buildingstored.storeTag.Length; i++)
                     {
-                        if(buildingstored.storeTag[i] == hitObject.tag)
+                        Debug.Log("yes");
+                        if (buildingstored.storeTag[i] == hitObject.tag)
                         {
                             break;
                         }
@@ -189,6 +191,7 @@ public class CameraMovement : MonoBehaviour
                             buildingstored.storeTag[i] = hitObject.tag;
                             hitObject.GetComponent<ResourceObject>().BeClaimed.claimed = true;
                             hitObject.GetComponent<MeshRenderer>().material = hitObject.GetComponent<ResourceObject>().taken;
+                            FindObjectOfType<AudioManager>().Play("PickUp");
                             Debug.Log(hitObject.tag);
                             break;
                         }

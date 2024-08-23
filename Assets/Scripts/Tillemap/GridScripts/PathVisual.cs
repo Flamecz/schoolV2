@@ -243,7 +243,7 @@ public class PathVisual : MonoBehaviour
                     }
                     if (nextBuilding == 1)
                     {
-                        go.tag = "BuildingGE";
+                        go.tag = "BuildingGe";
                         go.GetComponent<ResourceObject>().BeClaimed = claimedBuilding[nextBuilding];
                         go.GetComponent<ResourceObject>().notTaken = nonClaimedbuild[nextBuilding];
                         go.GetComponent<ResourceObject>().taken = claimedbuild[nextBuilding];

@@ -80,21 +80,21 @@ public class MapManager : MonoBehaviour
         };
         mapLayouts[2] = new string[]
         {
-            "XXXX.................",
-            "XXXXX................",
-            "XH.XXXXXX............",
-            "...XX..XX............",
-            "...XXXXXXXXXXXXXXXXXX",
+            "XXXXR....BXXX..BXXXXX",
+            "XXXXX......XX.....RXX",
+            "XH.XXXRXX..........XX",
+            "...XXXXXX....XXXX...B",
+            "R..XXXXXX..XXXXXXXXXX",
             "X.XXXXXX....XXXXXXXXX",
             "X..XXXXXX..XXXXXXXXXX",
-            "....XXX......XXX..XX.",
+            "R...XXXB.....XXX.BXX.",
             "XXX...X.......X..XX..",
             "XXXX.....XXX.........",
             "XXXXXX..XXX.........X",
-            "Xxx......XX.X......XX",
+            "Xxx......XXBX.....BXX",
             "XX.......XXXX.....XXX",
-            "XX...XX...XXX.XX.....",
-            "....XXXX...XXXXXXXXXX",
+            "XX...XX...XXX.XX....B",
+            "E...XXXX...XXXXXXXXXX",
         };
         mapLayouts[3] = new string[]
         {

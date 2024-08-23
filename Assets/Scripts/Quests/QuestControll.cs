@@ -69,7 +69,7 @@ public class QuestControll : MonoBehaviour
             Scene scene = SceneManager.GetActiveScene();
             string sceneName2 = scene.name;
             canvas = FindObjectOfType<Canvas>();
-            if(sceneName2 != "Menu" && sceneName2 != "City")
+            if(sceneName2 != "Menu" && sceneName2 != "City" && sceneName2 != "BattleField")
             {
                 Pause();
             }
@@ -151,6 +151,7 @@ public class QuestControll : MonoBehaviour
         {
             PlayerPrefs.SetInt("Achivment", c + 1);
         }
+        FindObjectOfType<AudioManager>().Stop("HeroesInWorld");
         FindObjectOfType<AudioManager>().Play("victory");
         Selected.condition = null;
         Selected.description = null;
@@ -186,6 +187,7 @@ public class QuestControll : MonoBehaviour
     public void LoadScene0()
     {
         SceneManager.LoadScene(0);
+        FindObjectOfType<AudioManager>().Stop("HeroesInWorld");
         FindObjectOfType<AudioManager>().Stop("victory");
         FindObjectOfType<AudioManager>().Stop("Loss");
         FindObjectOfType<AudioManager>().Play("mainTheme");

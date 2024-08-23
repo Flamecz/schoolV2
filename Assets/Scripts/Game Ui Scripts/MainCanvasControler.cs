@@ -15,6 +15,7 @@ public class MainCanvasControler : MonoBehaviour
     public GameObject MarketPlace;
     public GameObject inventory;
     public SaveDataObject SDO;
+    public StoreStamina set;
     private float loadingTime = 0.5f;
 
     private void Start()
@@ -111,6 +112,7 @@ public class MainCanvasControler : MonoBehaviour
     public void ExitCity()
     {
         FindObjectOfType<AudioManager>().Play("HeroesInWorld");
+        set.stamina = 100;
         SceneManager.LoadScene(2);
         FindObjectOfType<AudioManager>().Stop("Castel");
         FindObjectOfType<AudioManager>().Stop("Rampart");
